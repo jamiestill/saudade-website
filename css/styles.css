@@ -1,0 +1,23 @@
+/* Work Sans */
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,700;1,300;1,700&display=swap');
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font: 100 1.3rem/1.5 'Work Sans', Helvetica, Arial, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    line-height: 1.1;
+}
+
+.part-of-speech {
+    font-weight: bold;
+    font-style: italic;
+}
