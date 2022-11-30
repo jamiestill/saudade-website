@@ -1,36 +1,165 @@
-/* Work Sans */
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,700;1,300;1,700&display=swap');
-
-/* Everything to use border-box: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
-html {
-    box-sizing: border-box;
-    hyphens: auto;
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,700;1,300;1,700&display=swap");
+:root {
+  --bg-color: #ffffff;
+  --bg-secondary-color: #f3f3f6;
+  --color-primary: #14854f;
+  --color-lightGrey: #d2d6dd;
+  --color-grey: #747681;
+  --color-darkGrey: #3f4144;
+  --color-error: #d43939;
+  --color-success: #28bd14;
+  --page-maxWidth: 80rem;
+  --grid-gutter: 2rem;
+  --font-size: 1.6rem;
+  --font-color: #333333;
+  --font-family-sans: system-ui, /* macOS 10.11-10.12 */ -apple-system,
+  	"Helvetica Neue", Helvetica, /* Windows 6+ */ "Segoe UI",
+  	/* Android 4+ */ "Roboto", /* Ubuntu 10.10+ */ "Ubuntu",
+  	/* Gnome 3+ */ "Cantarell", /* KDE Plasma 5+ */ "Noto Sans",
+  	/* fallback */ sans-serif, /* macOS emoji */ "Apple Color Emoji",
+  	/* Windows emoji */ "Segoe UI Emoji", /* Windows emoji */ "Segoe UI Symbol",
+  	/* Linux emoji */ "Noto Color Emoji";
+  --font-family-mono: ui-monospace, /* macOS 10.10+ */ "Menlo",
+  	/* Windows 6+ */ "Consolas", /* Android 4+ */ "Roboto Mono",
+  	/* Ubuntu 10.10+ */ "Ubuntu Monospace", /* KDE Plasma 5+ */ "Noto Mono",
+  	/* KDE Plasma 4+ */ "Oxygen Mono",
+  	/* Linux/OpenOffice fallback */ "Liberation Mono", /* fallback */ monospace,
+  	/* macOS emoji */ "Apple Color Emoji", /* Windows emoji */ "Segoe UI Emoji",
+  	/* Windows emoji */ "Segoe UI Symbol", /* Linux emoji */ "Noto Color Emoji";
 }
+
+/**
+ * ======= BASICS ========
+ **/
+/* Everything to use border-box */
+html {
+  box-sizing: border-box;
+  -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
+  font-size: 62.5%;
+}
+
 *,
 *:before,
 *:after {
-    box-sizing: inherit;
-}
-
-html {
-    font-size: 62.5%;
+  box-sizing: inherit; /* including :pseudo content */
 }
 
 body {
-    font: 300 1.3rem/1.5 'Work Sans', -apple-system, system-ui,
-        BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
-        sans-serif;
+  color: var(--font-color);
+  font: 300 1.3rem/1.2 "Work Sans", var(--font-family-sans);
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
 }
 
+/**
+ * ======= NORMALIZE ========
+ **/
+img {
+  max-width: 100%;
+}
+
+fieldset {
+  border: 1px solid var(--color-lightGrey);
+}
+
+iframe {
+  border: 0;
+}
+
+dl dt {
+  font-weight: bold;
+}
+
+hr {
+  border: none;
+  background-color: var(--color-lightGrey);
+  height: 1px;
+  margin: 1rem 0;
+}
+
+abbr[title] {
+  border-bottom: none;
+  text-decoration: underline;
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
+}
+
+/**
+ * ======= FONTS ========
+ **/
+/* Work Sans */
+/**
+ * Following is based on sanitize.css: https://unpkg.com/sanitize.css 
+ *
+ * 1. Change the inconsistent appearance in all browsers (opinionated).
+ * 2. Add typography inheritance in all browsers (opinionated).
+ */
+:where(button, input, select, textarea) {
+  background-color: transparent; /* 1 */
+  border: 1px solid WindowFrame; /* 1 */
+  color: inherit; /* 1 */
+  font: inherit; /* 2 */
+  letter-spacing: inherit; /* 2 */
+  padding: 0.25em 0.375em; /* 1 */
+}
+
+/**
+   * Change the inconsistent appearance in all browsers (opinionated).
+   */
+:where(select) {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='4'%3E%3Cpath d='M4 0h6L7 4'/%3E%3C/svg%3E") no-repeat right center/1em;
+  border-radius: 0;
+  padding-right: 1em;
+}
+
+/**
+   * Don't show the arrow for multiple choice selects
+   */
+:where(select[multiple]) {
+  background-image: none;
+}
+
+/**
+   * Remove the border and padding in all browsers (opinionated).
+   */
+:where([type=color i], [type=range i]) {
+  border-width: 0;
+  padding: 0;
+}
+
+/**
+ * ======= LAYOUT ========
+ **/
+.container {
+  max-width: var(--page-maxWidth);
+  margin: 0 auto;
+  width: 96%;
+  padding: 0 calc(var(--grid-gutter) / 2);
+}
+
+/**
+ * ======= LAYOUT ========
+ **/
+/**
+ * ======= HEADINGS ========
+ **/
 h1,
 h2,
 h3,
 h4,
 h5 {
-    line-height: 1.1;
+  line-height: 1.1;
 }
 
+/**
+ * ======= Dictionary Definition ========
+ **/
 .part-of-speech {
-    font-weight: bold;
-    font-style: italic;
-}
+  font-weight: bold;
+  font-style: italic;
+}/*# sourceMappingURL=styles.css.map */

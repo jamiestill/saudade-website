@@ -1,0 +1,30 @@
+:root {
+	--bg-color: #ffffff;
+	--bg-secondary-color: #f3f3f6;
+	--color-primary: #14854f;
+	--color-lightGrey: #d2d6dd;
+	--color-grey: #747681;
+	--color-darkGrey: #3f4144;
+	--color-error: #d43939;
+	--color-success: #28bd14;
+	--page-maxWidth: 80rem;
+	--grid-gutter: 2rem;
+	--font-size: 1.6rem;
+	--font-color: #333333;
+
+	--font-family-sans: system-ui, /* macOS 10.11-10.12 */ -apple-system,
+		'Helvetica Neue', Helvetica, /* Windows 6+ */ 'Segoe UI',
+		/* Android 4+ */ 'Roboto', /* Ubuntu 10.10+ */ 'Ubuntu',
+		/* Gnome 3+ */ 'Cantarell', /* KDE Plasma 5+ */ 'Noto Sans',
+		/* fallback */ sans-serif, /* macOS emoji */ 'Apple Color Emoji',
+		/* Windows emoji */ 'Segoe UI Emoji', /* Windows emoji */ 'Segoe UI Symbol',
+		/* Linux emoji */ 'Noto Color Emoji';
+
+	--font-family-mono: ui-monospace, /* macOS 10.10+ */ 'Menlo',
+		/* Windows 6+ */ 'Consolas', /* Android 4+ */ 'Roboto Mono',
+		/* Ubuntu 10.10+ */ 'Ubuntu Monospace', /* KDE Plasma 5+ */ 'Noto Mono',
+		/* KDE Plasma 4+ */ 'Oxygen Mono',
+		/* Linux/OpenOffice fallback */ 'Liberation Mono', /* fallback */ monospace,
+		/* macOS emoji */ 'Apple Color Emoji', /* Windows emoji */ 'Segoe UI Emoji',
+		/* Windows emoji */ 'Segoe UI Symbol', /* Linux emoji */ 'Noto Color Emoji';
+}
