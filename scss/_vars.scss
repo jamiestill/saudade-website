@@ -1,17 +1,40 @@
+/**
+ * ======= Colors ========
+ **/
+$midnight-blue: hsla(239, 94%, 19%, 1);
+$star-command-blue: hsla(201, 100%, 36%, 1);
+$pacific-blue: hsla(190, 100%, 42%, 1);
+$middle-blue: hsla(189, 75%, 75%, 1);
+$light-cyan: hsla(190, 77%, 88%, 1);
+$gainsboro: hsla(90, 8%, 85%, 1);
+$silver: hsla(280, 3%, 77%, 1);
+$davys-grey: hsla(210, 4%, 29%, 1);
+$black-coral: hsla(206, 16%, 35%, 1);
+$blue-munsell: hsla(192, 73%, 36%, 1);
+$imperial-red: hsla(353, 86%, 54%, 1);
+$lime-green: hsla(113, 86, 46, 1);
+/* https://coolors.co */
+
 :root {
-	--bg-color: #ffffff;
-	--bg-secondary-color: #f3f3f6;
-	--color-primary: #14854f;
-	--color-lightGrey: #d2d6dd;
-	--color-grey: #747681;
-	--color-darkGrey: #3f4144;
-	--color-error: #d43939;
-	--color-success: #28bd14;
+	--bg-color: $light-cyan;
+	--bg-secondary-color: $middle-blue;
+
+	// Colors
+	--color-primary: $pacific-blue;
+	--color-secondary: $star-command-blue;
+	--color-lightGrey: $gainsboro;
+	--color-grey: $black-coral;
+	--color-darkGrey: $davys-grey;
+	--color-error: $imperial-red;
+	--color-success: #3cef25;
+
+	// Layout
 	--page-maxWidth: 80rem;
 	--grid-gutter: 2rem;
+
+	// Typography
 	--font-size: 1.6rem;
 	--font-color: #333333;
-
 	--font-family-sans: system-ui, /* macOS 10.11-10.12 */ -apple-system,
 		'Helvetica Neue', Helvetica, /* Windows 6+ */ 'Segoe UI',
 		/* Android 4+ */ 'Roboto', /* Ubuntu 10.10+ */ 'Ubuntu',
@@ -19,7 +42,6 @@
 		/* fallback */ sans-serif, /* macOS emoji */ 'Apple Color Emoji',
 		/* Windows emoji */ 'Segoe UI Emoji', /* Windows emoji */ 'Segoe UI Symbol',
 		/* Linux emoji */ 'Noto Color Emoji';
-
 	--font-family-mono: ui-monospace, /* macOS 10.10+ */ 'Menlo',
 		/* Windows 6+ */ 'Consolas', /* Android 4+ */ 'Roboto Mono',
 		/* Ubuntu 10.10+ */ 'Ubuntu Monospace', /* KDE Plasma 5+ */ 'Noto Mono',
