@@ -2,33 +2,57 @@
  * ======= NAVIGATION ========
  **/
 
+.skip-link {
+	// Skip navigation appears on focus
+	padding: calc(var(--grid-gutter) * 0.5) var(--grid-gutter);
+	position: absolute;
+	background: var(--color-tertiary);
+	color: var(--color-light-grey);
+	right: 1rem;
+	top: 0;
+	transform: translateY(-10rem);
+	transition: transform 0.3s;
+
+	&:visited {
+		color: var(--color-light-grey);
+	}
+
+	&:focus-within {
+		transform: translateY(1rem);
+	}
+}
+
 #masthead {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin-bottom: 2rem;
-    background-color: var(--bg-masthead);
-    color: var(--font-color-inverted);
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	margin-bottom: 2rem;
+	background-color: var(--bg-masthead);
+	color: var(--font-color-inverted);
 
-    h1 {
-        margin-right: auto; // push nav items to right
-    }
+	h1 {
+		margin-right: auto; // push nav items to right
+	}
 
-    nav {
-        display: flex;
-    }
+	nav {
+		display: flex;
+	}
 
-    ul {
-        list-style-type: none;
-        align-content: center;
-        margin: 0;
-        display: flex;
-        height: 100%;
-        padding: 0;
-    }
+	ul {
+		list-style-type: none;
+		align-content: center;
+		margin: 0;
+		display: flex;
+		height: 100%;
+		padding: 0;
+	}
 
-    li {
-        margin: 0 1rem;
-        align-self: center;
-    }
+	li {
+		margin: 1rem;
+		align-self: center;
+	}
+
+	a {
+		@include linkStyle($light-cyan, $silver, $light-cyan, $light-cyan, false);
+	}
 }

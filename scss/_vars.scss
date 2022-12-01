@@ -16,23 +16,35 @@ $imperial-red: #ef253c;
 $lime-green: #32cd32;
 /* https://coolors.co */
 
+// Special variables so we can use opacity on link color transitions
+$color-link: $star-command-blue;
+$color-link-hover: $pacific-blue;
+$color-link-active: $lime-green;
+$color-link-visited: lighten($color-link, 10%);
+
 :root {
+	// Backgrounds
 	--bg-color: #{$light-cyan};
 	--bg-secondary-color: #{$middle-blue};
 	--bg-masthead: #{$midnight-blue};
 
-	// Colors
+	// Text colors
 	--color-primary: #{$pacific-blue};
 	--color-secondary: #{$star-command-blue};
 	--color-tertiary: #{$blue-munsell};
 	--color-accent: #{$lime-green};
-	--color-light-grey: #{$gainsboro};
-	--color-grey: #{$black-coral};
-	--color-dark-grey: #{$davys-grey};
 	--color-text: #{$eerie-black};
 	--color-error: #{$imperial-red};
 	--color-success: #{$lime-green};
-	--color-link: #{$star-command-blue};
+	--color-link: #{$color-link};
+	--color-link-hover: #{$color-link-hover};
+	--color-link-active: #{$color-link-active};
+	--color-link-visited: #{$color-link-visited};
+
+	--color-middle-blue: #{$middle-blue};
+	--color-light-grey: #{$gainsboro};
+	--color-grey: #{$black-coral};
+	--color-dark-grey: #{$davys-grey};
 
 	// Layout
 	--page-maxWidth: 80rem;

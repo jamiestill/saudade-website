@@ -4,42 +4,43 @@
 /* https://coolors.co */
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,700;1,300;1,700&display=swap");
 :root {
-  --bg-color: hsl(190deg, 77%, 88%);
-  --bg-secondary-color: hsl(189deg, 75%, 75%);
-  --bg-masthead: hsl(239deg, 94%, 19%);
-  --color-primary: hsl(190deg, 100%, 42%);
-  --color-secondary: hsl(201deg, 100%, 36%);
-  --color-tertiary: hsl(192deg, 73%, 36%);
-  --color-accent: hsl(113deg, 86%, 46%);
-  --color-light-grey: hsl(90deg, 8%, 85%);
-  --color-grey: hsl(206deg, 16%, 35%);
-  --color-dark-grey: hsl(210deg, 4%, 29%);
-  --color-text: hsl(240deg, 3%, 12%);
-  --color-error: hsl(353deg, 86%, 54%);
-  --color-success: hsl(113deg, 86%, 46%);
-  --color-link: hsl(201deg, 100%, 36%);
+  --bg-color: #c9f0f8;
+  --bg-secondary-color: #8fe1ef;
+  --bg-masthead: #03045e;
+  --color-primary: #00b3d6;
+  --color-secondary: #0077b8;
+  --color-tertiary: #19849f;
+  --color-accent: #32cd32;
+  --color-text: #1e1e20;
+  --color-error: #ef253c;
+  --color-success: #32cd32;
+  --color-link: #0077b8;
+  --color-link-hover: #00b3d6;
+  --color-link-active: #32cd32;
+  --color-link-visited: #0098eb;
+  --color-middle-blue: #8fe1ef;
+  --color-light-grey: #d9dcd6;
+  --color-grey: #4b5b68;
+  --color-dark-grey: #474a4d;
   --page-maxWidth: 80rem;
   --grid-gutter: 2rem;
   --font-size: 1.6rem;
   --font-color: var(--color-text);
-  --font-color-inverted: hsl(190deg, 77%, 88%);
+  --font-color-inverted: #c9f0f8;
   --font-family-sans: system-ui, /* macOS 10.11-10.12 */ -apple-system,
-      "Helvetica Neue", Helvetica, /* Windows 6+ */ "Segoe UI",
-      /* Android 4+ */ "Roboto", /* Ubuntu 10.10+ */ "Ubuntu",
-      /* Gnome 3+ */ "Cantarell", /* KDE Plasma 5+ */ "Noto Sans",
-      /* fallback */ sans-serif, /* macOS emoji */ "Apple Color Emoji",
-      /* Windows emoji */ "Segoe UI Emoji",
-      /* Windows emoji */ "Segoe UI Symbol",
-      /* Linux emoji */ "Noto Color Emoji";
+  	"Helvetica Neue", Helvetica, /* Windows 6+ */ "Segoe UI",
+  	/* Android 4+ */ "Roboto", /* Ubuntu 10.10+ */ "Ubuntu",
+  	/* Gnome 3+ */ "Cantarell", /* KDE Plasma 5+ */ "Noto Sans",
+  	/* fallback */ sans-serif, /* macOS emoji */ "Apple Color Emoji",
+  	/* Windows emoji */ "Segoe UI Emoji", /* Windows emoji */ "Segoe UI Symbol",
+  	/* Linux emoji */ "Noto Color Emoji";
   --font-family-mono: ui-monospace, /* macOS 10.10+ */ "Menlo",
-      /* Windows 6+ */ "Consolas", /* Android 4+ */ "Roboto Mono",
-      /* Ubuntu 10.10+ */ "Ubuntu Monospace", /* KDE Plasma 5+ */ "Noto Mono",
-      /* KDE Plasma 4+ */ "Oxygen Mono",
-      /* Linux/OpenOffice fallback */ "Liberation Mono",
-      /* fallback */ monospace, /* macOS emoji */ "Apple Color Emoji",
-      /* Windows emoji */ "Segoe UI Emoji",
-      /* Windows emoji */ "Segoe UI Symbol",
-      /* Linux emoji */ "Noto Color Emoji";
+  	/* Windows 6+ */ "Consolas", /* Android 4+ */ "Roboto Mono",
+  	/* Ubuntu 10.10+ */ "Ubuntu Monospace", /* KDE Plasma 5+ */ "Noto Mono",
+  	/* KDE Plasma 4+ */ "Oxygen Mono",
+  	/* Linux/OpenOffice fallback */ "Liberation Mono", /* fallback */ monospace,
+  	/* macOS emoji */ "Apple Color Emoji", /* Windows emoji */ "Segoe UI Emoji",
+  	/* Windows emoji */ "Segoe UI Symbol", /* Linux emoji */ "Noto Color Emoji";
 }
 
 /**
@@ -120,41 +121,31 @@ h5 {
  * ======= LINKS ========
  **/
 a {
+  color: #0077b8;
   text-decoration: none;
-  color: var(--coolor-secondary);
-  -webkit-text-decoration: underline 0.15em rgba(255, 255, 255, 0);
-          text-decoration: underline 0.15em rgba(255, 255, 255, 0);
-  transition: -webkit-text-decoration-color 300ms;
-  transition: text-decoration-color 300ms;
-  transition: text-decoration-color 300ms, -webkit-text-decoration-color 300ms;
+  border-bottom: 1px solid rgba(0, 119, 184, 0);
+  transition: color 200ms, border-bottom 200ms;
 }
 a:hover {
-  -webkit-text-decoration-color: rgb(255, 255, 255);
-          text-decoration-color: rgb(255, 255, 255);
-  color: var(--color-primary);
+  color: #00b3d6;
+  border-bottom: 1px solid #00b3d6;
 }
 a:visited {
-  color: var(--color-tertiary);
+  color: #0098eb;
 }
 a:active {
-  color: var(--color-accent);
+  color: #32cd32;
 }
 
-.skip-link {
-  padding: calc(var(--grid-gutter) * 0.5) var(--grid-gutter);
-  position: absolute;
-  background: var(--color-tertiary);
-  color: var(--color-light-grey);
-  right: 1rem;
-  top: 0;
-  transform: translateY(-10rem);
-  transition: transform 0.3s;
+/**
+ * ======= FOOTER ========
+ **/
+footer li {
+  display: inline;
 }
-.skip-link:visited {
-  color: var(--color-light-grey);
-}
-.skip-link:focus-within {
-  transform: translateY(1rem);
+footer a,
+footer a:hover {
+  border-bottom: none;
 }
 
 /**
@@ -212,6 +203,23 @@ a:active {
 /**
  * ======= NAVIGATION ========
  **/
+.skip-link {
+  padding: calc(var(--grid-gutter) * 0.5) var(--grid-gutter);
+  position: absolute;
+  background: var(--color-tertiary);
+  color: var(--color-light-grey);
+  right: 1rem;
+  top: 0;
+  transform: translateY(-10rem);
+  transition: transform 0.3s;
+}
+.skip-link:visited {
+  color: var(--color-light-grey);
+}
+.skip-link:focus-within {
+  transform: translateY(1rem);
+}
+
 #masthead {
   display: flex;
   flex-wrap: wrap;
@@ -235,15 +243,30 @@ a:active {
   padding: 0;
 }
 #masthead li {
-  margin: 0 1rem;
+  margin: 1rem;
   align-self: center;
+}
+#masthead a {
+  color: #c9f0f8;
+  text-decoration: none;
+  border-bottom: none;
+}
+#masthead a:hover {
+  color: #c5c3c6;
+  border-bottom: none;
+}
+#masthead a:visited {
+  color: #c9f0f8;
+}
+#masthead a:active {
+  color: #c9f0f8;
 }
 
 /**
  * ======= Homepage Hero ========
  **/
 #homepage body {
-  background-color: var(--bg-secondary-color);
+  background-color: var(--bg-color);
 }
 
 /**
