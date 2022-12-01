@@ -17,8 +17,6 @@ html {
 body {
 	color: var(--font-color);
 	font: 300 1.3rem/1.2 'Work Sans', var(--font-family-sans);
-	-ms-text-size-adjust: 100%;
-	-webkit-text-size-adjust: 100%;
 }
 
 /**
@@ -60,3 +58,55 @@ abbr[title] {
 
 /* Work Sans */
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,700;1,300;1,700&display=swap');
+
+/**
+ * ======= HEADINGS ========
+ **/
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	line-height: 1.1;
+}
+
+/**
+ * ======= LINKS ========
+ **/
+
+a {
+	color: var(--coolor-secondary);
+
+	&:hover {
+		color: var(--color-primary);
+	}
+
+	&:visited {
+		color: var(--color-tertiary);
+	}
+
+	&:active {
+		color: var(--color-accent);
+	}
+}
+
+// Skip navigation appears on focus
+.skip-link {
+	padding: calc(var(--grid-gutter) * 0.5) var(--grid-gutter);
+	position: absolute;
+	background: var(--color-tertiary);
+	color: var(--color-light-grey);
+	right: 1rem;
+	top: 0;
+	transform: translateY(-10rem);
+	transition: transform 0.3s;
+
+	&:visited {
+		color: var(--color-light-grey);
+	}
+
+	&:focus-within {
+		transform: translateY(1rem);
+	}
+}

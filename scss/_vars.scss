@@ -10,23 +10,28 @@ $gainsboro: hsla(90, 8%, 85%, 1);
 $silver: hsla(280, 3%, 77%, 1);
 $davys-grey: hsla(210, 4%, 29%, 1);
 $black-coral: hsla(206, 16%, 35%, 1);
+$eerie-black: hsla(240, 3%, 12%, 1);
 $blue-munsell: hsla(192, 73%, 36%, 1);
 $imperial-red: hsla(353, 86%, 54%, 1);
 $lime-green: hsla(113, 86, 46, 1);
 /* https://coolors.co */
 
 :root {
-	--bg-color: $light-cyan;
-	--bg-secondary-color: $middle-blue;
+	--bg-color: #{$light-cyan};
+	--bg-secondary-color: #{$middle-blue};
 
 	// Colors
-	--color-primary: $pacific-blue;
-	--color-secondary: $star-command-blue;
-	--color-lightGrey: $gainsboro;
-	--color-grey: $black-coral;
-	--color-darkGrey: $davys-grey;
-	--color-error: $imperial-red;
-	--color-success: #3cef25;
+	--color-primary: #{$pacific-blue};
+	--color-secondary: #{$star-command-blue};
+	--color-tertiary: #{$blue-munsell};
+	--color-accent: #{$lime-green};
+	--color-light-grey: #{$gainsboro};
+	--color-grey: #{$black-coral};
+	--color-dark-grey: #{$davys-grey};
+	--color-text: #{$eerie-black};
+	--color-error: #{$imperial-red};
+	--color-success: #{$lime-green};
+	--color-link: #{$star-command-blue};
 
 	// Layout
 	--page-maxWidth: 80rem;
@@ -34,7 +39,7 @@ $lime-green: hsla(113, 86, 46, 1);
 
 	// Typography
 	--font-size: 1.6rem;
-	--font-color: #333333;
+	--font-color: var(--color-text);
 	--font-family-sans: system-ui, /* macOS 10.11-10.12 */ -apple-system,
 		'Helvetica Neue', Helvetica, /* Windows 6+ */ 'Segoe UI',
 		/* Android 4+ */ 'Roboto', /* Ubuntu 10.10+ */ 'Ubuntu',

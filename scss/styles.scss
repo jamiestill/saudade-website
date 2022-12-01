@@ -4,15 +4,14 @@
 @import 'layout';
 
 /**
- * ======= HEADINGS ========
+ * ======= Homepage Hero ========
  **/
-
-h1,
-h2,
-h3,
-h4,
-h5 {
-	line-height: 1.1;
+#homepage body {
+	background-color: var(--bg-secondary-color);
+	// background-image: url('/images/hero/saudade-plana-cay.jpg');
+	// background-position: center center;
+	// background-size: cover;
+	// background-repeat: no-repeat;
 }
 
 /**
