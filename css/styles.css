@@ -1,37 +1,50 @@
+/**
+ * ======= Colors ========
+ **/
+/* https://coolors.co */
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,700;1,300;1,700&display=swap");
 :root {
-  --bg-color: #ffffff;
-  --bg-secondary-color: #f3f3f6;
-  --color-primary: #14854f;
-  --color-lightGrey: #d2d6dd;
-  --color-grey: #747681;
-  --color-darkGrey: #3f4144;
-  --color-error: #d43939;
-  --color-success: #28bd14;
+  --bg-color: hsl(190deg, 77%, 88%);
+  --bg-secondary-color: hsl(189deg, 75%, 75%);
+  --bg-masthead: hsl(239deg, 94%, 19%);
+  --color-primary: hsl(190deg, 100%, 42%);
+  --color-secondary: hsl(201deg, 100%, 36%);
+  --color-tertiary: hsl(192deg, 73%, 36%);
+  --color-accent: hsl(113deg, 86%, 46%);
+  --color-light-grey: hsl(90deg, 8%, 85%);
+  --color-grey: hsl(206deg, 16%, 35%);
+  --color-dark-grey: hsl(210deg, 4%, 29%);
+  --color-text: hsl(240deg, 3%, 12%);
+  --color-error: hsl(353deg, 86%, 54%);
+  --color-success: hsl(113deg, 86%, 46%);
+  --color-link: hsl(201deg, 100%, 36%);
   --page-maxWidth: 80rem;
   --grid-gutter: 2rem;
   --font-size: 1.6rem;
-  --font-color: #333333;
+  --font-color: var(--color-text);
+  --font-color-inverted: hsl(190deg, 77%, 88%);
   --font-family-sans: system-ui, /* macOS 10.11-10.12 */ -apple-system,
-  	"Helvetica Neue", Helvetica, /* Windows 6+ */ "Segoe UI",
-  	/* Android 4+ */ "Roboto", /* Ubuntu 10.10+ */ "Ubuntu",
-  	/* Gnome 3+ */ "Cantarell", /* KDE Plasma 5+ */ "Noto Sans",
-  	/* fallback */ sans-serif, /* macOS emoji */ "Apple Color Emoji",
-  	/* Windows emoji */ "Segoe UI Emoji", /* Windows emoji */ "Segoe UI Symbol",
-  	/* Linux emoji */ "Noto Color Emoji";
+      "Helvetica Neue", Helvetica, /* Windows 6+ */ "Segoe UI",
+      /* Android 4+ */ "Roboto", /* Ubuntu 10.10+ */ "Ubuntu",
+      /* Gnome 3+ */ "Cantarell", /* KDE Plasma 5+ */ "Noto Sans",
+      /* fallback */ sans-serif, /* macOS emoji */ "Apple Color Emoji",
+      /* Windows emoji */ "Segoe UI Emoji",
+      /* Windows emoji */ "Segoe UI Symbol",
+      /* Linux emoji */ "Noto Color Emoji";
   --font-family-mono: ui-monospace, /* macOS 10.10+ */ "Menlo",
-  	/* Windows 6+ */ "Consolas", /* Android 4+ */ "Roboto Mono",
-  	/* Ubuntu 10.10+ */ "Ubuntu Monospace", /* KDE Plasma 5+ */ "Noto Mono",
-  	/* KDE Plasma 4+ */ "Oxygen Mono",
-  	/* Linux/OpenOffice fallback */ "Liberation Mono", /* fallback */ monospace,
-  	/* macOS emoji */ "Apple Color Emoji", /* Windows emoji */ "Segoe UI Emoji",
-  	/* Windows emoji */ "Segoe UI Symbol", /* Linux emoji */ "Noto Color Emoji";
+      /* Windows 6+ */ "Consolas", /* Android 4+ */ "Roboto Mono",
+      /* Ubuntu 10.10+ */ "Ubuntu Monospace", /* KDE Plasma 5+ */ "Noto Mono",
+      /* KDE Plasma 4+ */ "Oxygen Mono",
+      /* Linux/OpenOffice fallback */ "Liberation Mono",
+      /* fallback */ monospace, /* macOS emoji */ "Apple Color Emoji",
+      /* Windows emoji */ "Segoe UI Emoji",
+      /* Windows emoji */ "Segoe UI Symbol",
+      /* Linux emoji */ "Noto Color Emoji";
 }
 
 /**
  * ======= BASICS ========
  **/
-/* Everything to use border-box */
 html {
   box-sizing: border-box;
   -webkit-hyphens: auto;
@@ -43,19 +56,21 @@ html {
 *,
 *:before,
 *:after {
-  box-sizing: inherit; /* including :pseudo content */
+  box-sizing: inherit;
 }
 
 body {
   color: var(--font-color);
   font: 300 1.3rem/1.2 "Work Sans", var(--font-family-sans);
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
 }
 
 /**
  * ======= NORMALIZE ========
  **/
+body {
+  margin: 0;
+}
+
 img {
   max-width: 100%;
 }
@@ -90,6 +105,58 @@ abbr[title] {
  * ======= FONTS ========
  **/
 /* Work Sans */
+/**
+ * ======= HEADINGS ========
+ **/
+h1,
+h2,
+h3,
+h4,
+h5 {
+  line-height: 1.1;
+}
+
+/**
+ * ======= LINKS ========
+ **/
+a {
+  text-decoration: none;
+  color: var(--coolor-secondary);
+  -webkit-text-decoration: underline 0.15em rgba(255, 255, 255, 0);
+          text-decoration: underline 0.15em rgba(255, 255, 255, 0);
+  transition: -webkit-text-decoration-color 300ms;
+  transition: text-decoration-color 300ms;
+  transition: text-decoration-color 300ms, -webkit-text-decoration-color 300ms;
+}
+a:hover {
+  -webkit-text-decoration-color: rgb(255, 255, 255);
+          text-decoration-color: rgb(255, 255, 255);
+  color: var(--color-primary);
+}
+a:visited {
+  color: var(--color-tertiary);
+}
+a:active {
+  color: var(--color-accent);
+}
+
+.skip-link {
+  padding: calc(var(--grid-gutter) * 0.5) var(--grid-gutter);
+  position: absolute;
+  background: var(--color-tertiary);
+  color: var(--color-light-grey);
+  right: 1rem;
+  top: 0;
+  transform: translateY(-10rem);
+  transition: transform 0.3s;
+}
+.skip-link:visited {
+  color: var(--color-light-grey);
+}
+.skip-link:focus-within {
+  transform: translateY(1rem);
+}
+
 /**
  * Following is based on sanitize.css: https://unpkg.com/sanitize.css 
  *
@@ -143,17 +210,40 @@ abbr[title] {
 }
 
 /**
- * ======= LAYOUT ========
+ * ======= NAVIGATION ========
  **/
+#masthead {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-bottom: 2rem;
+  background-color: var(--bg-masthead);
+  color: var(--font-color-inverted);
+}
+#masthead h1 {
+  margin-right: auto;
+}
+#masthead nav {
+  display: flex;
+}
+#masthead ul {
+  list-style-type: none;
+  align-content: center;
+  margin: 0;
+  display: flex;
+  height: 100%;
+  padding: 0;
+}
+#masthead li {
+  margin: 0 1rem;
+  align-self: center;
+}
+
 /**
- * ======= HEADINGS ========
+ * ======= Homepage Hero ========
  **/
-h1,
-h2,
-h3,
-h4,
-h5 {
-  line-height: 1.1;
+#homepage body {
+  background-color: var(--bg-secondary-color);
 }
 
 /**

@@ -2,16 +2,17 @@
 @import 'base';
 @import 'forms';
 @import 'layout';
+@import 'navigation';
 
 /**
  * ======= Homepage Hero ========
  **/
 #homepage body {
-	background-color: var(--bg-secondary-color);
-	// background-image: url('/images/hero/saudade-plana-cay.jpg');
-	// background-position: center center;
-	// background-size: cover;
-	// background-repeat: no-repeat;
+    background-color: var(--bg-secondary-color);
+    // background-image: url('/images/hero/saudade-plana-cay.jpg');
+    // background-position: center center;
+    // background-size: cover;
+    // background-repeat: no-repeat;
 }
 
 /**
