@@ -4,13 +4,4 @@
 @import 'layout';
 @import 'navigation';
 
-/* Homepage Hero
-   ========================================================================== */
-
-#hero {
-	background: url('/images/hero/saudade-plana-cay.jpg') center center/cover;
-	padding: 12rem 0;
-	border-bottom: 2rem solid var(--color-light-grey);
-}
-
 @import 'definition';

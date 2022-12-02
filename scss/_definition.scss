@@ -1,11 +1,47 @@
 /* Dictionary definition
    ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,700;1,300&display=swap');
 
+#hero {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	height: 60vh;
+	margin-top: -20vh;
+	background: radial-gradient(
+			circle,
+			rgba(255, 255, 255, 0.35) 0%,
+			rgba(11, 4, 81, 0.5) 100%
+		),
+		url(/images/hero/saudade-plana-cay.jpg) center center/cover;
+}
 .hero-definition {
-	font-size: xx-large;
-	text-shadow: 0 0 6px #fff;
+	font-family: 'Cormorant Garamond', Cambria, Cochin, Georgia, Times,
+		'Times New Roman', serif;
+	font-size: 300%;
+	flex-shrink: 1;
+	margin-bottom: 8vh;
+	margin-left: 20%;
+
+	a {
+		color: var(--color-text);
+
+		&:hover {
+			border-bottom: 0;
+		}
+	}
 }
 .part-of-speech {
 	font-weight: bold;
 	font-style: italic;
+}
+.definition-body {
+	display: inline;
+	padding: 0;
+	b {
+		padding-left: 0.2em;
+	}
+	li {
+		display: inline;
+	}
 }
