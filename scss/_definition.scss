@@ -49,9 +49,12 @@
 
 	.ezh {
 		//The lowercase letter ezh, in pronounciation
+		font-size: 0.7em;
 
 		span {
 			font-family: 'Times New Roman', Times, serif; // special character outside scope of custom webfonts
+			font-size: 1.3em;
+			vertical-align: -12%; // tweak character placement
 		}
 	}
 

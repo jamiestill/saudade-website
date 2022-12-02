@@ -299,8 +299,13 @@ footer a:hover {
 .hero-definition ul li {
   display: inline;
 }
+.hero-definition .ezh {
+  font-size: 0.7em;
+}
 .hero-definition .ezh span {
   font-family: "Times New Roman", Times, serif;
+  font-size: 1.3em;
+  vertical-align: -12%;
 }
 .hero-definition .origin {
   font-size: 0.7em;
