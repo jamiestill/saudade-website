@@ -69,4 +69,38 @@ $color-link-visited: lighten($color-link, 10%);
 		/* Linux/OpenOffice fallback */ 'Liberation Mono', /* fallback */ monospace,
 		/* macOS emoji */ 'Apple Color Emoji', /* Windows emoji */ 'Segoe UI Emoji',
 		/* Windows emoji */ 'Segoe UI Symbol', /* Linux emoji */ 'Noto Color Emoji';
+	--font-family-serif: 'Cormorant Garamond', Cambria, Cochin, Georgia, Times,
+		'Times New Roman', serif; /* Mostly for dictionary definition */
+}
+
+/* ==========================================================================
+   SCREEN SIZES
+   ========================================================================== */
+
+@mixin for-size($size) {
+	@if $size == phone-only {
+		@media (max-width: 599px) {
+			@content;
+		}
+	} @else if $size == tablet-portrait-up {
+		@media (min-width: 600px) {
+			@content;
+		}
+	} @else if $size == tablet-landscape-up {
+		@media (min-width: 900px) {
+			@content;
+		}
+	} @else if $size == desktop-up {
+		@media (min-width: 1200px) {
+			@content;
+		}
+	} @else if $size == big-desktop-up {
+		@media (min-width: 1800px) {
+			@content;
+		}
+	} @else {
+		@media (min-width: $size) {
+			@content;
+		}
+	}
 }

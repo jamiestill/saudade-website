@@ -42,8 +42,13 @@
   	/* Linux/OpenOffice fallback */ "Liberation Mono", /* fallback */ monospace,
   	/* macOS emoji */ "Apple Color Emoji", /* Windows emoji */ "Segoe UI Emoji",
   	/* Windows emoji */ "Segoe UI Symbol", /* Linux emoji */ "Noto Color Emoji";
+  --font-family-serif: "Cormorant Garamond", Cambria, Cochin, Georgia, Times,
+  	"Times New Roman", serif; /* Mostly for dictionary definition */
 }
 
+/* ==========================================================================
+   SCREEN SIZES
+   ========================================================================== */
 /* ==========================================================================
    NORMALIZE
    ========================================================================== */
@@ -221,6 +226,7 @@ footer a:hover {
 /* Masthead
    ========================================================================== */
 #masthead {
+  padding-top: 3rem;
   background-color: var(--bg-masthead);
   color: var(--font-color-inverted);
 }
@@ -234,13 +240,26 @@ footer a:hover {
 }
 #masthead h1 {
   flex: 1;
-  padding: 0 3rem 0 0;
+  background: url(/images/logo-manta-ray.svg) center no-repeat;
+}
+@media (min-width: 550px) {
+  #masthead h1 {
+    padding-right: 10rem;
+  }
+}
+#masthead h1 a,
+#masthead h1 a:visited,
+#masthead h1 a:hover,
+#masthead h1 a:active {
+  display: block;
+  height: 8rem;
+  color: rgba(0, 0, 0, 0);
 }
 #masthead ul {
   display: flex;
-  flex-wrap: wrap;
-  align-items: stretch;
+  align-content: center;
   padding: 0;
+  text-align: center;
   list-style-type: none;
 }
 #masthead li {
@@ -275,11 +294,12 @@ footer a:hover {
 }
 
 .hero-definition {
-  font-family: "Cormorant Garamond", Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  font-size: 300%;
   flex-shrink: 1;
+  font-family: var(--font-family-serif);
+  font-size: 2rem;
   margin-bottom: 8vh;
   padding-left: 3em;
+  font-size: 300%;
 }
 .hero-definition a {
   color: var(--color-text);

@@ -26,6 +26,7 @@
    ========================================================================== */
 
 #masthead {
+	padding-top: 3rem;
 	background-color: var(--bg-masthead);
 	color: var(--font-color-inverted);
 
@@ -41,14 +42,27 @@
 
 	h1 {
 		flex: 1;
-		padding: 0 3rem 0 0;
+		background: url(/images/logo-manta-ray.svg) center no-repeat;
+
+		@media (min-width: 550px) {
+			padding-right: 10rem; //prevent nav from getting to close to logo
+		}
+
+		a,
+		a:visited,
+		a:hover,
+		a:active {
+			display: block; // Fill up the h1
+			height: 8rem;
+			color: rgba(0, 0, 0, 0);
+		}
 	}
 
 	ul {
 		display: flex;
-		flex-wrap: wrap;
-		align-items: stretch;
+		align-content: center;
 		padding: 0;
+		text-align: center;
 		list-style-type: none;
 	}
 

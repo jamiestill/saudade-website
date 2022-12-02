@@ -16,12 +16,9 @@
 		url(/images/hero/saudade-plana-cay.jpg) center center/cover;
 }
 .hero-definition {
-	font-family: 'Cormorant Garamond', Cambria, Cochin, Georgia, Times,
-		'Times New Roman', serif;
-	font-size: 300%;
 	flex-shrink: 1;
-	margin-bottom: 8vh;
-	padding-left: 3em;
+	font-family: var(--font-family-serif);
+	font-size: 2rem;
 
 	a {
 		color: var(--color-text);
@@ -92,7 +89,9 @@
 			text-transform: uppercase;
 			font-size: 0.8em;
 		}
-		a {
-		}
 	}
+
+	margin-bottom: 8vh;
+	padding-left: 3em;
+	font-size: 300%;
 }
