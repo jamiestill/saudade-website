@@ -1,9 +1,10 @@
-/**
- * ======= LAYOUT ========
- **/
+/* ==========================================================================
+   LAYOUT
+   ========================================================================== */
+
 .container {
-	max-width: var(--page-maxWidth);
 	margin: 0 auto;
 	width: 96%;
+	max-width: var(--page-maxWidth);
 	padding: 0 calc(var(--grid-gutter) / 2);
 }

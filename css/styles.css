@@ -1,6 +1,6 @@
-/**
- * ======= Colors ========
- **/
+/* ==========================================================================
+   VARIABLES
+   ========================================================================== */
 /* https://coolors.co */
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,700;1,300;1,700&display=swap");
 :root {
@@ -43,9 +43,9 @@
   	/* Windows emoji */ "Segoe UI Symbol", /* Linux emoji */ "Noto Color Emoji";
 }
 
-/**
- * ======= BASICS ========
- **/
+/* ==========================================================================
+   NORMALIZE
+   ========================================================================== */
 html {
   box-sizing: border-box;
   -webkit-hyphens: auto;
@@ -61,15 +61,9 @@ html {
 }
 
 body {
-  color: var(--font-color);
-  font: 300 1.3rem/1.2 "Work Sans", var(--font-family-sans);
-}
-
-/**
- * ======= NORMALIZE ========
- **/
-body {
   margin: 0;
+  font: 300 1.3rem/1.2 "Work Sans", var(--font-family-sans);
+  color: var(--font-color);
 }
 
 img {
@@ -89,10 +83,10 @@ dl dt {
 }
 
 hr {
+  margin: 1rem 0;
+  height: 1px;
   border: none;
   background-color: var(--color-lightGrey);
-  height: 1px;
-  margin: 1rem 0;
 }
 
 abbr[title] {
@@ -102,13 +96,13 @@ abbr[title] {
           text-decoration: underline dotted;
 }
 
-/**
- * ======= FONTS ========
- **/
+/* ==========================================================================
+   FONTS
+   ========================================================================== */
 /* Work Sans */
-/**
- * ======= HEADINGS ========
- **/
+/* ==========================================================================
+   HEADINGS
+   ========================================================================== */
 h1,
 h2,
 h3,
@@ -117,9 +111,9 @@ h5 {
   line-height: 1.1;
 }
 
-/**
- * ======= LINKS ========
- **/
+/* ==========================================================================
+   LINKS
+   ========================================================================== */
 a {
   color: #0077b8;
   text-decoration: none;
@@ -137,9 +131,8 @@ a:active {
   color: #32cd32;
 }
 
-/**
- * ======= FOOTER ========
- **/
+/* Footer
+   ========================================================================== */
 footer li {
   display: inline;
 }
@@ -148,6 +141,9 @@ footer a:hover {
   border-bottom: none;
 }
 
+/* ==========================================================================
+   FORMS
+   ========================================================================== */
 /**
  * Following is based on sanitize.css: https://unpkg.com/sanitize.css 
  *
@@ -190,28 +186,28 @@ footer a:hover {
   padding: 0;
 }
 
-/**
- * ======= LAYOUT ========
- **/
+/* ==========================================================================
+   LAYOUT
+   ========================================================================== */
 .container {
-  max-width: var(--page-maxWidth);
   margin: 0 auto;
   width: 96%;
+  max-width: var(--page-maxWidth);
   padding: 0 calc(var(--grid-gutter) / 2);
 }
 
-/**
- * ======= NAVIGATION ========
- **/
+/* ==========================================================================
+   NAVIGATION
+   ========================================================================== */
 .skip-link {
-  padding: calc(var(--grid-gutter) * 0.5) var(--grid-gutter);
   position: absolute;
-  background: var(--color-tertiary);
-  color: var(--color-light-grey);
-  right: 1rem;
   top: 0;
+  right: 1rem;
   transform: translateY(-10rem);
   transition: transform 0.3s;
+  padding: calc(var(--grid-gutter) * 0.5) var(--grid-gutter);
+  background: var(--color-tertiary);
+  color: var(--color-light-grey);
 }
 .skip-link:visited {
   color: var(--color-light-grey);
@@ -220,6 +216,8 @@ footer a:hover {
   transform: translateY(1rem);
 }
 
+/* Masthead
+   ========================================================================== */
 #masthead {
   display: flex;
   flex-wrap: wrap;
@@ -229,22 +227,22 @@ footer a:hover {
   color: var(--font-color-inverted);
 }
 #masthead h1 {
-  margin-right: auto;
+  flex-grow: 1;
 }
 #masthead nav {
   display: flex;
 }
 #masthead ul {
-  list-style-type: none;
-  align-content: center;
-  margin: 0;
-  display: flex;
-  height: 100%;
+  display: inline-flex;
+  flex-wrap: wrap;
   padding: 0;
+  list-style-type: none;
 }
 #masthead li {
-  margin: 1rem;
   align-self: center;
+  margin: 0 1rem;
+  height: 100%;
+  border: 1px solid red;
 }
 #masthead a {
   color: #c9f0f8;
@@ -262,16 +260,14 @@ footer a:hover {
   color: #c9f0f8;
 }
 
-/**
- * ======= Homepage Hero ========
- **/
+/* Homepage Hero
+   ========================================================================== */
 #homepage body {
   background-color: var(--bg-color);
 }
 
-/**
- * ======= Dictionary Definition ========
- **/
+/* Dictionary definition
+   ========================================================================== */
 .part-of-speech {
   font-weight: bold;
   font-style: italic;
