@@ -105,7 +105,6 @@ abbr[title] {
 /* ==========================================================================
    FONTS
    ========================================================================== */
-/* Work Sans */
 /* ==========================================================================
    HEADINGS
    ========================================================================== */
@@ -227,44 +226,55 @@ footer a:hover {
    ========================================================================== */
 #masthead {
   padding-top: 3rem;
-  background-color: var(--bg-masthead);
   color: var(--font-color-inverted);
 }
 #masthead > div {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  text-align: center;
 }
-#masthead nav {
-  display: flex;
+#masthead .navigation-menu {
+  list-style: none;
+  padding: 0;
 }
-#masthead h1 {
-  flex: 1;
+#masthead .navigation-menu li {
+  margin: 0 1rem;
+}
+#masthead .logo {
   background: url(/images/logo-manta-ray.svg) center no-repeat;
 }
-@media (min-width: 550px) {
-  #masthead h1 {
-    padding-right: 10rem;
-  }
-}
-#masthead h1 a,
-#masthead h1 a:visited,
-#masthead h1 a:hover,
-#masthead h1 a:active {
+#masthead .logo a,
+#masthead .logo a:visited,
+#masthead .logo a:hover,
+#masthead .logo a:active {
   display: block;
   height: 8rem;
   color: rgba(0, 0, 0, 0);
 }
-#masthead ul {
-  display: flex;
-  align-content: center;
-  padding: 0;
-  text-align: center;
-  list-style-type: none;
+@media screen and (min-width: 475px) and (max-width: 599px) {
+  #masthead li {
+    display: inline;
+  }
 }
-#masthead li {
-  flex-grow: 1;
-  margin: 0 1rem;
+@media screen and (min-width: 600px) {
+  #masthead > div {
+    display: flex;
+    text-align: left;
+  }
+  #masthead .logo {
+    flex-grow: 1;
+    margin-right: 20px;
+  }
+  #masthead nav {
+    display: flex;
+    align-content: space-between;
+  }
+  #masthead .navigation-menu {
+    display: flex;
+    align-self: stretch;
+    justify-content: space-between;
+  }
+  #masthead .navigation-menu li {
+    margin: 1rem 0 1rem 2rem;
+  }
 }
 #masthead a {
   color: #c9f0f8;
@@ -282,24 +292,30 @@ footer a:hover {
   color: #c9f0f8;
 }
 
-/* Dictionary definition
+/* ==========================================================================
+   HERO SECTION
    ========================================================================== */
 #hero {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  height: 60vh;
-  margin-top: -20vh;
+  margin-top: -20rem;
+  padding-top: 30rem;
   background: radial-gradient(circle, rgba(255, 255, 255, 0.35) 0%, rgba(11, 4, 81, 0.5) 100%), url(/images/hero/saudade-plana-cay.jpg) center center/cover;
 }
-
+/* Dictionary definition
+   ========================================================================== */
 .hero-definition {
   flex-shrink: 1;
+  padding-bottom: 8rem;
   font-family: var(--font-family-serif);
-  font-size: 2rem;
-  margin-bottom: 8vh;
-  padding-left: 3em;
-  font-size: 300%;
+  font-size: 2.5rem;
+}
+@media (min-width: 500px) {
+  .hero-definition {
+    padding: 10rem;
+    font-size: 3rem;
+  }
 }
 .hero-definition a {
   color: var(--color-text);
@@ -318,6 +334,11 @@ footer a:hover {
 }
 .hero-definition ul li {
   display: inline;
+}
+@media (max-width: 500px) {
+  .hero-definition dd {
+    margin: 0;
+  }
 }
 .hero-definition .ezh {
   font-size: 0.7em;

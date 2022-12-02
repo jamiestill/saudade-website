@@ -27,26 +27,25 @@
 
 #masthead {
 	padding-top: 3rem;
-	background-color: var(--bg-masthead);
 	color: var(--font-color-inverted);
 
 	& > div {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-around;
+		// masthead contents container
+		text-align: center;
 	}
 
-	nav {
-		display: flex;
-	}
+	.navigation-menu {
+		list-style: none;
+		padding: 0;
 
-	h1 {
-		flex: 1;
-		background: url(/images/logo-manta-ray.svg) center no-repeat;
-
-		@media (min-width: 550px) {
-			padding-right: 10rem; //prevent nav from getting to close to logo
+		li {
+			margin: 0 1rem;
 		}
+	}
+
+	.logo {
+		//Logo
+		background: url(/images/logo-manta-ray.svg) center no-repeat;
 
 		a,
 		a:visited,
@@ -58,19 +57,40 @@
 		}
 	}
 
-	ul {
-		display: flex;
-		align-content: center;
-		padding: 0;
-		text-align: center;
-		list-style-type: none;
+	@media screen and (min-width: 475px) and (max-width: 599px) {
+		li {
+			display: inline;
+		}
 	}
 
-	li {
-		flex-grow: 1;
-		margin: 0 1rem;
+	@media screen and (min-width: 600px) {
+		& > div {
+			// masthead contents container
+			display: flex;
+			text-align: left;
+		}
+
+		.logo {
+			flex-grow: 1;
+			margin-right: 20px;
+		}
+
+		nav {
+			display: flex;
+		}
+
+		.navigation-menu {
+			display: flex;
+			align-self: stretch;
+			justify-content: space-between;
+
+			li {
+				margin: 1rem 0 1rem 2rem;
+			}
+		}
 	}
 
+	// Remove link treatments in navigation
 	a {
 		@include linkStyle($light-cyan, $silver, $light-cyan, $light-cyan, false);
 	}
