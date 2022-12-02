@@ -3,49 +3,49 @@
    ========================================================================== */
 
 html {
-	box-sizing: border-box; // everything to use border-box
-	hyphens: auto;
-	font-size: 62.5%; // for easy rem calculations
+    box-sizing: border-box; // everything to use border-box
+    hyphens: auto;
+    font-size: 62.5%; // for easy rem calculations
 }
 *,
 *:before,
 *:after {
-	box-sizing: inherit; // including :pseudo content
+    box-sizing: inherit; // including :pseudo content
 }
 
 body {
-	margin: 0;
-	font: 300 1.3rem/1.2 'Work Sans', var(--font-family-sans);
-	color: var(--font-color);
+    margin: 0;
+    font: 300 1.3rem/1.2 'Work Sans', var(--font-family-sans);
+    color: var(--font-color);
 }
 
 img {
-	max-width: 100%;
+    max-width: 100%;
 }
 
 fieldset {
-	border: 1px solid var(--color-lightGrey);
+    border: 1px solid var(--color-lightGrey);
 }
 
 iframe {
-	border: 0;
+    border: 0;
 }
 
 dl dt {
-	font-weight: bold;
+    font-weight: bold;
 }
 
 hr {
-	margin: 1rem 0;
-	height: 1px;
-	border: none;
-	background-color: var(--color-lightGrey);
+    margin: 1rem 0;
+    height: 1px;
+    border: none;
+    background-color: var(--color-lightGrey);
 }
 
 abbr[title] {
-	border-bottom: none;
-	text-decoration: underline;
-	text-decoration: underline dotted;
+    border-bottom: none;
+    text-decoration: underline;
+    text-decoration: underline dotted;
 }
 
 /* ==========================================================================
@@ -64,7 +64,7 @@ h2,
 h3,
 h4,
 h5 {
-	line-height: 1.1;
+    line-height: 1.1;
 }
 
 /* ==========================================================================
@@ -72,52 +72,53 @@ h5 {
    ========================================================================== */
 
 @mixin linkStyle(
-	$color: $color-link,
-	$hoverColor: $color-link-hover,
-	$visitedColor: $color-link-visited,
-	$activeColor: $color-link-active,
-	$underline: true
+    $color: $color-link,
+    $hoverColor: $color-link-hover,
+    $visitedColor: $color-link-visited,
+    $activeColor: $color-link-active,
+    $underline: true
 ) {
-	color: $color;
-	text-decoration: none;
-	@if $underline {
-		border-bottom: 1px solid rgba($color-link, 0);
-		transition: color 200ms, border-bottom 200ms;
-	} @else {
-		border-bottom: none;
-	}
+    color: $color;
+    text-decoration: none;
+    @if $underline {
+        border-bottom: 1px solid rgba($color-link, 0);
+        transition: color 200ms, border-bottom 200ms;
+    } @else {
+        border-bottom: none;
+    }
 
-	&:hover {
-		color: $hoverColor;
-		@if $underline {
-			border-bottom: 1px solid rgba($hoverColor, 1);
-		} @else {
-			border-bottom: none;
-		}
-	}
+    &:hover {
+        color: $hoverColor;
+        @if $underline {
+            border-bottom: 1px solid rgba($hoverColor, 1);
+        } @else {
+            border-bottom: none;
+        }
+    }
 
-	&:visited {
-		color: $visitedColor;
-	}
+    &:visited {
+        color: $visitedColor;
+    }
 
-	&:active {
-		color: $activeColor;
-	}
+    &:active {
+        color: $activeColor;
+    }
 }
 
 a {
-	@include linkStyle();
+    @include linkStyle();
 }
 
-/* Footer
+/* ==========================================================================
+   FOOTER
    ========================================================================== */
 
 footer {
-	li {
-		display: inline;
-	}
-	a,
-	a:hover {
-		border-bottom: none;
-	}
+    li {
+        display: inline;
+    }
+    a,
+    a:hover {
+        border-bottom: none;
+    }
 }
