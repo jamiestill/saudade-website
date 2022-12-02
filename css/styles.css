@@ -132,7 +132,8 @@ a:active {
   color: #32cd32;
 }
 
-/* Footer
+/* ==========================================================================
+   FOOTER
    ========================================================================== */
 footer li {
   display: inline;
@@ -278,7 +279,7 @@ footer a:hover {
   font-size: 300%;
   flex-shrink: 1;
   margin-bottom: 8vh;
-  margin-left: 20%;
+  padding-left: 3em;
 }
 .hero-definition a {
   color: var(--color-text);
@@ -286,19 +287,44 @@ footer a:hover {
 .hero-definition a:hover {
   border-bottom: 0;
 }
-
-.part-of-speech {
-  font-weight: bold;
-  font-style: italic;
-}
-
-.definition-body {
+.hero-definition ul {
   display: inline;
   padding: 0;
 }
-.definition-body b {
+.hero-definition ul b {
   padding-left: 0.2em;
+  font-size: 0.7em;
+  font-family: var(--font-family-sans);
 }
-.definition-body li {
+.hero-definition ul li {
   display: inline;
+}
+.hero-definition .ezh span {
+  font-family: "Times New Roman", Times, serif;
+}
+.hero-definition .origin {
+  font-size: 0.7em;
+}
+.hero-definition .origin::before, .hero-definition .origin::after {
+  content: "[";
+  font-family: var(--font-family-sans);
+}
+.hero-definition .origin::after {
+  content: "]";
+}
+.hero-definition .part-of-speech {
+  font-weight: bold;
+  font-style: italic;
+  text-decoration: none;
+}
+.hero-definition .part-of-speech[title] {
+  text-decoration: none;
+}
+.hero-definition .see-also {
+  font-size: 0.7em;
+  line-height: 0.5em;
+}
+.hero-definition .see-also span {
+  text-transform: uppercase;
+  font-size: 0.8em;
 }/*# sourceMappingURL=styles.css.map */
