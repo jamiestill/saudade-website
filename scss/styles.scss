@@ -7,12 +7,10 @@
 /* Homepage Hero
    ========================================================================== */
 
-#homepage body {
-	background-color: var(--bg-color);
-	// background-image: url('/images/hero/saudade-plana-cay.jpg');
-	// background-position: center center;
-	// background-size: cover;
-	// background-repeat: no-repeat;
+#hero {
+	background: url('/images/hero/saudade-plana-cay.jpg') center center/cover;
+	padding: 12rem 0;
+	border-bottom: 2rem solid var(--color-light-grey);
 }
 
 @import 'definition';
