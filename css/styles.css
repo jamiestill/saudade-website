@@ -240,6 +240,7 @@ footer a:hover {
 }
 #masthead .navigation-menu li {
   margin: 0 1rem;
+  text-shadow: 1px 1px 2px var(--color-text);
 }
 #masthead .logo {
   display: inline-block;
@@ -267,7 +268,7 @@ footer a:hover {
 #masthead .logo a:visited,
 #masthead .logo a:hover,
 #masthead .logo a:active {
-    height: 9rem;
+    height: 7rem;
   }
 }
 @media screen and (max-width: 575px) {

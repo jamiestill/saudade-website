@@ -44,6 +44,7 @@
 
 		li {
 			margin: 0 1rem;
+			text-shadow: 1px 1px 2px var(--color-text);
 		}
 	}
 
@@ -65,7 +66,7 @@
 			}
 
 			@media screen and (min-width: 700px) {
-				height: 9rem; // max size of the logo
+				height: 7rem; // max size of the logo
 			}
 		}
 	}

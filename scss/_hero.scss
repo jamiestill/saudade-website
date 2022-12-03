@@ -36,6 +36,7 @@
 	padding: 0 20% 15vw 20%;
 	font-family: var(--font-family-serif);
 	font-size: 5vw; // Dynamic font size
+	//text-shadow: 0 0 5px var(--bg-secondary-color);
 
 	@media screen and (max-width: 575px) {
 		padding: 0 10vw 20vw 10vw;
