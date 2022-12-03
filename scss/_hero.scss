@@ -3,57 +3,50 @@
    ========================================================================== */
 
 #hero {
-	margin-top: -30vh; // pulls hero under masthead
-	padding-top: 50vh; // space for masthead
-	background: radial-gradient(
-			circle,
-			rgba(255, 255, 255, 0.35) 0%,
-			rgba(11, 4, 81, 0.5) 100%
-		),
-		url(/images/hero/saudade-plana-cay.jpg) center center/cover;
+	display: flex;
 
-	// Small screens
-	@media screen and (max-width: 575px) {
-		margin-top: -35vh; // pulls hero under masthead
-		background-position: bottom left;
-		background-size: 160vw;
-		background-repeat: no-repeat;
+	.logo {
+		height: 3rem;
 	}
 
-	@media screen and (min-width: 450px) and (max-width: 575px) {
-		// background-size: 130vw;
+	.hero-dictionary-definition {
+		align-self: center;
+		padding: 5rem;
 	}
 
-	@media screen and (min-width: 300px) and (max-width: 450px) {
-		background-size: cover;
+	.hero-image-container {
+		img {
+			width: 100%;
+			object-fit: cover;
+		}
+	}
+
+	@media screen and (min-width: 700px) {
+		.hero-dictionary-definition {
+			width: 40%;
+		}
+
+		.hero-image-container {
+			flex: 1;
+
+			img {
+				height: 100%;
+			}
+		}
+	}
+	@media screen and (max-width: 700px) {
+		flex-direction: column;
 	}
 }
 
 /* Dictionary definition
    ========================================================================== */
 .hero-dictionary-definition {
-	// flex-shrink: 1;
-	padding: 0 20% 15vw 20%;
 	font-family: var(--font-family-serif);
-	font-size: 5vw; // Dynamic font size
-	//text-shadow: 0 0 5px var(--bg-secondary-color);
-
-	@media screen and (max-width: 575px) {
-		padding: 0 10vw 20vw 10vw;
-		font-size: 5vw; // Dynamic font size to a point
-	}
-
-	@media screen and (max-width: 300px) {
-		font-size: 1.5rem; // Dynamic font size to a point
-	}
-
-	@media screen and (min-width: 300px) {
-		font-size: 2.5rem;
-		padding: 0 10% 4rem 10%;
-	}
 
 	a {
 		color: var(--color-text);
+		text-decoration: none;
 
 		&:hover {
 			border-bottom: 0;

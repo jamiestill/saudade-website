@@ -1,4 +1,4 @@
-/* ==========================================================================
+/** Property general order ====== order CSS properties in these group / in this order **/ /* ==========================================================================
    VARIABLES
    ========================================================================== */
 /* https://coolors.co */
@@ -68,8 +68,6 @@ html {
 
 body {
   margin: 0;
-  font: 300 1.3rem/1.2 "Work Sans", var(--font-family-sans);
-  color: var(--font-color);
 }
 
 img {
@@ -195,11 +193,36 @@ footer a:hover {
 /* ==========================================================================
    LAYOUT
    ========================================================================== */
-.page-width-container {
-  margin: 0 auto;
-  width: 96%;
-  max-width: var(--page-max-width);
-  padding: 0 var(--grid-gutter);
+#hero {
+  display: flex;
+}
+#hero .logo {
+  height: 3rem;
+}
+#hero .hero-dictionary-definition {
+  align-self: center;
+  padding: 5rem;
+}
+#hero .hero-image-container img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media screen and (min-width: 700px) {
+  #hero .hero-dictionary-definition {
+    width: 40%;
+  }
+  #hero .hero-image-container {
+    flex: 1;
+  }
+  #hero .hero-image-container img {
+    height: 100%;
+  }
+}
+@media screen and (max-width: 700px) {
+  #hero {
+    flex-direction: column;
+  }
 }
 
 /* ==========================================================================
@@ -222,150 +245,49 @@ footer a:hover {
   transform: translateY(1rem);
 }
 
-/* Masthead
-   ========================================================================== */
-#masthead {
-  padding-top: 3rem;
-  color: var(--font-color-inverted);
-}
-#masthead > div {
-  text-align: center;
-}
-#masthead nav {
-  padding-top: 1rem;
-}
-#masthead .navigation-menu {
-  list-style: none;
-  padding: 0;
-}
-#masthead .navigation-menu li {
-  margin: 0 1rem;
-  text-shadow: 1px 1px 2px var(--color-text);
-}
-#masthead .logo {
-  display: inline-block;
-  margin: 0;
-  background: url(/images/logo-manta-ray.svg) center no-repeat;
-}
-#masthead .logo a,
-#masthead .logo a:visited,
-#masthead .logo a:hover,
-#masthead .logo a:active {
-  display: block;
-  color: rgba(0, 0, 0, 0);
-  height: 12vw;
-}
-@media screen and (max-width: 430px) {
-  #masthead .logo a,
-#masthead .logo a:visited,
-#masthead .logo a:hover,
-#masthead .logo a:active {
-    height: 5rem;
-  }
-}
-@media screen and (min-width: 700px) {
-  #masthead .logo a,
-#masthead .logo a:visited,
-#masthead .logo a:hover,
-#masthead .logo a:active {
-    height: 7rem;
-  }
-}
-@media screen and (max-width: 575px) {
-  #masthead .logo {
-    float: left;
-  }
-  #masthead ul {
-    display: none;
-  }
-}
-@media screen and (min-width: 575px) {
-  #masthead > div {
-    display: flex;
-    align-items: flex-end;
-    text-align: left;
-  }
-  #masthead .logo {
-    flex-grow: 1;
-    margin-right: 20px;
-  }
-  #masthead nav {
-    display: flex;
-  }
-  #masthead .navigation-menu {
-    display: flex;
-    align-self: stretch;
-    justify-content: space-between;
-  }
-  #masthead .navigation-menu li {
-    margin: auto;
-    padding: 1rem 0 1rem 2rem;
-  }
-}
-#masthead a {
-  color: #c9f0f8;
-  text-decoration: none;
-  border-bottom: none;
-}
-#masthead a:hover {
-  color: #c5c3c6;
-  border-bottom: none;
-}
-#masthead a:visited {
-  color: #c9f0f8;
-}
-#masthead a:active {
-  color: #c9f0f8;
-}
-
 /* ==========================================================================
    HERO SECTION
    ========================================================================== */
 #hero {
-  margin-top: -30vh;
-  padding-top: 50vh;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.35) 0%, rgba(11, 4, 81, 0.5) 100%), url(/images/hero/saudade-plana-cay.jpg) center center/cover;
+  display: flex;
 }
-@media screen and (max-width: 575px) {
-  #hero {
-    margin-top: -35vh;
-    background-position: bottom left;
-    background-size: 160vw;
-    background-repeat: no-repeat;
+#hero .logo {
+  height: 3rem;
+}
+#hero .hero-dictionary-definition {
+  align-self: center;
+  padding: 5rem;
+}
+#hero .hero-image-container img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media screen and (min-width: 700px) {
+  #hero .hero-dictionary-definition {
+    width: 40%;
+  }
+  #hero .hero-image-container {
+    flex: 1;
+  }
+  #hero .hero-image-container img {
+    height: 100%;
   }
 }
-@media screen and (min-width: 300px) and (max-width: 450px) {
+@media screen and (max-width: 700px) {
   #hero {
-    background-size: cover;
+    flex-direction: column;
   }
 }
 
 /* Dictionary definition
    ========================================================================== */
 .hero-dictionary-definition {
-  padding: 0 20% 15vw 20%;
   font-family: var(--font-family-serif);
-  font-size: 5vw;
-}
-@media screen and (max-width: 575px) {
-  .hero-dictionary-definition {
-    padding: 0 10vw 20vw 10vw;
-    font-size: 5vw;
-  }
-}
-@media screen and (max-width: 300px) {
-  .hero-dictionary-definition {
-    font-size: 1.5rem;
-  }
-}
-@media screen and (min-width: 300px) {
-  .hero-dictionary-definition {
-    font-size: 2.5rem;
-    padding: 0 10% 4rem 10%;
-  }
 }
 .hero-dictionary-definition a {
   color: var(--color-text);
+  text-decoration: none;
 }
 .hero-dictionary-definition a:hover {
   border-bottom: 0;
@@ -420,4 +342,12 @@ footer a:hover {
 .hero-dictionary-definition .see-also span {
   text-transform: uppercase;
   font-size: 0.8em;
+}
+
+body {
+  font: 100 200% var(--font-family-sans);
+}
+
+#masthead {
+  display: none;
 }/*# sourceMappingURL=styles.css.map */
