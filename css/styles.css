@@ -193,38 +193,6 @@ footer a:hover {
 /* ==========================================================================
    LAYOUT
    ========================================================================== */
-#hero {
-  display: flex;
-}
-#hero .logo {
-  height: 3rem;
-}
-#hero .hero-dictionary-definition {
-  align-self: center;
-  padding: 5rem;
-}
-#hero .hero-image-container img {
-  width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-@media screen and (min-width: 700px) {
-  #hero .hero-dictionary-definition {
-    width: 40%;
-  }
-  #hero .hero-image-container {
-    flex: 1;
-  }
-  #hero .hero-image-container img {
-    height: 100%;
-  }
-}
-@media screen and (max-width: 700px) {
-  #hero {
-    flex-direction: column;
-  }
-}
-
 /* ==========================================================================
    NAVIGATION
    ========================================================================== */
