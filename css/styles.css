@@ -237,7 +237,8 @@ footer a:hover {
 #hero .hero-dictionary-definition {
   align-self: center;
   max-width: 50rem;
-  padding: var(--grid-gutter) calc(var(--grid-gutter) * 1.5);
+  padding: var(--grid-gutter) calc(var(--grid-gutter) * 2);
+  padding-left: var(--grid-gutter);
   font-size: 3.2rem;
 }
 #hero .hero-image-container img {
@@ -275,12 +276,14 @@ footer a:hover {
   border-bottom: 0;
 }
 .hero-dictionary-definition ul {
-  display: inline;
+  display: inline-block;
+  margin: 0;
   padding: 0;
 }
 .hero-dictionary-definition ul b {
-  padding-left: 0.2em;
+  padding-left: 0.4em;
   font-family: var(--font-family-sans);
+  font-size: 0.7em;
 }
 .hero-dictionary-definition ul li {
   display: inline;
