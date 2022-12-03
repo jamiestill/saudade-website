@@ -218,8 +218,9 @@ footer a:hover {
    ========================================================================== */
 #hero {
   display: flex;
+  max-height: 90vh;
   background: rgb(225, 251, 251);
-  background: linear-gradient(72deg, rgb(225, 251, 251) 0%, rgb(255, 255, 255) 29%);
+  background: linear-gradient(135deg, rgb(225, 251, 251) 0%, rgb(255, 255, 255) 29%);
 }
 #hero .logo {
   height: 5rem;
@@ -227,7 +228,7 @@ footer a:hover {
 #hero .hero-dictionary-definition {
   align-self: center;
   max-width: 50rem;
-  padding: var(--grid-gutter);
+  padding: var(--grid-gutter) calc(var(--grid-gutter) * 1.5);
   font-size: 3.2rem;
 }
 #hero .hero-image-container img {
@@ -307,11 +308,12 @@ footer a:hover {
   text-decoration: none;
 }
 .hero-dictionary-definition .see-also {
+  font-style: italic;
   font-size: 0.7em;
-  line-height: 0.5em;
 }
-.hero-dictionary-definition .see-also span {
+.hero-dictionary-definition .see-also a {
   text-transform: uppercase;
+  font-style: normal;
   font-size: 0.8em;
 }
 
