@@ -259,7 +259,7 @@ footer a:hover {
 #masthead .logo a:visited,
 #masthead .logo a:hover,
 #masthead .logo a:active {
-    height: 6rem;
+    height: 5rem;
   }
 }
 @media screen and (min-width: 700px) {
@@ -270,9 +270,12 @@ footer a:hover {
     height: 9rem;
   }
 }
-@media screen and (min-width: 475px) and (max-width: 574px) {
-  #masthead li {
-    display: inline;
+@media screen and (max-width: 575px) {
+  #masthead .logo {
+    float: left;
+  }
+  #masthead ul {
+    display: none;
   }
 }
 @media screen and (min-width: 575px) {
@@ -322,18 +325,42 @@ footer a:hover {
   padding-top: 50vh;
   background: radial-gradient(circle, rgba(255, 255, 255, 0.35) 0%, rgba(11, 4, 81, 0.5) 100%), url(/images/hero/saudade-plana-cay.jpg) center center/cover;
 }
+@media screen and (max-width: 575px) {
+  #hero {
+    margin-top: -35vh;
+    background-position: bottom left;
+    background-size: 160vw;
+    background-repeat: no-repeat;
+  }
+}
+@media screen and (min-width: 300px) and (max-width: 450px) {
+  #hero {
+    background-size: cover;
+  }
+}
+
 /* Dictionary definition
    ========================================================================== */
 .hero-dictionary-definition {
-  flex-shrink: 1;
-  padding-bottom: 8rem;
+  padding: 0 20% 15vw 20%;
   font-family: var(--font-family-serif);
   font-size: 5vw;
 }
-@media (min-width: 500px) {
+@media screen and (max-width: 575px) {
   .hero-dictionary-definition {
-    padding: 10rem;
-    font-size: 2.4rem;
+    padding: 0 10vw 20vw 10vw;
+    font-size: 5vw;
+  }
+}
+@media screen and (max-width: 300px) {
+  .hero-dictionary-definition {
+    font-size: 1.5rem;
+  }
+}
+@media screen and (min-width: 300px) {
+  .hero-dictionary-definition {
+    font-size: 2.5rem;
+    padding: 0 10% 4rem 10%;
   }
 }
 .hero-dictionary-definition a {

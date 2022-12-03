@@ -61,7 +61,7 @@
 			height: 12vw; // logo sizes with screen
 
 			@media screen and (max-width: 430px) {
-				height: 6rem; // minimum logo size
+				height: 5rem; // minimum logo size
 			}
 
 			@media screen and (min-width: 700px) {
@@ -71,9 +71,13 @@
 	}
 
 	// Inline navigation links side-by-side (inline)
-	@media screen and (min-width: 475px) and (max-width: 574px) {
-		li {
-			display: inline;
+	@media screen and (max-width: 575px) {
+		.logo {
+			float: left;
+		}
+
+		ul {
+			display: none;
 		}
 	}
 
