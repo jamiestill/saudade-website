@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div {
+        border: 1px solid red;
+    }
+
+    li {
+        border: 1px solid green;
+    }
+
+    nav ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    #masthead>div {
+        text-align: center;
+    }
+
+    @media screen and (min-width: 400px) and (max-width: 599px) {
+        nav ul li {
+            display: inline;
+        }
+    }
+
+    @media screen and (min-width: 600px) {
+
+        #masthead>div {
+            display: flex;
+            text-align: left;
+        }
+
+        h1 {
+            flex-grow: 1;
+            margin-right: 20px;
+        }
+
+        nav {
+            /* padding: 0; */
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        nav ul li {
+            padding: 12px 0 12px 12px;
+        }
+    }
+</style>
+
+<body>
+    <!-- Header -->
+    <header id="masthead">
+        <div class="page-width-container">
+            <h1><a href="http://www.sailingsaudade.com" tabindex="1">Saudade</a></h1>
+
+            <!-- Navigation -->
+            <nav>
+                <!-- Skip navigation -->
+                <!-- <a data-nosnippet class="skip-link" href="#main-content">Skip Navigation</a> -->
+
+                <!-- Main navigation -->
+                <ul>
+                    <li><a href="#about">The Boat</a></li>
+                    <li><a href="#saudade">Photos</a></li>
+                    <li><a href="#location">Location</a></li>
+                    <li><a href="#the-captain">Her Captain</a></li>
+                    <li><a href="#this-site">About Site</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+</body>
+
+</html>

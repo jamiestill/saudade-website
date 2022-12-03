@@ -34,6 +34,10 @@
 		text-align: center;
 	}
 
+	nav {
+		padding-top: 1rem;
+	}
+
 	.navigation-menu {
 		list-style: none;
 		padding: 0;
@@ -44,7 +48,8 @@
 	}
 
 	.logo {
-		//Logo
+		display: inline-block;
+		margin: 0;
 		background: url(/images/logo-manta-ray.svg) center no-repeat;
 
 		a,
@@ -52,21 +57,32 @@
 		a:hover,
 		a:active {
 			display: block; // Fill up the h1
-			height: 8rem;
-			color: rgba(0, 0, 0, 0);
+			color: rgba(0, 0, 0, 0); // Hide the logo text
+			height: 12vw; // logo sizes with screen
+
+			@media screen and (max-width: 430px) {
+				height: 6rem; // minimum logo size
+			}
+
+			@media screen and (min-width: 700px) {
+				height: 9rem; // max size of the logo
+			}
 		}
 	}
 
-	@media screen and (min-width: 475px) and (max-width: 599px) {
+	// Inline navigation links side-by-side (inline)
+	@media screen and (min-width: 475px) and (max-width: 574px) {
 		li {
 			display: inline;
 		}
 	}
 
-	@media screen and (min-width: 600px) {
+	// Navigation menu right of logo
+	@media screen and (min-width: 575px) {
 		& > div {
 			// masthead contents container
 			display: flex;
+			align-items: flex-end;
 			text-align: left;
 		}
 
@@ -85,7 +101,8 @@
 			justify-content: space-between;
 
 			li {
-				margin: 1rem 0 1rem 2rem;
+				margin: auto; //center items
+				padding: 1rem 0 1rem 2rem;
 			}
 		}
 	}
