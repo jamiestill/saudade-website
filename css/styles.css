@@ -1,9 +1,22 @@
-/** Property general order ====== order CSS properties in these group / in this order **/ /* ==========================================================================
+/* 
+
+
+   Styles here are vanilla CSS (and preprocessed with Sass). #frameworkfree
+   ==========================================================================
+
+   Enjoy.
+
+
+*/
+/* ==========================================================================
+   FONTS
+   ========================================================================== */
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,700;1,300;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,700;1,300&display=swap");
+/* ==========================================================================
    VARIABLES
    ========================================================================== */
 /* https://coolors.co */
-@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,700;1,300;1,700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,700;1,300&display=swap");
 :root {
   --bg-color: #c9f0f8;
   --bg-secondary-color: #8fe1ef;
@@ -100,9 +113,6 @@ abbr[title] {
           text-decoration: underline dotted;
 }
 
-/* ==========================================================================
-   FONTS
-   ========================================================================== */
 /* ==========================================================================
    HEADINGS
    ========================================================================== */
@@ -218,7 +228,6 @@ footer a:hover {
    ========================================================================== */
 #hero {
   display: flex;
-  max-height: 90vh;
   background: rgb(225, 251, 251);
   background: linear-gradient(135deg, rgb(225, 251, 251) 0%, rgb(255, 255, 255) 29%);
 }

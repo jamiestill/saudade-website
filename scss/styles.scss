@@ -1,15 +1,13 @@
-/** Property general order ====== order CSS properties in these group / in this order **/
+/* 
+ 
 
-// Layout
-//      (display, position, justify-content, top, bottom, align-items, align-content, grid-gap, grid-template-columns, flex-wrap, etc.)
-// Box model properties
-//      (width, height, min-/max-width, min-/max-height, padding, margin, border)
-// Background
-//      (background-image, background-size, etc.)
-// Typography
-//      (font-size, font-style, font-family, color, line-height, letter-spacing, etc.)
-// Everything else
-//      (animation, overflow, opacity, etc)
+   Styles here are vanilla CSS (and preprocessed with Sass). #frameworkfree
+   ==========================================================================
+   
+   Enjoy.
+   
+ 
+*/
 
 @import 'vars';
 @import 'base';
