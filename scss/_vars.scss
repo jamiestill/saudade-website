@@ -3,8 +3,8 @@
    ========================================================================== */
 
 $midnight-blue: #03045e;
-$star-command-blue: #0077b8;
-$pacific-blue: #00b3d6;
+$saudade-blue-dark: #003087;
+$saudade-blue-light: #45c8ff;
 $middle-blue: #8fe1ef;
 $light-cyan: #c9f0f8;
 $gainsboro: #d9dcd6;
@@ -18,8 +18,8 @@ $lime-green: #32cd32;
 /* https://coolors.co */
 
 // Special variables so we can use opacity on link color transitions
-$color-link: $star-command-blue;
-$color-link-hover: $pacific-blue;
+$color-link: $saudade-blue-dark;
+$color-link-hover: $saudade-blue-light;
 $color-link-active: $lime-green;
 $color-link-visited: lighten($color-link, 10%);
 
@@ -30,8 +30,8 @@ $color-link-visited: lighten($color-link, 10%);
 	--bg-masthead: #{$midnight-blue};
 
 	// Text colors
-	--color-primary: #{$pacific-blue};
-	--color-secondary: #{$star-command-blue};
+	--color-primary: #{\$saudade-blue-light};
+	--color-secondary: #{$saudade-blue-dark};
 	--color-tertiary: #{$blue-munsell};
 	--color-accent: #{$lime-green};
 	--color-text: #{$davys-grey};
