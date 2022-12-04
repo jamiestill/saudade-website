@@ -1,11 +1,3 @@
 /* ==========================================================================
    LAYOUT
    ========================================================================== */
-
-// Use this to contain sections within a readable range
-.page-width-container {
-	margin: 0 auto;
-	width: 96%;
-	max-width: var(--page-max-width);
-	padding: 0 var(--grid-gutter);
-}

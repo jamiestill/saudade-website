@@ -3,57 +3,60 @@
    ========================================================================== */
 
 #hero {
-	margin-top: -30vh; // pulls hero under masthead
-	padding-top: 50vh; // space for masthead
-	background: radial-gradient(
-			circle,
-			rgba(255, 255, 255, 0.35) 0%,
-			rgba(11, 4, 81, 0.5) 100%
-		),
-		url(/images/hero/saudade-plana-cay.jpg) center center/cover;
+	display: flex;
+	background: rgb(225, 251, 251);
+	background: linear-gradient(
+		135deg,
+		rgba(225, 251, 251, 1) 0%,
+		rgba(255, 255, 255, 1) 29%
+	);
 
-	// Small screens
-	@media screen and (max-width: 575px) {
-		margin-top: -35vh; // pulls hero under masthead
-		background-position: bottom left;
-		background-size: 160vw;
-		background-repeat: no-repeat;
+	.logo {
+		height: 5rem;
 	}
 
-	@media screen and (min-width: 450px) and (max-width: 575px) {
-		// background-size: 130vw;
+	.hero-dictionary-definition {
+		align-self: center;
+		max-width: 50rem;
+		padding: var(--grid-gutter) calc(var(--grid-gutter) * 2);
+		padding-left: var(--grid-gutter);
+		font-size: 3.2rem;
 	}
 
-	@media screen and (min-width: 300px) and (max-width: 450px) {
-		background-size: cover;
+	.hero-image-container {
+		img {
+			object-fit: cover;
+			width: 100%;
+		}
+	}
+
+	@media screen and (min-width: 700px) {
+		.hero-dictionary-definition {
+			dl {
+				margin-top: 10vh;
+			}
+		}
+		.hero-image-container {
+			flex: 1;
+
+			img {
+				height: 100%;
+			}
+		}
+	}
+	@media screen and (max-width: 700px) {
+		flex-direction: column;
 	}
 }
 
 /* Dictionary definition
    ========================================================================== */
 .hero-dictionary-definition {
-	// flex-shrink: 1;
-	padding: 0 20% 15vw 20%;
 	font-family: var(--font-family-serif);
-	font-size: 5vw; // Dynamic font size
-	//text-shadow: 0 0 5px var(--bg-secondary-color);
-
-	@media screen and (max-width: 575px) {
-		padding: 0 10vw 20vw 10vw;
-		font-size: 5vw; // Dynamic font size to a point
-	}
-
-	@media screen and (max-width: 300px) {
-		font-size: 1.5rem; // Dynamic font size to a point
-	}
-
-	@media screen and (min-width: 300px) {
-		font-size: 2.5rem;
-		padding: 0 10% 4rem 10%;
-	}
 
 	a {
 		color: var(--color-text);
+		text-decoration: none;
 
 		&:hover {
 			border-bottom: 0;
@@ -62,13 +65,14 @@
 
 	ul {
 		// The definition itself
-		display: inline;
+		display: inline-block;
+		margin: 0;
 		padding: 0;
 
 		b {
-			padding-left: 0.2em;
-			font-size: 0.7em;
+			padding-left: 0.4em;
 			font-family: var(--font-family-sans);
+			font-size: 0.7em;
 		}
 
 		li {
@@ -120,11 +124,12 @@
 	}
 
 	.see-also {
+		font-style: italic;
 		font-size: 0.7em;
-		line-height: 0.5em;
 
-		span {
+		a {
 			text-transform: uppercase;
+			font-style: normal;
 			font-size: 0.8em;
 		}
 	}

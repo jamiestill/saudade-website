@@ -15,8 +15,6 @@ html {
 
 body {
 	margin: 0;
-	font: 300 1.3rem/1.2 'Work Sans', var(--font-family-sans);
-	color: var(--font-color);
 }
 
 img {
@@ -47,13 +45,6 @@ abbr[title] {
 	text-decoration: underline;
 	text-decoration: underline dotted;
 }
-
-/* ==========================================================================
-   FONTS
-   ========================================================================== */
-
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,700;1,300;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,700;1,300&display=swap');
 
 /* ==========================================================================
    HEADINGS

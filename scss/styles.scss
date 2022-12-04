@@ -1,7 +1,26 @@
+/* 
+ 
+
+   Styles here are vanilla CSS (and preprocessed with Sass). #frameworkfree
+   ==========================================================================
+   
+   Enjoy.
+   
+ 
+*/
+
 @import 'vars';
 @import 'base';
 @import 'forms';
 @import 'layout';
 @import 'navigation';
-
 @import 'hero';
+
+// Scaffold
+body {
+	font: 100 1.6rem var(--font-family-sans);
+}
+
+#masthead {
+	display: none;
+}
