@@ -370,6 +370,9 @@ footer a:hover {
 .hero-dictionary-definition dt {
   margin-bottom: 0.5em;
   font-size: 1.1em;
+  color: #003087;
+}
+.hero-dictionary-definition dt span {
   color: #45c8ff;
 }
 .hero-dictionary-definition dd {
