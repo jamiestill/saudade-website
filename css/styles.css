@@ -16,18 +16,18 @@
   --bg-color: #d9dcd6;
   --bg-secondary-color: #8fe1ef;
   --bg-masthead: #03045e;
-  --color-primary: #00b3d6;
-  --color-secondary: #0077b8;
+  --color-primary: \$saudade-blue-light;
+  --color-secondary: #003087;
   --color-tertiary: #19849f;
   --color-accent: #32cd32;
   --color-text: #474a4d;
   --color-black: #1e1e20;
   --color-error: #ef253c;
   --color-success: #32cd32;
-  --color-link: #0077b8;
-  --color-link-hover: #00b3d6;
+  --color-link: #003087;
+  --color-link-hover: #45c8ff;
   --color-link-active: #32cd32;
-  --color-link-visited: #0098eb;
+  --color-link-visited: #0042ba;
   --color-middle-blue: #8fe1ef;
   --color-light-grey: #d9dcd6;
   --color-grey: #4b5b68;
@@ -192,17 +192,17 @@ h3 {
    LINKS
    ========================================================================== */
 a {
-  color: #0077b8;
+  color: #003087;
   text-decoration: none;
-  border-bottom: 1px solid rgba(0, 119, 184, 0);
+  border-bottom: 1px solid rgba(0, 48, 135, 0);
   transition: color 200ms, border-bottom 200ms;
 }
 a:hover {
-  color: #00b3d6;
-  border-bottom: 1px solid #00b3d6;
+  color: #45c8ff;
+  border-bottom: 1px solid #45c8ff;
 }
 a:visited {
-  color: #0098eb;
+  color: #0042ba;
 }
 a:active {
   color: #32cd32;
@@ -366,10 +366,24 @@ footer a:hover {
 .hero-dictionary-definition ul li {
   display: inline;
 }
+.hero-dictionary-definition dt {
+  margin-bottom: 0.5em;
+  font-size: 1.1em;
+  color: #45c8ff;
+}
+.hero-dictionary-definition dd {
+  color: var(--color-dark-grey);
+}
 @media (max-width: 500px) {
   .hero-dictionary-definition dd {
     margin: 0;
   }
+}
+.hero-dictionary-definition .informal {
+  display: inline-block;
+  font-style: italic;
+  font-size: 0.5em;
+  margin-top: -0.5em;
 }
 .hero-dictionary-definition .ezh {
   font-size: 0.7em;
