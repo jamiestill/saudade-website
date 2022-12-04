@@ -18,9 +18,18 @@
 
 // Scaffold
 body {
-	font: 100 1.6rem var(--font-family-sans);
+	font: 100 1.6rem var(--font-sans);
 }
 
 #masthead {
 	display: none;
+}
+
+// For test page
+.card {
+	margin: 2rem;
+	padding: 2rem;
+	background-color: var(--bg-color);
+	border-left: 1rem solid var(--color-grey);
+	border-radius: 1rem;
 }
