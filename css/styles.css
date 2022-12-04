@@ -220,6 +220,10 @@ body {
 main {
   flex: 1;
 }
+main > section {
+  margin: 2rem auto;
+  max-width: 800px;
+}
 
 /* ==========================================================================
    FOOTER
@@ -305,6 +309,8 @@ footer a:hover {
    ========================================================================== */
 #hero {
   display: flex;
+  margin: 0;
+  max-width: 100%;
   background: rgb(225, 251, 251);
   background: linear-gradient(135deg, rgb(225, 251, 251) 0%, rgb(255, 255, 255) 29%);
 }

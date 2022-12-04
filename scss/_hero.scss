@@ -3,154 +3,156 @@
    ========================================================================== */
 
 #hero {
-    display: flex;
-    background: rgb(225, 251, 251);
-    background: linear-gradient(
-        135deg,
-        rgba(225, 251, 251, 1) 0%,
-        rgba(255, 255, 255, 1) 29%
-    );
+	display: flex;
+	margin: 0;
+	max-width: 100%;
+	background: rgb(225, 251, 251);
+	background: linear-gradient(
+		135deg,
+		rgba(225, 251, 251, 1) 0%,
+		rgba(255, 255, 255, 1) 29%
+	);
 
-    .logo {
-        height: 5rem;
-    }
+	.logo {
+		height: 5rem;
+	}
 
-    @media screen and (max-width: 700px) {
-        flex-direction: column;
-    }
+	@media screen and (max-width: 700px) {
+		flex-direction: column;
+	}
 }
 
 .hero-dictionary-definition-container {
-    align-self: center;
-    max-width: 50rem;
-    padding: var(--grid-gutter) calc(var(--grid-gutter) * 2);
-    padding-left: var(--grid-gutter);
+	align-self: center;
+	max-width: 50rem;
+	padding: var(--grid-gutter) calc(var(--grid-gutter) * 2);
+	padding-left: var(--grid-gutter);
 }
 
 .hero-image-container {
-    img {
-        width: 100%;
-        object-fit: cover;
-    }
+	img {
+		width: 100%;
+		object-fit: cover;
+	}
 }
 
 @media screen and (min-width: 700px) {
-    .hero-dictionary-definition-container {
-        dl {
-            margin-top: 10vh;
-        }
-    }
-    .hero-image-container {
-        flex: 1;
+	.hero-dictionary-definition-container {
+		dl {
+			margin-top: 10vh;
+		}
+	}
+	.hero-image-container {
+		flex: 1;
 
-        img {
-            height: 100%;
-            max-height: 92vh; // Leave a bit so the user knows to scroll
-        }
-    }
+		img {
+			height: 100%;
+			max-height: 92vh; // Leave a bit so the user knows to scroll
+		}
+	}
 }
 
 /* Dictionary definition
    ========================================================================== */
 .hero-dictionary-definition {
-    font: 3.2rem var(--font-serif);
-    color: var(--color-black);
+	font: 3.2rem var(--font-serif);
+	color: var(--color-black);
 
-    a {
-        color: var(--color-text);
-        text-decoration: none;
+	a {
+		color: var(--color-text);
+		text-decoration: none;
 
-        &:hover {
-            border-bottom: 0;
-        }
-    }
+		&:hover {
+			border-bottom: 0;
+		}
+	}
 
-    ul {
-        // The definition itself
-        display: inline-block;
-        margin: 0;
-        padding: 0;
+	ul {
+		// The definition itself
+		display: inline-block;
+		margin: 0;
+		padding: 0;
 
-        b {
-            padding-left: 0.4em;
-            font: bold 0.7em var(--font-sans);
-        }
+		b {
+			padding-left: 0.4em;
+			font: bold 0.7em var(--font-sans);
+		}
 
-        li {
-            display: inline;
-        }
-    }
+		li {
+			display: inline;
+		}
+	}
 
-    dt {
-        margin-bottom: 0.5em;
-        font-size: 1.1em;
-        color: $saudade-blue-dark;
+	dt {
+		margin-bottom: 0.5em;
+		font-size: 1.1em;
+		color: $saudade-blue-dark;
 
-        span {
-            color: $saudade-blue-light; // #00b3d6;
-        }
-    }
+		span {
+			color: $saudade-blue-light; // #00b3d6;
+		}
+	}
 
-    dd {
-        color: var(--color-dark-grey);
-        @media (max-width: 500px) {
-            margin: 0;
-        }
-    }
+	dd {
+		color: var(--color-dark-grey);
+		@media (max-width: 500px) {
+			margin: 0;
+		}
+	}
 
-    .informal {
-        display: inline-block;
-        font-style: italic;
-        font-size: 0.5em;
-        margin-top: -0.5em;
-    }
+	.informal {
+		display: inline-block;
+		font-style: italic;
+		font-size: 0.5em;
+		margin-top: -0.5em;
+	}
 
-    .ezh {
-        //The lowercase letter ezh, in pronounciation
-        font-size: 0.7em;
+	.ezh {
+		//The lowercase letter ezh, in pronounciation
+		font-size: 0.7em;
 
-        span {
-            font-family: 'Times New Roman', Times, serif; // special character outside scope of custom webfonts
-            font-size: 1.3em;
-            vertical-align: -13%; // tweak character placement
-        }
-    }
+		span {
+			font-family: 'Times New Roman', Times, serif; // special character outside scope of custom webfonts
+			font-size: 1.3em;
+			vertical-align: -13%; // tweak character placement
+		}
+	}
 
-    .origin {
-        //Portuguese
-        font-size: 0.7em;
-        font-variant: small-caps;
+	.origin {
+		//Portuguese
+		font-size: 0.7em;
+		font-variant: small-caps;
 
-        &::before,
-        &::after {
-            content: '[';
-            font-family: var(--font-sans);
-        }
+		&::before,
+		&::after {
+			content: '[';
+			font-family: var(--font-sans);
+		}
 
-        &::after {
-            content: ']';
-        }
-    }
+		&::after {
+			content: ']';
+		}
+	}
 
-    .part-of-speech {
-        //Noun
-        font-weight: bold;
-        font-style: italic;
-        text-decoration: none;
+	.part-of-speech {
+		//Noun
+		font-weight: bold;
+		font-style: italic;
+		text-decoration: none;
 
-        &[title] {
-            text-decoration: none;
-        }
-    }
+		&[title] {
+			text-decoration: none;
+		}
+	}
 
-    .see-also {
-        font-style: italic;
-        font-size: 0.7em;
+	.see-also {
+		font-style: italic;
+		font-size: 0.7em;
 
-        & > * {
-            text-transform: uppercase;
-            font-style: normal;
-            font-size: 0.7em;
-        }
-    }
+		& > * {
+			text-transform: uppercase;
+			font-style: normal;
+			font-size: 0.7em;
+		}
+	}
 }
