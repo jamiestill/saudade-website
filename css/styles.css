@@ -62,12 +62,13 @@
    NORMALIZE
    ========================================================================== */
 html {
+  height: -webkit-fill-available;
   box-sizing: border-box;
+  scroll-behavior: smooth;
   -webkit-hyphens: auto;
       -ms-hyphens: auto;
           hyphens: auto;
   font-size: 62.5%;
-  height: -webkit-fill-available;
 }
 
 *,
