@@ -105,17 +105,19 @@ jamie@jamiestill.com
                             return false;
                         }
                     }
-                    console.log('filter out');
                     // get here, definitely not local, filter out
                     return true;
                 }
 
                 // Get the stylesheets into an array
                 let styleSheets = [...document.styleSheets];
+                let cssRulesText, cssRules = [];
 
                 //console.log(styleSheets);
                 styleSheets = styleSheets.filter(checkStylesheetOrigin);
-                console.log(styleSheets);
+                cssRulesText = styleSheets.forEach(styleSheet => {
+                    debugger;
+                });
 
             </script>
         </section>
