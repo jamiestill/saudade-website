@@ -16,7 +16,7 @@
   --bg-color: #d9dcd6;
   --bg-secondary-color: #8fe1ef;
   --bg-masthead: #03045e;
-  --color-primary: \$saudade-blue-light;
+  --color-primary: #45c8ff;
   --color-secondary: #003087;
   --color-tertiary: #19849f;
   --color-accent: #32cd32;
@@ -38,21 +38,24 @@
   --font-color: var(--color-text);
   --font-color-inverted: #c9f0f8;
   --font-sans: "Lato", system-ui, /* macOS 10.11-10.12 */ -apple-system,
-  	"Helvetica Neue", Helvetica, /* Windows 6+ */ "Segoe UI",
-  	/* Android 4+ */ "Roboto", /* Ubuntu 10.10+ */ "Ubuntu",
-  	/* Gnome 3+ */ "Cantarell", /* KDE Plasma 5+ */ "Noto Sans",
-  	/* fallback */ sans-serif, /* macOS emoji */ "Apple Color Emoji",
-  	/* Windows emoji */ "Segoe UI Emoji", /* Windows emoji */ "Segoe UI Symbol",
-  	/* Linux emoji */ "Noto Color Emoji";
+      "Helvetica Neue", Helvetica, /* Windows 6+ */ "Segoe UI",
+      /* Android 4+ */ "Roboto", /* Ubuntu 10.10+ */ "Ubuntu",
+      /* Gnome 3+ */ "Cantarell", /* KDE Plasma 5+ */ "Noto Sans",
+      /* fallback */ sans-serif, /* macOS emoji */ "Apple Color Emoji",
+      /* Windows emoji */ "Segoe UI Emoji",
+      /* Windows emoji */ "Segoe UI Symbol",
+      /* Linux emoji */ "Noto Color Emoji";
   --font-mono: ui-monospace, /* macOS 10.10+ */ "Menlo",
-  	/* Windows 6+ */ "Consolas", /* Android 4+ */ "Roboto Mono",
-  	/* Ubuntu 10.10+ */ "Ubuntu Monospace", /* KDE Plasma 5+ */ "Noto Mono",
-  	/* KDE Plasma 4+ */ "Oxygen Mono",
-  	/* Linux/OpenOffice fallback */ "Liberation Mono", /* fallback */ monospace,
-  	/* macOS emoji */ "Apple Color Emoji", /* Windows emoji */ "Segoe UI Emoji",
-  	/* Windows emoji */ "Segoe UI Symbol", /* Linux emoji */ "Noto Color Emoji";
+      /* Windows 6+ */ "Consolas", /* Android 4+ */ "Roboto Mono",
+      /* Ubuntu 10.10+ */ "Ubuntu Monospace", /* KDE Plasma 5+ */ "Noto Mono",
+      /* KDE Plasma 4+ */ "Oxygen Mono",
+      /* Linux/OpenOffice fallback */ "Liberation Mono",
+      /* fallback */ monospace, /* macOS emoji */ "Apple Color Emoji",
+      /* Windows emoji */ "Segoe UI Emoji",
+      /* Windows emoji */ "Segoe UI Symbol",
+      /* Linux emoji */ "Noto Color Emoji";
   --font-serif: "Cormorant Garamond", Cambria, Cochin, Georgia, Times,
-  	"Times New Roman", serif; /* Mostly for dictionary definition */
+      "Times New Roman", serif; /* Mostly for dictionary definition */
 }
 
 /* ==========================================================================
@@ -113,7 +116,7 @@ hr {
 
 abbr[title] {
   border-bottom: none;
-  text-decoration: underline;
+  text-decoration: none;
   -webkit-text-decoration: underline dotted;
           text-decoration: underline dotted;
 }
@@ -446,4 +449,16 @@ body {
   background-color: var(--bg-color);
   border-left: 1rem solid var(--color-grey);
   border-radius: 1rem;
+}
+
+#test-colors li span {
+  display: block;
+  width: 5rem;
+  background-color: red;
+  border-radius: 10px;
+}
+
+.color-chicklet {
+  height: 100px;
+  width: 100px;
 }/*# sourceMappingURL=styles.css.map */
