@@ -92,74 +92,30 @@ jamie@jamiestill.com
                 <p>JavaScript required to see color swatches.</p>
             </noscript>
             <script>
-                /*
-                Check if the stylesheet is internal or hosted on the current domain.
-                If it isn't, attempting to access sheet.cssRules will throw a cross origin error.
-                See https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet#Notes
-                
-                NOTE: One problem this could raise is hosting stylesheets on a CDN with a
-                different domain. Those would be cross origin, so you can't access them.
-                */
-                const isSameDomain = (styleSheet) => {
-                    // Internal style blocks won't have an href value
-                    if (!styleSheet.href) {
-                        return true;
+
+                // Test to make sure style sheets are of this domain (Google Fonts CSS with throw an error)
+                const checkStylesheetOrigin = (styleSheet) => {
+
+                    if (styleSheet.href === null) {
+                        // NULL href, must be local
+                        return false;
+                    } else {
+                        // No href, might still be local
+                        if (styleSheet.href.indexOf(window.location.origin)) { // check that the window.location is in the stylesheet href
+                            return false;
+                        }
                     }
+                    console.log('filter out');
+                    // get here, definitely not local, filter out
+                    return true;
+                }
 
-                    return styleSheet.href.indexOf(window.location.origin) === 0;
-                };
+                // Get the stylesheets into an array
+                let styleSheets = [...document.styleSheets];
 
-                /*
-                 Determine if the given rule is a CSSStyleRule
-                 See: https://developer.mozilla.org/en-US/docs/Web/API/CSSRule#Type_constants
-                */
-                const isStyleRule = (rule) => rule.type === 1;
-
-                /**
-                 * Get all custom properties on a page
-                 * @return array<array[string, string]>
-                 * ex; [["--color-accent", "#b9f500"], ["--color-text", "#252525"], ...]
-                 */
-                const getCSSCustomPropIndex = () =>
-                    // styleSheets is array-like, so we convert it to an array.
-                    // Filter out any stylesheets not on this domain
-                    [...document.styleSheets].filter(isSameDomain).reduce(
-                        (finalArr, sheet) =>
-                            finalArr.concat(
-                                // cssRules is array-like, so we convert it to an array
-                                [...sheet.cssRules].filter(isStyleRule).reduce((propValArr, rule) => {
-                                    // NOTE: rule.styleMap is only available in Chrome and Edge
-                                    // at the time of this writing.
-                                    // See https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleRule/styleMap
-                                    // // Discard any props that don't start with "--". Custom props are required to.
-                                    const customProps = [...rule.styleMap.entries()].filter(
-                                        ([propName]) => propName.indexOf("--color") === 0
-                                    );
-
-                                    return [...propValArr, ...customProps];
-                                }, [])
-                            ),
-                        []
-                    );
-
-                const cssCustomPropIndex = getCSSCustomPropIndex();
-
-                // Create the swatches as list items
-                const newElement = document.createElement('ul');
-                console.log(cssCustomPropIndex);
-                newElement.innerHTML = cssCustomPropIndex.reduce(
-                    (str, [prop, val]) => `
-                        <li class="swatch-color">
-                            Color: ${val}
-                            <div style="background-color:${val}">
-                                ${prop}
-                            </div>
-                        </li>`, "");
-
-                // Remove <noscript> and add switch <ul> list
-                const oldElement = document.querySelector("#test-colors noscript");
-                oldElement.parentNode.appendChild(newElement);
-                oldElement.parentNode.removeChild(oldElement);
+                //console.log(styleSheets);
+                styleSheets = styleSheets.filter(checkStylesheetOrigin);
+                console.log(styleSheets);
 
             </script>
         </section>
