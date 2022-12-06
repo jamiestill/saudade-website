@@ -1,0 +1,26 @@
+/* ==========================================================================
+   LOCATION MAP AND MAPBOX
+   ========================================================================== */
+
+#map {
+    width: 100%;
+    height: 30vh;
+    min-height: 25rem;
+    margin: 0 auto;
+    border: 10px solid var(--color-light-grey);
+    border-radius: 1rem;
+
+    // Tweak the attribution for readability
+    .mapboxgl-ctrl.mapboxgl-ctrl-attrib {
+        background-color: rgb(255 255 255/10%);
+
+        .mapboxgl-ctrl-attrib-inner {
+            font-size: 0.9rem;
+        }
+    }
+}
+
+a.mapboxgl-ctrl-logo {
+    // The mapbox logo
+    @extend .link-no-underline;
+}

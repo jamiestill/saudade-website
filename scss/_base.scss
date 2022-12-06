@@ -203,6 +203,16 @@ a {
     @include linkStyle();
 }
 
+.link-no-underline {
+    border-bottom: none;
+
+    &:visited,
+    &:hover,
+    &:active {
+        border-bottom: none;
+    }
+}
+
 /* ==========================================================================
    PARAGRAPHS, IMAGES, ETC
    ========================================================================== */

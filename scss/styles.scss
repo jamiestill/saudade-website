@@ -15,6 +15,7 @@
 @import 'layout';
 @import 'navigation';
 @import 'hero';
+@import 'map';
 
 #masthead {
     display: none;
@@ -33,16 +34,6 @@
     li span {
         display: block;
         width: 5rem;
-        background-color: red;
         border-radius: 10px;
     }
-}
-
-#map {
-    height: 30vh;
-    min-height: 25rem;
-    width: 100vw;
-}
-
-a.mapboxgl-ctrl-logo {
 }
