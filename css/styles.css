@@ -342,6 +342,7 @@ main {
 section {
   margin: 2rem 0;
   align-self: center;
+  width: 100%;
 }
 
 .inside {
@@ -387,9 +388,6 @@ section {
 }
 
 @media screen and (min-width: 700px) {
-  .image-panel-content-container dl {
-    margin-top: 10vh;
-  }
   .image-panel-img-container {
     flex: 1;
   }
@@ -400,8 +398,14 @@ section {
 /* Dictionary definition
    ========================================================================== */
 .dictionary-definition {
+  padding-bottom: 0;
   font: 3.2rem var(--font-serif);
   color: var(--color-black);
+}
+@media screen and (min-width: 700px) {
+  .dictionary-definition {
+    align-self: flex-end;
+  }
 }
 .dictionary-definition a {
   color: var(--color-text);
@@ -438,12 +442,6 @@ section {
     margin: 0;
   }
 }
-.dictionary-definition .informal {
-  display: inline-block;
-  font-style: italic;
-  font-size: 0.5em;
-  margin-top: -0.5em;
-}
 .dictionary-definition .ezh {
   font-size: 0.7em;
 }
@@ -453,12 +451,13 @@ section {
   vertical-align: -13%;
 }
 .dictionary-definition .origin {
-  font-size: 0.7em;
-  font-variant: small-caps;
+  font-size: 0.5em;
+  font-weight: 300;
+  font-family: var(--font-sans);
 }
 .dictionary-definition .origin::before, .dictionary-definition .origin::after {
   content: "[";
-  font-family: var(--font-sans);
+  font-family: var(--font-serif);
 }
 .dictionary-definition .origin::after {
   content: "]";
@@ -471,14 +470,21 @@ section {
 .dictionary-definition .part-of-speech[title] {
   text-decoration: none;
 }
+.dictionary-definition .informal {
+  display: inline-block;
+  font-style: italic;
+  font-size: 0.5em;
+  margin-top: -0.5em;
+}
 .dictionary-definition .see-also {
   font-style: italic;
   font-size: 0.7em;
 }
 .dictionary-definition .see-also > * {
-  text-transform: uppercase;
+  font-variant: small-caps;
   font-style: normal;
   font-size: 0.7em;
+  letter-spacing: 0.1rem;
 }
 
 /* ==========================================================================
@@ -510,7 +516,10 @@ section {
   background: linear-gradient(135deg, rgb(225, 251, 251) 0%, rgb(255, 255, 255) 29%);
 }
 #hero .logo {
-  height: 5rem;
+  height: 7rem;
+}
+#hero + section {
+  margin-top: 0;
 }
 @media screen and (min-width: 700px) {
   #hero {

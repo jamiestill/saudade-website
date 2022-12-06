@@ -3,19 +3,24 @@
    ========================================================================== */
 
 #hero {
-	margin: 0;
-	background: rgb(225, 251, 251);
-	background: linear-gradient(
-		135deg,
-		rgba(225, 251, 251, 1) 0%,
-		rgba(255, 255, 255, 1) 29%
-	);
+    margin: 0;
+    background: rgb(225, 251, 251);
+    background: linear-gradient(
+        135deg,
+        rgba(225, 251, 251, 1) 0%,
+        rgba(255, 255, 255, 1) 29%
+    );
 
-	.logo {
-		height: 5rem;
-	}
+    .logo {
+        height: 7rem;
+    }
 
-	@media screen and (min-width: 700px) {
-		height: 98vh; // Leave a bit so the user knows to scroll
-	}
+    & + section {
+        // next section flush with the hero
+        margin-top: 0;
+    }
+
+    @media screen and (min-width: 700px) {
+        height: 98vh; // Leave a bit so the user knows to scroll
+    }
 }

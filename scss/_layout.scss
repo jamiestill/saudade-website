@@ -6,33 +6,34 @@ $content-max-width: 800px; // The reading content shall not exceed this value.
 
 body,
 main {
-	display: flex;
-	flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 body {
-	& > footer {
-		width: 100%;
-		max-width: $content-max-width;
-		align-self: center;
-	}
+    & > footer {
+        width: 100%;
+        max-width: $content-max-width;
+        align-self: center;
+    }
 }
 
 main {
-	flex: 1;
+    flex: 1;
 }
 
 section {
-	margin: 2rem 0;
-	// TODO: fix this so some items can extend the width of the page
-	align-self: center; // align sections to the middle of the viewport
+    margin: 2rem 0;
+    // TODO: fix this so some items can extend the width of the page
+    align-self: center; // align sections to the middle of the viewport
+    width: 100%;
 }
 
 .inside {
-	// For portions that shall not extend the full page width (content sections)
-	margin-left: auto;
-	margin-right: auto;
-	max-width: $content-max-width;
+    // For portions that shall not extend the full page width (content sections)
+    margin-left: auto;
+    margin-right: auto;
+    max-width: $content-max-width;
 }
 
 /* Image panels
@@ -40,154 +41,156 @@ section {
    ========================================================================== */
 
 .image-panel {
-	display: flex;
-	max-width: 100%;
+    display: flex;
+    max-width: 100%;
 
-	@media screen and (max-width: 700px) {
-		flex-direction: column;
-		height: auto;
-	}
+    @media screen and (max-width: 700px) {
+        flex-direction: column;
+        height: auto;
+    }
 
-	&.left-img .image-panel-img-container {
-		order: -1; // use order to move the image to the left
+    &.left-img .image-panel-img-container {
+        order: -1; // use order to move the image to the left
 
-		@media screen and (max-width: 699px) {
-			align-self: center;
-			order: 0; // revert it to natural order in small screens
-		}
-	}
+        @media screen and (max-width: 699px) {
+            align-self: center;
+            order: 0; // revert it to natural order in small screens
+        }
+    }
 }
 
 .image-panel-content-container {
-	max-width: 50rem;
-	align-self: center;
-	padding: var(--grid-gutter) calc(var(--grid-gutter) * 2);
-	padding-left: var(--grid-gutter);
+    max-width: 50rem;
+    align-self: center;
+    padding: var(--grid-gutter) calc(var(--grid-gutter) * 2);
+    padding-left: var(--grid-gutter);
 }
 
 .image-panel-img-container {
-	img {
-		width: 100%;
-		object-fit: cover;
-	}
+    img {
+        width: 100%;
+        object-fit: cover;
+    }
 }
 
 @media screen and (min-width: 700px) {
-	.image-panel-content-container {
-		dl {
-			margin-top: 10vh;
-		}
-	}
-	.image-panel-img-container {
-		flex: 1;
+    .image-panel-img-container {
+        flex: 1;
 
-		img {
-			height: 100%;
-		}
-	}
+        img {
+            height: 100%;
+        }
+    }
 }
 
 /* Dictionary definition
    ========================================================================== */
 .dictionary-definition {
-	font: 3.2rem var(--font-serif);
-	color: var(--color-black);
+    padding-bottom: 0; // ensure this goes to the bottom of the panel
+    font: 3.2rem var(--font-serif);
+    color: var(--color-black);
 
-	a {
-		color: var(--color-text);
-		text-decoration: none;
+    @media screen and (min-width: 700px) {
+        align-self: flex-end;
+    }
 
-		&:hover {
-			border-bottom: 0;
-		}
-	}
+    a {
+        color: var(--color-text);
+        text-decoration: none;
 
-	ul {
-		// The definition itself
-		display: inline-block;
-		margin: 0;
-		padding: 0;
+        &:hover {
+            border-bottom: 0;
+        }
+    }
 
-		b {
-			padding-left: 0.4em;
-			font: bold 0.7em var(--font-sans);
-		}
+    ul {
+        // The definition itself
+        display: inline-block;
+        margin: 0;
+        padding: 0;
 
-		li {
-			display: inline;
-		}
-	}
+        b {
+            padding-left: 0.4em;
+            font: bold 0.7em var(--font-sans);
+        }
 
-	dt {
-		margin-bottom: 0.5em;
-		font-size: 1.1em;
-		color: $saudade-blue-dark;
+        li {
+            display: inline;
+        }
+    }
 
-		span {
-			color: $saudade-blue-light; // #00b3d6;
-		}
-	}
+    dt {
+        margin-bottom: 0.5em;
+        font-size: 1.1em;
+        color: $saudade-blue-dark;
 
-	dd {
-		color: var(--color-dark-grey);
-		@media (max-width: 500px) {
-			margin: 0;
-		}
-	}
+        span {
+            color: $saudade-blue-light; // #00b3d6;
+        }
+    }
 
-	.informal {
-		display: inline-block;
-		font-style: italic;
-		font-size: 0.5em;
-		margin-top: -0.5em;
-	}
+    dd {
+        color: var(--color-dark-grey);
+        @media (max-width: 500px) {
+            margin: 0;
+        }
+    }
 
-	.ezh {
-		//The lowercase letter ezh, in pronounciation
-		font-size: 0.7em;
+    .ezh {
+        //The lowercase letter ezh, in pronounciation
+        font-size: 0.7em;
 
-		span {
-			font-family: 'Times New Roman', Times, serif; // special character outside scope of custom webfonts
-			font-size: 1.3em;
-			vertical-align: -13%; // tweak character placement
-		}
-	}
+        span {
+            font-family: 'Times New Roman', Times, serif; // special character outside scope of custom webfonts
+            font-size: 1.3em;
+            vertical-align: -13%; // tweak character placement
+        }
+    }
 
-	.origin {
-		//Portuguese
-		font-size: 0.7em;
-		font-variant: small-caps;
+    .origin {
+        //Portuguese
+        font-size: 0.5em;
+        font-weight: 300;
+        font-family: var(--font-sans);
 
-		&::before,
-		&::after {
-			content: '[';
-			font-family: var(--font-sans);
-		}
+        &::before,
+        &::after {
+            content: '[';
+            font-family: var(--font-serif);
+        }
 
-		&::after {
-			content: ']';
-		}
-	}
+        &::after {
+            content: ']';
+        }
+    }
 
-	.part-of-speech {
-		//Noun
-		font-weight: bold;
-		font-style: italic;
-		text-decoration: none;
+    .part-of-speech {
+        //Noun
+        font-weight: bold;
+        font-style: italic;
+        text-decoration: none;
 
-		&[title] {
-			text-decoration: none;
-		}
-	}
+        &[title] {
+            text-decoration: none;
+        }
+    }
 
-	.see-also {
-		font-style: italic;
-		font-size: 0.7em;
+    .informal {
+        display: inline-block;
+        font-style: italic;
+        font-size: 0.5em;
+        margin-top: -0.5em;
+    }
 
-		& > * {
-			text-transform: uppercase;
-			font-style: normal;
-			font-size: 0.7em;
-		}
-	}
+    .see-also {
+        font-style: italic;
+        font-size: 0.7em;
+
+        & > * {
+            font-variant: small-caps;
+            font-style: normal;
+            font-size: 0.7em;
+            letter-spacing: 0.1rem;
+        }
+    }
 }
