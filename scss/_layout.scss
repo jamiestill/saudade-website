@@ -1,6 +1,9 @@
 /* ==========================================================================
    LAYOUT
    ========================================================================== */
+
+$content-max-width: 800px; // The reading content shall not exceed this value.
+
 body,
 main {
 	display: flex;
@@ -8,29 +11,28 @@ main {
 }
 
 body {
-	& > header,
 	& > footer {
 		width: 100%;
-		max-width: 800px;
+		max-width: $content-max-width;
 		align-self: center;
 	}
 }
 
 main {
 	flex: 1;
-
-	& > section,
-	& > header,
-	& > footer {
-		width: 100%;
-		max-width: 800px;
-	}
 }
 
 section {
 	margin: 2rem 0;
 	// TODO: fix this so some items can extend the width of the page
 	align-self: center; // align sections to the middle of the viewport
+}
+
+.inside {
+	// For portions that shall not extend the full page width (content sections)
+	margin-left: auto;
+	margin-right: auto;
+	max-width: $content-max-width;
 }
 
 /* Image panels

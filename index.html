@@ -57,6 +57,13 @@ jamie@jamiestill.com
 
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/eb7ab5fef7.js" crossorigin="anonymous"></script>
+
+    <!-- Mapbox -->
+    <!-- <link href="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js"></script> -->
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
 </head>
 
 <body>
@@ -115,13 +122,12 @@ jamie@jamiestill.com
         </section>
 
         <!-- About Saudade -->
-        <section id="about" class="image-panel left-img">
+        <section id="about-saudade" class="image-panel left-img">
             <div class="image-panel-content-container">
                 <h2>About <i>Saudade</i></h2>
                 <p>
                     <i>SV Saudade</i> is a 44-foot sailing catamaran helmed by her owner, Jamie Still. She operates on
-                    the
-                    US East Coast, Flordia Gulf Coast, Caribbean, and Bahamas.
+                    the US East Coast, Flordia Gulf Coast, Caribbean, and Bahamas.
                 <h3>Features</h3>
                 <ul>
                     <li>3 &times; cabins, w/ ensuite bathrooms (heads)</li>
@@ -156,101 +162,82 @@ jamie@jamiestill.com
 
         <!-- Saudade photos -->
         <section id="photos">
-            <h2>Photos</h2>
-            <p>
-                Magna cupidatat ut magna et proident consequat eu aliqua Lorem tempor consectetur esse nisi dolor. Velit
-                velit consequat exercitation fugiat exercitation aute veniam aliqua sint eiusmod labore. Magna eiusmod
-                enim dolor nulla pariatur nulla incididunt tempor aliqua ad. Sint culpa cupidatat ea Lorem minim
-                deserunt in in enim veniam adipisicing minim excepteur tempor.
-            </p>
-            <p>
-                Consectetur nostrud pariatur laboris elit cupidatat quis officia occaecat. Deserunt ex quis non commodo
-                deserunt laborum cupidatat non officia aliquip. Irure cupidatat ullamco cillum do voluptate veniam
-                exercitation enim magna consequat commodo.
-            </p>
-            <p>
-                Sit veniam voluptate deserunt minim aliquip adipisicing velit nisi enim id ex sint. Sit pariatur
-                proident amet deserunt ut ex. Consectetur deserunt sint velit enim dolore eu fugiat commodo. Aliqua
-                cupidatat duis do et duis cillum id laboris in eu occaecat voluptate. Dolore amet labore anim tempor
-                officia ipsum dolore veniam in Lorem in ad est.
-            </p>
+            <div class="inside">
+                <h2>Photos</h2>
+                <p>
+                    Magna cupidatat ut magna et proident consequat eu aliqua Lorem tempor consectetur esse nisi dolor.
+                    Velit
+                    velit consequat exercitation fugiat exercitation aute veniam aliqua sint eiusmod labore. Magna
+                    eiusmod
+                    enim dolor nulla pariatur nulla incididunt tempor aliqua ad. Sint culpa cupidatat ea Lorem minim
+                    deserunt in in enim veniam adipisicing minim excepteur tempor.
+                </p>
+            </div>
         </section>
 
         <!-- Saudade location -->
         <section id="location">
-            <h2>Where is Saudade?</h2>
-            <!-- <iframe src="/maps/map.html" title="map"></iframe> -->
-        </section>
-
-        <!-- About the Helia -->
-        <section id="about-the-helia">
-            <h2>About the Boat</h2>
-            <h3>Specificiations</h3>
-            <p>
-                Magna cupidatat ut magna et proident consequat eu aliqua Lorem tempor consectetur esse nisi dolor. Velit
-                velit consequat exercitation fugiat exercitation aute veniam aliqua sint eiusmod labore. Magna eiusmod
-                enim dolor nulla pariatur nulla incididunt tempor aliqua ad. Sint culpa cupidatat ea Lorem minim
-                deserunt in in enim veniam adipisicing minim excepteur tempor.
-            </p>
-            <p>
-                Consectetur nostrud pariatur laboris elit cupidatat quis officia occaecat. Deserunt ex quis non commodo
-                deserunt laborum cupidatat non officia aliquip. Irure cupidatat ullamco cillum do voluptate veniam
-                exercitation enim magna consequat commodo.
-            </p>
-            <p>
-                Sit veniam voluptate deserunt minim aliquip adipisicing velit nisi enim id ex sint. Sit pariatur
-                proident amet deserunt ut ex. Consectetur deserunt sint velit enim dolore eu fugiat commodo. Aliqua
-                cupidatat duis do et duis cillum id laboris in eu occaecat voluptate. Dolore amet labore anim tempor
-                officia ipsum dolore veniam in Lorem in ad est.
-            </p>
+            <div class="inside">
+                <h2>Where is Saudade?</h2>
+            </div>
+            <div id="map"></div>
         </section>
 
         <!-- About the Captain -->
         <section id="the-captain">
-            <h2>About the Captain</h2>
-
-            <p>
-                <img alt="Jamie on the deck of Saudade" src="/images/presentation/captain.jpg" class="img-right" />Magna
-                cupidatat ut magna et proident consequat eu aliqua Lorem tempor consectetur esse nisi dolor. Velit
-                velit consequat exercitation fugiat exercitation aute veniam aliqua sint eiusmod labore. Magna eiusmod
-                enim dolor nulla pariatur nulla incididunt tempor aliqua ad. Sint culpa cupidatat ea Lorem minim
-                deserunt in in enim veniam adipisicing minim excepteur tempor.
-            </p>
-            <p>
-                Consectetur nostrud pariatur laboris elit cupidatat quis officia occaecat. Deserunt ex quis non commodo
-                deserunt laborum cupidatat non officia aliquip. Irure cupidatat ullamco cillum do voluptate veniam
-                exercitation enim magna consequat commodo.
-            </p>
-            <p>
-                Sit veniam voluptate deserunt minim aliquip adipisicing velit nisi enim id ex sint. Sit pariatur
-                proident amet deserunt ut ex. Consectetur deserunt sint velit enim dolore eu fugiat commodo. Aliqua
-                cupidatat duis do et duis cillum id laboris in eu occaecat voluptate. Dolore amet labore anim tempor
-                officia ipsum dolore veniam in Lorem in ad est.
-            </p>
-            <!-- Resume -->
+            <div class="inside">
+                <h2>About the Captain</h2>
+                <p>
+                    <img alt="Jamie on the deck of Saudade" src="/images/presentation/captain.jpg"
+                        class="img-right" />Magna
+                    cupidatat ut magna et proident consequat eu aliqua Lorem tempor consectetur esse nisi dolor. Velit
+                    velit consequat exercitation fugiat exercitation aute veniam aliqua sint eiusmod labore. Magna
+                    eiusmod
+                    enim dolor nulla pariatur nulla incididunt tempor aliqua ad. Sint culpa cupidatat ea Lorem minim
+                    deserunt in in enim veniam adipisicing minim excepteur tempor.
+                </p>
+                <p>
+                    Consectetur nostrud pariatur laboris elit cupidatat quis officia occaecat. Deserunt ex quis non
+                    commodo
+                    deserunt laborum cupidatat non officia aliquip. Irure cupidatat ullamco cillum do voluptate veniam
+                    exercitation enim magna consequat commodo.
+                </p>
+                <p>
+                    Sit veniam voluptate deserunt minim aliquip adipisicing velit nisi enim id ex sint. Sit pariatur
+                    proident amet deserunt ut ex. Consectetur deserunt sint velit enim dolore eu fugiat commodo. Aliqua
+                    cupidatat duis do et duis cillum id laboris in eu occaecat voluptate. Dolore amet labore anim tempor
+                    officia ipsum dolore veniam in Lorem in ad est.
+                </p>
+                <!-- Resume -->
+            </div>
         </section>
 
         <!-- About this Site -->
         <section id="this-site">
-            <h2>About this site</h2>
-            <p>
-                Magna cupidatat ut magna et proident consequat eu aliqua Lorem tempor consectetur esse nisi dolor. Velit
-                velit consequat exercitation fugiat exercitation aute veniam aliqua sint eiusmod labore. Magna eiusmod
-                enim dolor nulla pariatur nulla incididunt tempor aliqua ad. Sint culpa cupidatat ea Lorem minim
-                deserunt in in enim veniam adipisicing minim excepteur tempor.
-            </p>
-            <p>
-                Consectetur nostrud pariatur laboris elit cupidatat quis officia occaecat. Deserunt ex quis non commodo
-                deserunt laborum cupidatat non officia aliquip. Irure cupidatat ullamco cillum do voluptate veniam
-                exercitation enim magna consequat commodo.
-            </p>
-            <p>
-                Sit veniam voluptate deserunt minim aliquip adipisicing velit nisi enim id ex sint. Sit pariatur
-                proident amet deserunt ut ex. Consectetur deserunt sint velit enim dolore eu fugiat commodo. Aliqua
-                cupidatat duis do et duis cillum id laboris in eu occaecat voluptate. Dolore amet labore anim tempor
-                officia ipsum dolore veniam in Lorem in ad est.
-            </p>
+            <div class="inside">
+                <h2>About this site</h2>
+                <p>
+                    Magna cupidatat ut magna et proident consequat eu aliqua Lorem tempor consectetur esse nisi dolor.
+                    Velit
+                    velit consequat exercitation fugiat exercitation aute veniam aliqua sint eiusmod labore. Magna
+                    eiusmod
+                    enim dolor nulla pariatur nulla incididunt tempor aliqua ad. Sint culpa cupidatat ea Lorem minim
+                    deserunt in in enim veniam adipisicing minim excepteur tempor.
+                </p>
+                <p>
+                    Consectetur nostrud pariatur laboris elit cupidatat quis officia occaecat. Deserunt ex quis non
+                    commodo
+                    deserunt laborum cupidatat non officia aliquip. Irure cupidatat ullamco cillum do voluptate veniam
+                    exercitation enim magna consequat commodo.
+                </p>
+                <p>
+                    Sit veniam voluptate deserunt minim aliquip adipisicing velit nisi enim id ex sint. Sit pariatur
+                    proident amet deserunt ut ex. Consectetur deserunt sint velit enim dolore eu fugiat commodo. Aliqua
+                    cupidatat duis do et duis cillum id laboris in eu occaecat voluptate. Dolore amet labore anim tempor
+                    officia ipsum dolore veniam in Lorem in ad est.
+                </p>
         </section>
+        </div>
     </main>
 
     <!-- Footer -->
@@ -280,6 +267,9 @@ jamie@jamiestill.com
             <a href="#">Back to top</a>
         </p>
     </footer>
+
+
+    <!-- Local JavaScript -->
     <script src="scripts.js"></script>
 </body>
 
