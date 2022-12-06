@@ -15,9 +15,13 @@
         height: 7rem;
     }
 
+    // following section to be flush with the hero
     & + section {
-        // next section flush with the hero
         margin-top: 0;
+
+        .image-panel-content-container {
+            padding-top: 2rem; // make up for the lost margin above
+        }
     }
 
     @media screen and (min-width: 700px) {
