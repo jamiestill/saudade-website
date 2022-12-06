@@ -56,11 +56,12 @@ $color-link-visited: lighten($color-link, 10%);
     --font-size: 1.6rem;
     --font-color: var(--color-text);
     --font-color-inverted: #{$light-cyan};
-    --font-sans: 'Lato', system-ui, /* macOS 10.11-10.12 */ -apple-system,
-        'Helvetica Neue', Helvetica, /* Windows 6+ */ 'Segoe UI',
-        /* Android 4+ */ 'Roboto', /* Ubuntu 10.10+ */ 'Ubuntu',
-        /* Gnome 3+ */ 'Cantarell', /* KDE Plasma 5+ */ 'Noto Sans',
-        /* fallback */ sans-serif, /* macOS emoji */ 'Apple Color Emoji',
+    --font-sans: 'zurich-web', 'Lato', system-ui,
+        /* macOS 10.11-10.12 */ -apple-system, 'Helvetica Neue', Helvetica,
+        /* Windows 6+ */ 'Segoe UI', /* Android 4+ */ 'Roboto',
+        /* Ubuntu 10.10+ */ 'Ubuntu', /* Gnome 3+ */ 'Cantarell',
+        /* KDE Plasma 5+ */ 'Noto Sans', /* fallback */ sans-serif,
+        /* macOS emoji */ 'Apple Color Emoji',
         /* Windows emoji */ 'Segoe UI Emoji',
         /* Windows emoji */ 'Segoe UI Symbol',
         /* Linux emoji */ 'Noto Color Emoji';
