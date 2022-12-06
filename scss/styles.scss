@@ -17,28 +17,32 @@
 @import 'hero';
 
 #masthead {
-	display: none;
+    display: none;
 }
 
 // For test page
 .card {
-	margin: 2rem;
-	padding: 2rem;
-	background-color: var(--bg-color);
-	border-left: 1rem solid var(--color-grey);
-	border-radius: 1rem;
+    margin: 2rem;
+    padding: 2rem;
+    background-color: var(--bg-color);
+    border-left: 1rem solid var(--color-grey);
+    border-radius: 1rem;
 }
 
 #test-colors {
-	li span {
-		display: block;
-		width: 5rem;
-		background-color: red;
-		border-radius: 10px;
-	}
+    li span {
+        display: block;
+        width: 5rem;
+        background-color: red;
+        border-radius: 10px;
+    }
 }
 
-.color-chicklet {
-	height: 100px;
-	width: 100px;
+#map {
+    height: 30vh;
+    min-height: 25rem;
+    width: 100vw;
+}
+
+a.mapboxgl-ctrl-logo {
 }
