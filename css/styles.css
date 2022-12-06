@@ -132,7 +132,6 @@ body {
 }
 
 h1,
-h2,
 h3,
 h4,
 h5,
@@ -213,21 +212,8 @@ a:active {
 }
 
 /* ==========================================================================
-   LAYOUT
+   PARAGRAPHS, IMAGES, ETC
    ========================================================================== */
-body {
-  display: flex;
-  flex-direction: column;
-}
-
-main {
-  flex: 1;
-}
-main > section {
-  margin: 2rem auto;
-  max-width: 800px;
-}
-
 /* ==========================================================================
    FOOTER
    ========================================================================== */
@@ -288,6 +274,165 @@ footer a:hover {
 }
 
 /* ==========================================================================
+   LAYOUT
+   ========================================================================== */
+body,
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+body > header, body > footer {
+  width: 100%;
+  max-width: 800px;
+  align-self: center;
+}
+
+main {
+  flex: 1;
+}
+main > section, main > header, main > footer {
+  width: 100%;
+  max-width: 800px;
+}
+
+section {
+  margin: 2rem 0;
+  align-self: center;
+}
+
+/* Image panels
+    panel with side-by-side columns with a hero image and blocks of text
+   ========================================================================== */
+.image-panel {
+  display: flex;
+  max-width: 100%;
+}
+@media screen and (max-width: 700px) {
+  .image-panel {
+    flex-direction: column;
+    height: auto;
+  }
+}
+.image-panel.left-img .image-panel-img-container {
+  order: -1;
+}
+@media screen and (max-width: 699px) {
+  .image-panel.left-img .image-panel-img-container {
+    align-self: center;
+    order: 0;
+  }
+}
+
+.image-panel-content-container {
+  max-width: 50rem;
+  align-self: center;
+  padding: var(--grid-gutter) calc(var(--grid-gutter) * 2);
+  padding-left: var(--grid-gutter);
+}
+
+.image-panel-img-container img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+@media screen and (min-width: 700px) {
+  .image-panel-content-container dl {
+    margin-top: 10vh;
+  }
+  .image-panel-img-container {
+    flex: 1;
+  }
+  .image-panel-img-container img {
+    height: 100%;
+  }
+}
+/* Dictionary definition
+   ========================================================================== */
+.dictionary-definition {
+  font: 3.2rem var(--font-serif);
+  color: var(--color-black);
+}
+.dictionary-definition a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+.dictionary-definition a:hover {
+  border-bottom: 0;
+}
+.dictionary-definition ul {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+.dictionary-definition ul b {
+  padding-left: 0.4em;
+  font: bold 0.7em var(--font-sans);
+}
+.dictionary-definition ul li {
+  display: inline;
+}
+.dictionary-definition dt {
+  margin-bottom: 0.5em;
+  font-size: 1.1em;
+  color: #003087;
+}
+.dictionary-definition dt span {
+  color: #45c8ff;
+}
+.dictionary-definition dd {
+  color: var(--color-dark-grey);
+}
+@media (max-width: 500px) {
+  .dictionary-definition dd {
+    margin: 0;
+  }
+}
+.dictionary-definition .informal {
+  display: inline-block;
+  font-style: italic;
+  font-size: 0.5em;
+  margin-top: -0.5em;
+}
+.dictionary-definition .ezh {
+  font-size: 0.7em;
+}
+.dictionary-definition .ezh span {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1.3em;
+  vertical-align: -13%;
+}
+.dictionary-definition .origin {
+  font-size: 0.7em;
+  font-variant: small-caps;
+}
+.dictionary-definition .origin::before, .dictionary-definition .origin::after {
+  content: "[";
+  font-family: var(--font-sans);
+}
+.dictionary-definition .origin::after {
+  content: "]";
+}
+.dictionary-definition .part-of-speech {
+  font-weight: bold;
+  font-style: italic;
+  text-decoration: none;
+}
+.dictionary-definition .part-of-speech[title] {
+  text-decoration: none;
+}
+.dictionary-definition .see-also {
+  font-style: italic;
+  font-size: 0.7em;
+}
+.dictionary-definition .see-also > * {
+  text-transform: uppercase;
+  font-style: normal;
+  font-size: 0.7em;
+}
+
+/* ==========================================================================
    NAVIGATION
    ========================================================================== */
 .skip-link {
@@ -311,132 +456,17 @@ footer a:hover {
    HERO SECTION
    ========================================================================== */
 #hero {
-  display: flex;
   margin: 0;
-  max-width: 100%;
   background: rgb(225, 251, 251);
   background: linear-gradient(135deg, rgb(225, 251, 251) 0%, rgb(255, 255, 255) 29%);
 }
 #hero .logo {
   height: 5rem;
 }
-@media screen and (max-width: 700px) {
-  #hero {
-    flex-direction: column;
-  }
-}
-
-.hero-dictionary-definition-container {
-  align-self: center;
-  max-width: 50rem;
-  padding: var(--grid-gutter) calc(var(--grid-gutter) * 2);
-  padding-left: var(--grid-gutter);
-}
-
-.hero-image-container img {
-  width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
 @media screen and (min-width: 700px) {
-  .hero-dictionary-definition-container dl {
-    margin-top: 10vh;
+  #hero {
+    height: 98vh;
   }
-  .hero-image-container {
-    flex: 1;
-  }
-  .hero-image-container img {
-    height: 100%;
-    max-height: 92vh;
-  }
-}
-/* Dictionary definition
-   ========================================================================== */
-.hero-dictionary-definition {
-  font: 3.2rem var(--font-serif);
-  color: var(--color-black);
-}
-.hero-dictionary-definition a {
-  color: var(--color-text);
-  text-decoration: none;
-}
-.hero-dictionary-definition a:hover {
-  border-bottom: 0;
-}
-.hero-dictionary-definition ul {
-  display: inline-block;
-  margin: 0;
-  padding: 0;
-}
-.hero-dictionary-definition ul b {
-  padding-left: 0.4em;
-  font: bold 0.7em var(--font-sans);
-}
-.hero-dictionary-definition ul li {
-  display: inline;
-}
-.hero-dictionary-definition dt {
-  margin-bottom: 0.5em;
-  font-size: 1.1em;
-  color: #003087;
-}
-.hero-dictionary-definition dt span {
-  color: #45c8ff;
-}
-.hero-dictionary-definition dd {
-  color: var(--color-dark-grey);
-}
-@media (max-width: 500px) {
-  .hero-dictionary-definition dd {
-    margin: 0;
-  }
-}
-.hero-dictionary-definition .informal {
-  display: inline-block;
-  font-style: italic;
-  font-size: 0.5em;
-  margin-top: -0.5em;
-}
-.hero-dictionary-definition .ezh {
-  font-size: 0.7em;
-}
-.hero-dictionary-definition .ezh span {
-  font-family: "Times New Roman", Times, serif;
-  font-size: 1.3em;
-  vertical-align: -13%;
-}
-.hero-dictionary-definition .origin {
-  font-size: 0.7em;
-  font-variant: small-caps;
-}
-.hero-dictionary-definition .origin::before, .hero-dictionary-definition .origin::after {
-  content: "[";
-  font-family: var(--font-sans);
-}
-.hero-dictionary-definition .origin::after {
-  content: "]";
-}
-.hero-dictionary-definition .part-of-speech {
-  font-weight: bold;
-  font-style: italic;
-  text-decoration: none;
-}
-.hero-dictionary-definition .part-of-speech[title] {
-  text-decoration: none;
-}
-.hero-dictionary-definition .see-also {
-  font-style: italic;
-  font-size: 0.7em;
-}
-.hero-dictionary-definition .see-also > * {
-  text-transform: uppercase;
-  font-style: normal;
-  font-size: 0.7em;
-}
-
-body {
-  font: 100 1.6rem var(--font-sans);
 }
 
 #masthead {

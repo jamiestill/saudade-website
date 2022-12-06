@@ -59,7 +59,7 @@ abbr[title] {
    TYPOGRAHPY
    ========================================================================== */
 
-// Defaults
+// Font defaults
 body {
 	color: var(--color-text);
 	font-size: 1.6rem;
@@ -69,7 +69,6 @@ body {
 
 // Headings
 h1,
-h2,
 h3,
 h4,
 h5,
@@ -173,20 +172,9 @@ a {
 }
 
 /* ==========================================================================
-   LAYOUT
+   PARAGRAPHS, IMAGES, ETC
    ========================================================================== */
-body {
-	display: flex;
-	flex-direction: column;
-}
-
-main {
-	flex: 1;
-
-	& > section {
-		margin: 2rem auto;
-		max-width: 800px;
-	}
+li {
 }
 
 /* ==========================================================================
