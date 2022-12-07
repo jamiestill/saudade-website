@@ -42,6 +42,23 @@ map.on('load', () => {
     })
 })
 
+// TODO: Clean up
+ function convertToDms(dd, isLng) {
+    var dir = dd > 0
+      ? isLng ? 'W' : 'S'
+      : isLng ? 'E' : 'N';
+  
+    var absDd = Math.abs(dd);
+    var deg = absDd | 0;
+    var frac = absDd - deg;
+    var min = (frac * 60) | 0;
+    var sec = frac * 3600 - min * 60;
+    // Round it to 2 decimal points.
+    sec = Math.round(sec * 100) / 100;
+    return deg + "°" + min + dir;
+ }
+
+
 // Google Maps API
 const googleMapsAPIKey = 'AIzaSyBk2_7sLHSG1wxB1KhCNRuoSNQlM3GdUwc';
 
@@ -66,12 +83,12 @@ const getLocation = () => {
         // lat: 37.783684,
         // lng: -122.391600
 
-        lat: 33.455050,
-        lng: -63.774391
+        // lat: 33.455050,
+        // lng: -63.774391
 
         // Array
-        // lat: routeCoords[routeCoords.length - 1][1],
-        // lng: routeCoords[routeCoords.length - 1][0]
+        lat: routeCoords[routeCoords.length - 1][1],
+        lng: routeCoords[routeCoords.length - 1][0]
     }
 
     geocoder.geocode({
@@ -97,12 +114,11 @@ const getLocation = () => {
         }
 
         if (addyComponents[4]) {
-            addressString += addyComponents[4].short_name
+            addressString += addyComponents[4].short_name + "&mdash;"
         }
 
-        if (addressString.length < 1) {
-            addressString = `Lattitude: ${routeCoords[routeCoords.length - 1][1]}, Longitude: ${routeCoords[routeCoords.length - 1][0]}`;
-        }
+            addressString += ` ${convertToDms(routeCoords[routeCoords.length - 1][1], true)},
+                ${convertToDms(routeCoords[routeCoords.length - 1][0], false)}`;
 
         document.getElementById('lat-long').innerHTML = addressString
     })
@@ -140,8 +156,8 @@ const getWeather = () => {
     //     long = currentLatLong[0], //12.1691392
 
      const currentLatLong = routeCoords[routeCoords.length - 1], // Get the last coordinate in the route
-        // lat = 23.848841, 
-        // long = -75.119233,
+        lat = currentLatLong[1], 
+        long = currentLatLong[0],
 
         // lat = 37.383542,
         // long = -76.338328,
@@ -149,8 +165,8 @@ const getWeather = () => {
         // lat = 24.220169,
         // long = -76.09,
 
-        lat = 33.455050,
-        long = -63.774391
+        // lat = 33.455050,
+        // long = -63.774391
 
         apiKey = '438e9bd62501e99a254329223d5494ee';
 
