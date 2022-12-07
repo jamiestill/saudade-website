@@ -21,11 +21,6 @@ body {
 	margin: 0;
 }
 
-html,
-body {
-	min-width: 30rem;
-}
-
 img,
 picture,
 svg,
@@ -171,12 +166,12 @@ h4 {
 	}
 
 	h3 {
-		font-size: 2.5rem;
+		font-size: 2.7rem;
 		line-height: 1.4;
 	}
 
-	h3 {
-		font-size: 1.5rem;
+	h4 {
+		font-size: 2.5rem;
 	}
 }
 
@@ -248,7 +243,6 @@ a {
 
 	@media screen and (max-width: 399px) {
 		width: 100%;
-		border-radius: 0;
 	}
 }
 

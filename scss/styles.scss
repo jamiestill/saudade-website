@@ -15,25 +15,26 @@
 @import 'layout';
 @import 'navigation';
 @import 'hero';
+@import 'dictionary';
 @import 'map';
 
 #masthead {
-    display: none;
+	display: none;
 }
 
 // For test page
 .card {
-    margin: 2rem;
-    padding: 2rem;
-    background-color: var(--bg-color);
-    border-left: 1rem solid var(--color-grey);
-    border-radius: 1rem;
+	margin: 2rem;
+	padding: 2rem;
+	background-color: var(--bg-color);
+	border-left: 1rem solid var(--color-grey);
+	border-radius: 1rem;
 }
 
 #test-colors {
-    li span {
-        display: block;
-        width: 5rem;
-        border-radius: 10px;
-    }
+	li span {
+		display: block;
+		width: 5rem;
+		border-radius: 10px;
+	}
 }
