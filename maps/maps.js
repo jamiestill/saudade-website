@@ -66,6 +66,10 @@ const getLocation = () => {
     const geocoder = new google.maps.Geocoder();
 
     const latLong = {
+
+        /*
+        FOR TESTING
+        */
         
         //Chesapeake
         // lat: 37.383542,
@@ -83,6 +87,7 @@ const getLocation = () => {
         // lat: 37.783684,
         // lng: -122.391600
 
+        // Middle of ocean
         // lat: 33.455050,
         // lng: -63.774391
 
@@ -157,16 +162,31 @@ const getWeather = () => {
 
      const currentLatLong = routeCoords[routeCoords.length - 1], // Get the last coordinate in the route
         lat = currentLatLong[1], 
-        long = currentLatLong[0],
+        lng = currentLatLong[0],
 
+         /*
+        FOR TESTING
+        */
+        
+        //Chesapeake
         // lat = 37.383542,
-        // long = -76.338328,
+        // lng =  -76.338328
 
+        //middle of bahamas
         // lat = 24.220169,
-        // long = -76.09,
+        // lng = -76.099677
+        
+        // Just off Cnception Island
+        // lat = 23.848841, 
+        // lng = -75.119233
 
+        // 41 Federal
+        // lat = 37.783684,
+        // lng = -122.391600
+
+        // Middle of ocean
         // lat = 33.455050,
-        // long = -63.774391
+        // lng = -63.774391
 
         apiKey = '438e9bd62501e99a254329223d5494ee';
 
@@ -174,7 +194,7 @@ const getWeather = () => {
         'https://api.openweathermap.org/data/2.5/weather?units=imperial&lat=' +
         lat +
         '&lon=' +
-        long +
+        lng +
         '&appid=' +
         apiKey
 
