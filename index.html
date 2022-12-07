@@ -178,6 +178,7 @@ jamie@jamiestill.com
             <div class="inside">
                 <h2>Where is Saudade?</h2>
                 <p>See where Saudade is and where she's been since 2021.</p>
+                <p id="lat-long"></p>
                 <p id="map">(Map not available).</p>
             </div>
         </section>
@@ -267,9 +268,12 @@ jamie@jamiestill.com
         </p>
     </footer>
 
+    <!-- Google Geo API -->
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBk2_7sLHSG1wxB1KhCNRuoSNQlM3GdUwc&callback=getLocation&v=weekly"
+        defer></script>
 
     <!-- Local JavaScript -->
-
     <script src="maps/maps.js"></script>
     <script src="scripts.js"></script>
 </body>

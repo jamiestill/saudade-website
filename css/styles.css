@@ -208,6 +208,10 @@ h3 {
   color: var(--color-primary);
 }
 
+h4 {
+  font-size: 2rem;
+}
+
 @media (max-width: 599px) {
   h1 {
     font-size: 2.8rem;
@@ -218,6 +222,9 @@ h3 {
   h3 {
     font-size: 2rem;
     line-height: 1.4;
+  }
+  h3 {
+    font-size: 1.5rem;
   }
 }
 /* ==========================================================================
@@ -553,6 +560,19 @@ section {
 }
 #map .mapboxgl-ctrl.mapboxgl-ctrl-attrib .mapboxgl-ctrl-attrib-inner {
   font-size: 0.9rem;
+}
+
+/* Weather widget
+   ========================================================================== */
+.weather-data {
+  padding-left: 2rem;
+}
+
+.observed-time {
+  display: block;
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--color-dark-grey);
 }
 
 #masthead {
