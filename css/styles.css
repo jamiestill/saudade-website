@@ -63,7 +63,7 @@
    SCREEN SIZES
    ========================================================================== */
 /* ==========================================================================
-   NORMALIZE
+   RESET AND NORMALIZE 
    ========================================================================== */
 html {
   height: -webkit-fill-available;
@@ -92,8 +92,19 @@ body {
   min-width: 30rem;
 }
 
-img {
+img,
+picture,
+svg,
+video {
+  display: block;
   max-width: 100%;
+}
+
+input,
+textarea,
+button,
+select {
+  font: inherit;
 }
 
 fieldset {
@@ -214,13 +225,13 @@ h4 {
 
 @media (max-width: 599px) {
   h1 {
-    font-size: 2.8rem;
+    font-size: 3.8rem;
   }
   h2 {
-    font-size: 2.4rem;
+    font-size: 3.4rem;
   }
   h3 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     line-height: 1.4;
   }
   h3 {
@@ -337,26 +348,8 @@ footer a:hover {
 /* ==========================================================================
    LAYOUT
    ========================================================================== */
-body,
-main {
-  display: flex;
-  flex-direction: column;
-}
-
-body > footer {
-  width: 100%;
-  max-width: 800px;
-  align-self: center;
-}
-
-main {
-  flex: 1;
-}
-
 section {
-  margin: 2rem 0;
-  align-self: center;
-  width: 100%;
+  margin: 2rem 0 6rem;
 }
 
 .inside, .image-panel-content-container {
@@ -369,29 +362,8 @@ section {
 /* Image panels
     panel with side-by-side columns with a hero image and blocks of text
    ========================================================================== */
-.image-panel {
-  display: flex;
-  max-width: 100%;
-}
-@media screen and (max-width: 700px) {
-  .image-panel {
-    flex-direction: column;
-    height: auto;
-  }
-}
-.image-panel.left-img .image-panel-img-container {
-  order: -1;
-}
-@media screen and (max-width: 699px) {
-  .image-panel.left-img .image-panel-img-container {
-    align-self: center;
-    order: 0;
-  }
-}
-
 .image-panel-content-container {
-  max-width: 50rem;
-  align-self: center;
+  margin: 2rem 0 5rem;
 }
 
 .image-panel-img-container img {
@@ -400,14 +372,6 @@ section {
      object-fit: cover;
 }
 
-@media screen and (min-width: 700px) {
-  .image-panel-img-container {
-    flex: 1;
-  }
-  .image-panel-img-container img {
-    height: 100%;
-  }
-}
 /* Dictionary definition
    ========================================================================== */
 .dictionary-definition {
@@ -524,19 +488,13 @@ section {
    HERO SECTION
    ========================================================================== */
 #hero {
-  margin: 0;
+  margin-top: 0;
+  padding-top: 2rem;
   background: rgb(225, 251, 251);
   background: linear-gradient(135deg, rgb(225, 251, 251) 0%, rgb(255, 255, 255) 29%);
 }
 #hero .logo {
   height: 7rem;
-}
-#hero + section {
-  margin-top: 0;
-}
-#hero + section .image-panel-content-container {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
 }
 @media screen and (min-width: 700px) {
   #hero {

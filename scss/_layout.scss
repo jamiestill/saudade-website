@@ -6,35 +6,35 @@ $content-max-width: 800px; // The reading content shall not exceed this value.
 
 body,
 main {
-    display: flex;
-    flex-direction: column;
+	// display: flex;
+	// flex-direction: column;
 }
 
 body {
-    & > footer {
-        width: 100%;
-        max-width: $content-max-width;
-        align-self: center;
-    }
+	& > footer {
+		// width: 100%;
+		// max-width: $content-max-width;
+		// align-self: center;
+	}
 }
 
 main {
-    flex: 1;
+	// flex: 1;
 }
 
 section {
-    margin: 2rem 0;
-    // TODO: fix this so some items can extend the width of the page
-    align-self: center; // align sections to the middle of the viewport
-    width: 100%;
+	margin: 2rem 0 6rem;
+	// TODO: fix this so some items can extend the width of the page
+	// align-self: center; // align sections to the middle of the viewport
+	// width: 100%;
 }
 
 .inside {
-    // For portions that shall not extend the full page width (content sections)
-    margin-left: auto;
-    margin-right: auto;
-    max-width: $content-max-width;
-    padding: 0 4rem;
+	// For portions that shall not extend the full page width (content sections)
+	margin-left: auto;
+	margin-right: auto;
+	max-width: $content-max-width;
+	padding: 0 4rem;
 }
 
 /* Image panels
@@ -42,155 +42,158 @@ section {
    ========================================================================== */
 
 .image-panel {
-    display: flex;
-    max-width: 100%;
+	// display: flex;
+	// max-width: 100%;
 
-    @media screen and (max-width: 700px) {
-        flex-direction: column;
-        height: auto;
-    }
+	// @media screen and (max-width: 700px) {
+	// 	flex-direction: column;
+	// 	height: auto;
+	// }
 
-    &.left-img .image-panel-img-container {
-        order: -1; // use order to move the image to the left
+	// &.left-img .image-panel-img-container {
+	// 	order: -1; // use order to move the image to the left
 
-        @media screen and (max-width: 699px) {
-            align-self: center;
-            order: 0; // revert it to natural order in small screens
-        }
-    }
+	// 	@media screen and (max-width: 699px) {
+	// 		align-self: center;
+	// 		order: 0; // revert it to natural order in small screens
+	// 	}
+	// }
 }
 
 .image-panel-content-container {
-    max-width: 50rem;
-    align-self: center;
-    @extend .inside;
+	// max-width: 50rem;
+	// align-self: center;
+	margin: 2rem 0 5rem;
+	@extend .inside;
 }
 
 .image-panel-img-container {
-    img {
-        width: 100%;
-        object-fit: cover;
-    }
+	// @extend .inside;
+
+	img {
+		width: 100%;
+		object-fit: cover;
+	}
 }
 
 @media screen and (min-width: 700px) {
-    .image-panel-img-container {
-        flex: 1;
+	// .image-panel-img-container {
+	// 	flex: 1;
 
-        img {
-            height: 100%;
-        }
-    }
+	// 	img {
+	// 		height: 100%;
+	// 	}
+	// }
 }
 
 /* Dictionary definition
    ========================================================================== */
 .dictionary-definition {
-    padding-bottom: 0; // ensure this goes to the bottom of the panel
-    font: 3.2rem var(--font-serif);
-    color: var(--color-black);
+	padding-bottom: 0; // ensure this goes to the bottom of the panel
+	font: 3.2rem var(--font-serif);
+	color: var(--color-black);
 
-    @media screen and (min-width: 700px) {
-        align-self: flex-end;
-    }
+	@media screen and (min-width: 700px) {
+		align-self: flex-end;
+	}
 
-    a {
-        color: var(--color-text);
-        text-decoration: none;
+	a {
+		color: var(--color-text);
+		text-decoration: none;
 
-        &:hover {
-            border-bottom: 0;
-        }
-    }
+		&:hover {
+			border-bottom: 0;
+		}
+	}
 
-    ul {
-        // The definition itself
-        display: inline-block;
-        margin: 0;
-        padding: 0;
+	ul {
+		// The definition itself
+		display: inline-block;
+		margin: 0;
+		padding: 0;
 
-        b {
-            padding-left: 0.4em;
-            font: bold 0.7em var(--font-sans);
-        }
+		b {
+			padding-left: 0.4em;
+			font: bold 0.7em var(--font-sans);
+		}
 
-        li {
-            display: inline;
-        }
-    }
+		li {
+			display: inline;
+		}
+	}
 
-    dt {
-        margin-bottom: 0.5em;
-        font-size: 1.1em;
-        color: $saudade-blue-dark;
+	dt {
+		margin-bottom: 0.5em;
+		font-size: 1.1em;
+		color: $saudade-blue-dark;
 
-        span {
-            color: $saudade-blue-light; // #00b3d6;
-        }
-    }
+		span {
+			color: $saudade-blue-light; // #00b3d6;
+		}
+	}
 
-    dd {
-        color: var(--color-dark-grey);
-        @media (max-width: 500px) {
-            margin: 0;
-        }
-    }
+	dd {
+		color: var(--color-dark-grey);
+		@media (max-width: 500px) {
+			margin: 0;
+		}
+	}
 
-    .ezh {
-        //The lowercase letter ezh, in pronounciation
-        font-size: 0.7em;
+	.ezh {
+		//The lowercase letter ezh, in pronounciation
+		font-size: 0.7em;
 
-        span {
-            font-family: 'Times New Roman', Times, serif; // special character outside scope of custom webfonts
-            font-size: 1.3em;
-            vertical-align: -13%; // tweak character placement
-        }
-    }
+		span {
+			font-family: 'Times New Roman', Times, serif; // special character outside scope of custom webfonts
+			font-size: 1.3em;
+			vertical-align: -13%; // tweak character placement
+		}
+	}
 
-    .origin {
-        //Portuguese
-        font-size: 0.5em;
-        font-weight: 300;
-        font-family: var(--font-sans);
+	.origin {
+		//Portuguese
+		font-size: 0.5em;
+		font-weight: 300;
+		font-family: var(--font-sans);
 
-        &::before,
-        &::after {
-            content: '[';
-            font-family: var(--font-serif);
-        }
+		&::before,
+		&::after {
+			content: '[';
+			font-family: var(--font-serif);
+		}
 
-        &::after {
-            content: ']';
-        }
-    }
+		&::after {
+			content: ']';
+		}
+	}
 
-    .part-of-speech {
-        //Noun
-        font-weight: bold;
-        font-style: italic;
-        text-decoration: none;
+	.part-of-speech {
+		//Noun
+		font-weight: bold;
+		font-style: italic;
+		text-decoration: none;
 
-        &[title] {
-            text-decoration: none;
-        }
-    }
+		&[title] {
+			text-decoration: none;
+		}
+	}
 
-    .informal {
-        display: inline-block;
-        font-style: italic;
-        font-size: 0.5em;
-        margin-top: -0.5em;
-    }
+	.informal {
+		display: inline-block;
+		font-style: italic;
+		font-size: 0.5em;
+		margin-top: -0.5em;
+	}
 
-    .see-also {
-        font-style: italic;
-        font-size: 0.7em;
+	.see-also {
+		font-style: italic;
+		font-size: 0.7em;
 
-        & > * {
-            font-variant: small-caps;
-            font-style: normal;
-            font-size: 0.7em;
-            letter-spacing: 0.1rem;
-        }
-    }
+		& > * {
+			font-variant: small-caps;
+			font-style: normal;
+			font-size: 0.7em;
+			letter-spacing: 0.1rem;
+		}
+	}
 }
