@@ -22,13 +22,18 @@
     display: none;
 }
 
+html {
+    // background-image: url(/images/assets/helia-plan-in-progress.svg);
+    // background-size: cover;
+}
+
 // Small captions to images, usually with GPS info
 figcaption {
     display: flex;
     margin: 0.5rem 1rem;
     font-size: 1.2rem;
     font-family: var(--font-mono-display);
-    text-transform: lowercase;
+    text-transform: uppercase;
     color: (--color-light-grey);
     vertical-align: middle;
 

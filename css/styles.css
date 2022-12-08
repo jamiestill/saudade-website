@@ -13,7 +13,7 @@
    VARIABLES
    ========================================================================== */
 /* https://coolors.co */
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,700;1,300&family=Major+Mono+Display&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,700;1,300&family=IBM+Plex+Mono:wght@200&display=swap");
 :root {
   --bg-color: #d9dcd6;
   --bg-secondary-color: #8fe1ef;
@@ -40,22 +40,26 @@
   --font-color: var(--color-text);
   --font-color-inverted: #c9f0f8;
   --font-sans: "zurich-web", "Lato", system-ui,
-  	/* macOS 10.11-10.12 */ -apple-system, "Helvetica Neue", Helvetica,
-  	/* Windows 6+ */ "Segoe UI", /* Android 4+ */ "Roboto",
-  	/* Ubuntu 10.10+ */ "Ubuntu", /* Gnome 3+ */ "Cantarell",
-  	/* KDE Plasma 5+ */ "Noto Sans", /* fallback */ sans-serif,
-  	/* macOS emoji */ "Apple Color Emoji", /* Windows emoji */ "Segoe UI Emoji",
-  	/* Windows emoji */ "Segoe UI Symbol", /* Linux emoji */ "Noto Color Emoji";
+      /* macOS 10.11-10.12 */ -apple-system, "Helvetica Neue", Helvetica,
+      /* Windows 6+ */ "Segoe UI", /* Android 4+ */ "Roboto",
+      /* Ubuntu 10.10+ */ "Ubuntu", /* Gnome 3+ */ "Cantarell",
+      /* KDE Plasma 5+ */ "Noto Sans", /* fallback */ sans-serif,
+      /* macOS emoji */ "Apple Color Emoji",
+      /* Windows emoji */ "Segoe UI Emoji",
+      /* Windows emoji */ "Segoe UI Symbol",
+      /* Linux emoji */ "Noto Color Emoji";
   --font-mono: ui-monospace, /* macOS 10.10+ */ "Menlo",
-  	/* Windows 6+ */ "Consolas", /* Android 4+ */ "Roboto Mono",
-  	/* Ubuntu 10.10+ */ "Ubuntu Monospace", /* KDE Plasma 5+ */ "Noto Mono",
-  	/* KDE Plasma 4+ */ "Oxygen Mono",
-  	/* Linux/OpenOffice fallback */ "Liberation Mono", /* fallback */ monospace,
-  	/* macOS emoji */ "Apple Color Emoji", /* Windows emoji */ "Segoe UI Emoji",
-  	/* Windows emoji */ "Segoe UI Symbol", /* Linux emoji */ "Noto Color Emoji";
+      /* Windows 6+ */ "Consolas", /* Android 4+ */ "Roboto Mono",
+      /* Ubuntu 10.10+ */ "Ubuntu Monospace", /* KDE Plasma 5+ */ "Noto Mono",
+      /* KDE Plasma 4+ */ "Oxygen Mono",
+      /* Linux/OpenOffice fallback */ "Liberation Mono",
+      /* fallback */ monospace, /* macOS emoji */ "Apple Color Emoji",
+      /* Windows emoji */ "Segoe UI Emoji",
+      /* Windows emoji */ "Segoe UI Symbol",
+      /* Linux emoji */ "Noto Color Emoji";
   --font-serif: "Cormorant Garamond", Cambria, Cochin, Georgia, Times,
-  	"Times New Roman", serif; /* Mostly for dictionary definition */
-  --font-mono-display: "Major Mono Display", monospace;
+      "Times New Roman", serif; /* Mostly for dictionary definition */
+  --font-mono-display: "IBM Plex Mono", monospace;
 }
 
 /* ==========================================================================
@@ -171,7 +175,6 @@ abbr[title] {
 
 .font-mono-display, .weather-data {
   font-family: var(--font-mono-display);
-  text-transform: lowercase;
 }
 
 body {
@@ -606,7 +609,7 @@ section {
 }
 
 #lat-long {
-  font-family: "Courier New", Courier, monospace;
+  font-family: var(--font-mono-display);
   padding-top: 1rem;
 }
 #lat-long .location-coordinates {
@@ -653,7 +656,7 @@ figcaption {
   margin: 0.5rem 1rem;
   font-size: 1.2rem;
   font-family: var(--font-mono-display);
-  text-transform: lowercase;
+  text-transform: uppercase;
   color: --color-light-grey;
   vertical-align: middle;
 }

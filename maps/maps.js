@@ -77,9 +77,9 @@
 
     // dirDegrees is positive, then it's N or E (isLng is false) and S or W ()
     if (dirDegrees > 0) {
-        dir = isLng ? 'E' : 'N'
+        dir = isLng ? 'E' : 'N';
     } else {
-        dir = isLng ? 'W' : 'S'
+        dir = isLng ? 'W' : 'S';
     }
   
     let absDd = Math.abs(dirDegrees),
@@ -88,13 +88,16 @@
         min = (frac * 60) | 0,
         sec = frac * 3600 - min * 60;
     
-    // Round to two decimal places.
-    sec = Math.round(sec * 100) / 100;
-    return deg + "°" + min + dir;
+    // Round to 3 decimal places.
+     sec = Math.round(sec * 100) / 1000;
+
+    // Build string
+    return deg + "° " + min + "' " + sec + '" ' + dir;
  }
 
-// Google Maps API
-const googleMapsAPIKey = 'AIzaSyBk2_7sLHSG1wxB1KhCNRuoSNQlM3GdUwc';
+/*
+ * Reverse Geolocation - Google Maps API
+*/
 
 // Callback function for Google Maps API
 window.getLocation = () => {
@@ -156,6 +159,10 @@ window.getLocation = () => {
     // Error on GeoCoder (https://developers.google.com/maps/documentation/javascript/reference)
     .catch((e) => console.error("Geocoder failed due to " + e));
 }
+
+/*
+ * Mapbox Map Generation
+*/
 
 // Mapbox code (from Mapbox)
 mapboxgl.accessToken =

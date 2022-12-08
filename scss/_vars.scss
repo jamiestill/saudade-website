@@ -24,55 +24,59 @@ $color-link-active: $lime-green;
 $color-link-visited: lighten($color-link, 10%);
 
 :root {
-	// Backgrounds
-	--bg-color: #{$gainsboro};
-	--bg-secondary-color: #{$middle-blue};
-	--bg-masthead: #{$midnight-blue};
+    // Backgrounds
+    --bg-color: #{$gainsboro};
+    --bg-secondary-color: #{$middle-blue};
+    --bg-masthead: #{$midnight-blue};
 
-	// Text colors
-	--color-primary: #{$saudade-blue-light};
-	--color-secondary: #{$saudade-blue-dark};
-	--color-tertiary: #{$blue-munsell};
-	--color-accent: #{$lime-green};
-	--color-text: #{$davys-grey};
-	--color-black: #{$eerie-black};
-	--color-error: #{$imperial-red};
-	--color-success: #{$lime-green};
-	--color-link: #{$color-link};
-	--color-link-hover: #{$color-link-hover};
-	--color-link-active: #{$color-link-active};
-	--color-link-visited: #{$color-link-visited};
+    // Text colors
+    --color-primary: #{$saudade-blue-light};
+    --color-secondary: #{$saudade-blue-dark};
+    --color-tertiary: #{$blue-munsell};
+    --color-accent: #{$lime-green};
+    --color-text: #{$davys-grey};
+    --color-black: #{$eerie-black};
+    --color-error: #{$imperial-red};
+    --color-success: #{$lime-green};
+    --color-link: #{$color-link};
+    --color-link-hover: #{$color-link-hover};
+    --color-link-active: #{$color-link-active};
+    --color-link-visited: #{$color-link-visited};
 
-	--color-middle-blue: #{$middle-blue};
-	--color-light-grey: #{$gainsboro};
-	--color-dark-grey: #{$black-coral};
-	--color-grey: #{$davys-grey};
+    --color-middle-blue: #{$middle-blue};
+    --color-light-grey: #{$gainsboro};
+    --color-dark-grey: #{$black-coral};
+    --color-grey: #{$davys-grey};
 
-	// Layout
-	--page-max-width: 80rem;
-	--grid-gutter: 4rem;
+    // Layout
+    --page-max-width: 80rem;
+    --grid-gutter: 4rem;
 
-	// Typography
-	--font-size: 1.6rem;
-	--font-color: var(--color-text);
-	--font-color-inverted: #{$light-cyan};
-	--font-sans: 'zurich-web', 'Lato', system-ui,
-		/* macOS 10.11-10.12 */ -apple-system, 'Helvetica Neue', Helvetica,
-		/* Windows 6+ */ 'Segoe UI', /* Android 4+ */ 'Roboto',
-		/* Ubuntu 10.10+ */ 'Ubuntu', /* Gnome 3+ */ 'Cantarell',
-		/* KDE Plasma 5+ */ 'Noto Sans', /* fallback */ sans-serif,
-		/* macOS emoji */ 'Apple Color Emoji', /* Windows emoji */ 'Segoe UI Emoji',
-		/* Windows emoji */ 'Segoe UI Symbol', /* Linux emoji */ 'Noto Color Emoji';
-	--font-mono: ui-monospace, /* macOS 10.10+ */ 'Menlo',
-		/* Windows 6+ */ 'Consolas', /* Android 4+ */ 'Roboto Mono',
-		/* Ubuntu 10.10+ */ 'Ubuntu Monospace', /* KDE Plasma 5+ */ 'Noto Mono',
-		/* KDE Plasma 4+ */ 'Oxygen Mono',
-		/* Linux/OpenOffice fallback */ 'Liberation Mono', /* fallback */ monospace,
-		/* macOS emoji */ 'Apple Color Emoji', /* Windows emoji */ 'Segoe UI Emoji',
-		/* Windows emoji */ 'Segoe UI Symbol', /* Linux emoji */ 'Noto Color Emoji';
-	--font-serif: 'Cormorant Garamond', Cambria, Cochin, Georgia, Times,
-		'Times New Roman', serif; /* Mostly for dictionary definition */
-	--font-mono-display: 'Major Mono Display', monospace;
+    // Typography
+    --font-size: 1.6rem;
+    --font-color: var(--color-text);
+    --font-color-inverted: #{$light-cyan};
+    --font-sans: 'zurich-web', 'Lato', system-ui,
+        /* macOS 10.11-10.12 */ -apple-system, 'Helvetica Neue', Helvetica,
+        /* Windows 6+ */ 'Segoe UI', /* Android 4+ */ 'Roboto',
+        /* Ubuntu 10.10+ */ 'Ubuntu', /* Gnome 3+ */ 'Cantarell',
+        /* KDE Plasma 5+ */ 'Noto Sans', /* fallback */ sans-serif,
+        /* macOS emoji */ 'Apple Color Emoji',
+        /* Windows emoji */ 'Segoe UI Emoji',
+        /* Windows emoji */ 'Segoe UI Symbol',
+        /* Linux emoji */ 'Noto Color Emoji';
+    --font-mono: ui-monospace, /* macOS 10.10+ */ 'Menlo',
+        /* Windows 6+ */ 'Consolas', /* Android 4+ */ 'Roboto Mono',
+        /* Ubuntu 10.10+ */ 'Ubuntu Monospace', /* KDE Plasma 5+ */ 'Noto Mono',
+        /* KDE Plasma 4+ */ 'Oxygen Mono',
+        /* Linux/OpenOffice fallback */ 'Liberation Mono',
+        /* fallback */ monospace, /* macOS emoji */ 'Apple Color Emoji',
+        /* Windows emoji */ 'Segoe UI Emoji',
+        /* Windows emoji */ 'Segoe UI Symbol',
+        /* Linux emoji */ 'Noto Color Emoji';
+    --font-serif: 'Cormorant Garamond', Cambria, Cochin, Georgia, Times,
+        'Times New Roman', serif; /* Mostly for dictionary definition */
+    --font-mono-display: 'IBM Plex Mono', monospace;
 }
 
 /* ==========================================================================
@@ -83,29 +87,29 @@ $color-link-visited: lighten($color-link, 10%);
     ========================================================================== */
 
 @mixin for-size($size) {
-	@if $size == phone {
-		@media screen and (max-width: 699px) {
-			@content;
-		}
-	} @else if $size == tablet-portrait-up {
-		@media screen and (min-width: 799px) {
-			@content;
-		}
-	} @else if $size == tablet-landscape-up {
-		@media screen and (min-width: 900px) {
-			@content;
-		}
-	} @else if $size == desktop-up {
-		@media screen and (min-width: 1200px) {
-			@content;
-		}
-	} @else if $size == big-desktop-up {
-		@media screen and (min-width: 1800px) {
-			@content;
-		}
-	} @else {
-		@media screen and (min-width: $size) {
-			@content;
-		}
-	}
+    @if $size == phone {
+        @media screen and (max-width: 699px) {
+            @content;
+        }
+    } @else if $size == tablet-portrait-up {
+        @media screen and (min-width: 799px) {
+            @content;
+        }
+    } @else if $size == tablet-landscape-up {
+        @media screen and (min-width: 900px) {
+            @content;
+        }
+    } @else if $size == desktop-up {
+        @media screen and (min-width: 1200px) {
+            @content;
+        }
+    } @else if $size == big-desktop-up {
+        @media screen and (min-width: 1800px) {
+            @content;
+        }
+    } @else {
+        @media screen and (min-width: $size) {
+            @content;
+        }
+    }
 }

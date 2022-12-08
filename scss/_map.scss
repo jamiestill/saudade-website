@@ -2,71 +2,71 @@
    LOCATION MAP AND MAPBOX
    ========================================================================== */
 #location {
-	hyphens: none; // hyphens do funny things to wx data
+    hyphens: none; // hyphens do funny things to wx data
 }
 #map {
-	width: 100%;
-	height: 30vh;
-	min-height: 25rem;
-	margin: 0 auto;
-	border: 10px solid var(--color-light-grey);
-	border-radius: 1rem;
+    width: 100%;
+    height: 30vh;
+    min-height: 25rem;
+    margin: 0 auto;
+    border: 10px solid var(--color-light-grey);
+    border-radius: 1rem;
 
-	// Tweak the attribution for readability
-	.mapboxgl-ctrl.mapboxgl-ctrl-attrib {
-		background-color: rgb(255 255 255/10%);
+    // Tweak the attribution for readability
+    .mapboxgl-ctrl.mapboxgl-ctrl-attrib {
+        background-color: rgb(255 255 255/10%);
 
-		.mapboxgl-ctrl-attrib-inner {
-			font-size: 0.9rem;
-		}
-	}
+        .mapboxgl-ctrl-attrib-inner {
+            font-size: 0.9rem;
+        }
+    }
 }
 
 #lat-long {
-	font-family: 'Courier New', Courier, monospace;
-	@extend .separator;
-	padding-top: 1rem;
+    font-family: var(--font-mono-display);
+    @extend .separator;
+    padding-top: 1rem;
 
-	.location-coordinates {
-		margin-top: 1rem;
-	}
+    .location-coordinates {
+        margin-top: 1rem;
+    }
 
-	@media screen and (min-width: 900px) {
-		.location-data-block {
-			display: flex;
-		}
+    @media screen and (min-width: 900px) {
+        .location-data-block {
+            display: flex;
+        }
 
-		.location-address {
-			flex: 1;
-			margin-top: 0;
-		}
+        .location-address {
+            flex: 1;
+            margin-top: 0;
+        }
 
-		.location-coordinates {
-			text-align: right;
-			margin: 0 0 1rem 2rem;
-		}
-	}
+        .location-coordinates {
+            text-align: right;
+            margin: 0 0 1rem 2rem;
+        }
+    }
 }
 
 a.mapboxgl-ctrl-logo {
-	// The mapbox logo
-	@extend .link-no-underline;
+    // The mapbox logo
+    @extend .link-no-underline;
 }
 
 /* Weather widget
    ========================================================================== */
 .weather-data {
-	padding-left: 2rem;
-	font-size: 1.5rem;
-	@extend .font-mono-display;
+    padding-left: 2rem;
+    font-size: 1.5rem;
+    @extend .font-mono-display;
 }
 
 .observed-time {
-	display: block;
-	font-size: 1rem;
-	color: var(--color-grey);
+    display: block;
+    font-size: 1rem;
+    color: var(--color-grey);
 
-	@media screen and (min-width: 900px) {
-		text-align: right;
-	}
+    @media screen and (min-width: 900px) {
+        text-align: right;
+    }
 }
