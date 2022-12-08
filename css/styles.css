@@ -450,7 +450,15 @@ section {
   background: linear-gradient(135deg, rgb(225, 251, 251) 0%, rgb(255, 255, 255) 29%);
 }
 #hero .logo {
-  height: 7rem;
+  margin: 6rem auto;
+  height: 6rem;
+}
+@media screen and (min-width: 799px) {
+  #hero .logo {
+    margin: 0 0 10rem 0;
+    padding-top: 2rem;
+    height: 8rem;
+  }
 }
 @media screen and (min-width: 799px) {
   #hero .image-panel-content-container {
@@ -643,12 +651,13 @@ figcaption {
 @media screen and (max-width: 899px) and (min-width: 600px) {
   figcaption {
     display: block;
+    width: 100%;
   }
 }
-.image-panel figcaption {
-  margin-top: 0;
-}
 @media screen and (min-width: 900px) {
+  .image-panel figcaption {
+    margin-top: 0;
+  }
   figcaption .description {
     flex: 1;
   }

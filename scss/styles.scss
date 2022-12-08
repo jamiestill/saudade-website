@@ -34,13 +34,14 @@ figcaption {
 
 	@media screen and (max-width: 899px) and (min-width: 600px) {
 		display: block;
-	}
-
-	.image-panel & {
-		margin-top: 0; // reset for the following psuedo elements
+		width: 100%;
 	}
 
 	@media screen and (min-width: 900px) {
+		.image-panel & {
+			margin-top: 0; // reset for the following psuedo elements
+		}
+
 		.description {
 			&:after {
 				content: ' ►';
