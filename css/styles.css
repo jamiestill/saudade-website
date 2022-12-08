@@ -397,7 +397,7 @@ section {
   min-width: 40rem;
   padding-bottom: 4rem;
 }
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 799px) {
   .image-panel {
     display: flex;
   }
@@ -452,7 +452,7 @@ section {
 #hero .logo {
   height: 7rem;
 }
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 799px) {
   #hero .image-panel-content-container {
     align-self: flex-end;
   }
@@ -475,7 +475,7 @@ section {
       -ms-hyphens: none;
           hyphens: none;
 }
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 799px) {
   .dictionary-definition {
     margin-bottom: 1rem;
     font-size: 3rem;
