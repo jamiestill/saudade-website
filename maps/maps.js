@@ -138,8 +138,10 @@ window.getLocation = () => {
 
 
         // Create Google search based on this address
-        addressElement = `<div class="location-address"><a href="https://www.google.com/search?q=${addressString}"
-        target="_blank" rel="noopener noreferrer">${addressString}</a></div>`;
+        addressElement = `<h3>Current location</h3><div class="location-data-block">
+            <div class="location-address">
+                <a href="https://www.google.com/search?q=${addressString}" target="_blank" rel="noopener noreferrer">${addressString}</a>
+            </div>`;
 
         // Insert the GPS coordinates
         addressElement += `<div class="location-coordinates">${createGoogleEarthLink(addressCoordsRaw, false, addressCoords)}</div>`;

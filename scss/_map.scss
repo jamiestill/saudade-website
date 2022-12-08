@@ -24,9 +24,12 @@
 
 #lat-long {
 	font-family: 'Courier New', Courier, monospace;
-	display: flex;
 	@extend .separator;
 	padding-top: 1rem;
+
+	.location-data-block {
+		display: flex;
+	}
 
 	.location-address {
 		flex: 1;

@@ -555,8 +555,10 @@ section {
 
 #lat-long {
   font-family: "Courier New", Courier, monospace;
-  display: flex;
   padding-top: 1rem;
+}
+#lat-long .location-data-block {
+  display: flex;
 }
 #lat-long .location-address {
   flex: 1;
