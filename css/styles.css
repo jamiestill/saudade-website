@@ -12,6 +12,7 @@
    VARIABLES
    ========================================================================== */
 /* https://coolors.co */
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,700;1,300&family=Major+Mono+Display&display=swap");
 :root {
   --bg-color: #d9dcd6;
   --bg-secondary-color: #8fe1ef;
@@ -30,33 +31,29 @@
   --color-link-visited: #0042ba;
   --color-middle-blue: #8fe1ef;
   --color-light-grey: #d9dcd6;
-  --color-grey: #4b5b68;
-  --color-dark-grey: #474a4d;
+  --color-dark-grey: #4b5b68;
+  --color-grey: #474a4d;
   --page-max-width: 80rem;
   --grid-gutter: 4rem;
   --font-size: 1.6rem;
   --font-color: var(--color-text);
   --font-color-inverted: #c9f0f8;
   --font-sans: "zurich-web", "Lato", system-ui,
-      /* macOS 10.11-10.12 */ -apple-system, "Helvetica Neue", Helvetica,
-      /* Windows 6+ */ "Segoe UI", /* Android 4+ */ "Roboto",
-      /* Ubuntu 10.10+ */ "Ubuntu", /* Gnome 3+ */ "Cantarell",
-      /* KDE Plasma 5+ */ "Noto Sans", /* fallback */ sans-serif,
-      /* macOS emoji */ "Apple Color Emoji",
-      /* Windows emoji */ "Segoe UI Emoji",
-      /* Windows emoji */ "Segoe UI Symbol",
-      /* Linux emoji */ "Noto Color Emoji";
+  	/* macOS 10.11-10.12 */ -apple-system, "Helvetica Neue", Helvetica,
+  	/* Windows 6+ */ "Segoe UI", /* Android 4+ */ "Roboto",
+  	/* Ubuntu 10.10+ */ "Ubuntu", /* Gnome 3+ */ "Cantarell",
+  	/* KDE Plasma 5+ */ "Noto Sans", /* fallback */ sans-serif,
+  	/* macOS emoji */ "Apple Color Emoji", /* Windows emoji */ "Segoe UI Emoji",
+  	/* Windows emoji */ "Segoe UI Symbol", /* Linux emoji */ "Noto Color Emoji";
   --font-mono: ui-monospace, /* macOS 10.10+ */ "Menlo",
-      /* Windows 6+ */ "Consolas", /* Android 4+ */ "Roboto Mono",
-      /* Ubuntu 10.10+ */ "Ubuntu Monospace", /* KDE Plasma 5+ */ "Noto Mono",
-      /* KDE Plasma 4+ */ "Oxygen Mono",
-      /* Linux/OpenOffice fallback */ "Liberation Mono",
-      /* fallback */ monospace, /* macOS emoji */ "Apple Color Emoji",
-      /* Windows emoji */ "Segoe UI Emoji",
-      /* Windows emoji */ "Segoe UI Symbol",
-      /* Linux emoji */ "Noto Color Emoji";
+  	/* Windows 6+ */ "Consolas", /* Android 4+ */ "Roboto Mono",
+  	/* Ubuntu 10.10+ */ "Ubuntu Monospace", /* KDE Plasma 5+ */ "Noto Mono",
+  	/* KDE Plasma 4+ */ "Oxygen Mono",
+  	/* Linux/OpenOffice fallback */ "Liberation Mono", /* fallback */ monospace,
+  	/* macOS emoji */ "Apple Color Emoji", /* Windows emoji */ "Segoe UI Emoji",
+  	/* Windows emoji */ "Segoe UI Symbol", /* Linux emoji */ "Noto Color Emoji";
   --font-serif: "Cormorant Garamond", Cambria, Cochin, Georgia, Times,
-      "Times New Roman", serif; /* Mostly for dictionary definition */
+  	"Times New Roman", serif; /* Mostly for dictionary definition */
 }
 
 /* ==========================================================================
@@ -102,6 +99,10 @@ select {
   font: inherit;
 }
 
+figure {
+  margin: 0;
+}
+
 fieldset {
   border: 1px solid var(--color-lightGrey);
 }
@@ -133,7 +134,7 @@ abbr[title] {
    ========================================================================== */
 @font-face {
   font-family: "zurich-web";
-  src: url("/fonts/ZurichWeb-Regular.woff2") format("woff2"), url("/fonts/ZurichWeb-Regular.woff.woff") format("woff");
+  src: url("/fonts/ZurichWeb-Regular.woff2") format("woff2"), url("/fonts/ZurichWeb-Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -629,6 +630,24 @@ section {
 
 #masthead {
   display: none;
+}
+
+figcaption.gps {
+  display: flex;
+  margin: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-family: "Major Mono Display", monospace;
+  text-transform: lowercase;
+  color: --var--color-grey;
+}
+figcaption.gps .description {
+  flex: 1;
+}
+figcaption.gps .description:before {
+  content: "(";
+}
+figcaption.gps .description:after {
+  content: ")";
 }
 
 .card {
