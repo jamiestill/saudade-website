@@ -466,6 +466,8 @@ section {
 #hero dl {
   padding-top: 3rem;
   border-top: 1px solid #def5ff;
+  -o-border-image: linear-gradient(90deg, #fff, #abe6ff, #fff) 1;
+     border-image: linear-gradient(90deg, #fff, #abe6ff, #fff) 1;
 }
 @media screen and (min-width: 799px) {
   #hero dl {
@@ -611,6 +613,9 @@ section {
 #lat-long {
   font-family: var(--font-mono-display);
   padding-top: 1rem;
+}
+#lat-long .location-address {
+  font-size: 1.2rem;
 }
 #lat-long .location-coordinates {
   margin-top: 1rem;

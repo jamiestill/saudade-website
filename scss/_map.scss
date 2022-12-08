@@ -27,6 +27,10 @@
     @extend .separator;
     padding-top: 1rem;
 
+    .location-address {
+        font-size: 1.2rem;
+    }
+
     .location-coordinates {
         margin-top: 1rem;
     }
