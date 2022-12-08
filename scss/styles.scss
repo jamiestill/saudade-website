@@ -19,59 +19,59 @@
 @import 'map';
 
 #masthead {
-	display: none;
+    display: none;
 }
 
-// Small captions to images containing the EXIF location
+// Small captions to images, usually with GPS info
 figcaption {
-	display: flex;
-	margin: 0.5rem 1rem;
-	font-size: 0.9rem;
-	font-family: var(--font-mono-display);
-	text-transform: lowercase;
-	color: (--color-light-grey);
-	vertical-align: middle;
+    display: flex;
+    margin: 0.5rem 1rem;
+    font-size: 1.2rem;
+    font-family: var(--font-mono-display);
+    text-transform: lowercase;
+    color: (--color-light-grey);
+    vertical-align: middle;
 
-	@media screen and (max-width: 899px) and (min-width: 600px) {
-		display: block;
-		width: 100%;
-	}
+    @media screen and (max-width: 899px) and (min-width: 600px) {
+        display: block;
+        width: 100%;
+    }
 
-	@media screen and (min-width: 900px) {
-		.image-panel & {
-			margin-top: 0; // reset for the following psuedo elements
-		}
+    @media screen and (min-width: 1000px) {
+        .image-panel & {
+            margin-top: 0; // reset for the following psuedo elements
+        }
 
-		.description {
-			&:after {
-				content: ' ►';
-				font-size: 1.3rem;
-			}
-			flex: 1;
-		}
+        .description {
+            &:after {
+                content: ' ►';
+                font-size: 1.3rem;
+            }
+            flex: 1;
+        }
 
-		.lat-long {
-			&:before {
-				content: '◎';
-				font-size: 1.3rem;
-			}
-		}
-	}
+        .lat-long {
+            &:before {
+                content: '◎';
+                font-size: 1.3rem;
+            }
+        }
+    }
 }
 
 // For test page
 .card {
-	margin: 2rem;
-	padding: 2rem;
-	background-color: var(--bg-color);
-	border-left: 1rem solid var(--color-grey);
-	border-radius: 1rem;
+    margin: 2rem;
+    padding: 2rem;
+    background-color: var(--bg-color);
+    border-left: 1rem solid var(--color-grey);
+    border-radius: 1rem;
 }
 
 #test-colors {
-	li span {
-		display: block;
-		width: 5rem;
-		border-radius: 10px;
-	}
+    li span {
+        display: block;
+        width: 5rem;
+        border-radius: 10px;
+    }
 }
