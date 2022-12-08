@@ -25,6 +25,7 @@
     dl {
         padding-top: 3rem;
         border-top: 1px solid lighten($saudade-blue-light, 30%);
+        border-image: linear-gradient(90deg, #fff, lighten($saudade-blue-light, 20%), #fff) 1;
 
         @include for-size(tablet-portrait-up) {
             border: none;
