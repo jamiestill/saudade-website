@@ -27,17 +27,24 @@
 	@extend .separator;
 	padding-top: 1rem;
 
-	.location-data-block {
-		display: flex;
-	}
-
-	.location-address {
-		flex: 1;
-	}
-
 	.location-coordinates {
-		text-align: right;
-		margin-left: 2rem;
+		margin-top: 1rem;
+	}
+
+	@media screen and (min-width: 900px) {
+		.location-data-block {
+			display: flex;
+		}
+
+		.location-address {
+			flex: 1;
+			margin-top: 0;
+		}
+
+		.location-coordinates {
+			text-align: right;
+			margin: 0 0 1rem 2rem;
+		}
 	}
 }
 
@@ -56,7 +63,10 @@ a.mapboxgl-ctrl-logo {
 
 .observed-time {
 	display: block;
-	text-align: right;
 	font-size: 1rem;
 	color: var(--color-grey);
+
+	@media screen and (min-width: 900px) {
+		text-align: right;
+	}
 }

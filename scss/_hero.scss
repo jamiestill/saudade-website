@@ -3,8 +3,7 @@
    ========================================================================== */
 
 #hero {
-	margin-top: 0;
-	padding-top: 2rem;
+	margin-top: 0; // Flush with top, unlike other sections
 	background: rgb(225, 251, 251);
 	background: linear-gradient(
 		135deg,
@@ -16,17 +15,17 @@
 		height: 7rem;
 	}
 
-	// following section to be flush with the hero
-	& + section {
-		// margin-top: 0;
-
+	@include for-size(tablet-portrait-up) {
 		.image-panel-content-container {
-			// padding-top: 2rem; // make up for the lost margin above
-			// padding-bottom: 2rem; // make up for the lost margin above
+			align-self: flex-end;
+		}
+
+		.image-panel-img-container {
+			height: 100vh; // Leave a bit so the user knows to scroll
 		}
 	}
+}
 
-	@media screen and (min-width: 700px) {
-		height: 98vh; // Leave a bit so the user knows to scroll
-	}
+#about-saudade {
+	margin: 5rem 0;
 }

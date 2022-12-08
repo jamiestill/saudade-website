@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* 
 
 
@@ -239,7 +240,7 @@ h4 {
   font-size: 2rem;
 }
 
-@media (max-width: 599px) {
+@media screen and (min-width: phone-only) {
   h1 {
     font-size: 3.8rem;
   }
@@ -367,28 +368,57 @@ footer a:hover {
 /* ==========================================================================
    LAYOUT
    ========================================================================== */
-section {
-  margin: 2rem 0 6rem;
+body,
+main {
+  display: flex;
+  flex-direction: column;
 }
 
-.inside, .image-panel-content-container {
+main {
+  flex: 1;
+}
+
+section {
+  margin: 1rem 0;
+  flex: 1;
+}
+
+.inside, .image-panel .image-panel-content-container {
+  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
-  max-width: 800px;
   padding: 0 4rem;
 }
 
 /* Image panels
     panel with side-by-side columns with a hero image and blocks of text
    ========================================================================== */
-.image-panel-content-container {
-  margin: 2rem 0 5rem;
+.image-panel .image-panel-content-container {
+  min-width: 40rem;
+  padding-bottom: 4rem;
 }
-
-.image-panel-img-container img {
+@media screen and (min-width: 600px) {
+  .image-panel {
+    display: flex;
+  }
+  .image-panel.left-img .image-panel-img-container {
+    order: -1;
+  }
+}
+.image-panel .image-panel-content-container {
+  max-width: 50rem;
+  align-self: center;
+}
+.image-panel .image-panel-img-container {
+  flex: 1;
+}
+.image-panel .image-panel-img-container img {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+.image-panel .image-panel-img-container img {
+  height: 100%;
 }
 
 /* ==========================================================================
@@ -416,17 +446,23 @@ section {
    ========================================================================== */
 #hero {
   margin-top: 0;
-  padding-top: 2rem;
   background: rgb(225, 251, 251);
   background: linear-gradient(135deg, rgb(225, 251, 251) 0%, rgb(255, 255, 255) 29%);
 }
 #hero .logo {
   height: 7rem;
 }
-@media screen and (min-width: 700px) {
-  #hero {
-    height: 98vh;
+@media screen and (min-width: 600px) {
+  #hero .image-panel-content-container {
+    align-self: flex-end;
   }
+  #hero .image-panel-img-container {
+    height: 100vh;
+  }
+}
+
+#about-saudade {
+  margin: 5rem 0;
 }
 
 /* ==========================================================================
@@ -439,11 +475,10 @@ section {
       -ms-hyphens: none;
           hyphens: none;
 }
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 600px) {
   .dictionary-definition {
-    align-self: flex-end;
-    padding-bottom: 0;
-    font-size: 3.2rem;
+    margin-bottom: 1rem;
+    font-size: 3rem;
   }
   .dictionary-definition dl {
     margin-right: 4em;
@@ -525,7 +560,7 @@ section {
 .dictionary-definition .see-also > * {
   font-variant: small-caps;
   font-style: normal;
-  font-size: 0.7em;
+  font-size: 0.9em;
   letter-spacing: 0.1rem;
 }
 
@@ -557,15 +592,21 @@ section {
   font-family: "Courier New", Courier, monospace;
   padding-top: 1rem;
 }
-#lat-long .location-data-block {
-  display: flex;
-}
-#lat-long .location-address {
-  flex: 1;
-}
 #lat-long .location-coordinates {
-  text-align: right;
-  margin-left: 2rem;
+  margin-top: 1rem;
+}
+@media screen and (min-width: 900px) {
+  #lat-long .location-data-block {
+    display: flex;
+  }
+  #lat-long .location-address {
+    flex: 1;
+    margin-top: 0;
+  }
+  #lat-long .location-coordinates {
+    text-align: right;
+    margin: 0 0 1rem 2rem;
+  }
 }
 
 /* Weather widget
@@ -577,9 +618,13 @@ section {
 
 .observed-time {
   display: block;
-  text-align: right;
   font-size: 1rem;
   color: var(--color-grey);
+}
+@media screen and (min-width: 900px) {
+  .observed-time {
+    text-align: right;
+  }
 }
 
 #masthead {
@@ -592,16 +637,27 @@ figcaption {
   font-size: 0.9rem;
   font-family: var(--font-mono-display);
   text-transform: lowercase;
-  color: --var--color-grey;
+  color: --color-light-grey;
+  vertical-align: middle;
+}
+@media screen and (max-width: 900px) and (min-width: 600px) {
+  figcaption {
+    display: block;
+  }
+}
+.image-panel figcaption {
+  margin-top: 0;
 }
 figcaption .description {
   flex: 1;
 }
-figcaption .description:before {
-  content: "(";
-}
 figcaption .description:after {
-  content: ")";
+  content: " ►";
+  font-size: 1.3rem;
+}
+figcaption .lat-long:before {
+  content: "◎";
+  font-size: 1.3rem;
 }
 
 .card {

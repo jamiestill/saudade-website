@@ -3,38 +3,29 @@
    ========================================================================== */
 
 $content-max-width: 800px; // The reading content shall not exceed this value.
+$padding-image-panel-content: 4rem;
 
 body,
 main {
-	// display: flex;
-	// flex-direction: column;
-}
-
-body {
-	& > footer {
-		// width: 100%;
-		// max-width: $content-max-width;
-		// align-self: center;
-	}
+	display: flex;
+	flex-direction: column;
 }
 
 main {
-	// flex: 1;
+	flex: 1;
 }
 
 section {
-	margin: 2rem 0 6rem;
-	// TODO: fix this so some items can extend the width of the page
-	// align-self: center; // align sections to the middle of the viewport
-	// width: 100%;
+	margin: 1rem 0; // flex margins don't collapse
+	flex: 1;
 }
 
 .inside {
 	// For portions that shall not extend the full page width (content sections)
+	max-width: $content-max-width;
 	margin-left: auto;
 	margin-right: auto;
-	max-width: $content-max-width;
-	padding: 0 4rem;
+	padding: 0 $padding-image-panel-content;
 }
 
 /* Image panels
@@ -42,46 +33,35 @@ section {
    ========================================================================== */
 
 .image-panel {
-	// display: flex;
-	// max-width: 100%;
-
-	// @media screen and (max-width: 700px) {
-	// 	flex-direction: column;
-	// 	height: auto;
-	// }
-
-	// &.left-img .image-panel-img-container {
-	// 	order: -1; // use order to move the image to the left
-
-	// 	@media screen and (max-width: 699px) {
-	// 		align-self: center;
-	// 		order: 0; // revert it to natural order in small screens
-	// 	}
-	// }
-}
-
-.image-panel-content-container {
-	// max-width: 50rem;
-	// align-self: center;
-	margin: 2rem 0 5rem;
-	@extend .inside;
-}
-
-.image-panel-img-container {
-	// @extend .inside;
-
-	img {
-		width: 100%;
-		object-fit: cover;
+	.image-panel-content-container {
+		min-width: 40rem;
+		padding-bottom: $padding-image-panel-content;
+		@extend .inside;
 	}
-}
 
-@media screen and (min-width: 700px) {
-	// .image-panel-img-container {
-	// 	flex: 1;
+	@include for-size(tablet-portrait-up) {
+		display: flex;
 
-	// 	img {
-	// 		height: 100%;
-	// 	}
-	// }
+		&.left-img .image-panel-img-container {
+			order: -1; // use order to move the image to the left
+		}
+	}
+
+	.image-panel-content-container {
+		max-width: 50rem;
+		align-self: center;
+	}
+
+	.image-panel-img-container {
+		flex: 1;
+
+		img {
+			width: 100%;
+			object-fit: cover;
+		}
+
+		img {
+			height: 100%;
+		}
+	}
 }

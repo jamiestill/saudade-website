@@ -29,17 +29,29 @@ figcaption {
 	font-size: 0.9rem;
 	font-family: var(--font-mono-display);
 	text-transform: lowercase;
-	color: (--var--color-grey);
+	color: (--color-light-grey);
+	vertical-align: middle;
+
+	@media screen and (max-width: 900px) and (min-width: 600px) {
+		display: block;
+	}
+
+	.image-panel & {
+		margin-top: 0; // reset for the following psuedo elements
+	}
 
 	.description {
-		flex: 1;
-
-		&:before {
-			content: '(';
-		}
-
 		&:after {
-			content: ')';
+			content: ' ►';
+			font-size: 1.3rem;
+		}
+		flex: 1;
+	}
+
+	.lat-long {
+		&:before {
+			content: '◎';
+			font-size: 1.3rem;
 		}
 	}
 }

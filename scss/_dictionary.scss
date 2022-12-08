@@ -7,10 +7,9 @@
 	color: var(--color-black);
 	hyphens: none;
 
-	@media screen and (min-width: 700px) {
-		align-self: flex-end;
-		padding-bottom: 0; // ensure this goes to the bottom of the panel
-		font-size: 3.2rem;
+	@include for-size(tablet-portrait-up) {
+		margin-bottom: 1rem;
+		font-size: 3rem;
 
 		dl {
 			margin-right: 4em;
@@ -112,7 +111,7 @@
 		& > * {
 			font-variant: small-caps;
 			font-style: normal;
-			font-size: 0.7em;
+			font-size: 0.9em;
 			letter-spacing: 0.1rem;
 		}
 	}

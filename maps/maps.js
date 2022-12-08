@@ -23,8 +23,8 @@
 // routeCoords[routeCoords.length - 1][0] = -63.774391;
 
 // Petit Tebac
-routeCoords[routeCoords.length - 1][1] =  12.624667;
-routeCoords[routeCoords.length - 1][0] = -61.348706;
+// routeCoords[routeCoords.length - 1][1] =  12.624667;
+// routeCoords[routeCoords.length - 1][0] = -61.348706;
 
 // Outer Key West
 // routeCoords[routeCoords.length - 1][1] =  24.566693;
@@ -33,6 +33,10 @@ routeCoords[routeCoords.length - 1][0] = -61.348706;
 // Syndey, Austrailia
 // routeCoords[routeCoords.length - 1][1] = -33.852801;
 // routeCoords[routeCoords.length - 1][0] = 151.226281;
+
+// Failure
+// routeCoords[routeCoords.length - 1][1] = false;
+// routeCoords[routeCoords.length - 1][0] = "";
 
 
 // ========= END TESTING
@@ -319,12 +323,11 @@ const populateWeatherElement = (data) => {
 
     const locationElement = document.createElement('section')
     locationElement.innerHTML = `
-        <h4>Current weather at <i>Saudade</i>'s location</h4>
+        <h4>Weather conditions at <i>Saudade</i>'s location</h4>
         <p class="weather-data">${wxTimeStamp}${wxLocation}${wxDescription}${wxTemp}${wxWindSpeed}${wxVisibility}.</p>`;
 
     mapContainer.appendChild(locationElement);
 };
-
 
 // Where to insert WX into the DOM
 let mapContainer = document.querySelector('#location .inside');
@@ -341,3 +344,17 @@ if (mapContainer) {
         // Error on Weather API (https://openweathermap.org/api/one-call-3)
         .catch((e) => console.error("Weather API failed due to " + e));
 };
+
+/*
+ * Insert Google Earth links for figcaptions with GPS coordinates
+ */
+
+// Get the figcaptions
+let figcaptions = document.querySelectorAll('figcaption .lat-long');
+if (figcaptions) {
+
+    figcaptions.forEach(figcaption => { 
+        figcaption.innerHTML = createGoogleEarthLink(figcaption.innerText, "Where on earth was this photo taken?");
+        }
+    );
+}
