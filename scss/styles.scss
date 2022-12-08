@@ -23,11 +23,11 @@
 }
 
 // Small captions to images containing the EXIF location
-figcaption.gps {
+figcaption {
 	display: flex;
 	margin: 0.5rem 1rem;
 	font-size: 0.9rem;
-	font-family: 'Major Mono Display', monospace;
+	font-family: var(--font-mono-display);
 	text-transform: lowercase;
 	color: (--var--color-grey);
 

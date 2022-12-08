@@ -1,3 +1,156 @@
+/*
+ * ========= FOR TESTING -- comment out pairs to test
+*/
+
+// Chesapeake
+// routeCoords[routeCoords.length - 1][1] = 37.383542;
+// routeCoords[routeCoords.length - 1][0] = -76.338328;
+
+// Middle of bahamas
+// routeCoords[routeCoords.length - 1][1]=  24.220169;
+// routeCoords[routeCoords.length - 1][0] = -76.099677;
+
+// Just off Cnception Island
+// routeCoords[routeCoords.length - 1][1] =  23.848841;
+// routeCoords[routeCoords.length - 1][0] = -75.119233;
+
+// 41 Federal
+// routeCoords[routeCoords.length - 1][1] =  37.783684;
+// routeCoords[routeCoords.length - 1][0] = -122.391600;
+
+// Middle of ocean
+// routeCoords[routeCoords.length - 1][1] =  33.455050;
+// routeCoords[routeCoords.length - 1][0] = -63.774391;
+
+// Petit Tebac
+routeCoords[routeCoords.length - 1][1] =  12.624667;
+routeCoords[routeCoords.length - 1][0] = -61.348706;
+
+// Outer Key West
+// routeCoords[routeCoords.length - 1][1] =  24.566693;
+// routeCoords[routeCoords.length - 1][0] = -81.816359;
+
+// Syndey, Austrailia
+// routeCoords[routeCoords.length - 1][1] = -33.852801;
+// routeCoords[routeCoords.length - 1][0] = 151.226281;
+
+
+// ========= END TESTING
+
+/**
+ * Create a Google Earth link in a new tab/window with passed ccordinates
+ * @param {String} latLong - the coordiates that will go as the Google Earth query
+ * @param {string} linkTitle - An optional <a> title
+ * @param {string} linkText - Link text
+ */
+ const createGoogleEarthLink = (latLong, linkTitle, linkText) => {
+    
+    if (!latLong ) {
+        console.error('No lat long');
+        return false;
+    } 
+
+    if (!linkTitle) linkTitle = "Where on earth is this?";
+    if (!linkText) linkText = latLong;
+
+    // Build Google Earth link
+    let googleEarthLink = "https://earth.google.com/web/search/" + encodeURI(latLong);
+    
+    return `<a href="${googleEarthLink}" 
+            target="_blank" rel="noopener noreferrer"
+            title="${linkTitle}">
+                ${linkText}
+            </a>`;
+}
+
+/**
+ * Convert a decimal degree direction to DMS
+ * @param {Number} dirDegrees - the coordinate
+ * @param {Boolean} isLng - is longitude? (W/E vs N/E)
+ */
+ const convertToDms = (dirDegrees, isLng) => {
+    let dir;
+
+    // dirDegrees is positive, then it's N or E (isLng is false) and S or W ()
+    if (dirDegrees > 0) {
+        dir = isLng ? 'E' : 'N'
+    } else {
+        dir = isLng ? 'W' : 'S'
+    }
+  
+    let absDd = Math.abs(dirDegrees),
+        deg = absDd | 0,
+        frac = absDd - deg,
+        min = (frac * 60) | 0,
+        sec = frac * 3600 - min * 60;
+    
+    // Round to two decimal places.
+    sec = Math.round(sec * 100) / 100;
+    return deg + "°" + min + dir;
+ }
+
+// Google Maps API
+const googleMapsAPIKey = 'AIzaSyBk2_7sLHSG1wxB1KhCNRuoSNQlM3GdUwc';
+
+// Callback function for Google Maps API
+window.getLocation = () => {
+    const geocoder = new google.maps.Geocoder();
+
+    const latLong = {
+        lat: routeCoords[routeCoords.length - 1][1],
+        lng: routeCoords[routeCoords.length - 1][0]
+    }
+
+    geocoder.geocode({
+        location: latLong
+    }).then((response) => {
+        let addressString = ""; // prevent 'undefined'
+        let addressElement, addressCoordsRaw, addressCoords;
+        const addyComponents = response.results[0].address_components;
+
+        // Build an address if possible, based on what Google has available
+        if (addyComponents[1]) {
+            addressString += addyComponents[1].short_name;
+        }
+
+        if (addyComponents[2]) {
+            addressString += ", " + addyComponents[2].short_name;
+        }
+
+        if (addyComponents[3]) {
+            addressString += ", " + addyComponents[3].long_name;
+        }
+
+        if (addyComponents[4]) {
+            addressString += ", " + addyComponents[4].short_name;
+        }
+
+        if (addyComponents[5]) {
+            addressString += ", " + addyComponents[5].long_name;
+        }
+
+        addressCoordsRaw = routeCoords[routeCoords.length - 1][1] + "," +routeCoords[routeCoords.length - 1][0];
+
+        // GPS Coords
+        addressCoords = `
+            ${convertToDms(routeCoords[routeCoords.length - 1][1], false)},
+            ${convertToDms(routeCoords[routeCoords.length - 1][0], true)}`
+
+
+        // Create Google search based on this address
+        addressElement = `<div class="location-address"><a href="https://www.google.com/search?q=${addressString}"
+        target="_blank" rel="noopener noreferrer">${addressString}</a></div>`;
+
+        // Insert the GPS coordinates
+        addressElement += `<div class="location-coordinates">${createGoogleEarthLink(addressCoordsRaw, false, addressCoords)}</div>`;
+
+        // Insert text into addressEl then into the DOM
+        document.getElementById('lat-long').innerHTML = addressElement;
+    })
+    // Error on GeoCoder (https://developers.google.com/maps/documentation/javascript/reference)
+    .catch((e) => console.error("Geocoder failed due to " + e));
+}
+
 // Mapbox code (from Mapbox)
 mapboxgl.accessToken =
     'pk.eyJ1IjoiamFtaWVzdGlsbCIsImEiOiJjbGI3YzlhcGEwOWZkM3JydnVibW1vYWJlIn0.s3NyxYxISDf2vRjQz20ycw'
@@ -42,152 +195,53 @@ map.on('load', () => {
     })
 })
 
-// TODO: Clean up
- function convertToDms(dd, isLng) {
-    var dir = dd > 0
-      ? isLng ? 'W' : 'S'
-      : isLng ? 'E' : 'N';
-  
-    var absDd = Math.abs(dd);
-    var deg = absDd | 0;
-    var frac = absDd - deg;
-    var min = (frac * 60) | 0;
-    var sec = frac * 3600 - min * 60;
-    // Round it to 2 decimal points.
-    sec = Math.round(sec * 100) / 100;
-    return deg + "°" + min + dir;
- }
 
-
-// Google Maps API
-const googleMapsAPIKey = 'AIzaSyBk2_7sLHSG1wxB1KhCNRuoSNQlM3GdUwc';
-
-const getLocation = () => {
-    const geocoder = new google.maps.Geocoder();
-
-    const latLong = {
-
-        /*
-        FOR TESTING
-        */
-        
-        //Chesapeake
-        // lat: 37.383542,
-        // lng:  -76.338328
-
-        //middle of bahamas
-        // lat: 24.220169,
-        // lng: -76.099677
-        
-        // Just off Cnception Island
-        // lat: 23.848841, 
-        // lng: -75.119233
-
-        // 41 Federal
-        // lat: 37.783684,
-        // lng: -122.391600
-
-        // Middle of ocean
-        // lat: 33.455050,
-        // lng: -63.774391
-
-        // Array
-        lat: routeCoords[routeCoords.length - 1][1],
-        lng: routeCoords[routeCoords.length - 1][0]
-    }
-
-    geocoder.geocode({
-        location: latLong
-    }).then((response) => {
-
-        let addressString = "";
-        let addyComponents = response.results[0].address_components;
-
-        console.log(response.results[0]);
-
-        // Build an address if possible
-        if (addyComponents[1]) {
-            addressString += addyComponents[1].short_name + ", ";
-        }
-
-        if (addyComponents[2]) {
-            addressString += addyComponents[2].short_name+ ", ";
-        }
-
-        if (addyComponents[3]) {
-            addressString += addyComponents[3].long_name+ ", ";
-        }
-
-        if (addyComponents[4]) {
-            addressString += addyComponents[4].short_name + "&mdash;"
-        }
-
-            addressString += ` ${convertToDms(routeCoords[routeCoords.length - 1][1], true)},
-                ${convertToDms(routeCoords[routeCoords.length - 1][0], false)}`;
-
-        document.getElementById('lat-long').innerHTML = addressString
-    })
-    // Error on GeoCoder (https://developers.google.com/maps/documentation/javascript/reference)
-    .catch((e) => console.error("Geocoder failed due to " + e));
-}
-
-window.getLocation = getLocation;
-
-// Format date 
+/**
+ * Format a date into a human readable timestamp
+ * @param {String} date - the date
+ */
 const dateFormater = (date) => {
+
+    if (!date) {
+        console.error('No date.');
+        return false;
+    }
     const day = date.getDate();
     const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
     const month = date.getMonth();
     const year = date.getFullYear();
     const time = date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
         // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleTimeString
-  
+
     // Build date
     return day + " " + months[month] + " " + year + " " + time;
-  };
+};
 
-    // Format the degree wind direction into secondary intercardinal directions, see https://bit.ly/3iGmhoz
-  const getCardinalDirection = (windAngle) => {
+/**
+ * Format the degree wind direction into secondary intercardinal directions,
+ * see https://bit.ly/3iGmhoz
+ * @param {Number} windAngle - the wind angle, 0 to 360
+ */
+    // 
+const getCardinalDirection = (windAngle) => {
+    
+    if (windAngle > 360) {
+        console.error('Wind angle is greater than 360');
+        return false;
+    }
+
     windAngle = Math.floor((windAngle / 22.5) + 0.5); // 360/16
+
     const intercardinal = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"];
+
     return intercardinal[(windAngle % 16)]; // 16 secondary intercardinal directions sectors of 360 degrees
-  }
-  
+};
 
 // Get weather for current location (based on routes.js, the data store of the routes where Saudade has been)
 const getWeather = () => {
-    // const currentLatLong = routeCoords[routeCoords.length - 1], // Get the last coordinate in the route
-    //     lat = currentLatLong[1], //-48.326144
-    //     long = currentLatLong[0], //12.1691392
-
      const currentLatLong = routeCoords[routeCoords.length - 1], // Get the last coordinate in the route
         lat = currentLatLong[1], 
         lng = currentLatLong[0],
-
-         /*
-        FOR TESTING
-        */
-        
-        //Chesapeake
-        // lat = 37.383542,
-        // lng =  -76.338328
-
-        //middle of bahamas
-        // lat = 24.220169,
-        // lng = -76.099677
-        
-        // Just off Cnception Island
-        // lat = 23.848841, 
-        // lng = -75.119233
-
-        // 41 Federal
-        // lat = 37.783684,
-        // lng = -122.391600
-
-        // Middle of ocean
-        // lat = 33.455050,
-        // lng = -63.774391
-
         apiKey = '438e9bd62501e99a254329223d5494ee';
 
     let apiURL =
@@ -225,7 +279,6 @@ const populateWeatherElement = (data) => {
             (${wxTempC}&deg;<abbr title="centigrade">C</abbr>)</span>`;
     }
 
-
     let wxWindDir = parseInt(data.wind.deg);
     let wxWindSpeed = parseInt(data.wind.speed * 1.15); // 1.15 to convert to knots
     let wxWindGust = parseInt(data.wind.gust * 1.15);
@@ -259,13 +312,13 @@ const populateWeatherElement = (data) => {
 
     if (wxTimeStamp) {
         wxTimeStamp = dateFormater(wxTimeStamp);
-        wxTimeStamp = `<span class="observed-time">(Observed at ${wxTimeStamp})</span>`;
+        wxTimeStamp = `<span class="observed-time">Observed at ${wxTimeStamp}</span>`;
     }
 
     const locationElement = document.createElement('section')
     locationElement.innerHTML = `
         <h4>Current weather at <i>Saudade</i>'s location</h4>
-        <p class="weather-data">${wxLocation}${wxDescription}${wxTemp}${wxWindSpeed}${wxVisibility}.${wxTimeStamp}</p>`;
+        <p class="weather-data">${wxTimeStamp}${wxLocation}${wxDescription}${wxTemp}${wxWindSpeed}${wxVisibility}.</p>`;
 
     mapContainer.appendChild(locationElement);
 };

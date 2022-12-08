@@ -98,6 +98,23 @@ abbr[title] {
 	font-display: swap;
 }
 
+.font-serif {
+	font-family: var(--font-serif);
+}
+
+.font-sans {
+	font-family: var(--font-sans);
+}
+
+.font-mono {
+	font-family: var(--font-mono);
+}
+
+.font-mono-display {
+	font-family: var(--font-mono-display);
+	text-transform: lowercase;
+}
+
 // Font defaults
 body {
 	color: var(--color-text);
@@ -251,6 +268,11 @@ a {
 	@media screen and (max-width: 399px) {
 		width: 100%;
 	}
+}
+
+// Simulate an <hr>
+.separator {
+	border-top: 1px solid var(--color-light-grey);
 }
 
 /* ==========================================================================

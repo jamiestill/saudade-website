@@ -1,7 +1,9 @@
 /* ==========================================================================
    LOCATION MAP AND MAPBOX
    ========================================================================== */
-
+#location {
+	hyphens: none; // hyphens do funny things to wx data
+}
 #map {
 	width: 100%;
 	height: 30vh;
@@ -20,6 +22,22 @@
 	}
 }
 
+#lat-long {
+	font-family: 'Courier New', Courier, monospace;
+	display: flex;
+	@extend .separator;
+	padding-top: 1rem;
+
+	.location-address {
+		flex: 1;
+	}
+
+	.location-coordinates {
+		text-align: right;
+		margin-left: 2rem;
+	}
+}
+
 a.mapboxgl-ctrl-logo {
 	// The mapbox logo
 	@extend .link-no-underline;
@@ -29,11 +47,13 @@ a.mapboxgl-ctrl-logo {
    ========================================================================== */
 .weather-data {
 	padding-left: 2rem;
+	font-size: 1.5rem;
+	@extend .font-mono-display;
 }
 
 .observed-time {
 	display: block;
+	text-align: right;
 	font-size: 1rem;
-	font-style: italic;
-	color: var(--color-dark-grey);
+	color: var(--color-grey);
 }

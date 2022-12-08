@@ -72,11 +72,15 @@ $color-link-visited: lighten($color-link, 10%);
 		/* Windows emoji */ 'Segoe UI Symbol', /* Linux emoji */ 'Noto Color Emoji';
 	--font-serif: 'Cormorant Garamond', Cambria, Cochin, Georgia, Times,
 		'Times New Roman', serif; /* Mostly for dictionary definition */
+	--font-mono-display: 'Major Mono Display', monospace;
 }
 
 /* ==========================================================================
-   SCREEN SIZES
+   MIXINS
    ========================================================================== */
+
+/* Screen Sizes
+    ========================================================================== */
 
 @mixin for-size($size) {
 	@if $size == phone-only {
