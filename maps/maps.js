@@ -88,11 +88,11 @@
         min = (frac * 60) | 0,
         sec = frac * 3600 - min * 60;
     
-    // Round to 3 decimal places.
-     sec = Math.round(sec * 100) / 1000;
+    // Round to 2 decimal places.
+     sec = Math.round(sec * 100) / 100;
 
     // Build string
-    return deg + "° " + min + "' " + sec + '" ' + dir;
+    return deg + "° " + min + "' " + sec + '"' + dir;
  }
 
 /*
