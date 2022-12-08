@@ -640,7 +640,7 @@ figcaption {
   color: --color-light-grey;
   vertical-align: middle;
 }
-@media screen and (max-width: 900px) and (min-width: 600px) {
+@media screen and (max-width: 899px) and (min-width: 600px) {
   figcaption {
     display: block;
   }
@@ -648,16 +648,18 @@ figcaption {
 .image-panel figcaption {
   margin-top: 0;
 }
-figcaption .description {
-  flex: 1;
-}
-figcaption .description:after {
-  content: " ►";
-  font-size: 1.3rem;
-}
-figcaption .lat-long:before {
-  content: "◎";
-  font-size: 1.3rem;
+@media screen and (min-width: 900px) {
+  figcaption .description {
+    flex: 1;
+  }
+  figcaption .description:after {
+    content: " ►";
+    font-size: 1.3rem;
+  }
+  figcaption .lat-long:before {
+    content: "◎";
+    font-size: 1.3rem;
+  }
 }
 
 .card {

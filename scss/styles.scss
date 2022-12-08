@@ -32,7 +32,7 @@ figcaption {
 	color: (--color-light-grey);
 	vertical-align: middle;
 
-	@media screen and (max-width: 900px) and (min-width: 600px) {
+	@media screen and (max-width: 899px) and (min-width: 600px) {
 		display: block;
 	}
 
@@ -40,18 +40,20 @@ figcaption {
 		margin-top: 0; // reset for the following psuedo elements
 	}
 
-	.description {
-		&:after {
-			content: ' ►';
-			font-size: 1.3rem;
+	@media screen and (min-width: 900px) {
+		.description {
+			&:after {
+				content: ' ►';
+				font-size: 1.3rem;
+			}
+			flex: 1;
 		}
-		flex: 1;
-	}
 
-	.lat-long {
-		&:before {
-			content: '◎';
-			font-size: 1.3rem;
+		.lat-long {
+			&:before {
+				content: '◎';
+				font-size: 1.3rem;
+			}
 		}
 	}
 }
