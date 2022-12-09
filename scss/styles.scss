@@ -29,7 +29,6 @@ html {
 
 // Small captions to images, usually with GPS info
 figcaption {
-    display: flex;
     margin: 0.5rem 1rem;
     font-size: 1.2rem;
     font-family: var(--font-mono-display);
@@ -38,33 +37,29 @@ figcaption {
     vertical-align: middle;
 
     div:after, div:before {
+        margin-right: 1em;
         font-family: var(--font-icon);
         font-size: 1.3rem;
         color: var(--color-icon-grey);
     }
 
     .description {
-        flex: 1;
+        float: left;
         &:before {
-            content: ' \f019 ';
-            margin: 1rem;
+            content: '\f019';
         }
     }
 
     .lat-long {
+        float: right;
         &:before {
-            content: ' \e803 ';
+            content: '\e803';
         }
     }
 
-    @media screen and (max-width: 899px) and (min-width: 600px) {
-        display: block;
-        width: 100%;
-    }
-
-    @media screen and (min-width: 1000px) {
-        .image-panel & {
-            margin-top: 0; // reset for the following psuedo elements
+    @media screen and (max-width: 550px), (max-width: 1200px) and (min-width: 700px) {
+        .description, .lat-long {
+            float: none; // remove floats when panel photos are too narrow
         }
     }
 }
@@ -134,17 +129,25 @@ ul.custom-bullet {
     }
 }
 
-.bgvid-wrapper {
+.footer-background-video-wrapper {
 
-    position: relative;
+    position: absolute;
+    bottom: 0;
+    left: 0;
 
-    footer {
+    #footer-background-video {
+        position: relative;
+        z-index: -200;
+    }
+
+    &:after {
+        content: '';
         position: absolute;
         bottom: 0;
         left: 0;
         width: 100%;
         height: 100%;
         background: linear-gradient(180deg, rgba(255,255,255,1) 47%, rgba(255,255,255,0) 60%);
-        z-index: 1;
+        z-index: -100;
     }
 }

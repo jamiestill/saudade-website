@@ -20,7 +20,7 @@
 
 // Middle of ocean
 // routeCoords[routeCoords.length - 1][1] = -45.817296;
-// routeCoords[routeCoords.length - 1][0] = -63.774391;
+// routeCoords[routeCoords.length - 1][0] = 63.774391;
 
 // Petit Tebac
 // routeCoords[routeCoords.length - 1][1] = 12.624667;
@@ -35,8 +35,8 @@
 // routeCoords[routeCoords.length - 1][0] = 151.226281;
 
 // Suburban Chicago
-routeCoords[routeCoords.length - 1][1] = 42.1898664;
-routeCoords[routeCoords.length - 1][0] = -88.2232382;
+// routeCoords[routeCoords.length - 1][1] = 42.1898664;
+// routeCoords[routeCoords.length - 1][0] = -88.2232382;
 
 // Failure
 // routeCoords[routeCoords.length - 1][1] = false;
@@ -59,15 +59,14 @@ const createGoogleEarthLink = (latLong, linkTitle, linkText) => {
 
     if (!linkTitle) linkTitle = "Where on earth is this?";
     if (!linkText) linkText = latLong;
+    linkText = linkText.trim();
 
     // Build Google Earth link
     let googleEarthLink = "https://earth.google.com/web/search/" + encodeURI(latLong);
 
     return `<a href="${googleEarthLink}" 
             target="_blank" rel="noopener noreferrer"
-            title="${linkTitle}">
-                ${linkText}
-            </a>`;
+            title="${linkTitle}">${linkText}</a>`;
 }
 
 /**
@@ -118,10 +117,14 @@ window.getLocation = () => {
         let addressString = ""; // prevent 'undefined'
         let addressElement, addressCoordsRaw, addressCoords;
         const addyComponents = response.results[0].address_components;
-
+   console.log(addyComponents);
         // Build an address if possible, based on what Google has available
+        if (addyComponents[0] && (addyComponents[0].types[0] !== 'plus_code')) { // no plus codes
+            addressString += addyComponents[0].short_name;
+        }
+
         if (addyComponents[1]) {
-            addressString += addyComponents[1].short_name;
+            addressString += " " +  addyComponents[1].short_name;
         }
 
         if (addyComponents[2]) {
@@ -132,12 +135,12 @@ window.getLocation = () => {
             addressString += ", " + addyComponents[3].long_name;
         }
 
-        if (addyComponents[4]) {
+        if (addyComponents[4] && (addyComponents[4].types[0] !== 'postal_code')) { 
             addressString += ", " + addyComponents[4].short_name;
         }
 
-        if (addyComponents[5]) {
-            addressString += ", " + addyComponents[5].long_name;
+        if (addyComponents[5] && (addyComponents[5].types[0] !== 'postal_code')) {
+            addressString += ", " + addyComponents[5].short_name;
         }
 
         addressCoordsRaw = routeCoords[routeCoords.length - 1][1] + "," + routeCoords[routeCoords.length - 1][0];
@@ -151,11 +154,11 @@ window.getLocation = () => {
         // Create Google search based on this address
         addressElement = `<h3>Current location</h3><div class="location-data-block">
             <div class="location-address">
-                <a href="https://www.google.com/search?q=${addressString}" target="_blank" rel="noopener noreferrer">${addressString}</a>
+                <a href="https://www.google.com/search?q=${addressString.trim()}" target="_blank" rel="noopener noreferrer">${addressString.trim()}</a>
             </div>`;
 
         // Insert the GPS coordinates
-        addressElement += `<div class="location-coordinates">${createGoogleEarthLink(addressCoordsRaw, false, addressCoords)}</div>`;
+        addressElement += `<div class="location-coordinates"><span class="icon-location"></span>${createGoogleEarthLink(addressCoordsRaw, false, addressCoords)}</div>`;
 
         // Insert text into addressEl then into the DOM
         document.getElementById('lat-long').innerHTML = addressElement;
@@ -261,7 +264,7 @@ const getWeather = () => {
         lng = currentLatLong[0],
         apiKey = '438e9bd62501e99a254329223d5494ee';
     let apiURL =
-        'https://api.openweathermap.org/data/2.5/weather?units=imperial&lat=' +
+        'https://api.openweathermap.org/data/2.5/weather?units=imperial&exclude=minutely,hourly,daily&lat=' +
         lat +
         '&lon=' +
         lng +
@@ -280,7 +283,7 @@ const populateWeatherElement = (data) => {
     } else {
         return false; // No location data means there's probably no data at Saudade's location at sea, so end this here
     }
-
+console.log(data);
     // Get the icon
     let wxIcon = data.weather[0].icon;
 
@@ -350,24 +353,27 @@ const populateWeatherElement = (data) => {
         wxWindSpeed = "";
     }
 
-    // Add in Viz
-    let wxVisibility = parseInt(data.visibility)
-
+    // Add in visibility
+    let wxVisibility = parseInt(data.visibility);
+    
     if (!isNaN(wxVisibility) && wxVisibility > 0) {
         // Convert meter to...
-        let wxVisibilityKM = Math.round(wxVisibility / 1000);
-        let wxVisibilitySm = wxVisibilityKM * 0.621371;
+        let wxVisibilityKm = Math.round(wxVisibility * 100) / 100000; // kilometers
+        let wxVisibilitySm = wxVisibilityKm * 0.621371; // statute miles
+        
+        // Round to two digits
+            wxVisibilitySm = Math.round(wxVisibilitySm * 100) / 100;
+            wxVisibilityKm = Math.round(wxVisibilityKm * 100) / 100;
 
-        // Round greater than 1; only two digits otherwise
-        if (wxVisibilitySm < 1) {
-            wxVisibilitySm = Math.round(wxVisibilitySm * 100) / 1000
-        } else {
-            wxVisibilitySm = Math.round(wxVisibilitySm);
-        }
+            // upper minit of visibility
+            if (wxVisibilitySm > 6.2) {
+                wxVisibilitySm = "6 or more ";
+                wxVisibilityKm += "+";
+            }
 
         wxVisibility = `. Visibility is ${wxVisibilitySm} 
             <abbr title="statute miles">miles</abbr> 
-            (${wxVisibilityKM}<abbr title="kilometers">km</abbr>)`;
+            (${wxVisibilityKm}<abbr title="kilometers">km</abbr>)`;
     } else {
         wxVisibility = "";
     }
@@ -386,7 +392,7 @@ const populateWeatherElement = (data) => {
         <h4>Weather conditions at <i>Saudade</i>'s location</h4>
         <div class="weather-data">${wxIcon}<p>${wxLocation}${wxDescription}${wxTemp}${wxWindSpeed}${wxVisibility}.${wxTimeStamp}</p></div>`;
         mapContainer.parentNode.appendChild(locationElement);
-        
+
 };
 
 // Where to insert WX into the DOM

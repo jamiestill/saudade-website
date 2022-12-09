@@ -5,6 +5,12 @@
 $content-max-width: 800px; // The reading content shall not exceed this value.
 $padding-image-panel-content: 4rem;
 
+body {
+    position: relative; // for footer video positioning
+    z-index: 100;
+}
+
+
 body,
 main {
 	display: flex;
@@ -84,4 +90,28 @@ section {
 }
 
 
+/* Footer video 
+   ========================================================================== */
 
+#footer-background-video {
+	position: relative;
+	z-index: -200;
+}
+
+.footer-background-video-wrapper {
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(180deg, rgba(255,255,255,1) 47%, rgba(255,255,255,0) 60%);
+        z-index: -100;
+    }
+}
