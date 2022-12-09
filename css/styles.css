@@ -14,6 +14,7 @@
    ========================================================================== */
 /* https://coolors.co */
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,700;1,300&family=IBM+Plex+Mono:wght@200&display=swap");
+@import url(/images/icons/fontello/css/fontello.css);
 :root {
   --bg-color: #d9dcd6;
   --bg-secondary-color: #8fe1ef;
@@ -307,6 +308,22 @@ a:active {
 
 .separator, #lat-long {
   border-top: 1px solid var(--color-light-grey);
+}
+
+/* ==========================================================================
+   ICONS - generated with Fontello
+   ========================================================================== */
+ul.custom-bullet {
+  list-style-type: none;
+}
+ul.custom-bullet li {
+  position: relative;
+}
+ul.custom-bullet li span[class^=icon-] {
+  position: absolute;
+  left: -4rem;
+  height: 2.5rem;
+  width: 2.5rem;
 }
 
 /* ==========================================================================

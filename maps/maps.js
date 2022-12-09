@@ -38,7 +38,6 @@
 // routeCoords[routeCoords.length - 1][1] = false;
 // routeCoords[routeCoords.length - 1][0] = "";
 
-
 // ========= END TESTING
 
 /**
