@@ -816,6 +816,12 @@ ul.custom-bullet li span[class^=icon-] {
 ul.custom-bullet li span[class^=icon-]:before {
   margin: 0;
 }
+ul.custom-bullet li span.icon-bed {
+  font-size: 2.2rem;
+}
+ul.custom-bullet li span.icon-snow {
+  margin-left: 0.1rem;
+}
 
 .no-italic {
   font-style: normal !important;

@@ -19,8 +19,8 @@
 // routeCoords[routeCoords.length - 1][0] = -122.391600;
 
 // Middle of ocean
-// routeCoords[routeCoords.length - 1][1] = -45.817296;
-// routeCoords[routeCoords.length - 1][0] = 63.774391;
+// routeCoords[routeCoords.length - 1][1] = 39.62;
+// routeCoords[routeCoords.length - 1][0] = -41.35;
 
 // Petit Tebac
 // routeCoords[routeCoords.length - 1][1] = 12.624667;
@@ -117,7 +117,9 @@ window.getLocation = () => {
         let addressString = ""; // prevent 'undefined'
         let addressElement, addressCoordsRaw, addressCoords;
         const addyComponents = response.results[0].address_components;
-   console.log(addyComponents);
+   
+        console.log("Geolocation components", addyComponents);
+
         // Build an address if possible, based on what Google has available
         if (addyComponents[0] && (addyComponents[0].types[0] !== 'plus_code')) { // no plus codes
             addressString += addyComponents[0].short_name;
@@ -141,6 +143,10 @@ window.getLocation = () => {
 
         if (addyComponents[5] && (addyComponents[5].types[0] !== 'postal_code')) {
             addressString += ", " + addyComponents[5].short_name;
+        }
+
+        if (addyComponents[6] && (addyComponents[6].types[0] !== 'postal_code')) {
+            addressString += ", " + addyComponents[6].short_name;
         }
 
         addressCoordsRaw = routeCoords[routeCoords.length - 1][1] + "," + routeCoords[routeCoords.length - 1][0];
@@ -276,14 +282,19 @@ const getWeather = () => {
 
 // Create the weather label for insertion into HTML
 const populateWeatherElement = (data) => {
-    let wxLocation = data.name;
+    
+    console.log("Weather data: ", data);
 
+    let wxLocation = data.name;
+    
     if (wxLocation && wxLocation.length > 0) {
-        wxLocation = `<span id="current-location">${wxLocation}</span>, `;
-    } else {
-        return false; // No location data means there's probably no data at Saudade's location at sea, so end this here
+        // Inserts the observation location
+        wxLocation = `<span id="current-location">Observed from ${wxLocation}</span> on`;
+    } else if(data.coord.lat && data.coord.lon) {
+        // If we get here, the boat is out to see, only forecast data is available
+        wxLocation = `<span id="current-location">Forecast for ${convertToDms(data.coord.lat, true)}, ${convertToDms(data.coord.lon)}</span> on`;
     }
-console.log(data);
+
     // Get the icon
     let wxIcon = data.weather[0].icon;
 
@@ -331,7 +342,7 @@ console.log(data);
 
     if (!isNaN(wxTempF) && wxTempF) {
         wxTempC = Math.round((wxTempF - 32) / 1.8);
-        wxTemp = ` at <span id="location-wx-description">${wxTempF}&deg;<abbr title="farenheit">F</abbr>
+        wxTemp = `, temperature at <span id="location-wx-description">${wxTempF}&deg;<abbr title="farenheit">F</abbr>
             (${wxTempC}&deg;<abbr title="centigrade">C</abbr>)</span>`;
     }
 
@@ -383,14 +394,14 @@ console.log(data);
 
     if (wxTimeStamp) {
         wxTimeStamp = dateFormater(wxTimeStamp);
-        wxTimeStamp = `<span class="observed-time">Observed at ${wxTimeStamp}</span>`;
+        wxTimeStamp = `<span class="observed-time">${wxLocation} ${wxTimeStamp}</span>`;
     }
 
     // Build the HTML element and insert into DOM
     const locationElement = document.createElement('div')
     locationElement.innerHTML = `
         <h4>Weather conditions at <i>Saudade</i>'s location</h4>
-        <div class="weather-data">${wxIcon}<p>${wxLocation}${wxDescription}${wxTemp}${wxWindSpeed}${wxVisibility}.${wxTimeStamp}</p></div>`;
+        <div class="weather-data">${wxIcon}<p>${wxDescription}${wxTemp}${wxWindSpeed}${wxVisibility}.${wxTimeStamp}</p></div>`;
         mapContainer.parentNode.appendChild(locationElement);
 
 };
