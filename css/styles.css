@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /* 
 
 
@@ -33,8 +32,10 @@
   --color-link-visited: #0042ba;
   --color-middle-blue: #8fe1ef;
   --color-light-grey: #d9dcd6;
+  --color-icon-grey: #c5c2b1;
   --color-dark-grey: #4b5b68;
-  --color-grey: #474a4d;
+  --color-light-cyan: #c9f0f8;
+  --color-grey: grey;
   --page-max-width: 80rem;
   --grid-gutter: 4rem;
   --font-size: 1.6rem;
@@ -61,6 +62,7 @@
   --font-serif: "Cormorant Garamond", Cambria, Cochin, Georgia, Times,
       "Times New Roman", serif; /* Mostly for dictionary definition */
   --font-mono-display: "IBM Plex Mono", monospace;
+  --font-icon: "fontello", monospace;
 }
 
 /* ==========================================================================
@@ -203,10 +205,8 @@ h2 {
 h1,
 h2,
 h3,
-h4,
-h5,
-h6 {
-  margin: 0 0 1rem 0;
+h4 {
+  margin: 0;
   line-height: 1.3;
   font-weight: 300;
   letter-spacing: 0.1rem;
@@ -214,19 +214,19 @@ h6 {
 h1 a,
 h2 a,
 h3 a,
-h4 a,
-h5 a,
-h6 a {
+h4 a {
   color: inherit;
   text-decoration: none;
 }
 
 h1 {
+  margin-bottom: 4rem;
   font-size: 4.8rem;
   line-height: 1.15;
 }
 
 h2 {
+  margin-bottom: 3.8rem;
   font-size: 4.8rem;
   font-style: italic;
   letter-spacing: 0.04rem;
@@ -234,6 +234,7 @@ h2 {
 }
 
 h3 {
+  margin-bottom: 3rem;
   font-size: 3rem;
   font-style: normal;
   font-weight: 300;
@@ -241,6 +242,7 @@ h3 {
 }
 
 h4 {
+  margin-bottom: 2.66rem;
   font-size: 2rem;
 }
 
@@ -273,7 +275,7 @@ a:hover {
   border-bottom: 1px solid #45c8ff;
 }
 a:visited {
-  color: #0042ba;
+  color: #003087;
 }
 a:active {
   color: #32cd32;
@@ -306,45 +308,58 @@ a:active {
   }
 }
 
-.separator-top, #lat-long {
+.separator-top, #lat-long, footer {
   border-top: 1px solid var(--color-light-grey);
 }
 
-.separator-bottom, ul.custom-bullet li {
+.separator-bottom {
   border-bottom: 1px solid var(--color-light-grey);
 }
 
 /* ==========================================================================
    ICONS - generated with Fontello
    ========================================================================== */
-ul.custom-bullet {
-  list-style-type: none;
-}
-ul.custom-bullet li {
-  position: relative;
-  margin-bottom: 1rem;
-  padding-bottom: calc(1rem - 1px);
-}
-ul.custom-bullet li span[class^=icon-] {
-  position: absolute;
-  left: -4rem;
-  height: 2.5rem;
-  width: 2.5rem;
-  color: var(--color-grey);
-}
-
 /* ==========================================================================
    FOOTER
    ========================================================================== */
 footer {
   margin-top: auto;
+  font-family: var(--font-mono-display);
+  text-transform: uppercase;
 }
-footer li {
-  display: inline;
+
+.social-and-contact {
+  padding-left: 0;
+  list-style: none;
+  text-align: center;
 }
-footer a,
-footer a:hover {
+.social-and-contact a,
+.social-and-contact a:hover {
+  color: #45c8ff;
   border-bottom: none;
+}
+.social-and-contact a:hover {
+  color: #c9f0f8;
+}
+.social-and-contact li {
+  font-size: 3rem;
+}
+@media screen and (min-width: 300px) {
+  .social-and-contact {
+    text-align: right;
+  }
+  .social-and-contact li {
+    display: inline;
+  }
+}
+@media screen and (min-width: 400px) {
+  .social-and-contact li {
+    font-size: 4rem;
+  }
+}
+
+.back-to-top {
+  text-align: right;
 }
 
 /* ==========================================================================
@@ -492,6 +507,7 @@ section {
   border-top: 1px solid #def5ff;
   -o-border-image: linear-gradient(90deg, #fff, #abe6ff, #fff) 1;
      border-image: linear-gradient(90deg, #fff, #abe6ff, #fff) 1;
+  border-bottom: 0;
 }
 @media screen and (min-width: 799px) {
   #hero dl {
@@ -689,6 +705,21 @@ figcaption {
   color: var(--color-grey);
   vertical-align: middle;
 }
+figcaption div:after, figcaption div:before {
+  font-family: var(--font-icon);
+  font-size: 1.3rem;
+  color: var(--color-icon-grey);
+}
+figcaption .description {
+  flex: 1;
+}
+figcaption .description:before {
+  content: " \f019";
+  margin: 1rem;
+}
+figcaption .lat-long:before {
+  content: " \e803";
+}
 @media screen and (max-width: 899px) and (min-width: 600px) {
   figcaption {
     display: block;
@@ -699,17 +730,39 @@ figcaption {
   .image-panel figcaption {
     margin-top: 0;
   }
-  figcaption .description {
-    flex: 1;
-  }
-  figcaption .description:after {
-    content: " ►";
-    font-size: 1.3rem;
-  }
-  figcaption .lat-long:before {
-    content: "◎";
-    font-size: 1.3rem;
-  }
+}
+
+ul.custom-bullet {
+  --item-left-padding: 6rem;
+  list-style-type: none;
+  padding-left: calc(var(--item-left-padding) * 1.3);
+  width: calc(100% - 6rem);
+}
+ul.custom-bullet li {
+  position: relative;
+  margin-bottom: 1rem;
+  padding-bottom: calc(1rem - 1px);
+}
+ul.custom-bullet li:hover {
+  color: var(--color-secondary);
+  transition: color 1000ms;
+}
+ul.custom-bullet li:hover a, ul.custom-bullet li:hover a:visited, ul.custom-bullet li:hover span[class^=icon-] {
+  color: var(--color-secondary);
+  transition: color 400ms;
+}
+ul.custom-bullet li span[class^=icon-] {
+  position: absolute;
+  left: -6rem;
+  top: -0.6rem;
+  height: 3.2rem;
+  width: 3.2rem;
+  font-size: 2.5rem;
+  text-align: center;
+  color: var(--color-primary);
+}
+ul.custom-bullet li span[class^=icon-]:before {
+  margin: 0;
 }
 
 .card {

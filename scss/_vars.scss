@@ -9,6 +9,7 @@ $middle-blue: #8fe1ef;
 $light-cyan: #c9f0f8;
 $gainsboro: #d9dcd6;
 $silver: #c5c3c6;
+$metallic:  darken(#dbd9ce, 10%);
 $davys-grey: #474a4d;
 $black-coral: #4b5b68;
 $eerie-black: #1e1e20;
@@ -45,8 +46,10 @@ $color-link-visited: lighten($color-link, 10%);
 
     --color-middle-blue: #{$middle-blue};
     --color-light-grey: #{$gainsboro};
+    --color-icon-grey: #{$metallic};
     --color-dark-grey: #{$black-coral};
-    --color-grey: #{$davys-grey};
+    --color-light-cyan: #{$light-cyan};
+    --color-grey: grey;
 
     // Layout
     --page-max-width: 80rem;
@@ -77,6 +80,7 @@ $color-link-visited: lighten($color-link, 10%);
     --font-serif: 'Cormorant Garamond', Cambria, Cochin, Georgia, Times,
         'Times New Roman', serif; /* Mostly for dictionary definition */
     --font-mono-display: 'IBM Plex Mono', monospace;
+    --font-icon: 'fontello', monospace;
 }
 
 /* ==========================================================================
