@@ -34,7 +34,7 @@ figcaption {
     font-size: 1.2rem;
     font-family: var(--font-mono-display);
     text-transform: uppercase;
-    color: (--color-light-grey);
+    color: var(--color-grey);
     vertical-align: middle;
 
     @media screen and (max-width: 899px) and (min-width: 600px) {

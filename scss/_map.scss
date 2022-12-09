@@ -24,7 +24,7 @@
 
 #lat-long {
     font-family: var(--font-mono-display);
-    @extend .separator;
+    @extend .separator-top;
     padding-top: 1rem;
 
     .location-address {

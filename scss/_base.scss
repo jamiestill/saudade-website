@@ -270,8 +270,12 @@ a {
 }
 
 // Simulate an <hr>
-.separator {
+.separator-top {
 	border-top: 1px solid var(--color-light-grey);
+}
+
+.separator-bottom {
+	border-bottom: 1px solid var(--color-light-grey);
 }
 
 /* ==========================================================================
@@ -286,17 +290,19 @@ ul.custom-bullet {
 
 	li {
 		position: relative;
+		@extend .separator-bottom;
+		margin-bottom: 1rem;
+		padding-bottom: calc(1rem - 1px);
 
 		span[class^="icon-"] {
 			position: absolute;
 			left: -4rem;
 			height: 2.5rem;
 			width: 2.5rem;
+			color: var(--color-grey);
 		}
 	}
 }
-
-
 
 /* ==========================================================================
    FOOTER
