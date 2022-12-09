@@ -11,7 +11,7 @@
 .icon-paddleboard:before { content: '\e809'; } /* '' */
 .icon-anchor:before { content: '\e80a'; } /* '' */
 .icon-top:before { content: '\e80b'; } /* '' */
-.icon-tender:before { content: '\e80c'; } /* '' */
+.icon-scuba-tank:before { content: '\e80c'; } /* '' */
 .icon-generator:before { content: '\e80d'; } /* '' */
 .icon-solar:before { content: '\e80e'; } /* '' */
 .icon-play-video:before { content: '\e80f'; } /* '' */
@@ -34,7 +34,7 @@
 .icon-rain:before { content: '\e820'; } /* '' */
 .icon-drizzle:before { content: '\e821'; } /* '' */
 .icon-cloud:before { content: '\e822'; } /* '' */
-.icon-scuba-tank:before { content: '\e823'; } /* '' */
+.icon-tender:before { content: '\e823'; } /* '' */
 .icon-globe:before { content: '\f019'; } /* '' */
 .icon-location:before { content: '\f031'; } /* '' */
 .icon-link:before { content: '\f07b'; } /* '' */

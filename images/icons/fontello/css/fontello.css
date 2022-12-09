@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'fontello';
-  src: url('../font/fontello.eot?31847987');
-  src: url('../font/fontello.eot?31847987#iefix') format('embedded-opentype'),
-       url('../font/fontello.woff2?31847987') format('woff2'),
-       url('../font/fontello.woff?31847987') format('woff'),
-       url('../font/fontello.ttf?31847987') format('truetype'),
-       url('../font/fontello.svg?31847987#fontello') format('svg');
+  src: url('../font/fontello.eot?85731907');
+  src: url('../font/fontello.eot?85731907#iefix') format('embedded-opentype'),
+       url('../font/fontello.woff2?85731907') format('woff2'),
+       url('../font/fontello.woff?85731907') format('woff'),
+       url('../font/fontello.ttf?85731907') format('truetype'),
+       url('../font/fontello.svg?85731907#fontello') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -15,7 +15,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'fontello';
-    src: url('../font/fontello.svg?31847987#fontello') format('svg');
+    src: url('../font/fontello.svg?85731907#fontello') format('svg');
   }
 }
 */
@@ -66,7 +66,7 @@
 .icon-paddleboard:before { content: '\e809'; } /* '' */
 .icon-anchor:before { content: '\e80a'; } /* '' */
 .icon-top:before { content: '\e80b'; } /* '' */
-.icon-tender:before { content: '\e80c'; } /* '' */
+.icon-scuba-tank:before { content: '\e80c'; } /* '' */
 .icon-generator:before { content: '\e80d'; } /* '' */
 .icon-solar:before { content: '\e80e'; } /* '' */
 .icon-play-video:before { content: '\e80f'; } /* '' */
@@ -89,7 +89,7 @@
 .icon-rain:before { content: '\e820'; } /* '' */
 .icon-drizzle:before { content: '\e821'; } /* '' */
 .icon-cloud:before { content: '\e822'; } /* '' */
-.icon-scuba-tank:before { content: '\e823'; } /* '' */
+.icon-tender:before { content: '\e823'; } /* '' */
 .icon-globe:before { content: '\f019'; } /* '' */
 .icon-location:before { content: '\f031'; } /* '' */
 .icon-link:before { content: '\f07b'; } /* '' */
