@@ -63,7 +63,6 @@ const createGoogleEarthLink = (latLong, linkTitle, linkText) => {
 
     // Build Google Earth link
     let googleEarthLink = "https://earth.google.com/web/search/" + encodeURI(latLong);
-
     return `<a href="${googleEarthLink}" 
             target="_blank" rel="noopener noreferrer"
             title="${linkTitle}">${linkText}</a>`;
@@ -431,7 +430,7 @@ let figcaptions = document.querySelectorAll('figcaption .lat-long');
 if (figcaptions) {
 
     figcaptions.forEach(figcaption => {
+        console.log(createGoogleEarthLink(figcaption.innerText, "Where on earth was this photo taken?"));
         figcaption.innerHTML = createGoogleEarthLink(figcaption.innerText, "Where on earth was this photo taken?");
-    }
-    );
+    });
 }
