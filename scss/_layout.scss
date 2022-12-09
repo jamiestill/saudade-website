@@ -50,6 +50,7 @@ section {
 	.image-panel-content-container {
 		max-width: 50rem;
 		align-self: center;
+
 	}
 
 	.image-panel-img-container {
@@ -58,10 +59,29 @@ section {
 		img {
 			width: 100%;
 			object-fit: cover;
+
+			&.right {
+				object-position: right;
+			}
 		}
 
 		img {
 			height: 100%;
 		}
 	}
+
+	&.half {
+		.image-panel-content-container {
+			flex: 1;
+			min-width: 50rem;
+			max-width: 100%;
+		}
+
+		.image-panel-img-container {
+			flex: 1;
+		}
+	}
 }
+
+
+

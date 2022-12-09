@@ -35,8 +35,8 @@
 // routeCoords[routeCoords.length - 1][0] = 151.226281;
 
 // Suburban Chicago
-// routeCoords[routeCoords.length - 1][1] = 42.1898664;
-// routeCoords[routeCoords.length - 1][0] = -88.2232382;
+routeCoords[routeCoords.length - 1][1] = 42.1898664;
+routeCoords[routeCoords.length - 1][0] = -88.2232382;
 
 // Failure
 // routeCoords[routeCoords.length - 1][1] = false;
@@ -260,7 +260,6 @@ const getWeather = () => {
         lat = currentLatLong[1],
         lng = currentLatLong[0],
         apiKey = '438e9bd62501e99a254329223d5494ee';
-
     let apiURL =
         'https://api.openweathermap.org/data/2.5/weather?units=imperial&lat=' +
         lat +
@@ -275,8 +274,6 @@ const getWeather = () => {
 // Create the weather label for insertion into HTML
 const populateWeatherElement = (data) => {
     let wxLocation = data.name;
-
-    console.log(data);
 
     if (wxLocation && wxLocation.length > 0) {
         wxLocation = `<span id="current-location">${wxLocation}</span>, `;
@@ -388,12 +385,12 @@ const populateWeatherElement = (data) => {
     locationElement.innerHTML = `
         <h4>Weather conditions at <i>Saudade</i>'s location</h4>
         <div class="weather-data">${wxIcon}<p>${wxLocation}${wxDescription}${wxTemp}${wxWindSpeed}${wxVisibility}.${wxTimeStamp}</p></div>`;
-
-    mapContainer.appendChild(locationElement);
+        mapContainer.parentNode.appendChild(locationElement);
+        
 };
 
 // Where to insert WX into the DOM
-let mapContainer = document.querySelector('#location .inside');
+let mapContainer = document.querySelector('.map-container');
 
 if (mapContainer) {
     // Build the weather API URL

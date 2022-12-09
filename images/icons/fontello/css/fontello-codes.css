@@ -3,7 +3,7 @@
 .icon-camera:before { content: '\e801'; } /* '' */
 .icon-flash-1:before { content: '\e802'; } /* '' */
 .icon-map:before { content: '\e803'; } /* '' */
-.icon-engine:before { content: '\e804'; } /* '' */
+.icon-snow-heavy:before { content: '\e804'; } /* '' */
 .icon-sails:before { content: '\e805'; } /* '' */
 .icon-propeller:before { content: '\e806'; } /* '' */
 .icon-resume-cv:before { content: '\e807'; } /* '' */
@@ -35,6 +35,7 @@
 .icon-drizzle:before { content: '\e821'; } /* '' */
 .icon-cloud:before { content: '\e822'; } /* '' */
 .icon-tender:before { content: '\e823'; } /* '' */
+.icon-wrench:before { content: '\e824'; } /* '' */
 .icon-globe:before { content: '\f019'; } /* '' */
 .icon-location:before { content: '\f031'; } /* '' */
 .icon-link:before { content: '\f07b'; } /* '' */
