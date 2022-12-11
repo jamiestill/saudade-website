@@ -2,99 +2,73 @@
    LOCATION MAP AND MAPBOX
    ========================================================================== */
 #location {
-    hyphens: none; // hyphens do funny things to wx data
+	hyphens: none; // hyphens do funny things to wx data
 }
 #map {
-    width: 100%;
-    height: 30vh;
-    min-height: 25rem;
-    margin: 0 auto 3rem;
-    border: 10px solid var(--color-light-grey);
-    border-radius: 1rem;
+	width: 100%;
+	height: 30vh;
+	min-height: 25rem;
+	margin: 0 auto 3rem;
+	border: 10px solid var(--color-light-grey);
+	border-radius: 1rem;
 
-    // Tweak the attribution for readability
-    .mapboxgl-ctrl.mapboxgl-ctrl-attrib {
-        background-color: rgb(255 255 255/10%);
+	// Tweak the attribution for readability
+	.mapboxgl-ctrl.mapboxgl-ctrl-attrib {
+		background-color: rgb(255 255 255/10%);
 
-        .mapboxgl-ctrl-attrib-inner {
-            font-size: 0.9rem;
-        }
-    }
+		.mapboxgl-ctrl-attrib-inner {
+			font-size: 0.9rem;
+		}
+	}
 }
 
 #lat-long {
-    font-family: var(--font-mono-display);
-    @extend .separator-top;
-    padding-top: 1rem;
+	font-family: var(--font-mono-display);
 
-    .location-address, .location-coordinates {
-        margin-top: 1rem;
-    }
+	.location-address {
+		font-size: 1.2rem;
+	}
 
-    .location-address {
-        font-size: 1.2rem;
-    }
-
-    .location-coordinates {
-        span[class^="icon-"] {
-            color: var(--color-icon-grey);
-        }
-    }
-
-    @media screen and (min-width: 1400px) {
-        .location-data-block {
-            display: flex;
-        }
-
-        .location-address {
-            flex: 1;
-            margin-top: 0;
-        }
-
-        .location-coordinates {
-            text-align: right;
-            margin: 0 0 1rem 2rem;
-        }
-    }
+	.location-coordinates {
+		span[class^='icon-'] {
+			color: var(--color-icon-grey);
+		}
+	}
 }
 
 a.mapboxgl-ctrl-logo {
-    // The mapbox logo
-    @extend .link-no-underline;
+	// The mapbox logo
+	@extend .link-no-underline;
 }
 
 /* Weather widget
    ========================================================================== */
 .weather-data {
-    display: flex;
-    padding-left: 2rem;
-    font-size: 1.5rem;
-    @extend .font-mono-display;
+	display: flex;
+	font-size: 1.5rem;
+	@extend .font-mono-display;
 
-    [class^="icon-"] {
-        width: 5.5rem;
-        margin: 1.3rem 1.6rem 2rem 0; // tweak icon position
-        // border-right: 1px solid var(--color-light-grey);
-        font-size: 3rem;
-        color: var(--color-primary);
+	[class^='icon-'] {
+		width: 5.5rem;
+		margin: 0.4rem 1.6rem 2rem -0.5rem; // tweak icon position
+		font-size: 3rem;
+		color: var(--color-primary);
 
-        &:before {
-            margin-top: -0.3rem // tweak icon position
-;        }
-    }
+		&:before {
+			margin-top: -0.3rem; // tweak icon position
+		}
+		@media screen and (min-width: 550px) {
+		}
+	}
 
-    p {
-            flex: 1; 
-        margin-top: 1rem; // margin fix
-    }
+	p {
+		margin-top: 1rem; // margin fix
+	}
 }
 
 .observed-time {
-    display: block;
-    font-size: 1rem;
-    color: var(--color-grey);
-
-    @media screen and (min-width: 900px) {
-        text-align: right;
-    }
+	flex-basis: 100%;
+	display: block;
+	font-size: 1rem;
+	color: var(--color-grey);
 }

@@ -42,6 +42,11 @@
 // routeCoords[routeCoords.length - 1][1] = false;
 // routeCoords[routeCoords.length - 1][0] = "";
 
+// Short circuit flag for API calls
+window.stopAPICalls = true;
+
+//https://api.mapbox.com/geocoding/v5/mapbox.places/--75.119233,23.848841.json?access_token=pk.eyJ1IjoiamFtaWVzdGlsbCIsImEiOiJjbGI3YzlhcGEwOWZkM3JydnVibW1vYWJlIn0.s3NyxYxISDf2vRjQz20ycw
+
 // ========= END TESTING
 
 /**
@@ -53,7 +58,7 @@
 const createGoogleEarthLink = (latLong, linkTitle, linkText) => {
 
     if (!latLong) {
-        console.error('No lat long');
+        console.error('No latitude or longitude for Google Earth link.');
         return false;
     }
 
@@ -103,6 +108,10 @@ const convertToDms = (dirDegrees, isLng) => {
 
 // Callback function for Google Maps API
 window.getLocation = () => {
+
+    // Short circuit
+    if (window.stopAPICalls !== false) return;
+
     const geocoder = new google.maps.Geocoder();
 
     const latLong = {
@@ -116,7 +125,7 @@ window.getLocation = () => {
         let addressString = ""; // prevent 'undefined'
         let addressElement, addressCoordsRaw, addressCoords;
         const addyComponents = response.results[0].address_components;
-   
+
         console.log("Geolocation components", addyComponents);
 
         // Build an address if possible, based on what Google has available
@@ -125,7 +134,7 @@ window.getLocation = () => {
         }
 
         if (addyComponents[1]) {
-            addressString += " " +  addyComponents[1].short_name;
+            addressString += " " + addyComponents[1].short_name;
         }
 
         if (addyComponents[2]) {
@@ -136,7 +145,7 @@ window.getLocation = () => {
             addressString += ", " + addyComponents[3].long_name;
         }
 
-        if (addyComponents[4] && (addyComponents[4].types[0] !== 'postal_code')) { 
+        if (addyComponents[4] && (addyComponents[4].types[0] !== 'postal_code')) {
             addressString += ", " + addyComponents[4].short_name;
         }
 
@@ -158,12 +167,11 @@ window.getLocation = () => {
 
         // Create Google search based on this address
         addressElement = `<h3>Current location</h3><div class="location-data-block">
+            <div class="location-coordinates">
+                <span class="icon-location"></span>${createGoogleEarthLink(addressCoordsRaw, false, addressCoords)}</div>
             <div class="location-address">
                 <a href="https://www.google.com/search?q=${addressString.trim()}" target="_blank" rel="noopener noreferrer">${addressString.trim()}</a>
             </div>`;
-
-        // Insert the GPS coordinates
-        addressElement += `<div class="location-coordinates"><span class="icon-location"></span>${createGoogleEarthLink(addressCoordsRaw, false, addressCoords)}</div>`;
 
         // Insert text into addressEl then into the DOM
         document.getElementById('lat-long').innerHTML = addressElement;
@@ -177,48 +185,51 @@ window.getLocation = () => {
 */
 
 // Mapbox code (from Mapbox)
-mapboxgl.accessToken =
-    'pk.eyJ1IjoiamFtaWVzdGlsbCIsImEiOiJjbGI3YzlhcGEwOWZkM3JydnVibW1vYWJlIn0.s3NyxYxISDf2vRjQz20ycw'
-const currentLngLat = routeCoords[routeCoords.length - 1]
-const map = new mapboxgl.Map({
-    container: 'map',
-    // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
-    style: 'mapbox://styles/jamiestill/clb7fzawa002o15nhr3ce8p03',
-    center: currentLngLat,
-    zoom: 2,
-    attributionControl: false,
-})
-map.addControl(new mapboxgl.AttributionControl(), 'bottom-right')
+if (window.stopAPICalls !== true) {
 
-new mapboxgl.Marker().setLngLat(currentLngLat).addTo(map)
+    mapboxgl.accessToken = 'pk.eyJ1IjoiamFtaWVzdGlsbCIsImEiOiJjbGI3YzlhcGEwOWZkM3JydnVibW1vYWJlIn0.s3NyxYxISDf2vRjQz20ycw';
+    const currentLngLat = routeCoords[routeCoords.length - 1];
+    const map = new mapboxgl.Map({
+        container: 'map',
+        // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+        style: 'mapbox://styles/jamiestill/clb7fzawa002o15nhr3ce8p03',
+        center: currentLngLat,
+        zoom: 2,
+        attributionControl: false,
+    });
 
-map.on('load', () => {
-    map.addSource('route', {
-        type: 'geojson',
-        data: {
-            type: 'Feature',
-            properties: {},
-            geometry: {
-                type: 'LineString',
-                coordinates: routeCoords,
+    map.addControl(new mapboxgl.AttributionControl(), 'bottom-right');
+
+    new mapboxgl.Marker().setLngLat(currentLngLat).addTo(map)
+
+    map.on('load', () => {
+        map.addSource('route', {
+            type: 'geojson',
+            data: {
+                type: 'Feature',
+                properties: {},
+                geometry: {
+                    type: 'LineString',
+                    coordinates: routeCoords,
+                },
             },
-        },
-    })
+        })
 
-    map.addLayer({
-        id: 'route',
-        type: 'line',
-        source: 'route',
-        layout: {
-            'line-join': 'round',
-            'line-cap': 'round',
-        },
-        paint: {
-            'line-color': 'orange',
-            'line-width': 1,
-        },
-    })
-})
+        map.addLayer({
+            id: 'route',
+            type: 'line',
+            source: 'route',
+            layout: {
+                'line-join': 'round',
+                'line-cap': 'round',
+            },
+            paint: {
+                'line-color': 'orange',
+                'line-width': 1,
+            },
+        })
+    });
+}
 
 
 /**
@@ -281,15 +292,15 @@ const getWeather = () => {
 
 // Create the weather label for insertion into HTML
 const populateWeatherElement = (data) => {
-    
+
     console.log("Weather data: ", data);
 
     let wxLocation = data.name;
-    
+
     if (wxLocation && wxLocation.length > 0) {
         // Inserts the observation location
         wxLocation = `<span id="current-location">Observed from ${wxLocation}</span> on`;
-    } else if(data.coord.lat && data.coord.lon) {
+    } else if (data.coord.lat && data.coord.lon) {
         // If we get here, the boat is out to see, only forecast data is available
         wxLocation = `<span id="current-location">Forecast for ${convertToDms(data.coord.lat, true)}, ${convertToDms(data.coord.lon)}</span> on`;
     }
@@ -341,7 +352,7 @@ const populateWeatherElement = (data) => {
 
     if (!isNaN(wxTempF) && wxTempF) {
         wxTempC = Math.round((wxTempF - 32) / 1.8);
-        wxTemp = `, temperature at <span id="location-wx-description">${wxTempF}&deg;<abbr title="farenheit">F</abbr>
+        wxTemp = `, <span id="location-wx-description">${wxTempF}&deg;<abbr title="farenheit">F</abbr>
             (${wxTempC}&deg;<abbr title="centigrade">C</abbr>)</span>`;
     }
 
@@ -365,25 +376,25 @@ const populateWeatherElement = (data) => {
 
     // Add in visibility
     let wxVisibility = parseInt(data.visibility);
-    
+
     if (!isNaN(wxVisibility) && wxVisibility > 0) {
         // Convert meter to...
         let wxVisibilityKm = Math.round(wxVisibility * 100) / 100000; // kilometers
         let wxVisibilitySm = wxVisibilityKm * 0.621371; // statute miles
-        
+
         // Round to two digits
-            wxVisibilitySm = Math.round(wxVisibilitySm * 100) / 100;
-            wxVisibilityKm = Math.round(wxVisibilityKm * 100) / 100;
+        wxVisibilitySm = Math.round(wxVisibilitySm * 100) / 100;
+        wxVisibilityKm = Math.round(wxVisibilityKm * 100) / 100;
 
-            // upper minit of visibility
-            if (wxVisibilitySm > 6.2) {
-                wxVisibilitySm = "6 or more ";
-                wxVisibilityKm += "+";
-            }
+        // upper minit of visibility
+        if (wxVisibilitySm > 6.2) {
+            wxVisibilitySm = "6 or more ";
+            wxVisibilityKm += "+";
+        }
 
-        wxVisibility = `. Visibility is ${wxVisibilitySm} 
+        wxVisibility = `. ${wxVisibilitySm} 
             <abbr title="statute miles">miles</abbr> 
-            (${wxVisibilityKm}<abbr title="kilometers">km</abbr>)`;
+            (${wxVisibilityKm}<abbr title="kilometers">km</abbr>) visibiity`;
     } else {
         wxVisibility = "";
     }
@@ -399,9 +410,9 @@ const populateWeatherElement = (data) => {
     // Build the HTML element and insert into DOM
     const locationElement = document.createElement('div')
     locationElement.innerHTML = `
-        <h4>Weather conditions at <i>Saudade</i>'s location</h4>
-        <div class="weather-data">${wxIcon}<p>${wxDescription}${wxTemp}${wxWindSpeed}${wxVisibility}.${wxTimeStamp}</p></div>`;
-        mapContainer.parentNode.appendChild(locationElement);
+        <h4>Weather conditions at <i>Saudade</i></h4>
+        <div class="weather-data">${wxIcon}<p>${wxDescription}${wxTemp}${wxWindSpeed}${wxVisibility}.<br>${wxTimeStamp}</p></div>`;
+    mapContainer.parentNode.appendChild(locationElement);
 
 };
 
@@ -409,16 +420,20 @@ const populateWeatherElement = (data) => {
 let mapContainer = document.querySelector('.map-container');
 
 if (mapContainer) {
-    // Build the weather API URL
-    const urlWx = getWeather();
+    // Short circuit
+    if (window.stopAPICalls !== true) {
+        
+        // Build the weather API URL
+        const urlWx = getWeather();
 
-    // Fetch it
-    fetch(urlWx)
-        .then(response => (response.json()))
-        .then(data => populateWeatherElement(data))
+        // Fetch it
+        fetch(urlWx)
+            .then(response => (response.json()))
+            .then(data => populateWeatherElement(data))
 
-        // Error on Weather API (https://openweathermap.org/api/one-call-3)
-        .catch((e) => console.error("Weather API failed due to " + e));
+            // Error on Weather API (https://openweathermap.org/api/one-call-3)
+            .catch((e) => console.error("Weather API failed due to " + e));
+    }
 };
 
 /*
@@ -430,7 +445,6 @@ let figcaptions = document.querySelectorAll('figcaption .lat-long');
 if (figcaptions) {
 
     figcaptions.forEach(figcaption => {
-        console.log(createGoogleEarthLink(figcaption.innerText, "Where on earth was this photo taken?"));
         figcaption.innerHTML = createGoogleEarthLink(figcaption.innerText, "Where on earth was this photo taken?");
     });
 }

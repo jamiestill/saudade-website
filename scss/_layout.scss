@@ -6,10 +6,8 @@ $content-max-width: 800px; // The reading content shall not exceed this value.
 $padding-image-panel-content: 4rem;
 
 body {
-    position: relative; // for footer video positioning
-    z-index: 100;
+	position: relative; // for footer video positioning
 }
-
 
 body,
 main {
@@ -21,9 +19,12 @@ main {
 	flex: 1;
 }
 
-section {
+#content > section {
 	margin: 1rem 0; // flex margins don't collapse
-	flex: 1;
+
+	@include for-size(tablet-portrait-up) {
+		flex: 1;
+	}
 }
 
 .inside {
@@ -35,83 +36,76 @@ section {
 }
 
 /* Image panels
-    panel with side-by-side columns with a hero image and blocks of text
+    panel with side-by-side columns with a hero-like image and blocks of text
+	Measured by the image taking up third, two-third, or half, and left side or right side
    ========================================================================== */
 
 .image-panel {
 	.image-panel-content-container {
-		min-width: 40rem;
+		flex-direction: column;
 		padding-bottom: $padding-image-panel-content;
 		@extend .inside;
 	}
 
-	@include for-size(tablet-portrait-up) {
-		display: flex;
+	// display: flex;
 
-		&.left-img .image-panel-img-container {
-			order: -1; // use order to move the image to the left
-		}
+	&.left-img .image-panel-img-container {
+		order: -1; // use order to move the image to the left
 	}
 
+	// Content container has the text
 	.image-panel-content-container {
-		max-width: 50rem;
+		// max-width: 50rem;
 		align-self: center;
-
 	}
 
+	// Content container has the large image
 	.image-panel-img-container {
 		flex: 1;
-
-		img {
-			width: 100%;
-			object-fit: cover;
-
-			&.right {
-				object-position: right;
-			}
-		}
-
-		img {
-			height: 100%;
-		}
+		max-width: 100%;
 	}
 
-	&.half {
-		.image-panel-content-container {
-			flex: 1;
-			min-width: 50rem;
-			max-width: 100%;
-		}
+	@include for-size(tablet-portrait-up) {
+		// flex-direction: row;
 
-		.image-panel-img-container {
-			flex: 1;
-		}
+		// img {
+		// 	height: 100%;
+		// 	.image-right {
+		// 		object-position: right;
+		// 	}
+		// }
+
+		// // Half the width for the image
+		// &.image-half {
+		// 	.image-panel-content-container {
+		// 		flex: 1;
+		// 	}
+
+		// 	.image-panel-img-container {
+		// 		flex: 1;
+		// 	}
+		// }
+
+		// // Third of the width for the image
+		// &.image-third {
+		// 	.image-panel-content-container {
+		// 		flex: 2;
+		// 	}
+
+		// 	.image-panel-img-container {
+		// 		flex: 1;
+		// 	}
+		// }
+
+		// // Two thirds of the width for the image
+		// &.image-two-thirds {
+		// 	.image-panel-content-container {
+		// 		flex: 1;
+		// 	}
+
+		// 	.image-panel-img-container {
+		// 		flex: 2;
+		// 	}
+		// }
 	}
-}
-
-
-/* Footer video 
-   ========================================================================== */
-
-#footer-background-video {
-	position: relative;
-	z-index: -200;
-}
-
-.footer-background-video-wrapper {
-
-    position: absolute;
-    bottom: 0;
-    left: 0;
-
-    &:after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(180deg, rgba(255,255,255,1) 47%, rgba(255,255,255,0) 60%);
-        z-index: -100;
-    }
 }

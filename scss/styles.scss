@@ -3,9 +3,6 @@
 
    Styles here are vanilla CSS (and preprocessed with Sass). #frameworkfree
    ==========================================================================
-   
-   Enjoy.
-   
  
 */
 
@@ -19,74 +16,88 @@
 @import 'map';
 
 #masthead {
-    display: none;
+	display: none;
 }
 
 html {
-    // background-image: url(/images/assets/helia-plan-in-progress.svg);
-    // background-size: cover;
+	// background-image: url(/images/assets/helia-plan-in-progress.svg);
+	// background-size: cover;
 }
 
 // Small captions to images, usually with GPS info
 figcaption {
-    margin: 0.5rem 1rem;
-    font-size: 1.2rem;
-    font-family: var(--font-mono-display);
-    text-transform: uppercase;
-    color: var(--color-grey);
-    vertical-align: middle;
+	margin: 0.5rem 1rem;
+	font-size: 1.2rem;
+	font-family: var(--font-mono-display);
+	text-transform: uppercase;
+	color: var(--color-grey);
+	vertical-align: middle;
 
-    div:after, div:before {
-        margin-right: 1em;
-        font-family: var(--font-icon);
-        font-size: 1.3rem;
-        color: var(--color-icon-grey);
-    }
+	// Small caption icons
+	div:after,
+	div:before {
+		margin-right: 1em;
+		font-family: var(--font-icon);
+		font-size: 1.3rem;
+		color: var(--color-icon-grey);
+	}
 
-    .description {
-        float: left;
-        &:before {
-            content: '\f019';
-        }
-    }
+	.description {
+		float: left;
+		&:before {
+			content: '\f019';
+		}
+	}
 
-    .lat-long {
-        float: right;
-        &:before {
-            content: '\e803';
-        }
-    }
+	.lat-long {
+		float: right;
+		&:before {
+			content: '\e803';
+		}
+	}
 
-    @media screen and (max-width: 550px), (max-width: 1200px) and (min-width: 700px) {
-        .description, .lat-long {
-            float: none; // remove floats when panel photos are too narrow
-        }
-    }
+	.credit {
+		// any photo credits
+		&:before {
+			content: '\e801';
+		}
+	}
+
+	@media screen and (max-width: 550px),
+		(max-width: 1200px) and (min-width: 700px) {
+		.description,
+		.lat-long {
+			float: none; // remove floats when panel photos are too narrow
+		}
+	}
 }
 
 //  Use empty <span class="icon- .. to insert
 ul.custom-bullet {
 	--item-left-padding: 6rem;
 	list-style-type: none;
-	padding-left: calc(var(--item-left-padding) * 1.3); //layout tweaks for icon list
-	width: calc(100% - 6rem); //layout tweaks for icon list
+	padding-left: calc(
+		var(--item-left-padding) * 1.3
+	); //layout tweaks for icon list
 
 	li {
 		position: relative;
 		margin-bottom: 1rem;
 		padding-bottom: calc(1rem - 1px); // account for border
 
-        &:hover {
-            color: var(--color-secondary);
-            transition: color 1000ms;
+		&:hover {
+			color: var(--color-secondary);
+			transition: color 1000ms;
 
-            a, a:visited, span[class^="icon-"] {
-                color: var(--color-secondary);
-                transition: color 400ms;
-            }
-        }
+			a,
+			a:visited,
+			span[class^='icon-'] {
+				color: var(--color-secondary);
+				transition: color 400ms;
+			}
+		}
 
-		span[class^="icon-"] {
+		span[class^='icon-'] {
 			position: absolute;
 			left: -6rem;
 			top: -0.6rem;
@@ -95,67 +106,43 @@ ul.custom-bullet {
 			font-size: 2.5rem;
 			text-align: center;
 			color: var(--color-primary);
-			
 
 			&:before {
 				margin: 0;
 			}
 		}
 
-        span.icon-bed {
-            font-size: 2.2rem; // icon is unsually large, tweaking
-        }
+		span.icon-bed {
+			font-size: 2.2rem; // icon is unsually large, tweaking
+		}
 
-        span.icon-snow {
-            margin-left: 0.1rem;
-        }
+		span.icon-snow {
+			margin-left: 0.1rem;
+		}
 	}
 }
 
 .no-italic {
-    font-style: normal !important;
+	font-style: normal !important;
 }
 
 .vessel {
-    font-style: italic;
+	font-style: italic;
 }
 
 // For test page
 .card {
-    margin: 2rem;
-    padding: 2rem;
-    background-color: var(--bg-color);
-    border-left: 1rem solid var(--color-grey);
-    border-radius: 1rem;
+	margin: 2rem;
+	padding: 2rem;
+	background-color: var(--bg-color);
+	border-left: 1rem solid var(--color-grey);
+	border-radius: 1rem;
 }
 
 #test-colors {
-    li span {
-        display: block;
-        width: 5rem;
-        border-radius: 10px;
-    }
-}
-
-.footer-background-video-wrapper {
-
-    position: absolute;
-    bottom: 0;
-    left: 0;
-
-    #footer-background-video {
-        position: relative;
-        z-index: -200;
-    }
-
-    &:after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(180deg, rgba(255,255,255,1) 47%, rgba(255,255,255,0) 60%);
-        z-index: -100;
-    }
+	li span {
+		display: block;
+		width: 5rem;
+		border-radius: 10px;
+	}
 }
