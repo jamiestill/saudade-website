@@ -35,17 +35,25 @@
 // routeCoords[routeCoords.length - 1][0] = 151.226281;
 
 // Suburban Chicago
-// routeCoords[routeCoords.length - 1][1] = 42.1898664;
-// routeCoords[routeCoords.length - 1][0] = -88.2232382;
+routeCoords[routeCoords.length - 1][1] = 42.1898664;
+routeCoords[routeCoords.length - 1][0] = -88.2232382;
 
-// Failure
+// Simulate Failure and NULL data
 // routeCoords[routeCoords.length - 1][1] = false;
-// routeCoords[routeCoords.length - 1][0] = "";
+// routeCoords[routeCoords.length - 1][0] = NULL;
 
-// Short circuit flag for API calls
-window.stopAPICalls = true;
+// Short circuit flag for API calls, mostly for testing
+// and local development
+disableAPICalls = false;
 
 // ========= END TESTING
+
+// Store Saudade's location 
+const latitudeLongitude = {
+    lat: routeCoords[routeCoords.length - 1][1],
+    lng: routeCoords[routeCoords.length - 1][0]
+}
+
 
 /**
  * Create a Google Earth link in a new tab/window with passed ccordinates
@@ -105,20 +113,15 @@ const convertToDms = (dirDegrees, isLng) => {
 */
 
 // Callback function for Google Maps API
-window.getLocation = () => {
+getLocation = () => {
 
     // Short circuit
-    if (window.stopAPICalls !== false) return;
+    if (disableAPICalls !== false) return;
 
     const geocoder = new google.maps.Geocoder();
 
-    const latLong = {
-        lat: routeCoords[routeCoords.length - 1][1],
-        lng: routeCoords[routeCoords.length - 1][0]
-    }
-
     geocoder.geocode({
-        location: latLong
+        location: latitudeLongitude
     }).then((response) => {
         let addressString = ""; // prevent 'undefined'
         let addressElement, addressCoordsRaw, addressCoords;
@@ -127,6 +130,9 @@ window.getLocation = () => {
         console.log("Geolocation components", addyComponents);
 
         // Build an address if possible, based on what Google has available
+        // The returned object's address fields vary by country, below is an
+        // approximation of the best way to display these items, excluding
+        // plus and postal codes, and abbrivating provinces and country names.
         if (addyComponents[0] && (addyComponents[0].types[0] !== 'plus_code')) { // no plus codes
             addressString += addyComponents[0].short_name;
         }
@@ -155,12 +161,12 @@ window.getLocation = () => {
             addressString += ", " + addyComponents[6].short_name;
         }
 
-        addressCoordsRaw = routeCoords[routeCoords.length - 1][1] + "," + routeCoords[routeCoords.length - 1][0];
+        addressCoordsRaw = latitudeLongitude.lat + "," + latitudeLongitude.lng;
 
         // GPS Coords
         addressCoords = `
-            ${convertToDms(routeCoords[routeCoords.length - 1][1], false)},
-            ${convertToDms(routeCoords[routeCoords.length - 1][0], true)}`
+            ${convertToDms(latitudeLongitude.lat, false)},
+            ${convertToDms(latitudeLongitude.lng, true)}`
 
 
         // Create Google search based on this address
@@ -183,7 +189,7 @@ window.getLocation = () => {
 */
 
 // Mapbox code (from Mapbox)
-if (window.stopAPICalls !== true) {
+if (disableAPICalls !== true) {
 
     mapboxgl.accessToken = 'pk.eyJ1IjoiamFtaWVzdGlsbCIsImEiOiJjbGI3YzlhcGEwOWZkM3JydnVibW1vYWJlIn0.s3NyxYxISDf2vRjQz20ycw';
     const currentLngLat = routeCoords[routeCoords.length - 1];
@@ -192,13 +198,13 @@ if (window.stopAPICalls !== true) {
         // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
         style: 'mapbox://styles/jamiestill/clb7fzawa002o15nhr3ce8p03',
         center: currentLngLat,
-        zoom: 2,
+        zoom: 3,
         attributionControl: false,
     });
 
     map.addControl(new mapboxgl.AttributionControl(), 'bottom-right');
 
-    new mapboxgl.Marker().setLngLat(currentLngLat).addTo(map)
+    //new mapboxgl.Marker().setLngLat(currentLngLat).addTo(map)
 
     map.on('load', () => {
         map.addSource('route', {
@@ -211,7 +217,7 @@ if (window.stopAPICalls !== true) {
                     coordinates: routeCoords,
                 },
             },
-        })
+        });
 
         map.addLayer({
             id: 'route',
@@ -225,10 +231,51 @@ if (window.stopAPICalls !== true) {
                 'line-color': 'orange',
                 'line-width': 1,
             },
-        })
-    });
-}
+        });
 
+        // Create a feature collection to position the pin marker
+        const geojson = {
+            type: 'FeatureCollection',
+            features: [
+              {
+                type: 'Feature',
+                geometry: {
+                  type: 'Point',
+                  coordinates: [latitudeLongitude.lng, latitudeLongitude.lat]
+                }
+              }
+            ]};
+
+        // Ass pin marker to map
+        for (const feature of geojson.features) {
+
+            // create a HTML element for each feature
+            const el = document.createElement('div');
+            el.className = 'marker';
+
+            // make a marker for each feature and add to the map
+            new mapboxgl.Marker(el).setLngLat(feature.geometry.coordinates).addTo(map);
+        };
+        
+        // Add zoom controls
+        map.addControl(new mapboxgl.NavigationControl({
+                showCompass : false
+            })
+        );
+
+        // Add fullscreen button
+        map.addControl(new mapboxgl.FullscreenControl());
+
+        //Add scale
+        map.addControl(new mapboxgl.ScaleControl({
+            maxWidth: 80,
+            unit: 'imperial'
+            })
+        );
+    });
+
+    
+}
 
 /**
  * Format a date into a human readable timestamp
@@ -271,22 +318,6 @@ const getCardinalDirection = (windAngle) => {
     return intercardinal[(windAngle % 16)]; // 16 secondary intercardinal directions sectors of 360 degrees
 };
 
-// Get weather for current location (based on routes.js, the data store of the routes where Saudade has been)
-const getWeather = () => {
-    const currentLatLong = routeCoords[routeCoords.length - 1], // Get the last coordinate in the route
-        lat = currentLatLong[1],
-        lng = currentLatLong[0],
-        apiKey = '438e9bd62501e99a254329223d5494ee';
-    let apiURL =
-        'https://api.openweathermap.org/data/2.5/weather?units=imperial&exclude=minutely,hourly,daily&lat=' +
-        lat +
-        '&lon=' +
-        lng +
-        '&appid=' +
-        apiKey
-
-    return apiURL;
-};
 
 // Create the weather label for insertion into HTML
 const populateWeatherElement = (data) => {
@@ -419,13 +450,18 @@ let mapContainer = document.querySelector('.map-container');
 
 if (mapContainer) {
     // Short circuit
-    if (window.stopAPICalls !== true) {
+    if (disableAPICalls !== true) {
         
         // Build the weather API URL
-        const urlWx = getWeather();
+        const apiKey = '438e9bd62501e99a254329223d5494ee';
+        let wxApiURL =
+            'https://api.openweathermap.org/data/2.5/weather?units=imperial&exclude=minutely,hourly,daily' +
+            '&lat=' + latitudeLongitude.lat +
+            '&lon=' + latitudeLongitude.lng +
+            '&appid=' + apiKey;
 
         // Fetch it
-        fetch(urlWx)
+        fetch(wxApiURL)
             .then(response => (response.json()))
             .then(data => populateWeatherElement(data))
 

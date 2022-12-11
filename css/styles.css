@@ -544,7 +544,6 @@ main {
    DICTIONARY DEFINITION
    ========================================================================== */
 .dictionary-definition {
-  max-width: 40rem;
   font: 2.7rem var(--font-serif);
   letter-spacing: normal;
   color: var(--color-black);
@@ -579,6 +578,11 @@ main {
 }
 .dictionary-definition ul li {
   display: inline;
+}
+@media screen and (min-width: 1000px) {
+  .dictionary-definition ul li {
+    display: inline-block;
+  }
 }
 .dictionary-definition dt {
   margin-bottom: 0.5em;
@@ -655,8 +659,11 @@ main {
   height: 30vh;
   min-height: 25rem;
   margin: 0 auto 3rem;
-  border: 10px solid var(--color-light-grey);
-  border-radius: 1rem;
+  padding-top: 13vh;
+  border: 1px solid var(--color-light-grey);
+  border-radius: 2rem;
+  text-align: center;
+  color: var(--color-light-grey);
 }
 #map .mapboxgl-ctrl.mapboxgl-ctrl-attrib {
   background-color: rgba(255, 255, 255, 0.1);
@@ -673,6 +680,16 @@ main {
 }
 #lat-long .location-coordinates span[class^=icon-] {
   color: var(--color-icon-grey);
+}
+
+.marker {
+  width: 40px;
+  height: 50px;
+  margin-top: -21px;
+  margin-left: 5px;
+  background-image: url(/images/logo-pin.svg);
+  background-repeat: no-repeat;
+  background-color: rgba(255, 255, 255, 0);
 }
 
 /* Weather widget

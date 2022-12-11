@@ -3,7 +3,7 @@
    ========================================================================== */
 
 .dictionary-definition {
-	max-width: 40rem;
+	// max-width: 40rem;
 	font: 2.7rem var(--font-serif);
 	letter-spacing: normal;
 	color: var(--color-black);
@@ -41,6 +41,10 @@
 
 		li {
 			display: inline;
+
+			@media screen and (min-width: 1000px) {
+				display: inline-block;
+			}
 		}
 	}
 
