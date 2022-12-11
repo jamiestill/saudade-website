@@ -9,6 +9,7 @@ $middle-blue: #8fe1ef;
 $light-cyan: #c9f0f8;
 $gainsboro: #d9dcd6;
 $silver: #c5c3c6;
+$metallic:  darken(#dbd9ce, 10%);
 $davys-grey: #474a4d;
 $black-coral: #4b5b68;
 $eerie-black: #1e1e20;
@@ -45,8 +46,10 @@ $color-link-visited: lighten($color-link, 10%);
 
     --color-middle-blue: #{$middle-blue};
     --color-light-grey: #{$gainsboro};
-    --color-grey: #{$black-coral};
-    --color-dark-grey: #{$davys-grey};
+    --color-icon-grey: #{$metallic};
+    --color-dark-grey: #{$black-coral};
+    --color-light-cyan: #{$light-cyan};
+    --color-grey: grey;
 
     // Layout
     --page-max-width: 80rem;
@@ -76,35 +79,40 @@ $color-link-visited: lighten($color-link, 10%);
         /* Linux emoji */ 'Noto Color Emoji';
     --font-serif: 'Cormorant Garamond', Cambria, Cochin, Georgia, Times,
         'Times New Roman', serif; /* Mostly for dictionary definition */
+    --font-mono-display: 'IBM Plex Mono', monospace;
+    --font-icon: 'fontello', monospace;
 }
 
 /* ==========================================================================
-   SCREEN SIZES
+   MIXINS
    ========================================================================== */
 
+/* Screen Sizes
+    ========================================================================== */
+
 @mixin for-size($size) {
-    @if $size == phone-only {
-        @media (max-width: 599px) {
+    @if $size == phone {
+        @media screen and (max-width: 699px) {
             @content;
         }
     } @else if $size == tablet-portrait-up {
-        @media (min-width: 600px) {
+        @media screen and (min-width: 799px) {
             @content;
         }
     } @else if $size == tablet-landscape-up {
-        @media (min-width: 900px) {
+        @media screen and (min-width: 900px) {
             @content;
         }
     } @else if $size == desktop-up {
-        @media (min-width: 1200px) {
+        @media screen and (min-width: 1200px) {
             @content;
         }
     } @else if $size == big-desktop-up {
-        @media (min-width: 1800px) {
+        @media screen and (min-width: 1800px) {
             @content;
         }
     } @else {
-        @media (min-width: $size) {
+        @media screen and (min-width: $size) {
             @content;
         }
     }

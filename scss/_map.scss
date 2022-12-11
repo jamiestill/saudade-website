@@ -1,12 +1,14 @@
 /* ==========================================================================
    LOCATION MAP AND MAPBOX
    ========================================================================== */
-
+#location {
+	hyphens: none; // hyphens do funny things to wx data
+}
 #map {
 	width: 100%;
 	height: 30vh;
 	min-height: 25rem;
-	margin: 0 auto;
+	margin: 0 auto 3rem;
 	border: 10px solid var(--color-light-grey);
 	border-radius: 1rem;
 
@@ -20,6 +22,20 @@
 	}
 }
 
+#lat-long {
+	font-family: var(--font-mono-display);
+
+	.location-address {
+		font-size: 1.2rem;
+	}
+
+	.location-coordinates {
+		span[class^='icon-'] {
+			color: var(--color-icon-grey);
+		}
+	}
+}
+
 a.mapboxgl-ctrl-logo {
 	// The mapbox logo
 	@extend .link-no-underline;
@@ -28,12 +44,31 @@ a.mapboxgl-ctrl-logo {
 /* Weather widget
    ========================================================================== */
 .weather-data {
-	padding-left: 2rem;
+	display: flex;
+	font-size: 1.5rem;
+	@extend .font-mono-display;
+
+	[class^='icon-'] {
+		width: 5.5rem;
+		margin: 0.4rem 1.6rem 2rem -0.5rem; // tweak icon position
+		font-size: 3rem;
+		color: var(--color-primary);
+
+		&:before {
+			margin-top: -0.3rem; // tweak icon position
+		}
+		@media screen and (min-width: 550px) {
+		}
+	}
+
+	p {
+		margin-top: 1rem; // margin fix
+	}
 }
 
 .observed-time {
+	flex-basis: 100%;
 	display: block;
 	font-size: 1rem;
-	font-style: italic;
-	color: var(--color-dark-grey);
+	color: var(--color-grey);
 }

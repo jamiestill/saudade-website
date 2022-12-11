@@ -34,8 +34,9 @@ jamie@jamiestill.com
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,700;1,300&family=Lato:ital,wght@0,300;0,700;1,300&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,700;1,300&family=IBM+Plex+Mono:wght@200&display=swap"
         rel="stylesheet">
+    <link href="/images/icons/fontello/css/fontello.css" rel="stylesheet" />
     <link href="/css/styles.css" rel="stylesheet" />
 
     <!-- Canonical URLs -->
@@ -55,9 +56,6 @@ jamie@jamiestill.com
     <!-- Preload images -->
     <!-- <link rel="preload" href="/images/acme.png" as="image" /> -->
 
-    <!-- Font Awesome -->
-    <script src="https://kit.fontawesome.com/eb7ab5fef7.js" crossorigin="anonymous"></script>
-
     <!-- Mapbox -->
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
@@ -72,7 +70,7 @@ jamie@jamiestill.com
         <!-- Navigation -->
         <nav>
             <!-- Skip navigation -->
-            <a data-nosnippet class="skip-link" href="#main-content">Skip Navigation</a>
+            <a data-nosnippet class="skip-link" href="#content">Skip Navigation</a>
 
             <!-- Main navigation -->
             <ul class="navigation-menu">
@@ -86,13 +84,13 @@ jamie@jamiestill.com
     </header>
 
     <!-- Main -->
-    <main id="main-content">
+    <main id="content">
 
         <!-- Hero -->
-        <section id="hero" class="image-panel">
-            <div class="image-panel-content-container dictionary-definition">
+        <section id="hero" class="image-panel image-two-thirds image-right">
+            <div class="image-panel-content-container">
                 <img alt="Saudade's Manta Ray logo" class="logo" src="/images/logo-color.svg" />
-                <dl>
+                <dl class="dictionary-definition">
                     <dt><span>sau</span>&middot;<span>da</span>&middot;<span>de</span></dt>
                     <dd>
                         <a href="https://www.google.com/search?q=pronounce+saudade+in+brazilian+portuguese">/<span
@@ -103,113 +101,176 @@ jamie@jamiestill.com
                         <abbr class="part-of-speech" title="noun">n.</abbr>
                         <span class="origin">portuguese</span>
                         <ul class="definition-body">
-                            <li><b>1</b> <a href="https://en.wikipedia.org/wiki/Saudade">a longing or desire for a
+                            <li><b>1</b> <a href="https://en.wikipedia.org/wiki/Saudade" target="_blank"
+                                    rel="noopener noreferrer">a longing or desire for a
                                     beloved
                                     thing</a></li>
                             <li><b>2</b> <span class="informal">informal</span> catamaran of bliss, delight
                             </li>
-                        </ul> &mdash; <span class="see-also">see <a
+                        </ul> &mdash; <span class="see-also">see <a target="_blank" rel="noopener noreferrer"
                                 href="https://www.amazon.com/Long-Way-Sheridan-Maritime-Classic/dp/1493042785/ref=asc_df_1493042785">Freedom;
                                 Liberty</a>.
                     </dd>
                 </dl>
             </div>
-            <div class="image-panel-img-container">
-                <img src="/images/hero/saudade-plana-cay-original.jpg" height="200" alt="beach" />
-            </div>
+            <figure class="image-panel-img-container">
+                <img src="/images/hero/saudade-plana-cay-original.jpg"
+                    alt="A lonely boat &mdash Saudade from high above in the Plana Cays, Bahamas." />
+                <figcaption class="geo">
+                    <div class="description"><a href="https://en.wikipedia.org/wiki/Plana_Cays" target="_blank"
+                            rel="noopener noreferrer">West Plana Cay, Bahamas</a></div>
+                    <div class="lat-long">22° 35’ 22.46” N 73° 37’ 39.02” W
+                    </div>
+                </figcaption>
+            </figure>
         </section>
 
         <!-- About Saudade -->
-        <section id="about-saudade" class="image-panel left-img">
+        <section id="about-saudade" class="image-panel image-third left-right">
             <div class="image-panel-content-container">
-                <h2>The boat</h2>
+                <h2>The Boat</h2>
                 <p>
                     <i>SV Saudade</i> is a 44-foot sailing catamaran helmed by her owner, Jamie Still. She operates on
                     the US East Coast, Flordia Gulf Coast, Caribbean, and Bahamas.
                 <h3>Features</h3>
-                <ul>
-                    <li>3 &times; cabins, w/ ensuite bathrooms (heads)</li>
-                    <li>2 &times; 55<abbr title="horsepower">hp</abbr> <a
+                <ul class="custom-bullet">
+
+                    <li><span class="icon-propeller"></span>2 &times; 55<abbr title="horsepower">hp</abbr> <a
                             href="https://www.volvopenta.com/en-us/marine/products/saildrive/saildrive-engine-range/d2-saildrive/"
                             target="_blank" rel="noopener noreferrer">Volvo
                             Penta diesels</a></li>
-                    <li><a href="https://www.northsails.com/sailing/en/2022/04/north-code-sails-defined">North Sails
-                            Code
-                            Zero</a>, <a href="https://www.istec.ag/us/products/parasailor.html">Parasailor
-                            (spinnaker)</a>
+                    <li><span class="icon-sails"></span><a href="https://www.instagram.com/p/B1bJbegJQQl/"
+                            target="_blank" rel="noopener noreferrer">North Sails Code Zero</a>
+                        <br><a href="https://photos.app.goo.gl/zXQhzFXNRn8JzLYk6"
+                            href-alt="https://photos.app.goo.gl/iFC6j4SN4Vt8Yd6s8" target="_blank"
+                            rel="noopener noreferrer">Parasailor (spinnaker)</a>
                     </li>
-                    <li>5<abbr title="kilowatt">kW</abbr> <a href="https://www.northern-lights.com/m673l3g/"
-                            target="_blank" rel="noopener noreferrer">generator</a>
+                    <li><span class="icon-generator"></span> <a href="https://www.northern-lights.com/m673l3g/"
+                            target="_blank" rel="noopener noreferrer">5<abbr title="kilowatt">kW</abbr> generator</a>
                     </li>
-                    <li>1200<abbr title="amp-hour">ah</abbr> lithium battery bank and <a
-                            href="https://www.victronenergy.com/inverters-chargers/quattro"
+                    <li><span class="icon-battery"></span><a href="https://relionbattery.com/products/marine-batteries"
+                            target="_blank" rel="noopener noreferrer">1200<abbr title="amp-hour">ah</abbr> lithium
+                            (<abbr title="lithium">Li</abbr><abbr title="iron">Fe</abbr><abbr
+                                title="phosphate">PO<sub>4</sub></abbr>) battery bank</a>
+                        <br />
+                        <a href="https://www.victronenergy.com/inverters-chargers/quattro"
                             rel="noopener noreferrer">5000<abbr title="watt">w</abbr>
-                            inverter+charger</a></li>
-                    <li>Air conditioning</li>
-                    <li><a href="https://coltri.com/en/breathing-air-compressors/portables-line/" target="_blank"
+                            inverter+charger</a>
+                    </li>
+                    <li><span class="icon-bed"></span>3 &times; cabins <small>&mdash;w/ ensuite bathrooms
+                            (heads)</small></li>
+                    <li><span class="icon-snow"></span>Air conditioning and heating</li>
+                    <li><span class="icon-solar"></span>900w of solar panels</li>
+                    <li><span class="icon-paddleboard"></span><a
+                            href="https://www.facebook.com/photo.php?fbid=10158283696013343" target="_blank"
+                            rel="noopener noreferrer">Multiple paddleboards</a></li>
+                    <li><span class="icon-scuba-tank"></span><a
+                            href="https://coltri.com/en/breathing-air-compressors/portables-line/" target="_blank"
                             rel="noopener noreferrer">Dive compressor</a></li>
-                    <li>2 &times; the hulls for twice the fun</li>
+                    <li><span class="icon-tender"></span><a href="https://www.instagram.com/p/B2pcUSLpE90/"
+                            rel="noopener noreferrer">20hp powered <abbr title="rigid inflatable boat">RIB
+                                tender</abbr></a>
+                    <li><span class="icon-catamaran"></span><a
+                            href="https://www.instagram.com/p/B4A0n_KJUym/?utm_source=ig_web_copy_link" target="_blank"
+                            rel="noopener noreferrer">
+                            2 &times; the hulls for 2 &times; the fun</a></li>
                 </ul>
                 </p>
             </div>
-            <div class="image-panel-img-container">
-                <img src="/images/presentation/saudade-plana-cay-side.jpg" height="200"
-                    alt="Saudade in all her glory" />
+            <figure class="image-panel-img-container">
+                <img src="/images/presentation/saudade-plana-cay-side.jpg" alt="Saudade in all her glory" />
+                <figcaption class="geo">
+                    <div class="description"><a href="https://en.wikipedia.org/wiki/Plana_Cays" target="_blank"
+                            rel="noopener noreferrer">West Plana Cay, Bahamas</a></div>
+                    <div class="lat-long">22° 35’ 22.46” N 73° 37’ 39.02” W
+                    </div>
+                </figcaption>
+            </figure>
+        </section>
+
+        <!-- Saudade location -->
+        <section id="location" class="image-panel image-half">
+            <div class="image-panel-content-container">
+                <h2>Where is <span class="vessel-name no-italic">Saudade</span>?</h2>
+                <p>Where is she now? And where has she has sailed&mdash;at least since she's been tracking starting
+                    2021? Locations provided by via satellite with an
+                    <a href="https://www.predictwind.com/iridium-go/" target="_blank" rel="noopener noreferrer">Iridium
+                        GO!®</a>.
+                    Locations are recorded only every hour and some of the coordinates may be approximate.
+                </p>
+                <p id="lat-long"></p>
+                <p id="map" class="map-container">(Map not available).</p>
             </div>
+            <figure class="image-panel-img-container">
+                <img src="/images/presentation/dominica-windy.jpg" class="right" alt="Saudade in all her glory" />
+                <figcaption class="geo">
+                    <div class="description"><a href="https://en.wikipedia.org/wiki/Martinique_Passage" target="_blank"
+                            rel="noopener noreferrer">Martinique
+                            Passage, Dominica</a></div>
+                    <div class="lat-long">15° 9’ 22.93” N 61° 22’ 1.60” W</div>
+                </figcaption>
+            </figure>
         </section>
 
         <!-- Saudade photos -->
         <section id="photos">
             <div class="inside">
-                <h2>Photos</h2>
-                <p>
-                    Magna cupidatat ut magna et proident consequat eu aliqua Lorem tempor consectetur esse nisi dolor.
-                    Velit
-                    velit consequat exercitation fugiat exercitation aute veniam aliqua sint eiusmod labore. Magna
-                    eiusmod
-                    enim dolor nulla pariatur nulla incididunt tempor aliqua ad. Sint culpa cupidatat ea Lorem minim
-                    deserunt in in enim veniam adipisicing minim excepteur tempor.
-                </p>
-            </div>
-        </section>
-
-        <!-- Saudade location -->
-        <section id="location">
-            <div class="inside">
-                <h2>Where is Saudade?</h2>
-                <p>See where Saudade is and where she's been since 2021.</p>
-                <p id="lat-long"></p>
-                <p id="map">(Map not available).</p>
             </div>
         </section>
 
         <!-- About the Captain -->
-        <section id="the-captain">
-            <div class="inside">
+        <section id="the-captain" class="image-panel image-half image-left">
+            <div class="image-panel-content-container">
                 <h2>About the Captain</h2>
                 <p>
-                    <img alt="Jamie on the deck of Saudade" src="/images/presentation/captain.jpg"
-                        class="img-right" />Magna
-                    cupidatat ut magna et proident consequat eu aliqua Lorem tempor consectetur esse nisi dolor. Velit
-                    velit consequat exercitation fugiat exercitation aute veniam aliqua sint eiusmod labore. Magna
-                    eiusmod
-                    enim dolor nulla pariatur nulla incididunt tempor aliqua ad. Sint culpa cupidatat ea Lorem minim
-                    deserunt in in enim veniam adipisicing minim excepteur tempor.
+                <figure class="img-right">
+                    <img alt="Jamie on the deck of Saudade" src="/images/presentation/captain3.jpg" />
+                    <figcaption>The captain</figcaption>
+                </figure>
+                <h3>
+                    Captain’s License
+                </h3>
+                <ul>
+                    <li>
+                        United States Coast Guard Merchant Mariner
+                    </li>
+                    <li>
+                        &lt;50 GRT Deck Officer - Master (w/ Sailing Endorsement)</li>
+                    <li> USA000521161</li>
+                </ul>
+                <h3>
+                    US Sailing Certifications
+                </h3>
+                <ul>
+                    <li>Basic Keelboat</li>
+                    <li>Basic Cruising</li>
+                    <li>Bareboat Cruising</li>
+                    <li>Coastal Navigation</li>
+                    <li>Coastal Passage Making</li>
+                    <li>Catamaran Sailing</li>
+                </ul>
                 </p>
-                <p>
-                    Consectetur nostrud pariatur laboris elit cupidatat quis officia occaecat. Deserunt ex quis non
-                    commodo
-                    deserunt laborum cupidatat non officia aliquip. Irure cupidatat ullamco cillum do voluptate veniam
-                    exercitation enim magna consequat commodo.
-                </p>
-                <p>
-                    Sit veniam voluptate deserunt minim aliquip adipisicing velit nisi enim id ex sint. Sit pariatur
-                    proident amet deserunt ut ex. Consectetur deserunt sint velit enim dolore eu fugiat commodo. Aliqua
-                    cupidatat duis do et duis cillum id laboris in eu occaecat voluptate. Dolore amet labore anim tempor
-                    officia ipsum dolore veniam in Lorem in ad est.
-                </p>
+
+                <p>Open water SCUBA Diver (NAUI)
+                    STIL101878JAMSD</p>
+
                 <!-- Resume -->
             </div>
+            <figure class="image-panel-img-container">
+                <img src="/images/presentation/captain2.jpg" class="left" alt="Jamie on top" />
+                <figcaption class="geo">
+                    <div class="description"><a href="https://en.wikipedia.org/wiki/Marigot,_Saint_Martin"
+                            target="_blank" rel="noopener noreferrer">Baie de Marigot, Saint Martin</a>
+                        <div class="credit">Photo credit: <a href="https://www.laurenkathrynphotography.com/caribbean"
+                                title="Thanks to the lovely Hella Seashells for this awesome photo">&copy; Lauren
+                                Kathryn
+                                Photography</a></div>
+                    </div>
+                    <div class="lat-long">18° 3’ 59” N 63° 5’ 28.95” W</div>
+                    <br>
+
+                </figcaption>
+            </figure>
         </section>
 
         <!-- About this Site -->
@@ -239,38 +300,40 @@ jamie@jamiestill.com
         </section>
         </div>
     </main>
-
     <!-- Footer -->
-    <footer class="page-width-container">
-        <p>Footer. &copy; Jamie Still</p>
-
-        <!-- Social media and contact -->
-        <ul>
-            <li><span><a href="https://www.linkedin.com/in/jamiestill/" title="Jamie Still's LinkedIn profile"><i
-                            class="fa-brands fa-linkedin"></i></a></span></li>
-            <li><span><a href="https://www.instagram.com/jamiestill/" title="See the Instagram of Jamie Still"><i
-                            class="fa-brands fa-instagram"></i></a></span></li>
-            <li><span><a href="https://www.facebook.com/jamiestill/" title="Get social with Jamie on Facebook"><i
-                            class="fa-brands fa-facebook"></i></a></span></li>
-            <li><span><a href="https://github.com/jamiestill/saudade-website"
-                        title="See the source code for sailingsaudade.com on Github"><i
-                            class="fa-brands fa-github"></i></a></span></li>
-            <li><span>
+    <footer>
+        <div class="inside">
+            <!-- Social media and contact -->
+            <ul class="social-and-contact">
+                <li><a href="https://www.linkedin.com/in/jamiestill/" title="Jamie Still's LinkedIn profile"
+                        target="_blank" rel="noopener noreferrer" class="icon-linkedin"></span></a></li>
+                <li><a href="https://www.instagram.com/jamiestill/" title="See the Instagram of Jamie Still"
+                        target="_blank" rel="noopener noreferrer"><span class="icon-instagram"></span></a></li>
+                <li><a href="https://www.facebook.com/jamiestill/" title="Get social with Jamie on Facebook"
+                        target="_blank" rel="noopener noreferrer"><span class="icon-facebook"></span></a></li>
+                <li><a href="https://github.com/jamiestill/saudade-website"
+                        title="See the source code for sailingsaudade.com on Github" target="_blank"
+                        rel="noopener noreferrer"><span class="icon-github"></span></a></li>
+                <li>
                     <a data-nosnippet
                         href="mailto&#58;j&#37;6&#49;m&#105;&#101;&#64;jam%69e%73t&#105;%&#54;C&#108;&#46;c%&#54;Fm"
-                        title="Shoot me an email"><i class="fa-regular fa-envelope"></i></a>
-                </span></li>
-        </ul>
-
-        <p>This website uses no cookies.</p>
-        <p>
-            <a href="#">Back to top</a>
-        </p>
+                        title="Shoot me an email"><span class="icon-mail-squared"></span></a>
+                </li>
+            </ul>
+            <div class="copyright">&copy; Jamie Still.<br /><small>This website uses no cookies.</small></div>
+        </div>
     </footer>
+    <div class="footer-background-video-wrapper">
+        <video autoplay playsinline muted loop id="footer-background-video" src="/images/video/generic-beach-2.mp4"
+            type="video/mp4"></video>
+    </div>
 
+    <div class="back-to-top">
+        <a href="#masthead"><span class="icon-top"></span>Back to top</a>
+    </div>
     <!-- Google Geo API -->
     <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBk2_7sLHSG1wxB1KhCNRuoSNQlM3GdUwc&callback=getLocation&v=weekly"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCo8RYEBqmJIB-Z_w1tZ-pvHNZ-3hD9j-g&callback=getLocation&v=weekly"
         defer></script>
 
     <!-- Local JavaScript -->

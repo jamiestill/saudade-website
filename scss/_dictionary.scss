@@ -1,0 +1,121 @@
+/* ==========================================================================
+   DICTIONARY DEFINITION
+   ========================================================================== */
+
+.dictionary-definition {
+	max-width: 40rem;
+	font: 2.7rem var(--font-serif);
+	letter-spacing: normal;
+	color: var(--color-black);
+	hyphens: none;
+
+	@include for-size(tablet-portrait-up) {
+		margin-bottom: 1rem;
+
+		font-size: 2.5rem;
+
+		dl {
+			margin-right: 4em;
+		}
+	}
+
+	a {
+		color: var(--color-text);
+		text-decoration: none;
+
+		&:hover {
+			border-bottom: 0;
+		}
+	}
+
+	ul {
+		// The definition itself
+		display: inline-block;
+		margin: 0;
+		padding: 0;
+
+		b {
+			padding-left: 0.4em;
+			font: bold 0.7em var(--font-sans);
+		}
+
+		li {
+			display: inline;
+		}
+	}
+
+	dt {
+		margin-bottom: 0.5em;
+		font-size: 1.1em;
+		color: $saudade-blue-dark;
+
+		span {
+			color: $saudade-blue-light; // #00b3d6;
+		}
+	}
+
+	dd {
+		color: var(--color-dark-grey);
+		@media (max-width: 500px) {
+			margin: 0;
+		}
+	}
+
+	.ezh {
+		//The lowercase letter ezh, in pronounciation
+		font-size: 0.7em;
+
+		span {
+			font-family: 'Times New Roman', Times, serif; // special character outside scope of custom webfonts
+			font-size: 1.3em;
+			vertical-align: -13%; // tweak character placement
+		}
+	}
+
+	.origin {
+		//Portuguese
+		font-size: 0.5em;
+		font-weight: 300;
+		font-family: var(--font-sans);
+
+		&::before,
+		&::after {
+			content: '[';
+			font-family: var(--font-serif);
+		}
+
+		&::after {
+			content: ']';
+		}
+	}
+
+	.part-of-speech {
+		//Noun
+		font-weight: bold;
+		font-style: italic;
+		text-decoration: none;
+
+		&[title] {
+			text-decoration: none;
+		}
+	}
+
+	.informal {
+		display: inline-block;
+		font-style: italic;
+		font-size: 0.5em;
+		margin-top: -0.5em;
+	}
+
+	.see-also {
+		font-style: italic;
+		font-size: 0.7em;
+
+		& > * {
+			font-variant: small-caps;
+			font-style: normal;
+			font-size: 0.9em;
+			letter-spacing: 0.1rem;
+		}
+	}
+}

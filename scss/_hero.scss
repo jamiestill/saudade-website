@@ -3,29 +3,49 @@
    ========================================================================== */
 
 #hero {
-    margin: 0;
-    background: rgb(225, 251, 251);
-    background: linear-gradient(
-        135deg,
-        rgba(225, 251, 251, 1) 0%,
-        rgba(255, 255, 255, 1) 29%
-    );
+	margin-top: 0; // Flush with top, unlike other sections
+	background: rgb(225, 251, 251);
+	background: linear-gradient(
+		135deg,
+		rgba(225, 251, 251, 1) 0%,
+		rgba(255, 255, 255, 1) 29%
+	);
 
-    .logo {
-        height: 7rem;
-    }
+	.logo {
+		margin: 6rem auto 3rem;
+		height: 6rem;
 
-    // following section to be flush with the hero
-    & + section {
-        margin-top: 0;
+		@include for-size(tablet-portrait-up) {
+			margin: 0 0 10rem 0;
+			padding-top: 2rem;
+			height: 8rem;
+		}
+	}
 
-        .image-panel-content-container {
-            padding-top: 2rem; // make up for the lost margin above
-            padding-bottom: 2rem; // make up for the lost margin above
-        }
-    }
+	dl {
+		padding-top: 3rem;
+		border-top: 1px solid lighten($saudade-blue-light, 30%);
+		border-image: linear-gradient(
+				90deg,
+				#fff,
+				lighten($saudade-blue-light, 20%),
+				#fff
+			)
+			1;
+		border-bottom: 0; // fix WebKit big that shows the border gradient at the bottom
 
-    @media screen and (min-width: 700px) {
-        height: 98vh; // Leave a bit so the user knows to scroll
-    }
+		@include for-size(tablet-portrait-up) {
+			border: none;
+		}
+	}
+
+	@include for-size(tablet-portrait-up) {
+		.image-panel-content-container {
+			align-self: flex-end;
+		}
+
+		.image-panel-img-container {
+			height: 100vh; // Leave a bit so the user knows to scroll
+		}
+	}
 }

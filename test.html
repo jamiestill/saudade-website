@@ -57,6 +57,11 @@ jamie@jamiestill.com
 
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/eb7ab5fef7.js" crossorigin="anonymous"></script>
+
+    <!-- Mapbox -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
+    <script src="maps/route.js"></script>
 </head>
 
 <body>
@@ -67,7 +72,7 @@ jamie@jamiestill.com
         <!-- Navigation -->
         <nav>
             <!-- Skip navigation -->
-            <a data-nosnippet class="skip-link" href="#main-content">Skip Navigation</a>
+            <a data-nosnippet class="skip-link" href="#content">Skip Navigation</a>
 
             <!-- Main navigation -->
             <ul class="navigation-menu">
@@ -81,7 +86,7 @@ jamie@jamiestill.com
     </header>
 
     <!-- Main -->
-    <main id="main-content" class="inside">
+    <main id="content">
 
         <header>
             <h2>Style guide</h2>
@@ -158,10 +163,10 @@ jamie@jamiestill.com
         <section id="test-icons">
             <h3>Icons</h3>
             <ul class="card">
-                <li><span><a href="https://www.linkedin.com/in/jamiestill/" title="Jamie Still's LinkedIn profile"><i
-                                class="fa-brands fa-linkedin"></i></a></span></li>
-                <li><span><a href="https://www.instagram.com/jamiestill/" title="See the Instagram of Jamie Still"><i
-                                class="fa-brands fa-instagram"></i></a></span></li>
+                <li><span><a href="https://www.linkedin.com/in/jamiestill/"
+                            title="Jamie Still's LinkedIn profile"><i></i></a></span></li>
+                <li><span><a href="https://www.instagram.com/jamiestill/"
+                            title="See the Instagram of Jamie Still"><i></i></a></span></li>
                 <li><span><a href="https://www.facebook.com/jamiestill/" title="Get social with Jamie on Facebook"><i
                                 class="fa-brands fa-facebook"></i></a></span></li>
                 <li><span><a href="https://github.com/jamiestill/saudade-website"
@@ -255,11 +260,11 @@ jamie@jamiestill.com
 
         <!-- Social media and contact -->
         <ul>
-            <li><span><a href="https://www.linkedin.com/in/jamiestill/" title="Jamie Still's LinkedIn profile"><i
-                            class="fa-brands fa-linkedin"></i></a></span>
+            <li><span><a href="https://www.linkedin.com/in/jamiestill/"
+                        title="Jamie Still's LinkedIn profile"><i></i></a></span>
             </li>
-            <li><span><a href="https://www.instagram.com/jamiestill/" title="See the Instagram of Jamie Still"><i
-                            class="fa-brands fa-instagram"></i></a></span></li>
+            <li><span><a href="https://www.instagram.com/jamiestill/"
+                        title="See the Instagram of Jamie Still"><i></i></a></span></li>
             <li><span><a href="https://www.facebook.com/jamiestill/" title="Get social with Jamie on Facebook"><i
                             class="fa-brands fa-facebook"></i></a></span></li>
             <li><span><a href="https://github.com/jamiestill/saudade-website"
@@ -277,6 +282,15 @@ jamie@jamiestill.com
             <a href="#">Back to top</a>
         </p>
     </footer>
+
+    <!-- Google Geo API -->
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBk2_7sLHSG1wxB1KhCNRuoSNQlM3GdUwc&callback=getLocation&v=weekly"
+        defer></script>
+
+    <!-- Local JavaScript -->
+    <script src="maps/maps.js"></script>
+    <script src="scripts.js"></script>
 </body>
 
 </html>
