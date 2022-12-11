@@ -35,8 +35,8 @@
 // routeCoords[routeCoords.length - 1][0] = 151.226281;
 
 // Suburban Chicago
-routeCoords[routeCoords.length - 1][1] = 42.1898664;
-routeCoords[routeCoords.length - 1][0] = -88.2232382;
+// routeCoords[routeCoords.length - 1][1] = 42.1898664;
+// routeCoords[routeCoords.length - 1][0] = -88.2232382;
 
 // Simulate Failure and NULL data
 // routeCoords[routeCoords.length - 1][1] = false;
@@ -198,7 +198,7 @@ if (disableAPICalls !== true) {
         // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
         style: 'mapbox://styles/jamiestill/clb7fzawa002o15nhr3ce8p03',
         center: currentLngLat,
-        zoom: 3,
+        zoom: 2,
         attributionControl: false,
     });
 

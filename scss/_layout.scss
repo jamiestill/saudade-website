@@ -7,6 +7,7 @@ $padding-image-panel-content: 4rem;
 
 body {
 	position: relative; // for footer video positioning
+	z-index: 100;
 }
 
 body,
@@ -20,7 +21,7 @@ main {
 }
 
 #content > section {
-	margin: 1rem 0; // flex margins don't collapse
+	padding-bottom: 10rem; // flex margins don't collapse
 
 	@include for-size(tablet-portrait-up) {
 		flex: 1;
@@ -41,71 +42,78 @@ main {
    ========================================================================== */
 
 .image-panel {
+	display: flex;
+
+	// Content container has the text
 	.image-panel-content-container {
 		flex-direction: column;
 		padding-bottom: $padding-image-panel-content;
 		@extend .inside;
-	}
 
-	// display: flex;
-
-	&.left-img .image-panel-img-container {
-		order: -1; // use order to move the image to the left
-	}
-
-	// Content container has the text
-	.image-panel-content-container {
-		// max-width: 50rem;
+		max-width: 70rem;
 		align-self: center;
+
+		@include for-size(tablet-portrait-up) {
+			flex-direction: row;
+		}
 	}
 
-	// Content container has the large image
+	// Image container has the large image
 	.image-panel-img-container {
 		flex: 1;
 		max-width: 100%;
 	}
 
 	@include for-size(tablet-portrait-up) {
-		// flex-direction: row;
+		&.image-left .image-panel-img-container {
+			order: -1; // use order to move the image to the left
+		}
 
-		// img {
-		// 	height: 100%;
-		// 	.image-right {
-		// 		object-position: right;
-		// 	}
-		// }
+		img {
+			height: 100%;
+			object-fit: cover;
+		}
 
-		// // Half the width for the image
-		// &.image-half {
-		// 	.image-panel-content-container {
-		// 		flex: 1;
-		// 	}
+		.image-right {
+			object-position: right;
+		}
 
-		// 	.image-panel-img-container {
-		// 		flex: 1;
-		// 	}
-		// }
+		// Half the width for the image
+		&.image-half {
+			.image-panel-content-container {
+				flex: 1;
+			}
 
-		// // Third of the width for the image
-		// &.image-third {
-		// 	.image-panel-content-container {
-		// 		flex: 2;
-		// 	}
+			.image-panel-img-container {
+				flex: 1;
+			}
+		}
 
-		// 	.image-panel-img-container {
-		// 		flex: 1;
-		// 	}
-		// }
+		// Third of the width for the image
+		&.image-third {
+			.image-panel-content-container {
+				flex: 2;
+			}
 
-		// // Two thirds of the width for the image
-		// &.image-two-thirds {
-		// 	.image-panel-content-container {
-		// 		flex: 1;
-		// 	}
+			.image-panel-img-container {
+				flex: 1;
+			}
+		}
 
-		// 	.image-panel-img-container {
-		// 		flex: 2;
-		// 	}
-		// }
+		// Two thirds of the width for the image
+		&.image-two-thirds {
+			.image-panel-content-container {
+				flex: 1;
+			}
+
+			.image-panel-img-container {
+				flex: 2;
+			}
+		}
 	}
+}
+
+// put these in base
+.object-position-right {
+	object-position: right;
 }

@@ -434,6 +434,7 @@ footer {
    ========================================================================== */
 body {
   position: relative;
+  z-index: 100;
 }
 
 body,
@@ -447,7 +448,7 @@ main {
 }
 
 #content > section {
-  margin: 1rem 0;
+  padding-bottom: 10rem;
 }
 @media screen and (min-width: 799px) {
   #content > section {
@@ -466,20 +467,62 @@ main {
     panel with side-by-side columns with a hero-like image and blocks of text
 	Measured by the image taking up third, two-third, or half, and left side or right side
    ========================================================================== */
+.image-panel {
+  display: flex;
+}
 .image-panel .image-panel-content-container {
   flex-direction: column;
   padding-bottom: 4rem;
-}
-.image-panel.left-img .image-panel-img-container {
-  order: -1;
-}
-.image-panel .image-panel-content-container {
+  max-width: 70rem;
   align-self: center;
+}
+@media screen and (min-width: 799px) {
+  .image-panel .image-panel-content-container {
+    flex-direction: row;
+  }
 }
 .image-panel .image-panel-img-container {
   flex: 1;
   max-width: 100%;
 }
+@media screen and (min-width: 799px) {
+  .image-panel.image-left .image-panel-img-container {
+    order: -1;
+  }
+  .image-panel img {
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .image-panel .image-right {
+    -o-object-position: right;
+       object-position: right;
+  }
+  .image-panel.image-half .image-panel-content-container {
+    flex: 1;
+  }
+  .image-panel.image-half .image-panel-img-container {
+    flex: 1;
+  }
+  .image-panel.image-third .image-panel-content-container {
+    flex: 2;
+  }
+  .image-panel.image-third .image-panel-img-container {
+    flex: 1;
+  }
+  .image-panel.image-two-thirds .image-panel-content-container {
+    flex: 1;
+  }
+  .image-panel.image-two-thirds .image-panel-img-container {
+    flex: 2;
+  }
+}
+
+.object-position-right {
+  -o-object-position: right;
+     object-position: right;
+}
+
 /* ==========================================================================
    NAVIGATION
    ========================================================================== */
