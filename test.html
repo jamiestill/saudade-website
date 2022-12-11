@@ -34,8 +34,9 @@ jamie@jamiestill.com
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,700;1,300&family=Lato:ital,wght@0,300;0,700;1,300&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,700;1,300&family=IBM+Plex+Mono:wght@200&display=swap"
         rel="stylesheet">
+    <link href="/images/icons/fontello/css/fontello.css" rel="stylesheet" />
     <link href="/css/styles.css" rel="stylesheet" />
 
     <!-- Canonical URLs -->
@@ -54,9 +55,6 @@ jamie@jamiestill.com
 
     <!-- Preload images -->
     <!-- <link rel="preload" href="/images/acme.png" as="image" /> -->
-
-    <!-- Font Awesome -->
-    <script src="https://kit.fontawesome.com/eb7ab5fef7.js" crossorigin="anonymous"></script>
 
     <!-- Mapbox -->
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
@@ -87,210 +85,406 @@ jamie@jamiestill.com
 
     <!-- Main -->
     <main id="content">
+        <!-- Main -->
+        <main id="content">
 
-        <header>
-            <h2>Style guide</h2>
-            <p>All the styles for the Saudade wesbite.</p>
-        </header>
+            <header>
+                <h2>Style guide</h2>
+                <p>All the styles for the Saudade wesbite.</p>
+            </header>
 
-        <!-- Colors -->
-        <section id="test-colors">
-            <h3>Colors</h3>
-            <noscript>
-                <p>JavaScript required to see color swatches.</p>
-            </noscript>
-            <script>
+            <!-- Colors -->
+            <section id="test-colors">
+                <h3>Colors</h3>
+                <noscript>
+                    <p>JavaScript required to see color swatches.</p>
+                </noscript>
+                <script>
 
-                // Test to make sure style sheets are of this domain (Google Fonts CSS with throw an error)
-                const checkStylesheetOrigin = (styleSheet) => {
+                    // Test to make sure style sheets are of this domain (Google Fonts CSS with throw an error)
+                    const checkStylesheetOrigin = (styleSheet) => {
 
-                    if (styleSheet.href === null) {
-                        // NULL href, must be local
-                        return false;
-                    } else {
-                        // No href, might still be local
-                        if (styleSheet.href.indexOf(window.location.origin)) { // check that the window.location is in the stylesheet href
+                        if (styleSheet.href === null) {
+                            // NULL href, must be local
                             return false;
+                        } else {
+                            // No href, might still be local
+                            if (styleSheet.href.indexOf(window.location.origin)) { // check that the window.location is in the stylesheet href
+                                return false;
+                            }
                         }
+                        // get here, definitely not local, filter out
+                        return true;
                     }
-                    // get here, definitely not local, filter out
-                    return true;
-                }
 
-                // Get the stylesheets into an array
-                let styleSheets = [...document.styleSheets];
-                let cssRulesText, cssRules = [];
+                    // Get the stylesheets into an array
+                    let styleSheets = [...document.styleSheets];
+                    let cssRulesText, cssRules = [];
 
-                //console.log(styleSheets);
-                styleSheets = styleSheets.filter(checkStylesheetOrigin);
-                cssRulesText = styleSheets.forEach(styleSheet => {
-                });
+                    //console.log(styleSheets);
+                    styleSheets = styleSheets.filter(checkStylesheetOrigin);
+                    cssRulesText = styleSheets.forEach(styleSheet => {
+                    });
 
 
-            </script>
-        </section>
+                </script>
+            </section>
 
-        <!-- Headings and text -->
-        <section id="test-headings-text">
-            <h3>Headings and text</h3>
-            <div class="card">
+            <!-- Headings and text -->
+            <section id="test-headings-text">
+                <h3>Headings and text</h3>
+                <div class="card">
 
-                <h1>Heading 1 : Logotype</h1>
-                <h2>Heading 2</h2>
-                <h3>Heading 3</h3>
+                    <h1>Heading 1 : Logotype</h1>
+                    <h2>Heading 2</h2>
+                    <h3>Heading 3</h3>
 
-                <hr />
+                    <hr />
 
-                <p>
-                    <img alt="Jamie on the deck of Saudade" src="/images/presentation/captain.jpg"
-                        class="img-right" />This is a paragraph. <strong>Strong</strong> text and <em>emphasis</em>. The
-                    <code>&lt;p&gt;</code>
-                    element is used to
-                    define a paragraph. The exact rendering (indentation,
-                    leading etc.) is not defined and may be a function of other tags, style sheets, etc. The
-                    <code>align</code> attribute can be used to explicitly specify the horizontal alignment. Paragraph
-                    elements have the same content model as headers, that is text and character level markup, such as
-                    character emphasis, inline images, form fields and math. <a href="">This is a link</a>, <abbr
-                        title="'By the way' which is denoted this abbr tag.">btw (and an abbrivation</abbr>.
-                <blockquote>This is a blockquote.</blockquote>
-                <aside>This is an aside.</aside>
-                </p>
-            </div>
-        </section>
-
-
-        <!-- Icons -->
-        <section id="test-icons">
-            <h3>Icons</h3>
-            <ul class="card">
-                <li><span><a href="https://www.linkedin.com/in/jamiestill/"
-                            title="Jamie Still's LinkedIn profile"><i></i></a></span></li>
-                <li><span><a href="https://www.instagram.com/jamiestill/"
-                            title="See the Instagram of Jamie Still"><i></i></a></span></li>
-                <li><span><a href="https://www.facebook.com/jamiestill/" title="Get social with Jamie on Facebook"><i
-                                class="fa-brands fa-facebook"></i></a></span></li>
-                <li><span><a href="https://github.com/jamiestill/saudade-website"
-                            title="See the source code for sailingsaudade.com on Github"><i
-                                class="fa-brands fa-github"></i></a></span></li>
-                <li><span>
-                        <a data-nosnippet
-                            href="mailto&#58;j&#37;6&#49;m&#105;&#101;&#64;jam%69e%73t&#105;%&#54;C&#108;&#46;c%&#54;Fm"
-                            title="Shoot me an email"><i class="fa-regular fa-envelope"></i></a>
-                    </span></li>
-            </ul>
-        </section>
-
-        <!-- Buttons -->
-        <section id="test-buttons">
-            <h3>Buttons</h3>
-            <div class="card">
-
-            </div>
-        </section>
-
-        <!-- Forms -->
-        <section id="test-forms">
-            <header>
-                <h3>Forms</h3>
-            </header>
-            <form method="post" action="#" class="card">
-
-            </form>
-        </section>
-
-        <!-- Layouts -->
-        <section id="test-layouts">
-            <header>
-                <h3>Image panels</h3>
-                <p>Panels that bleed to edge.</p>
-            </header>
-            <div class="card">
-                <!-- Image right -->
-                <section class="image-panel">
-                    <div class="image-panel-content-container">
-                        Image right. Include expository text here.
-                    </div>
-                    <div class="image-panel-img-container">
-                        <img src="/images/hero/saudade-plana-cay-original.jpg" alt="sample image 1" />
-                    </div>
-                </section>
-
-                <!-- Image left -->
-                <section id="about" class="image-panel left-img">
-                    <div class="image-panel-content-container">
-                        Image left. Include expository text here.
-                    </div>
-                    <div class="image-panel-img-container">
-                        <img src="/images/presentation/saudade-plana-cay-side.jpg" alt="sample image 2" />
-                    </div>
-                </section>
-            </div>
-        </section>
-
-        <!-- Components -->
-        <section id="test-components">
-            <h3>Components</h3>
-            <section>
-                <header>
-                    <h4>
-                        Dictionary Definitions
-                    </h4>
-                </header>
-                <div class="card dictionary-definition">
-                    <dl>
-                        <dt>de&middot;fine</dt>
-                        <dd>
-                            /pronounce/
-                            <abbr class="part-of-speech" title="noun">verb</abbr>
-                            <span class="origin">Origin</span>
-                            <ul class="definition-body">
-                                <li><b>1</b> Definition one</li>
-                                <li><b>2</b> <span class="informal">informal</span> Definition two</li>
-                            </ul> &mdash; <span class="see-also">see <span>something;
-                                    liberty</span></span>.
-                        </dd>
-                    </dl>
+                    <p>
+                        <img alt="Jamie on the deck of Saudade" src="/images/presentation/captain.jpg"
+                            class="img-right" />This is a paragraph. <strong>Strong</strong> text and <em>emphasis</em>.
+                        The
+                        <code>&lt;p&gt;</code>
+                        element is used to
+                        define a paragraph. The exact rendering (indentation,
+                        leading etc.) is not defined and may be a function of other tags, style sheets, etc. The
+                        <code>align</code> attribute can be used to explicitly specify the horizontal alignment.
+                        Paragraph
+                        elements have the same content model as headers, that is text and character level markup, such
+                        as
+                        character emphasis, inline images, form fields and math. <a href="">This is a link</a>, <abbr
+                            title="'By the way' which is denoted this abbr tag.">btw (and an abbrivation</abbr>.
+                    <blockquote>This is a blockquote.</blockquote>
+                    <aside>This is an aside.</aside>
+                    </p>
                 </div>
             </section>
-    </main>
 
-    <!-- Footer -->
-    <footer class="page-width-container">
-        <p>Footer. &copy; Jamie Still</p>
 
-        <!-- Social media and contact -->
-        <ul>
-            <li><span><a href="https://www.linkedin.com/in/jamiestill/"
-                        title="Jamie Still's LinkedIn profile"><i></i></a></span>
-            </li>
-            <li><span><a href="https://www.instagram.com/jamiestill/"
-                        title="See the Instagram of Jamie Still"><i></i></a></span></li>
-            <li><span><a href="https://www.facebook.com/jamiestill/" title="Get social with Jamie on Facebook"><i
-                            class="fa-brands fa-facebook"></i></a></span></li>
-            <li><span><a href="https://github.com/jamiestill/saudade-website"
-                        title="See the source code for sailingsaudade.com on Github"><i
-                            class="fa-brands fa-github"></i></a></span></li>
-            <li><span>
-                    <a data-nosnippet
-                        href="mailto&#58;j&#37;6&#49;m&#105;&#101;&#64;jam%69e%73t&#105;%&#54;C&#108;&#46;c%&#54;Fm"
-                        title="Shoot me an email"><i class="fa-regular fa-envelope"></i></a>
-                </span></li>
-        </ul>
+            <!-- Icons -->
+            <section id="test-icons">
+                <h3>Icons</h3>
+                <div class="card">
+                    <div class="container" id="icons">
+                        <div class="row">
+                            <div class="span3" title="Code: 0xe800">
+                                <i class="demo-icon icon-github">&#xe800;</i> <span
+                                    class="i-name">icon-github</span><span class="i-code">0xe800</span>
+                            </div>
+                            <div class="span3" title="Code: 0xe801">
+                                <i class="demo-icon icon-camera">&#xe801;</i> <span
+                                    class="i-name">icon-camera</span><span class="i-code">0xe801</span>
+                            </div>
+                            <div class="span3" title="Code: 0xe803">
+                                <i class="demo-icon icon-map">&#xe803;</i> <span class="i-name">icon-map</span><span
+                                    class="i-code">0xe803</span>
+                            </div>
+                            <div class="span3" title="Code: 0xe804">
+                                <i class="demo-icon icon-snow-heavy">&#xe804;</i> <span
+                                    class="i-name">icon-snow-heavy</span><span class="i-code">0xe804</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span3" title="Code: 0xe805">
+                                <i class="demo-icon icon-sails">&#xe805;</i> <span class="i-name">icon-sails</span><span
+                                    class="i-code">0xe805</span>
+                            </div>
+                            <div class="span3" title="Code: 0xe806">
+                                <i class="demo-icon icon-propeller">&#xe806;</i> <span
+                                    class="i-name">icon-propeller</span><span class="i-code">0xe806</span>
+                            </div>
+                            <div class="span3" title="Code: 0xe807">
+                                <i class="demo-icon icon-resume-cv">&#xe807;</i> <span
+                                    class="i-name">icon-resume-cv</span><span class="i-code">0xe807</span>
+                            </div>
+                            <div class="span3" title="Code: 0xe808">
+                                <i class="demo-icon icon-flash">&#xe808;</i> <span class="i-name">icon-flash</span><span
+                                    class="i-code">0xe808</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span3" title="Code: 0xe809">
+                                <i class="demo-icon icon-paddleboard">&#xe809;</i> <span
+                                    class="i-name">icon-paddleboard</span><span class="i-code">0xe809</span>
+                            </div>
+                            <div class="span3" title="Code: 0xe80a">
+                                <i class="demo-icon icon-anchor">&#xe80a;</i> <span
+                                    class="i-name">icon-anchor</span><span class="i-code">0xe80a</span>
+                            </div>
+                            <div class="span3" title="Code: 0xe80c">
+                                <i class="demo-icon icon-scuba-tank">&#xe80c;</i> <span
+                                    class="i-name">icon-scuba-tank</span><span class="i-code">0xe80c</span>
+                            </div>
+                            <div class="span3" title="Code: 0xe80d">
+                                <i class="demo-icon icon-generator">&#xe80d;</i> <span
+                                    class="i-name">icon-generator</span><span class="i-code">0xe80d</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span3" title="Code: 0xe80e">
+                                <i class="demo-icon icon-solar">&#xe80e;</i> <span class="i-name">icon-solar</span><span
+                                    class="i-code">0xe80e</span>
+                            </div>
+                            <div class="span3" title="Code: 0xe80f">
+                                <i class="demo-icon icon-play-video">&#xe80f;</i> <span
+                                    class="i-name">icon-play-video</span><span class="i-code">0xe80f</span>
+                            </div>
+                            <div class="span3" title="Code: 0xe810">
+                                <i class="demo-icon icon-stop-video">&#xe810;</i> <span
+                                    class="i-name">icon-stop-video</span><span class="i-code">0xe810</span>
+                            </div>
+                            <div class="span3" title="Code: 0xe811">
+                                <i class="demo-icon icon-pause">&#xe811;</i> <span class="i-name">icon-pause</span><span
+                                    class="i-code">0xe811</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span3" title="Code: 0xe812">
+                                <i class="demo-icon icon-lifebuoy">&#xe812;</i> <span
+                                    class="i-name">icon-lifebuoy</span><span class="i-code">0xe812</span>
+                            </div>
+                            <div class="span3" title="Code: 0xe813">
+                                <i class="demo-icon icon-battery">&#xe813;</i> <span
+                                    class="i-name">icon-battery</span><span class="i-code">0xe813</span>
+                            </div>
+                            <div class="span3" title="Code: 0xe814">
+                                <i class="demo-icon icon-catamaran">&#xe814;</i> <span
+                                    class="i-name">icon-catamaran</span><span class="i-code">0xe814</span>
+                            </div>
+                            <div class="span3" title="Code: 0xe815">
+                                <i class="demo-icon icon-clouds">&#xe815;</i> <span
+                                    class="i-name">icon-clouds</span><span class="i-code">0xe815</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span3" title="Code: 0xe816">
+                                <i class="demo-icon icon-clouds-flash">&#xe816;</i> <span
+                                    class="i-name">icon-clouds-flash</span><span class="i-code">0xe816</span>
+                            </div>
+                            <div class="span3" title="Code: 0xe819">
+                                <i class="demo-icon icon-cloud-sun">&#xe819;</i> <span
+                                    class="i-name">icon-cloud-sun</span><span class="i-code">0xe819</span>
+                            </div>
+                            <div class="span3" title="Code: 0xe81a">
+                                <i class="demo-icon icon-cloud-moon">&#xe81a;</i> <span
+                                    class="i-name">icon-cloud-moon</span><span class="i-code">0xe81a</span>
+                            </div>
+                            <div class="span3" title="Code: 0xe81c">
+                                <i class="demo-icon icon-cloud-flash">&#xe81c;</i> <span
+                                    class="i-name">icon-cloud-flash</span><span class="i-code">0xe81c</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span3" title="Code: 0xe81e">
+                                <i class="demo-icon icon-fog-cloud">&#xe81e;</i> <span
+                                    class="i-name">icon-fog-cloud</span><span class="i-code">0xe81e</span>
+                            </div>
+                            <div class="span3" title="Code: 0xe81f">
+                                <i class="demo-icon icon-fog">&#xe81f;</i> <span class="i-name">icon-fog</span><span
+                                    class="i-code">0xe81f</span>
+                            </div>
+                            <div class="span3" title="Code: 0xe820">
+                                <i class="demo-icon icon-rain">&#xe820;</i> <span class="i-name">icon-rain</span><span
+                                    class="i-code">0xe820</span>
+                            </div>
+                            <div class="span3" title="Code: 0xe821">
+                                <i class="demo-icon icon-drizzle">&#xe821;</i> <span
+                                    class="i-name">icon-drizzle</span><span class="i-code">0xe821</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span3" title="Code: 0xe822">
+                                <i class="demo-icon icon-cloud">&#xe822;</i> <span class="i-name">icon-cloud</span><span
+                                    class="i-code">0xe822</span>
+                            </div>
+                            <div class="span3" title="Code: 0xe823">
+                                <i class="demo-icon icon-tender">&#xe823;</i> <span
+                                    class="i-name">icon-tender</span><span class="i-code">0xe823</span>
+                            </div>
+                            <div class="span3" title="Code: 0xe824">
+                                <i class="demo-icon icon-wrench">&#xe824;</i> <span
+                                    class="i-name">icon-wrench</span><span class="i-code">0xe824</span>
+                            </div>
+                            <div class="span3" title="Code: 0xf019">
+                                <i class="demo-icon icon-globe">&#xf019;</i> <span class="i-name">icon-globe</span><span
+                                    class="i-code">0xf019</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span3" title="Code: 0xf031">
+                                <i class="demo-icon icon-location">&#xf031;</i> <span
+                                    class="i-name">icon-location</span><span class="i-code">0xf031</span>
+                            </div>
+                            <div class="span3" title="Code: 0xf07b">
+                                <i class="demo-icon icon-link">&#xf07b;</i> <span class="i-name">icon-link</span><span
+                                    class="i-code">0xf07b</span>
+                            </div>
+                            <div class="span3" title="Code: 0xf0aa">
+                                <i class="demo-icon icon-top">&#xf0aa;</i> <span class="i-name">icon-top</span><span
+                                    class="i-code">0xf0aa</span>
+                            </div>
+                            <div class="span3" title="Code: 0xf185">
+                                <i class="demo-icon icon-sun">&#xf185;</i> <span class="i-name">icon-sun</span><span
+                                    class="i-code">0xf185</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span3" title="Code: 0xf186">
+                                <i class="demo-icon icon-moon">&#xf186;</i> <span class="i-name">icon-moon</span><span
+                                    class="i-code">0xf186</span>
+                            </div>
+                            <div class="span3" title="Code: 0xf199">
+                                <i class="demo-icon icon-mail-squared">&#xf199;</i> <span
+                                    class="i-name">icon-mail-squared</span><span class="i-code">0xf199</span>
+                            </div>
+                            <div class="span3" title="Code: 0xf1c1">
+                                <i class="demo-icon icon-file-pdf">&#xf1c1;</i> <span
+                                    class="i-name">icon-file-pdf</span><span class="i-code">0xf1c1</span>
+                            </div>
+                            <div class="span3" title="Code: 0xf236">
+                                <i class="demo-icon icon-bed">&#xf236;</i> <span class="i-name">icon-bed</span><span
+                                    class="i-code">0xf236</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span3" title="Code: 0xf2dc">
+                                <i class="demo-icon icon-snow">&#xf2dc;</i> <span class="i-name">icon-snow</span><span
+                                    class="i-code">0xf2dc</span>
+                            </div>
+                            <div class="span3" title="Code: 0xf301">
+                                <i class="demo-icon icon-facebook">&#xf301;</i> <span
+                                    class="i-name">icon-facebook</span><span class="i-code">0xf301</span>
+                            </div>
+                            <div class="span3" title="Code: 0xf31b">
+                                <i class="demo-icon icon-linkedin">&#xf31b;</i> <span
+                                    class="i-name">icon-linkedin</span><span class="i-code">0xf31b</span>
+                            </div>
+                            <div class="span3" title="Code: 0xf31e">
+                                <i class="demo-icon icon-instagram">&#xf31e;</i> <span
+                                    class="i-name">icon-instagram</span><span class="i-code">0xf31e</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-        <p>This website uses no cookies.</p>
-        <p>
-            <a href="#">Back to top</a>
-        </p>
-    </footer>
+            <!-- Buttons -->
+            <section id="test-buttons">
+                <h3>Buttons</h3>
+                <div class="card">
 
-    <!-- Google Geo API -->
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBk2_7sLHSG1wxB1KhCNRuoSNQlM3GdUwc&callback=getLocation&v=weekly"
-        defer></script>
+                </div>
+            </section>
 
-    <!-- Local JavaScript -->
-    <script src="maps/maps.js"></script>
-    <script src="scripts.js"></script>
+            <!-- Forms -->
+            <section id="test-forms">
+                <header>
+                    <h3>Forms</h3>
+                </header>
+                <form method="post" action="#" class="card">
+
+                </form>
+            </section>
+
+            <!-- Layouts -->
+            <section id="test-layouts">
+                <header>
+                    <h3>Image panels</h3>
+                    <p>Panels that bleed to edge.</p>
+                </header>
+                <div class="card">
+                    <!-- Image right -->
+                    <section class="image-panel">
+                        <div class="image-panel-content-container">
+                            Image right. Include expository text here.
+                        </div>
+                        <div class="image-panel-img-container">
+                            <img src="/images/hero/saudade-plana-cay-original.jpg" alt="sample image 1" />
+                        </div>
+                    </section>
+
+                    <!-- Image left -->
+                    <section id="about" class="image-panel left-img">
+                        <div class="image-panel-content-container">
+                            Image left. Include expository text here.
+                        </div>
+                        <div class="image-panel-img-container">
+                            <img src="/images/presentation/saudade-plana-cay-side.jpg" alt="sample image 2" />
+                        </div>
+                    </section>
+                </div>
+            </section>
+
+            <!-- Components -->
+            <section id="test-components">
+                <h3>Components</h3>
+                <section>
+                    <header>
+                        <h4>
+                            Dictionary Definitions
+                        </h4>
+                    </header>
+                    <div class="card dictionary-definition">
+                        <dl>
+                            <dt>de&middot;fine</dt>
+                            <dd>
+                                /pronounce/
+                                <abbr class="part-of-speech" title="noun">verb</abbr>
+                                <span class="origin">Origin</span>
+                                <ul class="definition-body">
+                                    <li><b>1</b> Definition one</li>
+                                    <li><b>2</b> <span class="informal">informal</span> Definition two</li>
+                                </ul> &mdash; <span class="see-also">see <span>something;
+                                        liberty</span></span>.
+                            </dd>
+                        </dl>
+                    </div>
+                </section>
+            </section>
+        </main>
+        <!-- Footer -->
+        <footer>
+            <div class="inside">
+                <!-- Social media and contact -->
+                <ul class="social-and-contact">
+                    <li><a href="https://www.linkedin.com/in/jamiestill/" title="Jamie Still's LinkedIn profile"
+                            target="_blank" rel="noopener noreferrer" class="icon-linkedin"></span></a></li>
+                    <li><a href="https://www.instagram.com/jamiestill/" title="See the Instagram of Jamie Still"
+                            target="_blank" rel="noopener noreferrer"><span class="icon-instagram"></span></a>
+                    </li>
+                    <li><a href="https://www.facebook.com/jamiestill/" title="Get social with Jamie on Facebook"
+                            target="_blank" rel="noopener noreferrer"><span class="icon-facebook"></span></a>
+                    </li>
+                    <li><a href="https://github.com/jamiestill/saudade-website"
+                            title="See the source code for sailingsaudade.com on Github" target="_blank"
+                            rel="noopener noreferrer"><span class="icon-github"></span></a></li>
+                    <li>
+                        <a data-nosnippet
+                            href="mailto&#58;j&#37;6&#49;m&#105;&#101;&#64;jam%69e%73t&#105;%&#54;C&#108;&#46;c%&#54;Fm"
+                            title="Shoot me an email"><span class="icon-mail-squared"></span></a>
+                    </li>
+                </ul>
+                <div class="copyright">&copy; Jamie Still.<br /><small>This website uses no cookies.</small>
+                </div>
+            </div>
+        </footer>
+        <div class="footer-background-video-wrapper">
+            <video autoplay playsinline muted loop id="footer-background-video" src="/images/video/generic-beach-2.mp4"
+                type="video/mp4"></video>
+        </div>
+
+        <div class="back-to-top">
+            <a href="#masthead"><span class="icon-top"></span>Back to top</a>
+        </div>
+        <!-- Google Geo API -->
+        <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCo8RYEBqmJIB-Z_w1tZ-pvHNZ-3hD9j-g&callback=getLocation&v=weekly"
+            defer></script>
+
+        <!-- Local JavaScript -->
+        <script src="maps/maps.js"></script>
+        <script src="scripts.js"></script>
 </body>
 
 </html>

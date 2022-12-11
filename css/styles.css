@@ -802,4 +802,37 @@ ul.custom-bullet li span.icon-snow {
   display: block;
   width: 5rem;
   border-radius: 10px;
+}
+
+#test-icons {
+  /*
+  Icon lists are created fontello automatically
+  */
+}
+@media screen and (min-width: 700px) {
+  #test-icons #icons {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+#test-icons .row {
+  flex: 1;
+  flex-basis: 40%;
+}
+#test-icons .span-3 i,
+#test-icons .span-3 span {
+  margin-right: 1rem;
+}
+#test-icons .demo-icon {
+  color: rgba(255, 255, 255, 0);
+}
+#test-icons .demo-icon::before {
+  font-size: 2em;
+  padding: 0.3em 1em;
+  opacity: 1;
+  color: black;
+}
+#test-icons .i-code:before {
+  content: "  Code: ";
+  font-style: italic;
 }/*# sourceMappingURL=styles.css.map */

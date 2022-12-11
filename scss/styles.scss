@@ -130,7 +130,7 @@ ul.custom-bullet {
 	font-style: italic;
 }
 
-// For test page
+// For test / style guide page
 .card {
 	margin: 2rem;
 	padding: 2rem;
@@ -144,5 +144,47 @@ ul.custom-bullet {
 		display: block;
 		width: 5rem;
 		border-radius: 10px;
+	}
+}
+
+#test-icons {
+	/*
+	Icon lists are created fontello automatically
+	*/
+	#icons {
+		@media screen and (min-width: 700px) {
+			display: flex;
+			flex-wrap: wrap;
+		}
+	}
+
+	.row {
+		flex: 1;
+		flex-basis: 40%;
+	}
+
+	.span-3 {
+		i,
+		span {
+			margin-right: 1rem;
+		}
+	}
+
+	.demo-icon {
+		color: rgba(255, 255, 255, 0);
+
+		&::before {
+			font-size: 2em;
+			padding: 0.3em 1em;
+			opacity: 1;
+			color: black;
+		}
+	}
+
+	.i-code {
+		&:before {
+			content: '  Code: ';
+			font-style: italic;
+		}
 	}
 }

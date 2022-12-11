@@ -45,8 +45,6 @@
 // Short circuit flag for API calls
 window.stopAPICalls = true;
 
-//https://api.mapbox.com/geocoding/v5/mapbox.places/--75.119233,23.848841.json?access_token=pk.eyJ1IjoiamFtaWVzdGlsbCIsImEiOiJjbGI3YzlhcGEwOWZkM3JydnVibW1vYWJlIn0.s3NyxYxISDf2vRjQz20ycw
-
 // ========= END TESTING
 
 /**
