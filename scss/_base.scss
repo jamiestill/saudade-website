@@ -68,29 +68,29 @@ abbr[title] {
    TYPOGRAHPY
    ========================================================================== */
 
-@font-face {
-	font-family: 'zurich-web';
-	src: url('/fonts/ZurichWeb-Regular.woff2') format('woff2'),
-		url('/fonts/ZurichWeb-Regular.woff') format('woff');
-	font-weight: normal;
-	font-style: normal;
-	font-display: swap;
-}
+// @font-face {
+// 	font-family: 'zurich-custom';
+// 	src: url('/fonts/ZurichCustom-Regular.woff2') format('woff2'),
+// 		url('/fonts/ZurichCustom-Regular.woff') format('woff');
+// 	font-weight: normal;
+// 	font-style: normal;
+// 	font-display: swap;
+// }
+
+// @font-face {
+// 	font-family: 'zurich-custom';
+// 	src: url('/fonts/ZurichCustom-Bold.woff2') format('woff2'),
+// 		url('/fonts/ZurichCustom-Bold.woff') format('woff');
+// 	font-weight: bold;
+// 	font-style: normal;
+// 	font-display: swap;
+// }
 
 @font-face {
-	font-family: 'zurich-web';
-	src: url('/fonts/ZurichWeb-Bold.woff2') format('woff2'),
-		url('/fonts/ZurichWeb-Bold.woff') format('woff');
-	font-weight: bold;
-	font-style: normal;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: 'zurich-web';
-	src: url('/fonts/ZurichWeb-Light.woff2') format('woff2'),
-		url('/fonts/ZurichWeb-Light.woff') format('woff');
-	font-weight: 300;
+	font-family: 'zurich-custom';
+	src: url('/fonts/ZurichCustom-Text.woff2') format('woff2'),
+		url('/fonts/ZurichCustom-Text.woff') format('woff');
+	font-weight: light;
 	font-style: normal;
 	font-display: swap;
 }
@@ -113,7 +113,7 @@ abbr[title] {
 
 // Font defaults
 body {
-	font-size: 1.3rem;
+	font-size: 1.6rem;
 	line-height: 1.8;
 	font-family: var(--font-sans);
 	font-weight: 100;
@@ -172,7 +172,7 @@ h3 {
 	padding-top: 2rem;
 	font-size: 3rem;
 	font-style: normal;
-	font-weight: 300;
+	font-weight: normal;
 	color: var(--color-primary);
 }
 

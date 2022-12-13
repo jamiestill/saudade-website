@@ -36,26 +36,22 @@
   --font-size: 1.6rem;
   --font-color: var(--color-text);
   --font-color-inverted: #c9f0f8;
-  --font-sans: "zurich-web", "Lato", system-ui,
-      /* macOS 10.11-10.12 */ -apple-system, "Helvetica Neue", Helvetica,
-      /* Windows 6+ */ "Segoe UI", /* Android 4+ */ "Roboto",
-      /* Ubuntu 10.10+ */ "Ubuntu", /* Gnome 3+ */ "Cantarell",
-      /* KDE Plasma 5+ */ "Noto Sans", /* fallback */ sans-serif,
-      /* macOS emoji */ "Apple Color Emoji",
-      /* Windows emoji */ "Segoe UI Emoji",
-      /* Windows emoji */ "Segoe UI Symbol",
-      /* Linux emoji */ "Noto Color Emoji";
+  --font-sans: "zurich-custom", system-ui, /* macOS 10.11-10.12 */ -apple-system,
+  	"Helvetica Neue", Helvetica, /* Windows 6+ */ "Segoe UI",
+  	/* Android 4+ */ "Roboto", /* Ubuntu 10.10+ */ "Ubuntu",
+  	/* Gnome 3+ */ "Cantarell", /* KDE Plasma 5+ */ "Noto Sans",
+  	/* fallback */ sans-serif, /* macOS emoji */ "Apple Color Emoji",
+  	/* Windows emoji */ "Segoe UI Emoji", /* Windows emoji */ "Segoe UI Symbol",
+  	/* Linux emoji */ "Noto Color Emoji";
   --font-mono: ui-monospace, /* macOS 10.10+ */ "Menlo",
-      /* Windows 6+ */ "Consolas", /* Android 4+ */ "Roboto Mono",
-      /* Ubuntu 10.10+ */ "Ubuntu Monospace", /* KDE Plasma 5+ */ "Noto Mono",
-      /* KDE Plasma 4+ */ "Oxygen Mono",
-      /* Linux/OpenOffice fallback */ "Liberation Mono",
-      /* fallback */ monospace, /* macOS emoji */ "Apple Color Emoji",
-      /* Windows emoji */ "Segoe UI Emoji",
-      /* Windows emoji */ "Segoe UI Symbol",
-      /* Linux emoji */ "Noto Color Emoji";
+  	/* Windows 6+ */ "Consolas", /* Android 4+ */ "Roboto Mono",
+  	/* Ubuntu 10.10+ */ "Ubuntu Monospace", /* KDE Plasma 5+ */ "Noto Mono",
+  	/* KDE Plasma 4+ */ "Oxygen Mono",
+  	/* Linux/OpenOffice fallback */ "Liberation Mono", /* fallback */ monospace,
+  	/* macOS emoji */ "Apple Color Emoji", /* Windows emoji */ "Segoe UI Emoji",
+  	/* Windows emoji */ "Segoe UI Symbol", /* Linux emoji */ "Noto Color Emoji";
   --font-serif: "Cormorant Garamond", Cambria, Cochin, Georgia, Times,
-      "Times New Roman", serif; /* Mostly for dictionary definition */
+  	"Times New Roman", serif; /* Mostly for dictionary definition */
   --font-mono-display: "IBM Plex Mono", monospace;
   --font-icon: "fontello", monospace;
 }
@@ -137,23 +133,9 @@ abbr[title] {
    TYPOGRAHPY
    ========================================================================== */
 @font-face {
-  font-family: "zurich-web";
-  src: url("/fonts/ZurichWeb-Regular.woff2") format("woff2"), url("/fonts/ZurichWeb-Regular.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "zurich-web";
-  src: url("/fonts/ZurichWeb-Bold.woff2") format("woff2"), url("/fonts/ZurichWeb-Bold.woff") format("woff");
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "zurich-web";
-  src: url("/fonts/ZurichWeb-Light.woff2") format("woff2"), url("/fonts/ZurichWeb-Light.woff") format("woff");
-  font-weight: 300;
+  font-family: "zurich-custom";
+  src: url("/fonts/ZurichCustom-Text.woff2") format("woff2"), url("/fonts/ZurichCustom-Text.woff") format("woff");
+  font-weight: light;
   font-style: normal;
   font-display: swap;
 }
@@ -174,7 +156,7 @@ abbr[title] {
 }
 
 body {
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   line-height: 1.8;
   font-family: var(--font-sans);
   font-weight: 100;
@@ -233,7 +215,7 @@ h3 {
   padding-top: 2rem;
   font-size: 3rem;
   font-style: normal;
-  font-weight: 300;
+  font-weight: normal;
   color: var(--color-primary);
 }
 
