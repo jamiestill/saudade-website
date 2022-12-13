@@ -72,25 +72,25 @@ abbr[title] {
 // 	font-family: 'zurich-custom';
 // 	src: url('/fonts/ZurichCustom-Regular.woff2') format('woff2'),
 // 		url('/fonts/ZurichCustom-Regular.woff') format('woff');
-// 	font-weight: normal;
-// 	font-style: normal;
-// 	font-display: swap;
-// }
-
-// @font-face {
-// 	font-family: 'zurich-custom';
-// 	src: url('/fonts/ZurichCustom-Bold.woff2') format('woff2'),
-// 		url('/fonts/ZurichCustom-Bold.woff') format('woff');
-// 	font-weight: bold;
+// 	font-weight: 500;
 // 	font-style: normal;
 // 	font-display: swap;
 // }
 
 @font-face {
 	font-family: 'zurich-custom';
+	src: url('/fonts/ZurichCustom-Bold.woff2') format('woff2'),
+		url('/fonts/ZurichCustom-Bold.woff') format('woff');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'zurich-custom';
 	src: url('/fonts/ZurichCustom-Text.woff2') format('woff2'),
 		url('/fonts/ZurichCustom-Text.woff') format('woff');
-	font-weight: light;
+	font-weight: 300;
 	font-style: normal;
 	font-display: swap;
 }
@@ -167,12 +167,11 @@ h2 {
 }
 
 h3 {
-	@extend .separator-top;
 	margin: 3rem 0;
 	padding-top: 2rem;
 	font-size: 3rem;
 	font-style: normal;
-	font-weight: normal;
+	font-weight: 500;
 	color: var(--color-primary);
 }
 
@@ -235,15 +234,21 @@ h4 {
 ) {
 	color: $color;
 	text-decoration: none;
+
 	@if $underline {
-		border-bottom: 1px solid rgba($color-link, 0);
-		transition: color 200ms, border-bottom 200ms;
+		& {
+			border-bottom: 1px solid rgba($color-link, 0.15);
+			transition: color 200ms, border-bottom 200ms;
+		}
 	} @else {
-		border-bottom: none;
+		& {
+			border-bottom: none;
+		}
 	}
 
 	&:hover {
 		color: $hoverColor;
+		/* testlink */
 		@if $underline {
 			border-bottom: 1px solid rgba($hoverColor, 1);
 		} @else {
@@ -278,11 +283,13 @@ a {
    PARAGRAPHS, IMAGES, ETC
    ========================================================================== */
 
-.img-right {
-	float: right;
-	margin: 0 0 2rem 2rem;
-	border-radius: 1rem;
+.picture-right,
+.picture-left {
 	width: 33%;
+
+	img {
+		border-radius: 1rem;
+	}
 
 	@media screen and (max-width: 699px) {
 		width: 50%;
@@ -291,6 +298,16 @@ a {
 	@media screen and (max-width: 399px) {
 		width: 100%;
 	}
+}
+
+.picture-left {
+	float: left;
+	margin: 0 2rem 2rem 0;
+}
+
+.picture-right {
+	float: right;
+	margin: 0 0 2rem 2rem;
 }
 
 .object-position-right {
@@ -375,7 +392,7 @@ footer {
 
 	video {
 		width: 100%;
-		object-fit: none;
+		object-fit: cover;
 		object-position: center 72%;
 		height: 35vh;
 	}

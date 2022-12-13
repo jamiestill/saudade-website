@@ -10,7 +10,7 @@
 // routeCoords[routeCoords.length - 1][1] = 24.220169;
 // routeCoords[routeCoords.length - 1][0] = -76.099677;
 
-// Just off Cnception Island
+// Just off Conception Island
 // routeCoords[routeCoords.length - 1][1] = 23.848841;
 // routeCoords[routeCoords.length - 1][0] = -75.119233;
 
@@ -35,8 +35,8 @@
 // routeCoords[routeCoords.length - 1][0] = 151.226281;
 
 // Suburban Chicago
-routeCoords[routeCoords.length - 1][1] = 42.1898664;
-routeCoords[routeCoords.length - 1][0] = -88.2232382;
+// routeCoords[routeCoords.length - 1][1] = 42.1898664;
+// routeCoords[routeCoords.length - 1][0] = -88.2232382;
 
 // Simulate Failure and NULL data
 // routeCoords[routeCoords.length - 1][1] = false;
@@ -483,7 +483,7 @@ const populateWeatherElement = (data) => {
     // Build the HTML element and insert into DOM
     const locationElement = document.createElement('div')
     locationElement.innerHTML = `
-        <h4>Weather conditions at <i>Saudade</i></h4>
+        <h4>${(data.name) ? 'Weather' : 'Forecasted'} conditions at <i>Saudade</i></h4>
         <div class="weather-data">${wxIcon}<p>${wxDescription}${wxTemp}${wxWindSpeed}${wxVisibility}.<br>${wxTimeStamp}</p></div>`;
     mapContainer.parentNode.appendChild(locationElement);
 

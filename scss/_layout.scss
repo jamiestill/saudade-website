@@ -8,7 +8,8 @@ $padding-image-panel-content: 6rem;
 body {
 	position: relative; // for footer video positioning
 }
-//
+
+// The sections of the page are direct childredn of main#content
 #content > section {
 	padding-bottom: 5rem; // flex margins don't collapse
 	flex-direction: column;
@@ -18,8 +19,9 @@ body {
 	}
 }
 
+// For portions (content sections) that shall not extend the full page width
+// for readability; centered to its container
 .inside {
-	// For portions that shall not extend the full page width (content sections)
 	max-width: $content-max-width;
 	margin: 0 auto 3rem;
 	padding: $padding-image-panel-content;
@@ -43,71 +45,79 @@ body {
    ========================================================================== */
 
 .image-panel {
-	// Content container has the text
-	.image-panel-content-container {
-		@extend .inside;
+	@include for-size(tablet-portrait-up) {
+		display: flex;
 	}
+}
 
-	// Image container has the large image
-	.image-panel-img-container {
-		max-width: 100%;
+// Content container has the text
+.image-panel-content-container {
+	@extend .inside;
+
+	@include for-size(tablet-portrait-up) {
+		max-width: none;
+	}
+}
+
+// Image container has the large image
+.image-panel-img-container {
+	flex: 1;
+
+	img {
+		height: 100%;
+		object-fit: cover;
 	}
 
 	@include for-size(tablet-portrait-up) {
-		display: flex;
+		// Posiitioning of the panel images
+		.image-left & {
+			img {
+				border-radius: 0 1rem 1rem 0;
+			}
+			order: -1; // use order to move the image to the left
+		}
 
+		.image-right & {
+			img {
+				border-radius: 1rem 0 0 1rem;
+			}
+
+			object-position: right;
+		}
+	}
+}
+
+@include for-size(tablet-portrait-up) {
+	// Widths of the panel images/content
+	.image-half {
 		.image-panel-content-container {
-			max-width: none;
+			flex: 1;
 		}
 
 		.image-panel-img-container {
 			flex: 1;
+		}
+	}
 
-			img {
-				height: 100vh;
-				object-fit: cover;
-			}
+	// Third of the width for the image
+	.image-third {
+		.image-panel-content-container {
+			flex: 2;
 		}
 
-		&.image-left .image-panel-img-container {
-			order: -1; // use order to move the image to the left
+		.image-panel-img-container {
+			flex: 1;
+		}
+	}
+
+	// Two thirds of the width for the image
+	.image-two-thirds {
+		.image-panel-content-container {
+			flex: 1;
 		}
 
-		.image-right {
-			object-position: right;
-		}
-
-		// Half the width for the image
-		&.image-half {
-			.image-panel-content-container {
-				flex: 1;
-			}
-
-			.image-panel-img-container {
-				flex: 1;
-			}
-		}
-
-		// Third of the width for the image
-		&.image-third {
-			.image-panel-content-container {
-				flex: 2;
-			}
-
-			.image-panel-img-container {
-				flex: 1;
-			}
-		}
-
-		// Two thirds of the width for the image
-		&.image-two-thirds {
-			.image-panel-content-container {
-				flex: 1;
-			}
-
-			.image-panel-img-container {
-				flex: 2;
-			}
+		.image-panel-img-container {
+			flex: 2;
 		}
 	}
 }
