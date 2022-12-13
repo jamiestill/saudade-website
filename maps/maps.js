@@ -35,8 +35,8 @@
 // routeCoords[routeCoords.length - 1][0] = 151.226281;
 
 // Suburban Chicago
-// routeCoords[routeCoords.length - 1][1] = 42.1898664;
-// routeCoords[routeCoords.length - 1][0] = -88.2232382;
+routeCoords[routeCoords.length - 1][1] = 42.1898664;
+routeCoords[routeCoords.length - 1][0] = -88.2232382;
 
 // Simulate Failure and NULL data
 // routeCoords[routeCoords.length - 1][1] = false;
@@ -186,7 +186,7 @@ getLocation = () => {
 
 /*
  * Mapbox Map Generation
-*/
+ */
 
 // Mapbox code (from Mapbox)
 if (disableAPICalls !== true) {
@@ -203,8 +203,6 @@ if (disableAPICalls !== true) {
     });
 
     map.addControl(new mapboxgl.AttributionControl(), 'bottom-right');
-
-    //new mapboxgl.Marker().setLngLat(currentLngLat).addTo(map)
 
     map.on('load', () => {
         map.addSource('route', {
@@ -236,17 +234,16 @@ if (disableAPICalls !== true) {
         // Create a feature collection to position the pin marker
         const geojson = {
             type: 'FeatureCollection',
-            features: [
-              {
+            features: [{
                 type: 'Feature',
                 geometry: {
-                  type: 'Point',
-                  coordinates: [latitudeLongitude.lng, latitudeLongitude.lat]
+                    type: 'Point',
+                    coordinates: [latitudeLongitude.lng, latitudeLongitude.lat]
                 }
-              }
-            ]};
+            }]
+        };
 
-        // Ass pin marker to map
+        // pin marker to map
         for (const feature of geojson.features) {
 
             // create a HTML element for each feature
@@ -256,12 +253,11 @@ if (disableAPICalls !== true) {
             // make a marker for each feature and add to the map
             new mapboxgl.Marker(el).setLngLat(feature.geometry.coordinates).addTo(map);
         };
-        
+
         // Add zoom controls
         map.addControl(new mapboxgl.NavigationControl({
-                showCompass : false
-            })
-        );
+            showCompass: false,
+        }), 'top-left');
 
         // Add fullscreen button
         map.addControl(new mapboxgl.FullscreenControl());
@@ -270,12 +266,60 @@ if (disableAPICalls !== true) {
         map.addControl(new mapboxgl.ScaleControl({
             maxWidth: 80,
             unit: 'imperial'
-            })
-        );
-    });
+        }));
 
-    
-}
+        /* Idea from https://stackoverflow.com/a/51683226  */
+        class MapboxGLButtonControl {
+            constructor({
+                className = "",
+                title = "",
+                eventHandler = evtHndlr
+            }) {
+                this._className = className;
+                this._title = title;
+                this._eventHandler = eventHandler;
+            }
+
+            onAdd(map) {
+                this._btn = document.createElement("button");
+                this._btn.className = "mapboxgl-ctrl-icon" + " " + this._className;
+                this._btn.type = "button";
+                this._btn.title = this._title;
+                this._btn.onclick = this._eventHandler;
+
+                this._container = document.createElement("div");
+                this._container.className = "mapboxgl-ctrl-group mapboxgl-ctrl";
+                this._container.appendChild(this._btn);
+
+                return this._container;
+            }
+
+            onRemove() {
+                this._container.parentNode.removeChild(this._container);
+                this._map = undefined;
+            }
+        }
+
+        /* Event Handlers */
+        function reCenter(event) {
+            map.flyTo({
+                center: [latitudeLongitude.lng, latitudeLongitude.lat]
+            });
+        }
+
+
+        /* Instantiate new controls with custom event handlers */
+        const ctrlPoint = new MapboxGLButtonControl({
+            className: "mapbox-gl-recenter",
+            title: "Recenter to Saudade",
+            eventHandler: reCenter
+        });
+
+        /* Add Controls to the Map */
+        map.addControl(ctrlPoint, "top-right");
+
+    })
+};
 
 /**
  * Format a date into a human readable timestamp
