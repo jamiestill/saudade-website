@@ -3,49 +3,50 @@
    ========================================================================== */
 
 #hero {
-	margin-top: 0; // Flush with top, unlike other sections
-	background: rgb(225, 251, 251);
-	background: linear-gradient(
-		135deg,
-		rgba(225, 251, 251, 1) 0%,
-		rgba(255, 255, 255, 1) 29%
-	);
+    margin-top: 0; // Flush with top, unlike other sections
+    padding-top: 4rem;
+    background: rgb(225, 251, 251);
+    background: linear-gradient(
+        135deg,
+        rgba(225, 251, 251, 1) 0%,
+        rgba(255, 255, 255, 1) 29%
+    );
 
-	.logo {
-		margin: 6rem auto 3rem;
-		height: 6rem;
+    .logo {
+        margin: 0 auto 3rem;
+        height: 6rem;
 
-		@include for-size(tablet-portrait-up) {
-			margin: 0 0 10rem 0;
-			padding-top: 2rem;
-			height: 8rem;
-		}
-	}
+        @include for-size(tablet-portrait-up) {
+            margin: 0 0 10rem 0;
+            padding-top: 2rem;
+            height: 8rem;
+        }
+    }
 
-	dl {
-		padding-top: 3rem;
-		border-top: 1px solid lighten($saudade-blue-light, 30%);
-		border-image: linear-gradient(
-				90deg,
-				#fff,
-				lighten($saudade-blue-light, 20%),
-				#fff
-			)
-			1;
-		border-bottom: 0; // fix WebKit big that shows the border gradient at the bottom
+    dl {
+        padding: 3rem;
+        border-top: 1px solid lighten($saudade-blue-light, 30%);
+        border-image: linear-gradient(
+                90deg,
+                #fff,
+                lighten($saudade-blue-light, 20%),
+                #fff
+            )
+            1;
+        border-bottom: 0; // fix WebKit big that shows the border gradient at the bottom
 
-		@include for-size(tablet-portrait-up) {
-			border: none;
-		}
-	}
+        @include for-size(tablet-portrait-up) {
+            border: none;
+        }
+    }
 
-	@include for-size(tablet-portrait-up) {
-		.image-panel-content-container {
-			align-self: flex-end;
-		}
+    @include for-size(tablet-portrait-up) {
+        .image-panel-content-container {
+            align-self: flex-end;
+        }
 
-		.image-panel-img-container {
-			height: 100vh; // Leave a bit so the user knows to scroll
-		}
-	}
+        .image-panel-img-container {
+            height: 100vh; // Leave a bit so the user knows to scroll
+        }
+    }
 }

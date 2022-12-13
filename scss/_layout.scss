@@ -3,37 +3,34 @@
    ========================================================================== */
 
 $content-max-width: 800px; // The reading content shall not exceed this value.
-$padding-image-panel-content: 4rem;
+$padding-image-panel-content: 6rem;
 
 body {
-	position: relative; // for footer video positioning
-	z-index: 100;
-}
-
-body,
-main {
-	display: flex;
-	flex-direction: column;
-}
-
-main {
-	flex: 1;
+    position: relative; // for footer video positioning
+    z-index: 100;
 }
 
 #content > section {
-	padding-bottom: 10rem; // flex margins don't collapse
+    padding-bottom: 5rem; // flex margins don't collapse
+    flex-direction: column;
 
-	@include for-size(tablet-portrait-up) {
-		flex: 1;
-	}
+    @include for-size(tablet-portrait-up) {
+        flex-direction: row;
+        flex: 1;
+    }
 }
 
 .inside {
-	// For portions that shall not extend the full page width (content sections)
-	max-width: $content-max-width;
-	margin-left: auto;
-	margin-right: auto;
-	padding: 0 $padding-image-panel-content;
+    // For portions that shall not extend the full page width (content sections)
+    max-width: $content-max-width;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 2rem;
+    margin-bottom: 3rem;
+
+    @include for-size(tablet-portrait-up) {
+        padding: 4rem $padding-image-panel-content;
+    }
 }
 
 /* Image panels
@@ -42,78 +39,79 @@ main {
    ========================================================================== */
 
 .image-panel {
-	display: flex;
+    // Content container has the text
+    .image-panel-content-container {
+        @extend .inside;
+    }
 
-	// Content container has the text
-	.image-panel-content-container {
-		flex-direction: column;
-		padding-bottom: $padding-image-panel-content;
-		@extend .inside;
+    // Image container has the large image
+    .image-panel-img-container {
+        max-width: 100%;
+    }
 
-		max-width: 70rem;
-		align-self: center;
+    @include for-size(tablet-portrait-up) {
+        display: flex;
 
-		@include for-size(tablet-portrait-up) {
-			flex-direction: row;
-		}
-	}
+        .image-panel-content-container {
+            display: flex;
+            max-width: none;
+            flex-direction: row;
+            align-self: center;
+        }
 
-	// Image container has the large image
-	.image-panel-img-container {
-		flex: 1;
-		max-width: 100%;
-	}
+        .image-panel-img-container {
+            flex: 1;
+        }
 
-	@include for-size(tablet-portrait-up) {
-		&.image-left .image-panel-img-container {
-			order: -1; // use order to move the image to the left
-		}
+        &.image-left .image-panel-img-container {
+            order: -1; // use order to move the image to the left
+        }
 
-		img {
-			height: 100%;
-			object-fit: cover;
-		}
+        img {
+            height: 100%;
+            object-fit: cover;
+        }
 
-		.image-right {
-			object-position: right;
-		}
+        .image-right {
+            object-position: right;
+        }
 
-		// Half the width for the image
-		&.image-half {
-			.image-panel-content-container {
-				flex: 1;
-			}
+        // Half the width for the image
+        &.image-half {
+            .image-panel-content-container {
+                flex: 1;
+            }
 
-			.image-panel-img-container {
-				flex: 1;
-			}
-		}
+            .image-panel-img-container {
+                flex: 1;
+            }
+        }
 
-		// Third of the width for the image
-		&.image-third {
-			.image-panel-content-container {
-				flex: 2;
-			}
+        // Third of the width for the image
+        &.image-third {
+            .image-panel-content-container {
+                flex: 2;
+            }
 
-			.image-panel-img-container {
-				flex: 1;
-			}
-		}
+            .image-panel-img-container {
+                flex: 1;
+            }
+        }
 
-		// Two thirds of the width for the image
-		&.image-two-thirds {
-			.image-panel-content-container {
-				flex: 1;
-			}
+        // Two thirds of the width for the image
+        &.image-two-thirds {
+            .image-panel-content-container {
+                flex: 1;
+            }
 
-			.image-panel-img-container {
-				flex: 2;
-			}
-		}
-	}
+            .image-panel-img-container {
+                flex: 2;
+            }
+        }
+    }
 }
 
 // put these in base
 .object-position-right {
-	object-position: right;
+    object-position: right;
 }
