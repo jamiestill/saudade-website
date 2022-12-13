@@ -4,10 +4,14 @@
 
 .dictionary-definition {
 	// max-width: 40rem;
-	font: 2.7rem var(--font-serif);
+	font: 5vw var(--font-serif);
 	letter-spacing: normal;
 	color: var(--color-black);
 	hyphens: none;
+
+	@include for-size(super-small) {
+		font-size: 1.5rem;
+	}
 
 	@include for-size(tablet-portrait-up) {
 		margin-bottom: 1rem;

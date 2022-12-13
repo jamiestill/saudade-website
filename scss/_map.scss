@@ -1,9 +1,32 @@
 /* ==========================================================================
-   LOCATION MAP AND MAPBOX
+   LOCATION MAP AND MAPBOX AND WEATHER
    ========================================================================== */
+
 #location {
 	hyphens: none; // hyphens do funny things to wx data
 }
+
+#lat-long {
+	font-family: var(--font-mono-display);
+
+	.location-address {
+		font-size: 1.2rem;
+	}
+
+	.location-coordinates {
+		span[class^='icon-'] {
+			color: var(--color-icon-grey);
+		}
+
+		@media screen and (max-width: 475px) {
+			font-size: 3.4vw; // shrink on smaller screen
+		}
+	}
+}
+
+/* Mapbox
+   ========================================================================== */
+
 #map {
 	width: 100%;
 	height: 30vh;
@@ -23,25 +46,17 @@
 			font-size: 0.9rem;
 		}
 	}
-}
 
-#lat-long {
-	font-family: var(--font-mono-display);
-
-	.location-address {
-		font-size: 1.2rem;
+	// Buttons a touch easier
+	.mapboxgl-ctrl-group button {
+		width: 40px;
 	}
 
-	.location-coordinates {
-		span[class^='icon-'] {
-			color: var(--color-icon-grey);
-		}
+	.mapboxgl-ctrl-logo,
+	.mapboxgl-ctrl-attrib-inner {
+		// The mapbox logo
+		@extend .link-no-underline;
 	}
-}
-
-a.mapboxgl-ctrl-logo {
-	// The mapbox logo
-	@extend .link-no-underline;
 }
 
 .marker {
@@ -52,6 +67,14 @@ a.mapboxgl-ctrl-logo {
 	background-image: url(/images/logo-pin.svg);
 	background-repeat: no-repeat;
 	background-color: rgba(255, 255, 255, 0);
+}
+
+// Center to Saudade Mapbox icon
+.mapbox-gl-recenter {
+	background-repeat: no-repeat;
+	background-position: center;
+	pointer-events: auto;
+	background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MDAgNTAwIiBmaWxsPSIjMmYyZTJlIiB4bWxuczp2PSJodHRwczovL3ZlY3RhLmlvL25hbm8iPjxwYXRoIGQ9Ik0yNDQuNzc2IDE3NS43MDFjLTIwLjU4MiAwLTQwLjMyMSA4LjE3NC01NC44NzEgMjIuNzI5LTE0LjU1NCAxNC41NDgtMjIuNzI4IDM0LjI4OS0yMi43MjggNTQuODdzOC4xNzQgNDAuMzIzIDIyLjcyOCA1NC44NzFjMTQuNTUgMTQuNTU1IDM0LjI4OSAyMi43MjkgNTQuODcxIDIyLjcyOWE3Ny41OCA3Ny41OCAwIDAgMCAwLTE1NS4xOTl6bTAgMTIwLjcwOWMtMTEuNDMzIDAtMjIuMzk5LTQuNTQtMzAuNDg4LTEyLjYyMy04LjA4My04LjA5MS0xMi42MjQtMTkuMDU1LTEyLjYyNC0zMC40ODhhNDMuMTMgNDMuMTMgMCAwIDEgNDMuMTEyLTQzLjExMmMxMS40MzQgMCAyMi4zOTggNC41NDEgMzAuNDg3IDEyLjYyNXMxMi42MjUgMTkuMDUzIDEyLjYyNSAzMC40ODctNC41NDEgMjIuMzk3LTEyLjYyNSAzMC40ODhhNDMuMTMgNDMuMTMgMCAwIDEtMzAuNDg3IDEyLjYyM3ptMTk4LjMxMi02MC4zNTJoLTQ0LjE0NWExNTUuMjUgMTU1LjI1IDAgMCAwLTQ0LjQ5LTkyLjQzNmMtMjQuODgxLTI0Ljg3Ni01Ny40NzQtNDAuNTYyLTkyLjQzNi00NC40OVY1NC45ODVjMC05LjUyMS03LjcxNi0xNy4yNDItMTcuMjQzLTE3LjI0MnMtMTcuMjQyIDcuNzIzLTE3LjI0MiAxNy4yNDJ2NDQuMTQ3YTE1NS4yNSAxNTUuMjUgMCAwIDAtOTIuNDM2IDQ0LjQ5Yy0yNC44NzYgMjQuODgxLTQwLjU2MiA1Ny40NzQtNDQuNDkgOTIuNDM2SDQ2LjQ1OWMtOS41MjEgMC0xNy4yNDIgNy43MTYtMTcuMjQyIDE3LjI0MnM3LjcyMyAxNy4yNDMgMTcuMjQyIDE3LjI0M2g0NC4xNDdhMTU1LjI1IDE1NS4yNSAwIDAgMCA0NC40OSA5Mi40MzZjMjQuODgxIDI0Ljg3NiA1Ny40NzQgNDAuNTYyIDkyLjQzNiA0NC40OXY0NC4xNDVjMCA5LjUyMyA3LjcxNiAxNy4yNDQgMTcuMjQyIDE3LjI0NHMxNy4yNDMtNy43MjMgMTcuMjQzLTE3LjI0NHYtNDQuMTQ1YTE1NS4yNSAxNTUuMjUgMCAwIDAgOTIuNDM2LTQ0LjQ5YzI0Ljg3Ni0yNC44ODEgNDAuNTYyLTU3LjQ3NCA0NC40OS05Mi40MzZoNDQuMTQ1YzkuNTIzIDAgMTcuMjQ0LTcuNzE2IDE3LjI0NC0xNy4yNDNzLTcuNzIzLTE3LjI0Mi0xNy4yNDQtMTcuMjQyek0yNDQuNzc2IDM3NC4wMTFjLTMyLjAxNSAwLTYyLjcxOC0xMi43MTQtODUuMzU4LTM1LjM1M3MtMzUuMzUzLTUzLjM0Mi0zNS4zNTMtODUuMzU4YTEyMC43MSAxMjAuNzEgMCAwIDEgMTIwLjcxMS0xMjAuNzEgMTIwLjcxIDEyMC43MSAwIDAgMSA4NS4zNTcgMzUuMzUzYzIyLjY0IDIyLjYzOCAzNS4zNTMgNTMuMzQyIDM1LjM1MyA4NS4zNTdhMTIwLjcxIDEyMC43MSAwIDAgMS0zNS4zNTMgODUuMzU4IDEyMC43IDEyMC43IDAgMCAxLTg1LjM1NyAzNS4zNTN6Ii8+PC9zdmc+);
 }
 
 /* Weather widget
