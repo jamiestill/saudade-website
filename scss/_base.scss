@@ -68,28 +68,28 @@ abbr[title] {
    TYPOGRAHPY
    ========================================================================== */
 
+// @font-face {
+// 	font-family: 'zurich-custom';
+// 	src: url('/fonts/ZurichCustom-Regular.woff2') format('woff2'),
+// 		url('/fonts/ZurichCustom-Regular.woff') format('woff');
+// 	font-weight: 500;
+// 	font-style: normal;
+// 	font-display: swap;
+// }
+
 @font-face {
-	font-family: 'zurich-web';
-	src: url('/fonts/ZurichWeb-Regular.woff2') format('woff2'),
-		url('/fonts/ZurichWeb-Regular.woff') format('woff');
-	font-weight: normal;
+	font-family: 'zurich-custom';
+	src: url('/fonts/ZurichCustom-Bold.woff2') format('woff2'),
+		url('/fonts/ZurichCustom-Bold.woff') format('woff');
+	font-weight: 700;
 	font-style: normal;
 	font-display: swap;
 }
 
 @font-face {
-	font-family: 'zurich-web';
-	src: url('/fonts/ZurichWeb-Bold.woff2') format('woff2'),
-		url('/fonts/ZurichWeb-Bold.woff') format('woff');
-	font-weight: bold;
-	font-style: normal;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: 'zurich-web';
-	src: url('/fonts/ZurichWeb-Light.woff2') format('woff2'),
-		url('/fonts/ZurichWeb-Light.woff') format('woff');
+	font-family: 'zurich-custom';
+	src: url('/fonts/ZurichCustom-Text.woff2') format('woff2'),
+		url('/fonts/ZurichCustom-Text.woff') format('woff');
 	font-weight: 300;
 	font-style: normal;
 	font-display: swap;
@@ -113,7 +113,7 @@ abbr[title] {
 
 // Font defaults
 body {
-	font-size: 1.3rem;
+	font-size: 1.6rem;
 	line-height: 1.8;
 	font-family: var(--font-sans);
 	font-weight: 100;
@@ -167,12 +167,11 @@ h2 {
 }
 
 h3 {
-	@extend .separator-top;
 	margin: 3rem 0;
 	padding-top: 2rem;
 	font-size: 3rem;
 	font-style: normal;
-	font-weight: 300;
+	font-weight: 500;
 	color: var(--color-primary);
 }
 
@@ -201,6 +200,26 @@ h4 {
 	}
 }
 
+// Mobile headings
+@include for-size('super-small') {
+	h1 {
+		font-size: 3rem;
+	}
+
+	h2 {
+		font-size: 3rem;
+	}
+
+	h3 {
+		font-size: 2.5rem;
+		line-height: 1.4;
+	}
+
+	h4 {
+		font-size: 2rem;
+	}
+}
+
 /* ==========================================================================
    LINKS
    ========================================================================== */
@@ -215,15 +234,21 @@ h4 {
 ) {
 	color: $color;
 	text-decoration: none;
+
 	@if $underline {
-		border-bottom: 1px solid rgba($color-link, 0);
-		transition: color 200ms, border-bottom 200ms;
+		& {
+			border-bottom: 1px solid rgba($color-link, 0.15);
+			transition: color 200ms, border-bottom 200ms;
+		}
 	} @else {
-		border-bottom: none;
+		& {
+			border-bottom: none;
+		}
 	}
 
 	&:hover {
 		color: $hoverColor;
+		/* testlink */
 		@if $underline {
 			border-bottom: 1px solid rgba($hoverColor, 1);
 		} @else {
@@ -258,11 +283,13 @@ a {
    PARAGRAPHS, IMAGES, ETC
    ========================================================================== */
 
-.img-right {
-	float: right;
-	margin: 0 0 2rem 2rem;
-	border-radius: 1rem;
+.picture-right,
+.picture-left {
 	width: 33%;
+
+	img {
+		border-radius: 1rem;
+	}
 
 	@media screen and (max-width: 699px) {
 		width: 50%;
@@ -271,6 +298,24 @@ a {
 	@media screen and (max-width: 399px) {
 		width: 100%;
 	}
+}
+
+.picture-left {
+	float: left;
+	margin: 0 2rem 2rem 0;
+}
+
+.picture-right {
+	float: right;
+	margin: 0 0 2rem 2rem;
+}
+
+.object-position-right {
+	object-position: right;
+}
+
+.object-position-left {
+	object-position: left;
 }
 
 // Simulate an <hr>
@@ -291,21 +336,28 @@ a {
    ========================================================================== */
 
 footer {
-	@extend .separator-top;
+	// @extend .separator-top;
 	margin-top: 10rem;
 	font-family: var(--font-mono-display);
 	text-transform: uppercase;
 	text-align: center;
+	width: auto;
+
+	.inside {
+		//
+	}
 }
 
 .social-and-contact {
 	padding-left: 0;
 	list-style: none;
+	background-color: rgba(255, 255, 255, 0.4);
 
 	a,
 	a:hover {
 		color: $saudade-blue-light;
 		border-bottom: none;
+		text-shadow: 0 0 15px #fff;
 	}
 
 	a:hover {
@@ -328,62 +380,37 @@ footer {
 	}
 }
 
-// .footer-background-video-wrapper {
-// 	display: flex;
-// 	align-self: center;
-// 	margin-top: calc((20rem + (100vw * 0.2)) * -1);
-
-// 	&::after {
-// 		// Opacity overlay
-// 		content: '';
-// 		position: absolute;
-// 		bottom: 0;
-// 		left: 0;
-// 		width: 100%;
-// 		height: 100%;
-// 		background: linear-gradient(
-// 			180deg,
-// 			rgba(255, 255, 255, 1) 47%,
-// 			rgba(255, 255, 255, 0) 60%
-// 		);
-// 		z-index: -100;
-// 	}
-// }
-
-// #footer-background-video {
-// 	position: relative;
-// 	width: 100vw;
-// 	// min-width: 900px; // Prevent from getting too small
-// 	z-index: -200;
-// 	object-fit: contain;
-// 	object-position: left;
-// }
-
 .footer-background-video-wrapper {
 	position: relative;
 	width: 100%;
-	margin-top: calc((1rem + 20vw) * -1);
+
 	z-index: -50;
+
+	@include for-size(tablet-portrait-up) {
+		margin-top: calc((1rem + 20vw) * -1);
+	}
+
+	video {
+		width: 100%;
+		object-fit: cover;
+		object-position: center 72%;
+		height: 35vh;
+	}
 }
 
+// Overlay to fade in from top
 .footer-background-video-wrapper::after {
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 100%;
+	height: 101%;
 	content: '';
 	background-image: linear-gradient(
 		180deg,
-		rgba(255, 255, 255, 1) 47%,
-		rgba(255, 255, 255, 0) 60%
+		rgba(255, 255, 255, 1) 0%,
+		rgba(255, 255, 255, 0) 25%
 	);
-}
-
-.footer-background-video-wrapper video {
-	width: 100%;
-
-	// aspect-ratio: 4/3;
 }
 
 .copyright {

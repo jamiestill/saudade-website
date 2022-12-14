@@ -3,36 +3,40 @@
    ========================================================================== */
 
 $content-max-width: 800px; // The reading content shall not exceed this value.
-$padding-image-panel-content: 4rem;
+$padding-image-panel-content: 6rem;
 
 body {
 	position: relative; // for footer video positioning
 }
 
-body,
-main {
-	display: flex;
-	flex-direction: column;
-}
-
-main {
-	flex: 1;
-}
-
+// The sections of the page are direct childredn of main#content
 #content > section {
-	margin: 1rem 0; // flex margins don't collapse
+	padding-bottom: 5rem; // flex margins don't collapse
+	flex-direction: column;
 
 	@include for-size(tablet-portrait-up) {
-		flex: 1;
+		flex-direction: row;
 	}
 }
 
+// For portions (content sections) that shall not extend the full page width
+// for readability; centered to its container
 .inside {
-	// For portions that shall not extend the full page width (content sections)
 	max-width: $content-max-width;
-	margin-left: auto;
-	margin-right: auto;
-	padding: 0 $padding-image-panel-content;
+	margin: 0 auto 3rem;
+	padding: $padding-image-panel-content;
+
+	@include for-size(super-small) {
+		padding: 0 calc($padding-image-panel-content / 3);
+	}
+
+	@media screen and (max-width: 480px) {
+		padding: 0 calc($padding-image-panel-content / 2);
+	}
+
+	@include for-size(tablet-portrait-up) {
+		padding: 4rem $padding-image-panel-content;
+	}
 }
 
 /* Image panels
@@ -41,71 +45,80 @@ main {
    ========================================================================== */
 
 .image-panel {
-	.image-panel-content-container {
-		flex-direction: column;
-		padding-bottom: $padding-image-panel-content;
-		@extend .inside;
+	@include for-size(tablet-portrait-up) {
+		display: flex;
 	}
+}
 
-	// display: flex;
-
-	&.left-img .image-panel-img-container {
-		order: -1; // use order to move the image to the left
-	}
-
-	// Content container has the text
-	.image-panel-content-container {
-		// max-width: 50rem;
-		align-self: center;
-	}
-
-	// Content container has the large image
-	.image-panel-img-container {
-		flex: 1;
-		max-width: 100%;
-	}
+// Content container has the text
+.image-panel-content-container {
+	@extend .inside;
 
 	@include for-size(tablet-portrait-up) {
-		// flex-direction: row;
+		max-width: none;
+	}
+}
 
-		// img {
-		// 	height: 100%;
-		// 	.image-right {
-		// 		object-position: right;
-		// 	}
-		// }
+// Image container has the large image
+.image-panel-img-container {
+	flex: 1;
 
-		// // Half the width for the image
-		// &.image-half {
-		// 	.image-panel-content-container {
-		// 		flex: 1;
-		// 	}
+	@include for-size(tablet-portrait-up) {
+		// Posiitioning of the panel images
+		.image-left & {
+			img {
+				border-radius: 0 1rem 1rem 0;
+			}
+			order: -1; // use order to move the image to the left
+		}
 
-		// 	.image-panel-img-container {
-		// 		flex: 1;
-		// 	}
-		// }
+		.image-right & {
+			img {
+				border-radius: 1rem 0 0 1rem;
+			}
 
-		// // Third of the width for the image
-		// &.image-third {
-		// 	.image-panel-content-container {
-		// 		flex: 2;
-		// 	}
+			object-position: right;
+		}
 
-		// 	.image-panel-img-container {
-		// 		flex: 1;
-		// 	}
-		// }
+		& > img {
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
+		}
+	}
+}
 
-		// // Two thirds of the width for the image
-		// &.image-two-thirds {
-		// 	.image-panel-content-container {
-		// 		flex: 1;
-		// 	}
+@include for-size(tablet-portrait-up) {
+	// Widths of the panel images/content
+	.image-half {
+		.image-panel-content-container {
+			flex: 1;
+		}
 
-		// 	.image-panel-img-container {
-		// 		flex: 2;
-		// 	}
-		// }
+		.image-panel-img-container {
+			flex: 1;
+		}
+	}
+
+	// Third of the width for the image
+	.image-third {
+		.image-panel-content-container {
+			flex: 2;
+		}
+
+		.image-panel-img-container {
+			flex: 1;
+		}
+	}
+
+	// Two thirds of the width for the image
+	.image-two-thirds {
+		.image-panel-content-container {
+			flex: 1;
+		}
+
+		.image-panel-img-container {
+			flex: 2;
+		}
 	}
 }

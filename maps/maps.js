@@ -10,7 +10,7 @@
 // routeCoords[routeCoords.length - 1][1] = 24.220169;
 // routeCoords[routeCoords.length - 1][0] = -76.099677;
 
-// Just off Cnception Island
+// Just off Conception Island
 // routeCoords[routeCoords.length - 1][1] = 23.848841;
 // routeCoords[routeCoords.length - 1][0] = -75.119233;
 
@@ -19,8 +19,8 @@
 // routeCoords[routeCoords.length - 1][0] = -122.391600;
 
 // Middle of ocean
-// routeCoords[routeCoords.length - 1][1] = 39.62;
-// routeCoords[routeCoords.length - 1][0] = -41.35;
+// routeCoords[routeCoords.length - 1][1] = 49.92;
+// routeCoords[routeCoords.length - 1][0] = -20.35;
 
 // Petit Tebac
 // routeCoords[routeCoords.length - 1][1] = 12.624667;
@@ -127,7 +127,7 @@ getLocation = () => {
         let addressElement, addressCoordsRaw, addressCoords;
         const addyComponents = response.results[0].address_components;
 
-        console.log("Geolocation components", addyComponents);
+        console.log("Reverse Geolocation:", addyComponents);
 
         // Build an address if possible, based on what Google has available
         // The returned object's address fields vary by country, below is an
@@ -186,7 +186,7 @@ getLocation = () => {
 
 /*
  * Mapbox Map Generation
-*/
+ */
 
 // Mapbox code (from Mapbox)
 if (disableAPICalls !== true) {
@@ -198,13 +198,11 @@ if (disableAPICalls !== true) {
         // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
         style: 'mapbox://styles/jamiestill/clb7fzawa002o15nhr3ce8p03',
         center: currentLngLat,
-        zoom: 3,
+        zoom: 2,
         attributionControl: false,
     });
 
     map.addControl(new mapboxgl.AttributionControl(), 'bottom-right');
-
-    //new mapboxgl.Marker().setLngLat(currentLngLat).addTo(map)
 
     map.on('load', () => {
         map.addSource('route', {
@@ -236,17 +234,16 @@ if (disableAPICalls !== true) {
         // Create a feature collection to position the pin marker
         const geojson = {
             type: 'FeatureCollection',
-            features: [
-              {
+            features: [{
                 type: 'Feature',
                 geometry: {
-                  type: 'Point',
-                  coordinates: [latitudeLongitude.lng, latitudeLongitude.lat]
+                    type: 'Point',
+                    coordinates: [latitudeLongitude.lng, latitudeLongitude.lat]
                 }
-              }
-            ]};
+            }]
+        };
 
-        // Ass pin marker to map
+        // Pin marker to map
         for (const feature of geojson.features) {
 
             // create a HTML element for each feature
@@ -256,12 +253,11 @@ if (disableAPICalls !== true) {
             // make a marker for each feature and add to the map
             new mapboxgl.Marker(el).setLngLat(feature.geometry.coordinates).addTo(map);
         };
-        
+
         // Add zoom controls
         map.addControl(new mapboxgl.NavigationControl({
-                showCompass : false
-            })
-        );
+            showCompass: false,
+        }), 'top-left');
 
         // Add fullscreen button
         map.addControl(new mapboxgl.FullscreenControl());
@@ -270,32 +266,95 @@ if (disableAPICalls !== true) {
         map.addControl(new mapboxgl.ScaleControl({
             maxWidth: 80,
             unit: 'imperial'
-            })
-        );
-    });
+        }));
 
+        // Idea from https://stackoverflow.com/a/51683226
+        class MapboxGLButtonControl {
+            constructor({
+                className = "",
+                title = "",
+                eventHandler = evtHndlr
+            }) {
+                this._className = className;
+                this._title = title;
+                this._eventHandler = eventHandler;
+            }
+
+            onAdd(map) {
+                this._btn = document.createElement("button");
+                this._btn.className = "mapboxgl-ctrl-icon" + " " + this._className;
+                this._btn.type = "button";
+                this._btn.title = this._title;
+                this._btn.onclick = this._eventHandler;
+
+                this._container = document.createElement("div");
+                this._container.className = "mapboxgl-ctrl-group mapboxgl-ctrl";
+                this._container.appendChild(this._btn);
+
+                return this._container;
+            }
+
+            onRemove() {
+                this._container.parentNode.removeChild(this._container);
+                this._map = undefined;
+            }
+        }
+
+        // Event Handlers
+        function reCenter(event) {
+            map.flyTo({
+                center: [latitudeLongitude.lng, latitudeLongitude.lat]
+            });
+        }
+
+        // Instantiate new controls with custom event handlers
+        const ctrlPoint = new MapboxGLButtonControl({
+            className: "mapbox-gl-recenter",
+            title: "Recenter to Saudade",
+            eventHandler: reCenter
+        });
+
+        // Add Controls to the Map
+        map.addControl(ctrlPoint, "top-right");
+        
+        map.setFog({
+            color: 'rgb(186, 210, 235)', // Lower atmosphere
+            'high-color': 'rgb(36, 92, 223)', // Upper atmosphere
+            'horizon-blend': 0.02, // Atmosphere thickness (default 0.2 at low zooms)
+            'space-color': '#aae4ff', // Background color
+            'star-intensity': 0 // Don't show stars
+        });
     
-}
+    });
+};
 
 /**
  * Format a date into a human readable timestamp
  * @param {String} date - the date
+ * @returns the formatted date
  */
-const dateFormater = (date) => {
+const dateFormatter = (date) => {
 
-    if (!date) {
-        console.error('No date.');
-        return false;
+    date = new Date(date);
+
+    try {
+        date.getDate();
+    } catch (e) {
+        console.error('No valid date object.', e);
+        return e;
     }
+
     const day = date.getDate();
     const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     const month = date.getMonth();
     const year = date.getFullYear();
-    const time = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleTimeString
 
     // Build date
-    return day + " " + months[month] + " " + year + " " + time;
+    return day + " " + 
+        months[month] + " " + 
+        year + " " + 
+        date.toLocaleString("en-US", {timeZoneName: "short"});
 };
 
 /**
@@ -311,7 +370,7 @@ const getCardinalDirection = (windAngle) => {
         return false;
     }
 
-    windAngle = Math.floor((windAngle / 22.5) + 0.5); // 360/16
+    windAngle = Math.floor((Math.abs(windAngle) / 22.5) + 0.5); // 360/16
 
     const intercardinal = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"];
 
@@ -320,22 +379,23 @@ const getCardinalDirection = (windAngle) => {
 
 
 // Create the weather label for insertion into HTML
-const populateWeatherElement = (data) => {
+const populateWeatherElement = (wxData, waveData) => {
 
-    console.log("Weather data: ", data);
+    console.log("Weather data: ", wxData);
+    console.log("Wave data: ", waveData);
 
-    let wxLocation = data.name;
+    let wxLocation = wxData.name;
 
     if (wxLocation && wxLocation.length > 0) {
         // Inserts the observation location
         wxLocation = `<span id="current-location">Observed from ${wxLocation}</span> on`;
-    } else if (data.coord.lat && data.coord.lon) {
-        // If we get here, the boat is out to see, only forecast data is available
-        wxLocation = `<span id="current-location">Forecast for ${convertToDms(data.coord.lat, true)}, ${convertToDms(data.coord.lon)}</span> on`;
+    } else if (wxData.coord.lat && wxData.coord.lon) {
+        // If we get here, the boat is out to see, only forecast wxData is available
+        wxLocation = `<span id="current-location">Forecast for ${convertToDms(wxData.coord.lat, true)}, ${convertToDms(wxData.coord.lon)}</span> on`;
     }
 
     // Get the icon
-    let wxIcon = data.weather[0].icon;
+    let wxIcon = wxData.weather[0].icon;
 
     // Decide which icon to use based on code from weather API
     // https://openweathermap.org/weather-conditions#How-to-get-icon-URL
@@ -370,14 +430,14 @@ const populateWeatherElement = (data) => {
     wxIcon = `<span class='icon-${wxIcon}'></span>`; // Icons are in the icon font
 
     // Create the description (e.g. Clouds (overcast))
-    let wxDescription = data.weather[0].main; // + " (" + data.weather[0].description + ") ";
+    let wxDescription = wxData.weather[0].main; // + " (" + wxData.weather[0].description + ") ";
 
     if (wxDescription && wxDescription.length > 0) {
         wxDescription = `<span id="location-wx-description">${wxDescription}</span>`;
     }
 
     // Grab the temperature
-    let wxTemp, wxTempC, wxTempF = parseInt(data.main.temp);
+    let wxTemp, wxTempC, wxTempF = parseInt(wxData.main.temp);
 
     if (!isNaN(wxTempF) && wxTempF) {
         wxTempC = Math.round((wxTempF - 32) / 1.8);
@@ -386,25 +446,25 @@ const populateWeatherElement = (data) => {
     }
 
     // Parse the convert the wind speed
-    let wxWindDir = parseInt(data.wind.deg);
-    let wxWindSpeed = parseInt(data.wind.speed * 1.15); // 1.15 to convert to knots
-    let wxWindGust = parseInt(data.wind.gust * 1.15);
+    let wxWindDir = parseInt(wxData.wind.deg);
+    let wxWindSpeed = parseInt(wxData.wind.speed * 1.15); // 1.15 to convert to knots
+    let wxWindGust = parseInt(wxData.wind.gust * 1.15);
+    
+    if (wxWindDir > 0 && wxWindSpeed > 0) {
 
-    if (!isNaN(wxWindDir) && !isNaN(wxWindSpeed) && !isNaN(wxWindGust)) {
-        if (wxWindDir > 0) {
-            wxWindDir = getCardinalDirection(wxWindDir);
+        wxWindDir = getCardinalDirection(wxWindDir);
+        wxWindSpeed = `, wind ${wxWindDir} at ${wxWindSpeed} <abbr title="knots, nautical miles per hour">kts</abbr>`;
+        
+        if  (wxWindGust >= 0) {
+            wxWindSpeed += `, gusting to ${wxWindGust} kts`;
         }
 
-        if (wxWindDir && wxWindSpeed >= 0 && wxWindGust >= 0) {
-            wxWindSpeed = `, wind ${wxWindDir} at ${wxWindSpeed} <abbr title="knots, nautical miles per hour">kts</abbr>,
-                gusting to ${wxWindGust} kts`;
-        }
     } else {
         wxWindSpeed = "";
     }
 
     // Add in visibility
-    let wxVisibility = parseInt(data.visibility);
+    let wxVisibility = parseInt(wxData.visibility);
 
     if (!isNaN(wxVisibility) && wxVisibility > 0) {
         // Convert meter to...
@@ -421,26 +481,37 @@ const populateWeatherElement = (data) => {
             wxVisibilityKm += "+";
         }
 
-        wxVisibility = `. ${wxVisibilitySm} 
+        wxVisibility = `. Visibility ${wxVisibilitySm} 
             <abbr title="statute miles">miles</abbr> 
-            (${wxVisibilityKm}<abbr title="kilometers">km</abbr>) visibiity`;
+            (${wxVisibilityKm}<abbr title="kilometers">km</abbr>)`;
     } else {
         wxVisibility = "";
     }
 
+    // Wave forecast
+    let waveText = "";
+    if (waveData) {
+        const waveDir = getCardinalDirection(parseInt(waveData.daily.wave_direction_dominant[0]));
+        const waveHeight = waveData.daily.wave_height_max[0];
+        const wavePeriod = Math.ceil(waveData.daily.wave_period_max[0]);
+        waveText = `Waves expected at ${Math.ceil(waveHeight * 3.281)}ft (${waveHeight}m) from ${waveDir} every ${wavePeriod} seconds.`
+    } else {
+        waveText = ""; // "<small><br>(No wave data for this location.)</small>";
+    }
+
     // Build a timestamp
-    let wxTimeStamp = new Date(data.dt * 1000); // epoch time returned by API
+    let wxTimeStamp = new Date(wxData.dt * 1000); // epoch time returned by API
 
     if (wxTimeStamp) {
-        wxTimeStamp = dateFormater(wxTimeStamp);
+        wxTimeStamp = dateFormatter(wxTimeStamp);
         wxTimeStamp = `<span class="observed-time">${wxLocation} ${wxTimeStamp}</span>`;
     }
 
     // Build the HTML element and insert into DOM
     const locationElement = document.createElement('div')
     locationElement.innerHTML = `
-        <h4>Weather conditions at <i>Saudade</i></h4>
-        <div class="weather-data">${wxIcon}<p>${wxDescription}${wxTemp}${wxWindSpeed}${wxVisibility}.<br>${wxTimeStamp}</p></div>`;
+        <h4>${(wxData.name) ? 'Weather' : 'Forecasted'} conditions at <i>Saudade</i></h4>
+        <div class="weather-data">${wxIcon}<p>${wxDescription}${wxTemp}${wxWindSpeed}${wxVisibility}. ${waveText}<br>${wxTimeStamp}</p></div>`;
     mapContainer.parentNode.appendChild(locationElement);
 
 };
@@ -451,6 +522,15 @@ let mapContainer = document.querySelector('.map-container');
 if (mapContainer) {
     // Short circuit
     if (disableAPICalls !== true) {
+
+        // Catch API errors
+        function checkStatus(response) {
+            if (response.ok) {
+              return Promise.resolve(response);
+            } else {
+              return Promise.reject(new Error(response.statusText));
+            }
+        }
         
         // Build the weather API URL
         const apiKey = '438e9bd62501e99a254329223d5494ee';
@@ -460,15 +540,30 @@ if (mapContainer) {
             '&lon=' + latitudeLongitude.lng +
             '&appid=' + apiKey;
 
-        // Fetch it
-        fetch(wxApiURL)
-            .then(response => (response.json()))
-            .then(data => populateWeatherElement(data))
+        // Build the wave API URL
+        let waveApiURL = 'https://marine-api.open-meteo.com/v1/marine?&daily=wave_height_max,wave_direction_dominant,wave_period_max&timezone=auto' +
+            '&latitude=' + latitudeLongitude.lat +
+            '&longitude=' + latitudeLongitude.lng;
 
-            // Error on Weather API (https://openweathermap.org/api/one-call-3)
-            .catch((e) => console.error("Weather API failed due to " + e));
+        // Fetch the weather data
+        let fetchWx = fetch(wxApiURL)
+            .then(checkStatus)  
+            .then(response => (response.json()))
+            .catch(error => console.error('Weather fetch failed', error));
+
+        // Fetch the wave data
+        let fetchWave = fetch(waveApiURL)
+            .then(checkStatus)  
+            .then(response => response.json())
+            .catch(error => console.error('Wave fetch failed, probably since Saudade is on land', error));
+
+        // Get API data concurrently with Promise.all
+        Promise.all([fetchWx, fetchWave]).then(
+            data => { populateWeatherElement(data[0], data[1])}
+        );
     }
 };
+
 
 /*
  * Insert Google Earth links for figcaptions with GPS coordinates

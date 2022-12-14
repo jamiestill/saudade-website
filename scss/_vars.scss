@@ -9,7 +9,7 @@ $middle-blue: #8fe1ef;
 $light-cyan: #c9f0f8;
 $gainsboro: #d9dcd6;
 $silver: #c5c3c6;
-$metallic:  darken(#dbd9ce, 10%);
+$metallic: darken(#dbd9ce, 10%);
 $davys-grey: #474a4d;
 $black-coral: #4b5b68;
 $eerie-black: #1e1e20;
@@ -59,7 +59,7 @@ $color-link-visited: lighten($color-link, 10%);
     --font-size: 1.6rem;
     --font-color: var(--color-text);
     --font-color-inverted: #{$light-cyan};
-    --font-sans: 'zurich-web', 'Lato', system-ui,
+    --font-sans: 'zurich-custom', system-ui,
         /* macOS 10.11-10.12 */ -apple-system, 'Helvetica Neue', Helvetica,
         /* Windows 6+ */ 'Segoe UI', /* Android 4+ */ 'Roboto',
         /* Ubuntu 10.10+ */ 'Ubuntu', /* Gnome 3+ */ 'Cantarell',
@@ -91,8 +91,12 @@ $color-link-visited: lighten($color-link, 10%);
     ========================================================================== */
 
 @mixin for-size($size) {
-    @if $size == phone {
+    @if $size == phone-only {
         @media screen and (max-width: 699px) {
+            @content;
+        }
+    } @else if $size == super-small {
+        @media screen and (max-width: 300px) {
             @content;
         }
     } @else if $size == tablet-portrait-up {
