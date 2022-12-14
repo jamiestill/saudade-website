@@ -7,8 +7,8 @@
 // routeCoords[routeCoords.length - 1][0] = -76.338328
 
 // Middle of bahamas
-// routeCoords[routeCoords.length - 1][1] = 24.220169;
-// routeCoords[routeCoords.length - 1][0] = -76.099677;
+// routeCoords[routeCoords.length - 1][1] = 24.220169
+// routeCoords[routeCoords.length - 1][0] = -76.099677
 
 // Just off Conception Island
 // routeCoords[routeCoords.length - 1][1] = 23.848841;
@@ -35,16 +35,15 @@
 // routeCoords[routeCoords.length - 1][0] = 151.226281
 
 // Suburban Chicago
-routeCoords[routeCoords.length - 1][1] = 42.1898664
-routeCoords[routeCoords.length - 1][0] = -88.2232382
+// routeCoords[routeCoords.length - 1][1] = 42.1898664
+// routeCoords[routeCoords.length - 1][0] = -88.2232382
 
 // Simulate Failure and NULL data
 // routeCoords[routeCoords.length - 1][1] = false;
 // routeCoords[routeCoords.length - 1][0] = NULL;
 
-// Short circuit flag for API calls, mostly for testing
-// and local development
-disableAPICalls = false
+// Short circuit flag for API calls, mostly for testing and local development
+const disableAPICalls = false
 
 // ========= END TESTING
 
@@ -413,7 +412,7 @@ const populateWeatherElement = (wxData, waveData) => {
     } else if (wxIcon.includes('03')) {
         wxIcon = 'cloud'
     } else if (wxIcon.includes('04')) {
-        wxIcon = 'clouds'
+        wxIcon = 'cloud'
     } else if (wxIcon.includes('50')) {
         wxIcon = 'fog-cloud'
     } else if (wxIcon.includes('08')) {
@@ -529,7 +528,7 @@ const populateWeatherElement = (wxData, waveData) => {
     // Build the HTML element and insert into DOM
     const locationElement = document.createElement('div')
     locationElement.innerHTML = `
-        <h4>Weather conditions at <i>Saudade</i></h4>
+        <h4><a target="_blank" rel="nooperner noreferrer" href="https://www.windy.com/${latitudeLongitude.lat}/${latitudeLongitude.lng}/?${latitudeLongitude.lat},${latitudeLongitude.lng}?,4">Weather conditions</a> at <i>Saudade</i></h4>
         <div class="weather-data">${wxIcon}<p>${wxDescription}${wxTemp}${windSpeedText}${wxVisibility}. ${waveText}<br>${wxTimeStamp}</p></div>`
     mapContainer.parentNode.appendChild(locationElement)
 }
