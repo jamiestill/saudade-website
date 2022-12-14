@@ -496,7 +496,7 @@ const populateWeatherElement = (wxData, waveData) => {
         const wavePeriod = Math.ceil(waveData.daily.wave_period_max[0]);
         waveText = `Waves expected at ${Math.ceil(waveHeight * 3.281)}ft (${waveHeight}m) from ${waveDir} every ${wavePeriod} seconds.`
     } else {
-        waveText = "<small><br>(No wave data for this location.)</small>";
+        waveText = ""; // "<small><br>(No wave data for this location.)</small>";
     }
 
     // Build a timestamp
