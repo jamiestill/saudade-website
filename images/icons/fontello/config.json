@@ -113,30 +113,6 @@
       "src": "entypo"
     },
     {
-      "uid": "9cd3e294ca3ad3dda66bc5a804021c46",
-      "css": "cloud-sun",
-      "code": 59417,
-      "src": "meteocons"
-    },
-    {
-      "uid": "2440f961b415837c6bf30424a6711708",
-      "css": "cloud-moon",
-      "code": 59418,
-      "src": "meteocons"
-    },
-    {
-      "uid": "b215adc51ca2aa37e7bbe244d1fa52cc",
-      "css": "clouds",
-      "code": 59413,
-      "src": "meteocons"
-    },
-    {
-      "uid": "9af2b75a89bd99b83457f041df26da8b",
-      "css": "cloud-flash",
-      "code": 59420,
-      "src": "meteocons"
-    },
-    {
       "uid": "aba39b610b88a73d81f0fa683649b92d",
       "css": "fog-cloud",
       "code": 59422,
@@ -155,20 +131,8 @@
       "src": "meteocons"
     },
     {
-      "uid": "d577552bb94bdeb53e6517873481aeea",
-      "css": "rain",
-      "code": 59424,
-      "src": "meteocons"
-    },
-    {
-      "uid": "f59875f40cbc5ad1b04775cd96feabf1",
-      "css": "drizzle",
-      "code": 59425,
-      "src": "meteocons"
-    },
-    {
       "uid": "17463471d0f132cee16835507ea51ecf",
-      "css": "cloud",
+      "css": "cloud-1",
       "code": 59426,
       "src": "meteocons"
     },
@@ -319,12 +283,6 @@
       "src": "fontawesome"
     },
     {
-      "uid": "0f6059e468716a93329821bcbf11220d",
-      "css": "snow-heavy",
-      "code": 59396,
-      "src": "meteocons"
-    },
-    {
       "uid": "2b8e9b027181aafd210bf29c5486d4a0",
       "css": "top",
       "code": 61610,
@@ -341,6 +299,98 @@
       "css": "sun",
       "code": 61829,
       "src": "fontawesome"
+    },
+    {
+      "uid": "rp4bhvranczqlvvwzerni2uuanp2gvqb",
+      "css": "attention",
+      "code": 59394,
+      "src": "typicons"
+    },
+    {
+      "uid": "dd4b00255957a608953c409346e7d7fb",
+      "css": "warning",
+      "code": 59403,
+      "src": "typicons"
+    },
+    {
+      "uid": "1c2a34e8bd2f8a53e3b059447a8e544f",
+      "css": "sunrise",
+      "code": 59416,
+      "src": "meteocons"
+    },
+    {
+      "uid": "2c304ff49075ec9647f498504651abf5",
+      "css": "cloud-sun",
+      "code": 59415,
+      "src": "meteocons"
+    },
+    {
+      "uid": "c823149b79158a2bd56d802a6a6f1d1c",
+      "css": "cloud-moon",
+      "code": 59419,
+      "src": "meteocons"
+    },
+    {
+      "uid": "7162ef3c04c51e39b8670cfedb15bcc3",
+      "css": "cloud",
+      "code": 59421,
+      "src": "meteocons"
+    },
+    {
+      "uid": "4bc859f73783486400fc769a90d0a8e0",
+      "css": "cloud-flash",
+      "code": 59429,
+      "src": "meteocons"
+    },
+    {
+      "uid": "92234661a134ed625a779c534b242b3d",
+      "css": "drizzle",
+      "code": 59430,
+      "src": "meteocons"
+    },
+    {
+      "uid": "8d8a2d9bcc41c7ac794e83ffbb919c3c",
+      "css": "rain-inv",
+      "code": 59431,
+      "src": "meteocons"
+    },
+    {
+      "uid": "a555120b3743d482efcc3058733d3fd9",
+      "css": "mist",
+      "code": 59432,
+      "src": "meteocons"
+    },
+    {
+      "uid": "f1315f7ea135cbea7966cce0e7c10ce0",
+      "css": "snow-heavy",
+      "code": 59433,
+      "src": "meteocons"
+    },
+    {
+      "uid": "8f1bbb4667a8372dc4bb7de767f22f11",
+      "css": "clouds",
+      "code": 59434,
+      "src": "meteocons"
+    },
+    {
+      "uid": "957fd72e52a0e9eb585a0361114c4c83",
+      "css": "sunset",
+      "code": 59435,
+      "src": "meteocons"
+    },
+    {
+      "uid": "9a9d30131f78ca13b4ec891e0f160cea",
+      "css": "cocktail-1",
+      "code": 59413,
+      "src": "custom_icons",
+      "selected": true,
+      "svg": {
+        "path": "M805.8 210.4C809.7 201.6 808.9 191.5 803.6 183.4 798.4 175.4 789.5 170.6 779.9 170.6L512.7 170.6C499.2 94.9 433.1 37.3 353.6 37.3 264.4 37.3 191.8 109.9 191.8 199.1 191.8 288.4 264.4 361 353.6 361 366.9 361 379.9 359.2 392.6 356L538.6 685.7 538.6 906 426.9 906 426.9 962.7 707 962.7 707 906 595.3 906 595.3 685.7 805.8 210.4ZM328.1 210.4L369.1 303C364 303.8 358.9 304.3 353.6 304.3 295.6 304.3 248.5 257.1 248.5 199.1 248.5 141.1 295.6 94 353.6 94 401.7 94 442.2 126.4 454.7 170.6L354 170.6C344.4 170.6 335.5 175.4 330.3 183.5 325 191.5 324.2 201.6 328.1 210.4L328.1 210.4ZM553.8 307.1C541.7 312.9 532.9 317.1 512.7 317.1 492.5 317.1 483.8 312.9 471.7 307.1 460.6 301.7 447.2 295.4 426.6 292.8L397.6 227.3 736.3 227.3 698.4 312.9C693.8 311.3 689.6 309.3 684.9 307.1 670.5 300.1 652.4 291.5 619.3 291.5 586.3 291.5 568.2 300.1 553.8 307.1L553.8 307.1Z",
+        "width": 1000
+      },
+      "search": [
+        "cocktail"
+      ]
     },
     {
       "uid": "8f9eab0ca49616a8ede131d33306a05f",
