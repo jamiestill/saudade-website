@@ -4,6 +4,7 @@
 
 #hero {
 	margin-top: 0; // Flush with top, unlike other sections
+	padding-top: 3rem;
 	background: rgb(225, 251, 251);
 	background: linear-gradient(
 		135deg,
@@ -43,6 +44,8 @@
 	}
 
 	@include for-size(tablet-portrait-up) {
+		padding-top: 0;
+
 		.image-panel-content-container {
 			align-self: flex-end;
 		}

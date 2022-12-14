@@ -63,11 +63,6 @@ body {
 .image-panel-img-container {
 	flex: 1;
 
-	img {
-		height: 100%;
-		object-fit: cover;
-	}
-
 	@include for-size(tablet-portrait-up) {
 		// Posiitioning of the panel images
 		.image-left & {
@@ -83,6 +78,12 @@ body {
 			}
 
 			object-position: right;
+		}
+
+		& > img {
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
 		}
 	}
 }
