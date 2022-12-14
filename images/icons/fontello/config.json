@@ -125,18 +125,6 @@
       "src": "meteocons"
     },
     {
-      "uid": "d05dd160c24e53afc4addd30b5655b74",
-      "css": "clouds-flash",
-      "code": 59414,
-      "src": "meteocons"
-    },
-    {
-      "uid": "17463471d0f132cee16835507ea51ecf",
-      "css": "cloud-1",
-      "code": 59426,
-      "src": "meteocons"
-    },
-    {
       "uid": "17c21cd98db80e521e573eba247bd69b",
       "css": "mail-squared",
       "code": 61849,
@@ -331,12 +319,6 @@
       "src": "meteocons"
     },
     {
-      "uid": "7162ef3c04c51e39b8670cfedb15bcc3",
-      "css": "cloud",
-      "code": 59421,
-      "src": "meteocons"
-    },
-    {
       "uid": "4bc859f73783486400fc769a90d0a8e0",
       "css": "cloud-flash",
       "code": 59429,
@@ -350,7 +332,7 @@
     },
     {
       "uid": "8d8a2d9bcc41c7ac794e83ffbb919c3c",
-      "css": "rain-inv",
+      "css": "rain",
       "code": 59431,
       "src": "meteocons"
     },
@@ -367,12 +349,6 @@
       "src": "meteocons"
     },
     {
-      "uid": "8f1bbb4667a8372dc4bb7de767f22f11",
-      "css": "clouds",
-      "code": 59434,
-      "src": "meteocons"
-    },
-    {
       "uid": "957fd72e52a0e9eb585a0361114c4c83",
       "css": "sunset",
       "code": 59435,
@@ -380,7 +356,7 @@
     },
     {
       "uid": "9a9d30131f78ca13b4ec891e0f160cea",
-      "css": "cocktail-1",
+      "css": "cocktail",
       "code": 59413,
       "src": "custom_icons",
       "selected": true,
@@ -391,6 +367,12 @@
       "search": [
         "cocktail"
       ]
+    },
+    {
+      "uid": "f9efb0f1944c550cf8d38cdf4aba07c4",
+      "css": "cloud",
+      "code": 59396,
+      "src": "typicons"
     },
     {
       "uid": "8f9eab0ca49616a8ede131d33306a05f",
