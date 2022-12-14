@@ -988,4 +988,14 @@ ul.custom-bullet li span.icon-snow {
 #test-icons .i-code:before {
   content: "  Code: ";
   font-style: italic;
+}
+
+.powell-cay-photo {
+  -o-object-position: 26%;
+     object-position: 26%;
+}
+
+.captain-on-deck-photo {
+  -o-object-position: 70%;
+     object-position: 70%;
 }/*# sourceMappingURL=styles.css.map */
