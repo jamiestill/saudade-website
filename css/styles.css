@@ -231,7 +231,7 @@ h3 {
 }
 
 h4 {
-  margin-bottom: 2rem;
+  margin: 2rem 0;
   font-size: 2rem;
 }
 
@@ -905,14 +905,13 @@ ul.custom-bullet li {
   margin-bottom: 1rem;
   padding-bottom: calc(1rem - 1px);
 }
-ul.custom-bullet li:hover {
-  color: var(--color-secondary);
-  transition: color 1000ms;
-}
-ul.custom-bullet li:hover a,
-ul.custom-bullet li:hover a:visited,
 ul.custom-bullet li:hover span[class^=icon-] {
   color: var(--color-secondary);
+  transition: color 400ms;
+}
+ul.custom-bullet li:hover a,
+ul.custom-bullet li:hover a:visited {
+  color: var(--color-primary);
   transition: color 400ms;
 }
 ul.custom-bullet li span[class^=icon-] {

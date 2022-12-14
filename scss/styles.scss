@@ -91,13 +91,14 @@ ul.custom-bullet {
         padding-bottom: calc(1rem - 1px); // account for border
 
         &:hover {
-            color: var(--color-secondary);
-            transition: color 1000ms;
-
-            a,
-            a:visited,
             span[class^='icon-'] {
                 color: var(--color-secondary);
+                transition: color 400ms;
+            }
+
+            a,
+            a:visited {
+                color: var(--color-primary);
                 transition: color 400ms;
             }
         }

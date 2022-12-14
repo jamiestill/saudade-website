@@ -3,65 +3,65 @@
    ========================================================================== */
 
 html {
-	height: -webkit-fill-available; // HTML height fix
-	box-sizing: border-box; // everything to use border-box
-	scroll-behavior: smooth;
-	hyphens: auto;
-	font-size: 62.5%; // for easy rem calculations
+    height: -webkit-fill-available; // HTML height fix
+    box-sizing: border-box; // everything to use border-box
+    scroll-behavior: smooth;
+    hyphens: auto;
+    font-size: 62.5%; // for easy rem calculations
 }
 *,
 *:before,
 *:after {
-	box-sizing: inherit;
+    box-sizing: inherit;
 }
 
 body {
-	min-height: -webkit-fill-available;
-	min-height: 100vh;
-	margin: 0;
+    min-height: -webkit-fill-available;
+    min-height: 100vh;
+    margin: 0;
 }
 
 img,
 picture,
 svg,
 video {
-	display: block;
-	max-width: 100%;
+    display: block;
+    max-width: 100%;
 }
 
 input,
 textarea,
 button,
 select {
-	font: inherit;
+    font: inherit;
 }
 
 figure {
-	margin: 0;
+    margin: 0;
 }
 
 fieldset {
-	border: 1px solid var(--color-lightGrey);
+    border: 1px solid var(--color-lightGrey);
 }
 
 iframe {
-	border: 0;
+    border: 0;
 }
 
 dl dt {
-	font-weight: bold;
+    font-weight: bold;
 }
 
 hr {
-	margin: 1rem 0;
-	height: 1px;
-	border: none;
-	background-color: var(--color-light-grey);
+    margin: 1rem 0;
+    height: 1px;
+    border: none;
+    background-color: var(--color-light-grey);
 }
 
 abbr[title] {
-	border-bottom: none;
-	text-decoration: none;
+    border-bottom: none;
+    text-decoration: none;
 }
 
 /* ==========================================================================
@@ -78,47 +78,47 @@ abbr[title] {
 // }
 
 @font-face {
-	font-family: 'zurich-custom';
-	src: url('/fonts/ZurichCustom-Bold.woff2') format('woff2'),
-		url('/fonts/ZurichCustom-Bold.woff') format('woff');
-	font-weight: 700;
-	font-style: normal;
-	font-display: swap;
+    font-family: 'zurich-custom';
+    src: url('/fonts/ZurichCustom-Bold.woff2') format('woff2'),
+        url('/fonts/ZurichCustom-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
-	font-family: 'zurich-custom';
-	src: url('/fonts/ZurichCustom-Text.woff2') format('woff2'),
-		url('/fonts/ZurichCustom-Text.woff') format('woff');
-	font-weight: 300;
-	font-style: normal;
-	font-display: swap;
+    font-family: 'zurich-custom';
+    src: url('/fonts/ZurichCustom-Text.woff2') format('woff2'),
+        url('/fonts/ZurichCustom-Text.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
 }
 
 .font-serif {
-	font-family: var(--font-serif);
+    font-family: var(--font-serif);
 }
 
 .font-sans {
-	font-family: var(--font-sans);
+    font-family: var(--font-sans);
 }
 
 .font-mono {
-	font-family: var(--font-mono);
+    font-family: var(--font-mono);
 }
 
 .font-mono-display {
-	font-family: var(--font-mono-display);
+    font-family: var(--font-mono-display);
 }
 
 // Font defaults
 body {
-	font-size: 1.6rem;
-	line-height: 1.8;
-	font-family: var(--font-sans);
-	font-weight: 100;
-	letter-spacing: 0.08rem;
-	color: var(--color-text);
+    font-size: 1.6rem;
+    line-height: 1.8;
+    font-family: var(--font-sans);
+    font-weight: 100;
+    letter-spacing: 0.08rem;
+    color: var(--color-text);
 }
 
 // Headings
@@ -127,11 +127,11 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: var(--font-sans);
+    font-family: var(--font-sans);
 }
 
 h2 {
-	font-family: var(--font-serif);
+    font-family: var(--font-serif);
 }
 /* ==========================================================================
    HEADINGS
@@ -141,83 +141,83 @@ h1,
 h2,
 h3,
 h4 {
-	margin: 0;
-	line-height: 1.3;
-	font-weight: 300;
-	letter-spacing: 0.1rem;
+    margin: 0;
+    line-height: 1.3;
+    font-weight: 300;
+    letter-spacing: 0.1rem;
 
-	a {
-		color: inherit;
-		text-decoration: none;
-	}
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
 }
 
 h1 {
-	margin-bottom: 4rem;
-	font-size: 4.8rem;
-	line-height: 1.15;
+    margin-bottom: 4rem;
+    font-size: 4.8rem;
+    line-height: 1.15;
 }
 
 h2 {
-	margin-bottom: 3.8rem;
-	font-size: 4.8rem;
-	font-style: italic;
-	letter-spacing: 0.04rem;
-	color: var(--color-secondary);
+    margin-bottom: 3.8rem;
+    font-size: 4.8rem;
+    font-style: italic;
+    letter-spacing: 0.04rem;
+    color: var(--color-secondary);
 }
 
 h3 {
-	margin: 3rem 0;
-	padding-top: 2rem;
-	font-size: 3rem;
-	font-style: normal;
-	font-weight: 500;
-	color: var(--color-primary);
+    margin: 3rem 0;
+    padding-top: 2rem;
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 500;
+    color: var(--color-primary);
 }
 
 h4 {
-	margin-bottom: 2rem;
-	font-size: 2rem;
+    margin: 2rem 0;
+    font-size: 2rem;
 }
 
 // Mobile headings
 @include for-size('phone-only') {
-	h1 {
-		font-size: 3.8rem;
-	}
+    h1 {
+        font-size: 3.8rem;
+    }
 
-	h2 {
-		font-size: 3.4rem;
-	}
+    h2 {
+        font-size: 3.4rem;
+    }
 
-	h3 {
-		font-size: 2.7rem;
-		line-height: 1.4;
-	}
+    h3 {
+        font-size: 2.7rem;
+        line-height: 1.4;
+    }
 
-	h4 {
-		font-size: 2.5rem;
-	}
+    h4 {
+        font-size: 2.5rem;
+    }
 }
 
 // Mobile headings
 @include for-size('super-small') {
-	h1 {
-		font-size: 3rem;
-	}
+    h1 {
+        font-size: 3rem;
+    }
 
-	h2 {
-		font-size: 3rem;
-	}
+    h2 {
+        font-size: 3rem;
+    }
 
-	h3 {
-		font-size: 2.5rem;
-		line-height: 1.4;
-	}
+    h3 {
+        font-size: 2.5rem;
+        line-height: 1.4;
+    }
 
-	h4 {
-		font-size: 2rem;
-	}
+    h4 {
+        font-size: 2rem;
+    }
 }
 
 /* ==========================================================================
@@ -225,58 +225,58 @@ h4 {
    ========================================================================== */
 
 @mixin linkStyle(
-	$color: $color-link,
-	$hoverColor: $color-link-hover,
-	$visitedColor: $color-link,
-	// no visited link colors
-	$activeColor: $color-link-active,
-	$underline: true
+    $color: $color-link,
+    $hoverColor: $color-link-hover,
+    $visitedColor: $color-link,
+    // no visited link colors
+    $activeColor: $color-link-active,
+    $underline: true
 ) {
-	color: $color;
-	text-decoration: none;
+    color: $color;
+    text-decoration: none;
 
-	@if $underline {
-		& {
-			border-bottom: 1px solid rgba($color-link, 0.15);
-			transition: color 200ms, border-bottom 200ms;
-		}
-	} @else {
-		& {
-			border-bottom: none;
-		}
-	}
+    @if $underline {
+        & {
+            border-bottom: 1px solid rgba($color-link, 0.15);
+            transition: color 200ms, border-bottom 200ms;
+        }
+    } @else {
+        & {
+            border-bottom: none;
+        }
+    }
 
-	&:hover {
-		color: $hoverColor;
-		/* testlink */
-		@if $underline {
-			border-bottom: 1px solid rgba($hoverColor, 1);
-		} @else {
-			border-bottom: none;
-		}
-	}
+    &:hover {
+        color: $hoverColor;
+        /* testlink */
+        @if $underline {
+            border-bottom: 1px solid rgba($hoverColor, 1);
+        } @else {
+            border-bottom: none;
+        }
+    }
 
-	&:visited {
-		color: $visitedColor;
-	}
+    &:visited {
+        color: $visitedColor;
+    }
 
-	&:active {
-		color: $activeColor;
-	}
+    &:active {
+        color: $activeColor;
+    }
 }
 
 a {
-	@include linkStyle();
+    @include linkStyle();
 }
 
 .link-no-underline {
-	border-bottom: none;
+    border-bottom: none;
 
-	&:visited,
-	&:hover,
-	&:active {
-		border-bottom: none;
-	}
+    &:visited,
+    &:hover,
+    &:active {
+        border-bottom: none;
+    }
 }
 
 /* ==========================================================================
@@ -285,46 +285,46 @@ a {
 
 .picture-right,
 .picture-left {
-	width: 33%;
+    width: 33%;
 
-	img {
-		border-radius: 1rem;
-	}
+    img {
+        border-radius: 1rem;
+    }
 
-	@media screen and (max-width: 699px) {
-		width: 50%;
-	}
+    @media screen and (max-width: 699px) {
+        width: 50%;
+    }
 
-	@media screen and (max-width: 399px) {
-		width: 100%;
-	}
+    @media screen and (max-width: 399px) {
+        width: 100%;
+    }
 }
 
 .picture-left {
-	float: left;
-	margin: 0 2rem 2rem 0;
+    float: left;
+    margin: 0 2rem 2rem 0;
 }
 
 .picture-right {
-	float: right;
-	margin: 0 0 2rem 2rem;
+    float: right;
+    margin: 0 0 2rem 2rem;
 }
 
 .object-position-right {
-	object-position: right;
+    object-position: right;
 }
 
 .object-position-left {
-	object-position: left;
+    object-position: left;
 }
 
 // Simulate an <hr>
 .separator-top {
-	border-top: 1px solid var(--color-light-grey);
+    border-top: 1px solid var(--color-light-grey);
 }
 
 .separator-bottom {
-	border-bottom: 1px solid var(--color-light-grey);
+    border-bottom: 1px solid var(--color-light-grey);
 }
 
 /* ==========================================================================
@@ -336,97 +336,97 @@ a {
    ========================================================================== */
 
 footer {
-	// @extend .separator-top;
-	margin-top: 10rem;
-	font-family: var(--font-mono-display);
-	text-transform: uppercase;
-	text-align: center;
-	width: auto;
+    // @extend .separator-top;
+    margin-top: 10rem;
+    font-family: var(--font-mono-display);
+    text-transform: uppercase;
+    text-align: center;
+    width: auto;
 
-	.inside {
-		//
-	}
+    .inside {
+        //
+    }
 }
 
 .social-and-contact {
-	padding-left: 0;
-	list-style: none;
-	background-color: rgba(255, 255, 255, 0.4);
+    padding-left: 0;
+    list-style: none;
+    background-color: rgba(255, 255, 255, 0.4);
 
-	a,
-	a:hover {
-		color: $saudade-blue-light;
-		border-bottom: none;
-		text-shadow: 0 0 15px #fff;
-	}
+    a,
+    a:hover {
+        color: $saudade-blue-light;
+        border-bottom: none;
+        text-shadow: 0 0 15px #fff;
+    }
 
-	a:hover {
-		color: $light-cyan;
-	}
-	li {
-		font-size: 3rem;
-	}
+    a:hover {
+        color: $light-cyan;
+    }
+    li {
+        font-size: 3rem;
+    }
 
-	@media screen and (min-width: 300px) {
-		li {
-			display: inline;
-		}
-	}
+    @media screen and (min-width: 300px) {
+        li {
+            display: inline;
+        }
+    }
 
-	@media screen and (min-width: 400px) {
-		li {
-			font-size: 4rem;
-		}
-	}
+    @media screen and (min-width: 400px) {
+        li {
+            font-size: 4rem;
+        }
+    }
 }
 
 .footer-background-video-wrapper {
-	position: relative;
-	width: 100%;
+    position: relative;
+    width: 100%;
 
-	z-index: -50;
+    z-index: -50;
 
-	@include for-size(tablet-portrait-up) {
-		margin-top: calc((1rem + 20vw) * -1);
-	}
+    @include for-size(tablet-portrait-up) {
+        margin-top: calc((1rem + 20vw) * -1);
+    }
 
-	video {
-		width: 100%;
-		object-fit: cover;
-		object-position: center 72%;
-		height: 35vh;
-	}
+    video {
+        width: 100%;
+        object-fit: cover;
+        object-position: center 72%;
+        height: 35vh;
+    }
 }
 
 // Overlay to fade in from top
 .footer-background-video-wrapper::after {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 101%;
-	content: '';
-	background-image: linear-gradient(
-		180deg,
-		rgba(255, 255, 255, 1) 0%,
-		rgba(255, 255, 255, 0) 25%
-	);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 101%;
+    content: '';
+    background-image: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 255, 255, 0) 25%
+    );
 }
 
 .copyright {
-	// margin-bottom: 20rem;
-	// @media screen and (min-width: 1200px) {
-	// 	margin-bottom: calc(20rem + (100vw * 0.2));
-	// }
+    // margin-bottom: 20rem;
+    // @media screen and (min-width: 1200px) {
+    // 	margin-bottom: calc(20rem + (100vw * 0.2));
+    // }
 }
 
 .back-to-top {
-	z-index: 50;
-	margin-top: -10rem;
-	padding: 3rem;
-	text-align: center;
+    z-index: 50;
+    margin-top: -10rem;
+    padding: 3rem;
+    text-align: center;
 
-	@media screen and (min-width: 1200px) {
-		text-align: right;
-	}
+    @media screen and (min-width: 1200px) {
+        text-align: right;
+    }
 }
