@@ -1,7 +1,7 @@
 const imagePanels = document.querySelectorAll('.image-panel:not(#hero)');
 const options = {
-	threshhold: 0.25,
-	rootMargin: '-15%',
+	threshhold: 0.4,
+	rootMargin: '-25%',
 };
 const observer = new IntersectionObserver((entries) => {
 	entries.forEach((entry) => {

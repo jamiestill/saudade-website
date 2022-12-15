@@ -510,9 +510,9 @@ const populateWeatherElement = (wxData, waveData) => {
 		);
 		const waveHeight = waveData.daily.wave_height_max[0];
 		const wavePeriod = Math.ceil(waveData.daily.wave_period_max[0]);
-		waveText = `Waves expected at ${Math.ceil(
+		waveText = `Waves ${waveDir} at ${Math.ceil(
 			waveHeight * 3.281
-		)}ft (${waveHeight}m) from ${waveDir} every ${wavePeriod} seconds.`;
+		)}ft (${waveHeight}m) every ${wavePeriod} seconds.`;
 	} else {
 		waveText = ''; // "<small><br>(No wave data for this location.)</small>";
 	}
@@ -562,7 +562,7 @@ if (mapContainer) {
 		};
 
 		// Build the weather API URL
-		const apiKey = '76ee0493190b9329a78ef95c73e70017';
+		const apiKey = '327148415fa39fed1cf4ce3a68bbd74a';
 		const wxApiURL = `https://api.openweathermap.org/data/3.0/onecall?units=imperial&exclude=minutely,hourly,daily&lat=${latitudeLongitude.lat}&lon=${latitudeLongitude.lng}&appid=${apiKey}`;
 
 		// Build the wave API URL

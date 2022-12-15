@@ -601,8 +601,13 @@ body {
 /* ==========================================================================
    ANIMATION
    ========================================================================== */
-.fly-in {
-  border: 10px solid red !important;
+.image-panel-img-container img {
+  filter: contrast(50%) saturate(10%) brightness(120%);
+}
+
+.fly-in .image-panel-img-container img {
+  filter: contrast(100%) saturate(100%) brightness(100%);
+  transition: filter 1s ease-in-out;
 }
 
 /* ==========================================================================
