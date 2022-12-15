@@ -565,28 +565,29 @@ if (mapContainer) {
 
 		// Build the wave API URL
 		const waveApiURL = `https://marine-api.open-meteo.com/v1/marine?&daily=wave_height_max,wave_direction_dominant,wave_period_max&timezone=auto&latitude=${latitudeLongitude.lat}&longitude=${latitudeLongitude.lng}`;
+
+		// Fetch the weather data
+		const fetchWx = fetch(wxApiURL)
+			.then(checkStatus)
+			.then((response) => response.json())
+			.catch((error) => console.error('Weather fetch failed', error));
+
+		// Fetch the wave data
+		const fetchWave = fetch(waveApiURL)
+			.then(checkStatus)
+			.then((response) => response.json())
+			.catch((error) =>
+				console.error(
+					error,
+					'Wave fetch failed, probably since Saudade is on land.'
+				)
+			);
+
+		// Get API data concurrently with Promise.all
+		Promise.all([fetchWx, fetchWave]).then((data) => {
+			populateWeatherElement(data[0], data[1]);
+		});
 	}
-	// Fetch the weather data
-	const fetchWx = fetch(wxApiURL)
-		.then(checkStatus)
-		.then((response) => response.json())
-		.catch((error) => console.error('Weather fetch failed', error));
-
-	// Fetch the wave data
-	const fetchWave = fetch(waveApiURL)
-		.then(checkStatus)
-		.then((response) => response.json())
-		.catch((error) =>
-			console.error(
-				error,
-				'Wave fetch failed, probably since Saudade is on land.'
-			)
-		);
-
-	// Get API data concurrently with Promise.all
-	Promise.all([fetchWx, fetchWave]).then((data) => {
-		populateWeatherElement(data[0], data[1]);
-	});
 }
 
 /*
