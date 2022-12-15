@@ -118,6 +118,7 @@ const convertToDms = (dirDegrees, isLongitutde) => {
  * This is the callback function for Google Maps API indicated in the API URL
  */
 
+// eslint-disable-next-line no-unused-vars
 function getLocation() {
 	// Short circuit
 	if (disableAPICalls !== false) return;
@@ -314,6 +315,7 @@ if (disableAPICalls !== true) {
 				this._eventHandler = eventHandler;
 			}
 
+			// eslint-disable-next-line no-shadow, no-unused-vars
 			onAdd(map) {
 				this._btn = document.createElement('button');
 				this._btn.className = `mapboxgl-ctrl-icon ${this._className}`;
