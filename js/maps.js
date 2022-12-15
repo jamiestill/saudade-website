@@ -133,7 +133,7 @@ function getLocation() {
 			let addressString = ''; // prevent 'undefined'
 			const addyComponents = response.results[0].address_components;
 
-			console.log('Reverse Geolocation:', addyComponents);
+			console.info('🌍 Reverse Geolocation:', addyComponents);
 
 			// Build an address if possible, based on what Google has available
 			// The returned object's address fields vary by country, below is an
@@ -402,8 +402,8 @@ const getCardinalDirection = (numWindAngle) => {
 
 // Create the weather label for insertion into HTML
 const populateWeatherElement = (wxData, waveData) => {
-	console.log('Weather data: ', wxData);
-	console.log('Wave data: ', waveData);
+	console.info('🌧 Weather data: ', wxData);
+	console.info('🌊 Wave data: ', waveData);
 
 	// Get the icon
 	let wxIcon = wxData.current.weather[0].icon;

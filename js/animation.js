@@ -5,12 +5,13 @@ const options = {
 };
 const observer = new IntersectionObserver((entries) => {
 	entries.forEach((entry) => {
-		console.log(entry.isIntersecting);
+		console.log('Intersecting:', entry.isIntersecting);
 		if (entry.isIntersecting) {
 			entry.target.classList.add('fly-in');
 		}
 	});
 }, options);
+
 imagePanels.forEach((imagePanel) => {
 	observer.observe(imagePanel);
 });

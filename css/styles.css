@@ -364,6 +364,7 @@ footer {
   text-align: center;
   width: auto;
 }
+
 .social-and-contact {
   padding-left: 0;
   list-style: none;
@@ -595,6 +596,13 @@ body {
 }
 .skip-link:focus-within {
   transform: translateY(1rem);
+}
+
+/* ==========================================================================
+   ANIMATION
+   ========================================================================== */
+.fly-in {
+  border: 10px solid red !important;
 }
 
 /* ==========================================================================
