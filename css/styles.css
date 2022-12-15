@@ -1,7 +1,6 @@
 /* 
 
-
-   Styles here are vanilla CSS (and preprocessed with Sass). #frameworkfree
+   Styles here are vanilla CSS (and preprocessed with Sass).
    ==========================================================================
 
 */
@@ -10,23 +9,23 @@
    ========================================================================== */
 /* https://coolors.co */
 :root {
-  --bg-color: #d9dcd6;
-  --bg-secondary-color: #8fe1ef;
+  --bg-color: #e5e7e5;
+  --bg-secondary-color: #30c9c6;
   --bg-masthead: #03045e;
-  --color-primary: #45c8ff;
-  --color-secondary: #003087;
+  --color-primary: #275199;
+  --color-secondary: #132039;
   --color-tertiary: #19849f;
   --color-accent: #32cd32;
   --color-text: #474a4d;
   --color-black: #1e1e20;
   --color-error: #ef253c;
   --color-success: #32cd32;
-  --color-link: #003087;
-  --color-link-hover: #45c8ff;
+  --color-link: #132039;
+  --color-link-hover: #275199;
   --color-link-active: #32cd32;
-  --color-link-visited: #0042ba;
-  --color-middle-blue: #8fe1ef;
-  --color-light-grey: #d9dcd6;
+  --color-link-visited: #20355f;
+  --color-middle-blue: #30c9c6;
+  --color-light-grey: #e5e7e5;
   --color-icon-grey: #c5c2b1;
   --color-dark-grey: #4b5b68;
   --color-light-cyan: #c9f0f8;
@@ -37,25 +36,25 @@
   --font-color: var(--color-text);
   --font-color-inverted: #c9f0f8;
   --font-sans: "zurich-custom", system-ui,
-      /* macOS 10.11-10.12 */ -apple-system, "Helvetica Neue", Helvetica,
-      /* Windows 6+ */ "Segoe UI", /* Android 4+ */ "Roboto",
-      /* Ubuntu 10.10+ */ "Ubuntu", /* Gnome 3+ */ "Cantarell",
-      /* KDE Plasma 5+ */ "Noto Sans", /* fallback */ sans-serif,
-      /* macOS emoji */ "Apple Color Emoji",
-      /* Windows emoji */ "Segoe UI Emoji",
-      /* Windows emoji */ "Segoe UI Symbol",
-      /* Linux emoji */ "Noto Color Emoji";
+  	/* macOS 10.11-10.12 */ -apple-system, "Helvetica Neue", Helvetica,
+  	/* Windows 6+ */ "Segoe UI", /* Android 4+ */ "Roboto",
+  	/* Ubuntu 10.10+ */ "Ubuntu", /* Gnome 3+ */ "Cantarell",
+  	/* KDE Plasma 5+ */ "Noto Sans", /* fallback */ sans-serif,
+  	/* macOS emoji */ "Apple Color Emoji",
+  	/* Windows emoji */ "Segoe UI Emoji",
+  	/* Windows emoji */ "Segoe UI Symbol",
+  	/* Linux emoji */ "Noto Color Emoji";
   --font-mono: ui-monospace, /* macOS 10.10+ */ "Menlo",
-      /* Windows 6+ */ "Consolas", /* Android 4+ */ "Roboto Mono",
-      /* Ubuntu 10.10+ */ "Ubuntu Monospace", /* KDE Plasma 5+ */ "Noto Mono",
-      /* KDE Plasma 4+ */ "Oxygen Mono",
-      /* Linux/OpenOffice fallback */ "Liberation Mono",
-      /* fallback */ monospace, /* macOS emoji */ "Apple Color Emoji",
-      /* Windows emoji */ "Segoe UI Emoji",
-      /* Windows emoji */ "Segoe UI Symbol",
-      /* Linux emoji */ "Noto Color Emoji";
+  	/* Windows 6+ */ "Consolas", /* Android 4+ */ "Roboto Mono",
+  	/* Ubuntu 10.10+ */ "Ubuntu Monospace", /* KDE Plasma 5+ */ "Noto Mono",
+  	/* KDE Plasma 4+ */ "Oxygen Mono",
+  	/* Linux/OpenOffice fallback */ "Liberation Mono",
+  	/* fallback */ monospace, /* macOS emoji */ "Apple Color Emoji",
+  	/* Windows emoji */ "Segoe UI Emoji",
+  	/* Windows emoji */ "Segoe UI Symbol",
+  	/* Linux emoji */ "Noto Color Emoji";
   --font-serif: "Cormorant Garamond", Cambria, Cochin, Georgia, Times,
-      "Times New Roman", serif; /* Mostly for dictionary definition */
+  	"Times New Roman", serif; /* Mostly for dictionary definition */
   --font-mono-display: "IBM Plex Mono", monospace;
   --font-icon: "fontello", monospace;
 }
@@ -269,20 +268,20 @@ h4 {
    LINKS
    ========================================================================== */
 a {
-  color: #003087;
+  color: #132039;
   text-decoration: none;
 }
 a {
-  border-bottom: 1px solid rgba(0, 48, 135, 0.15);
+  border-bottom: 1px solid rgba(19, 32, 57, 0.15);
   transition: color 200ms, border-bottom 200ms;
 }
 a:hover {
-  color: #45c8ff;
+  color: #275199;
   /* testlink */
-  border-bottom: 1px solid #45c8ff;
+  border-bottom: 1px solid #275199;
 }
 a:visited {
-  color: #003087;
+  color: #132039;
 }
 a:active {
   color: #32cd32;
@@ -372,7 +371,7 @@ footer {
 }
 .social-and-contact a,
 .social-and-contact a:hover {
-  color: #45c8ff;
+  color: #275199;
   border-bottom: none;
   text-shadow: 0 0 15px #fff;
 }
@@ -602,12 +601,15 @@ body {
    ANIMATION
    ========================================================================== */
 .image-panel-img-container img {
-  filter: contrast(50%) saturate(10%) brightness(120%);
+  filter: contrast(50%) saturate(10%) brightness(150%);
+}
+#hero .image-panel-img-container img {
+  filter: none;
 }
 
 .fly-in .image-panel-img-container img {
   filter: contrast(100%) saturate(100%) brightness(100%);
-  transition: filter 1s ease-in-out;
+  transition: filter 3s ease-in-out;
 }
 
 /* ==========================================================================
@@ -635,9 +637,9 @@ body {
 }
 #hero dl {
   padding: 3rem;
-  border-top: 1px solid #def5ff;
-  -o-border-image: linear-gradient(90deg, #fff, #abe6ff, #fff) 1;
-     border-image: linear-gradient(90deg, #fff, #abe6ff, #fff) 1;
+  border-top: 1px solid #7ca0dd;
+  -o-border-image: linear-gradient(90deg, #fff, #5382d3, #fff) 1;
+     border-image: linear-gradient(90deg, #fff, #5382d3, #fff) 1;
   border-bottom: 0;
 }
 @media screen and (min-width: 799px) {
@@ -709,10 +711,10 @@ body {
 .dictionary-definition dt {
   margin-bottom: 0.5em;
   font-size: 1.1em;
-  color: #003087;
+  color: #132039;
 }
 .dictionary-definition dt span {
-  color: #45c8ff;
+  color: #275199;
 }
 .dictionary-definition dd {
   color: var(--color-dark-grey);
