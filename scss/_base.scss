@@ -6,7 +6,6 @@ html {
 	height: -webkit-fill-available; // HTML height fix
 	box-sizing: border-box; // everything to use border-box
 	scroll-behavior: smooth;
-	hyphens: auto;
 	font-size: 62.5%; // for easy rem calculations
 }
 *,
@@ -62,6 +61,11 @@ hr {
 abbr[title] {
 	border-bottom: none;
 	text-decoration: none;
+}
+
+p,
+li {
+	hyphens: auto;
 }
 
 /* ==========================================================================
@@ -168,7 +172,6 @@ h2 {
 
 h3 {
 	margin: 3rem 0;
-	padding-top: 2rem;
 	font-size: 3rem;
 	font-style: normal;
 	font-weight: 500;
@@ -176,7 +179,7 @@ h3 {
 }
 
 h4 {
-	margin-bottom: 2rem;
+	margin: 2rem 0;
 	font-size: 2rem;
 }
 
@@ -336,16 +339,18 @@ a {
    ========================================================================== */
 
 footer {
-	// @extend .separator-top;
-	margin-top: 10rem;
+	border-top: 1px solid lighten($saudade-blue-light, 30%);
+	border-image: linear-gradient(
+			90deg,
+			#fff,
+			lighten($saudade-blue-light, 40%),
+			#fff
+		)
+		1;
 	font-family: var(--font-mono-display);
 	text-transform: uppercase;
 	text-align: center;
 	width: auto;
-
-	.inside {
-		//
-	}
 }
 
 .social-and-contact {
@@ -380,6 +385,11 @@ footer {
 	}
 }
 
+.pixel-captian {
+	display: block;
+	margin: 4rem auto 1rem;
+}
+
 .footer-background-video-wrapper {
 	position: relative;
 	width: 100%;
@@ -387,7 +397,7 @@ footer {
 	z-index: -50;
 
 	@include for-size(tablet-portrait-up) {
-		margin-top: calc((1rem + 20vw) * -1);
+		margin-top: calc((1rem + 10vw) * -1);
 	}
 
 	video {
@@ -408,21 +418,14 @@ footer {
 	content: '';
 	background-image: linear-gradient(
 		180deg,
-		rgba(255, 255, 255, 1) 0%,
-		rgba(255, 255, 255, 0) 25%
+		rgba(255, 255, 255, 1) 25%,
+		rgba(255, 255, 255, 0) 70%
 	);
-}
-
-.copyright {
-	// margin-bottom: 20rem;
-	// @media screen and (min-width: 1200px) {
-	// 	margin-bottom: calc(20rem + (100vw * 0.2));
-	// }
 }
 
 .back-to-top {
 	z-index: 50;
-	margin-top: -10rem;
+	// margin-top: -10rem;
 	padding: 3rem;
 	text-align: center;
 

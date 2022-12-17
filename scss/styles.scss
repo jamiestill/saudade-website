@@ -1,7 +1,6 @@
 /* 
- 
 
-   Styles here are vanilla CSS (and preprocessed with Sass). #frameworkfree
+   Styles here are vanilla CSS (and preprocessed with Sass).
    ==========================================================================
  
 */
@@ -11,185 +10,295 @@
 @import 'forms';
 @import 'layout';
 @import 'navigation';
+@import 'animation';
 @import 'hero';
 @import 'dictionary';
 @import 'map';
 
 #masthead {
-    display: none;
-}
-
-html {
-    // background-image: url(/images/assets/helia-plan-in-progress.svg);
-    // background-size: cover;
+	display: none;
 }
 
 // Small captions to images, usually with GPS info
 figcaption {
-    margin: 0.5rem 1rem;
-    font-size: 1.2rem;
-    font-family: var(--font-mono-display);
-    text-transform: uppercase;
-    color: var(--color-grey);
-    vertical-align: middle;
+	margin: 0.5rem 1rem;
+	font-size: 1.2rem;
+	font-family: var(--font-mono-display);
+	text-transform: uppercase;
+	color: var(--color-grey);
+	vertical-align: middle;
 
-    // Small caption icons
-    div:after,
-    div:before {
-        margin-right: 1em;
-        font-family: var(--font-icon);
-        font-size: 1.3rem;
-        color: var(--color-icon-grey);
-    }
+	// Small caption icons
+	div:after,
+	div:before {
+		margin-right: 1em;
+		font-family: var(--font-icon);
+		font-size: 1.3rem;
+		color: var(--color-icon-grey);
+	}
 
-    .description {
-        float: left;
-        &:before {
-            content: '\f019';
-        }
-    }
+	.description {
+		float: left;
+		&:before {
+			content: '\f019';
+		}
+	}
 
-    .lat-long {
-        float: right;
-        &:before {
-            content: '\e803';
-        }
-    }
+	.lat-long {
+		float: right;
+		&:before {
+			content: '\e803';
+		}
+	}
 
-    .credit {
-        // any photo credits
-        &:before {
-            content: '\e801';
-        }
-    }
+	.credit {
+		// any photo credits
+		&:before {
+			content: '\e801';
+		}
+	}
 
-    @media screen and (max-width: 550px),
-        (max-width: 1200px) and (min-width: 700px) {
-        .description,
-        .lat-long {
-            float: none; // remove floats when panel photos are too narrow
-        }
-    }
+	@media screen and (max-width: 550px),
+		(max-width: 1200px) and (min-width: 700px) {
+		.description,
+		.lat-long {
+			float: none; // remove floats when panel photos are too narrow
+		}
+	}
 }
 
 //  Use empty <span class="icon- .. to insert
 ul.custom-bullet {
-    --item-left-padding: 6rem;
-    list-style-type: none;
-    padding-left: calc(
-        var(--item-left-padding) * 1.3
-    ); //layout tweaks for icon list
-    line-height: 1.2;
+	--item-left-padding: 6rem;
+	list-style-type: none;
+	padding-left: calc(
+		var(--item-left-padding) * 1.3
+	); //layout tweaks for icon list
+	line-height: 1.2;
 
-    @media screen and (max-width: 300px) {
-        --item-left-padding: 4.5rem;
-    }
+	@media screen and (max-width: 300px) {
+		--item-left-padding: 4.5rem;
+	}
 
-    li {
-        position: relative;
-        margin-bottom: 1rem;
-        padding-bottom: calc(1rem - 1px); // account for border
+	li {
+		position: relative;
+		margin-bottom: 1rem;
+		padding-bottom: calc(1rem - 1px); // account for border
 
-        &:hover {
-            color: var(--color-secondary);
-            transition: color 1000ms;
+		&:hover {
+			span[class^='icon-'] {
+				color: var(--color-secondary);
+				transition: color 400ms;
+			}
 
-            a,
-            a:visited,
-            span[class^='icon-'] {
-                color: var(--color-secondary);
-                transition: color 400ms;
-            }
-        }
+			a,
+			a:visited {
+				color: var(--color-primary);
+				transition: color 400ms;
+			}
+		}
 
-        span[class^='icon-'] {
-            position: absolute;
-            left: -6rem;
-            top: -0.6rem;
-            height: 3.2rem;
-            width: 3.2rem;
-            font-size: 2.5rem;
-            text-align: center;
-            color: var(--color-primary);
+		span[class^='icon-'] {
+			position: absolute;
+			left: -6rem;
+			top: -0.6rem;
+			height: 3.2rem;
+			width: 3.2rem;
+			font-size: 2.5rem;
+			text-align: center;
+			color: var(--color-primary);
 
-            &:before {
-                margin: 0;
-            }
-        }
+			&:before {
+				margin: 0;
+			}
+		}
 
-        span.icon-bed {
-            font-size: 2.2rem; // icon is unsually large, tweaking
-        }
+		span.icon-bed {
+			font-size: 2.2rem; // icon is unsually large, tweaking
+		}
 
-        span.icon-snow {
-            margin-left: 0.1rem;
-        }
-    }
+		span.icon-snow {
+			margin-left: 0.1rem;
+		}
+	}
 }
 
+/* ==========================================================================
+   HELPERS
+   ========================================================================== */
+
 .no-italic {
-    font-style: normal !important;
+	font-style: normal !important;
+}
+
+.no-padding {
+	padding: 0;
 }
 
 .vessel {
-    font-style: italic;
+	font-style: italic;
 }
 
 // For test / style guide page
 .card {
-    margin: 2rem;
-    padding: 2rem;
-    background-color: var(--bg-color);
-    border-left: 1rem solid var(--color-grey);
-    border-radius: 1rem;
+	margin: 2rem;
+	padding: 2rem;
+	background-color: var(--bg-color);
+	border-left: 1rem solid var(--color-grey);
+	border-radius: 1rem;
 }
 
 #test-colors {
-    li span {
-        display: block;
-        width: 5rem;
-        border-radius: 10px;
-    }
+	li span {
+		display: block;
+		width: 5rem;
+		border-radius: 10px;
+	}
 }
 
 #test-icons {
-    /*
+	/*
 	Icon lists are created fontello automatically
 	*/
-    #icons {
-        @media screen and (min-width: 700px) {
-            display: flex;
-            flex-wrap: wrap;
-        }
-    }
+	#icons {
+		@media screen and (min-width: 700px) {
+			display: flex;
+			flex-wrap: wrap;
+		}
+	}
 
-    .row {
-        flex: 1;
-        flex-basis: 40%;
-    }
+	.row {
+		flex: 1;
+		flex-basis: 40%;
+	}
 
-    .span-3 {
-        i,
-        span {
-            margin-right: 1rem;
-        }
-    }
+	.span-3 {
+		i,
+		span {
+			margin-right: 1rem;
+		}
+	}
 
-    .demo-icon {
-        color: rgba(255, 255, 255, 0);
+	.demo-icon {
+		color: rgba(255, 255, 255, 0);
 
-        &::before {
-            font-size: 2em;
-            padding: 0.3em 1em;
-            opacity: 1;
-            color: black;
-        }
-    }
+		&::before {
+			font-size: 2em;
+			padding: 0.3em 1em;
+			opacity: 1;
+			color: black;
+		}
+	}
 
-    .i-code {
-        &:before {
-            content: '  Code: ';
-            font-style: italic;
-        }
-    }
+	.i-code {
+		&:before {
+			content: '  Code: ';
+			font-style: italic;
+		}
+	}
+}
+
+.powell-cay-photo {
+	object-position: 26%;
+}
+
+.captain-on-deck-photo {
+	object-position: 70%;
+}
+
+.resume .icon-resume-cv {
+	font-size: 5rem;
+	color: var(--color-tertiary);
+}
+
+$document-card-border: 2px solid darken($light-cyan, 10%);
+// Cards for links to PDFs and other documents
+.document-card {
+	border: $document-card-border;
+	border-radius: 1rem;
+	width: 40vw;
+	max-width: 400px;
+	min-width: 200px;
+	height: 20vh;
+	max-height: 200px;
+	min-height: 100px;
+	margin: 1rem auto;
+	overflow: hidden;
+	display: block;
+	position: relative;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	&:hover {
+		border-bottom: $document-card-border;
+		overflow: hidden;
+	}
+
+	// The info section that flys up on hoever
+	.document-card-info {
+		display: flex;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		z-index: 1;
+		padding: 2rem;
+		background-color: var(--color-light-cyan);
+		transform: translateY(100%);
+		transition: 0.2s ease-in-out;
+		opacity: 0.9;
+	}
+
+	&:hover .document-card-info {
+		transform: translateY(10%);
+	}
+
+	// For Microsoft Onedive PDF embeds
+	iframe.document-card-embed-preview {
+		margin-top: -3rem;
+		margin-left: -3rem;
+		width: calc(100% + 3rem);
+		height: calc(100% + 3rem);
+	}
+
+	.item-type {
+		span {
+			font-size: 3rem;
+		}
+	}
+
+	.item-description {
+		flex: 1;
+		list-style-type: none;
+		@extend .no-padding;
+	}
+
+	&.checklists {
+		background-image: url(/images/thumbs/checklist-thumb.png);
+	}
+
+	&.resume {
+		background-image: url(/images/thumbs/resume-thumb.png);
+	}
+
+	&.colregs {
+		background-image: url(/images/thumbs/colregs-thumb.png);
+	}
+}
+
+.key-value-terms {
+	dt {
+		width: 20rem;
+	}
+	dt,
+	dd {
+		display: inline;
+		margin-inline-start: 0;
+	}
+
+	dt::before,
+	dd::after {
+		display: block;
+		content: '';
+	}
 }
