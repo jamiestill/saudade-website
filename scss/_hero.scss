@@ -51,7 +51,11 @@
 		}
 
 		.image-panel-img-container {
-			height: 100vh; // Leave a bit so the user knows to scroll
+			height: 95vh; // Leave a bit so the user knows to scroll
+
+			img {
+				height: 100%;
+			}
 		}
 	}
 }

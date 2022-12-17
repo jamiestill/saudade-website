@@ -16,7 +16,7 @@ body {
 
 	@include for-size(tablet-portrait-up) {
 		flex-direction: row;
-		padding-bottom: 20rem; // flex margins don't collapse
+		padding-bottom: 15rem; // flex margins don't collapse
 	}
 }
 
@@ -82,8 +82,7 @@ body {
 		}
 
 		& > img {
-			height: 100%;
-			width: 100%;
+			height: 65%;
 			object-fit: cover;
 		}
 	}

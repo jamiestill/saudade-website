@@ -222,7 +222,7 @@ $document-card-border: 2px solid darken($light-cyan, 10%);
 	height: 20vh;
 	max-height: 200px;
 	min-height: 100px;
-	margin: 1rem auto;
+	margin: 4rem auto;
 	overflow: hidden;
 	display: block;
 	position: relative;
@@ -279,6 +279,7 @@ $document-card-border: 2px solid darken($light-cyan, 10%);
 
 	&.resume {
 		background-image: url(/images/thumbs/resume-thumb.png);
+		margin: 3rem 0 3rem 2.5rem;
 	}
 
 	&.colregs {
