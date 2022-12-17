@@ -3,11 +3,11 @@
    ========================================================================== */
 
 $midnight-blue: #03045e;
-$saudade-blue-dark: #132039;
+$saudade-blue-dark: #132554;
 $saudade-blue-light: #275199;
-$middle-blue: #30c9c6;
+$middle-blue: #00a3dd;
 $light-cyan: #c9f0f8;
-$gainsboro: #e5e7e5;
+$gainsboro: #e8f9fd;
 $silver: #c5c3c6;
 $metallic: darken(#dbd9ce, 10%);
 $davys-grey: #474a4d;
@@ -33,7 +33,7 @@ $color-link-visited: lighten($color-link, 10%);
 	// Text colors
 	--color-primary: #{$saudade-blue-light};
 	--color-secondary: #{$saudade-blue-dark};
-	--color-tertiary: #{$blue-munsell};
+	--color-tertiary: #{$middle-blue};
 	--color-accent: #{$lime-green};
 	--color-text: #{$davys-grey};
 	--color-black: #{$eerie-black};

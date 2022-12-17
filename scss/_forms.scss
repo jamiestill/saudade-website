@@ -11,7 +11,7 @@
 
 :where(button, input, select, textarea) {
 	background-color: transparent; /* 1 */
-	border: 1px solid WindowFrame; /* 1 */
+	border: 1px solid ButtonBorder; /* 1 */
 	color: inherit; /* 1 */
 	font: inherit; /* 2 */
 	letter-spacing: inherit; /* 2 */

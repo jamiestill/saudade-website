@@ -13,7 +13,20 @@
 	}
 }
 
-.fly-in .image-panel-img-container img {
-	filter: contrast(100%) saturate(100%) brightness(100%);
-	transition: filter 3s ease-in-out;
+.image-panel {
+	&.image-right .image-panel-img-container img {
+	}
+}
+
+.fly-in {
+	.image-panel-img-container img {
+		margin-right: -30rem;
+		transition: margin 4s ease-in;
+		filter: contrast(100%) saturate(100%) brightness(100%);
+		transition: filter 3s ease-in-out;
+	}
+
+	&.image-right .image-panel-img-container img {
+		margin-right: 0;
+	}
 }

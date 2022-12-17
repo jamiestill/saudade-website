@@ -11,11 +11,12 @@ body {
 
 // The sections of the page are direct childredn of main#content
 #content > section {
-	padding-bottom: 5rem; // flex margins don't collapse
+	padding-bottom: 10rem; // flex margins don't collapse
 	flex-direction: column;
 
 	@include for-size(tablet-portrait-up) {
 		flex-direction: row;
+		padding-bottom: 20rem; // flex margins don't collapse
 	}
 }
 
