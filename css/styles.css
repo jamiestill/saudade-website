@@ -921,6 +921,7 @@ figcaption .lat-long {
 ul.custom-bullet {
   --item-left-padding: 6rem;
   list-style-type: none;
+  padding-top: 3rem;
   padding-left: calc(var(--item-left-padding) * 1.3);
   line-height: 1.2;
 }
@@ -931,7 +932,7 @@ ul.custom-bullet {
 }
 ul.custom-bullet li {
   position: relative;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   padding-bottom: calc(1rem - 1px);
 }
 ul.custom-bullet li:hover span[class^=icon-] {
@@ -949,7 +950,8 @@ ul.custom-bullet li span[class^=icon-] {
   top: -0.6rem;
   height: 3.2rem;
   width: 3.2rem;
-  font-size: 2.5rem;
+  line-height: 1.8;
+  font-size: 2rem;
   text-align: center;
   color: var(--color-primary);
 }
@@ -1045,6 +1047,7 @@ ul.custom-bullet li span.icon-snow {
   border-radius: 1rem;
   width: 40vw;
   max-width: 400px;
+  min-width: 200px;
   height: 20vh;
   max-height: 200px;
   min-height: 100px;
@@ -1054,6 +1057,11 @@ ul.custom-bullet li span.icon-snow {
   position: relative;
   background-repeat: no-repeat;
   background-size: cover;
+}
+@media screen and (max-width: 300px) {
+  .document-card {
+    min-width: 0;
+  }
 }
 .two-column .document-card {
   flex-basis: 20rem;
