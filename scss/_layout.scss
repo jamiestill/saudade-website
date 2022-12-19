@@ -22,8 +22,8 @@ body {
 // for readability; centered to its container
 .inside {
 	max-width: $content-max-width;
-	margin: 0 auto 3rem;
-	padding: $padding-image-panel-content;
+	margin: 0 auto;
+	padding: 2rem $padding-image-panel-content;
 
 	@include for-size(super-small) {
 		padding: 0 calc($padding-image-panel-content / 3);
@@ -34,7 +34,7 @@ body {
 	}
 
 	@include for-size(tablet-portrait-up) {
-		padding: 4rem $padding-image-panel-content;
+		padding: 2rem $padding-image-panel-content;
 	}
 }
 
