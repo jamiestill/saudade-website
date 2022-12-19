@@ -11,12 +11,10 @@ body {
 
 // The sections of the page are direct childredn of main#content
 #content > section {
-	padding-bottom: 10rem; // flex margins don't collapse
 	flex-direction: column;
 
 	@include for-size(tablet-portrait-up) {
 		flex-direction: row;
-		padding-bottom: 15rem; // flex margins don't collapse
 	}
 }
 
@@ -40,14 +38,38 @@ body {
 	}
 }
 
+// Quick side-by-side columns
+.two-column {
+	@include for-size(tablet-portrait-up) {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+
+		.col {
+			display: flex;
+			flex-direction: row;
+			margin-bottom: 3rem;
+		}
+
+		h3 {
+			margin-top: 0; // flex margin doesn't collapse
+		}
+	}
+}
+
 /* Image panels
     panel with side-by-side columns with a hero-like image and blocks of text
 	Measured by the image taking up third, two-third, or half, and left side or right side
    ========================================================================== */
 
 .image-panel {
+	padding-bottom: 10rem; // flex margins don't collapse
+	flex-direction: column;
+
 	@include for-size(tablet-portrait-up) {
 		display: flex;
+		flex-direction: row;
+		padding-bottom: 15rem; // flex margins don't collapse
 	}
 }
 
@@ -82,7 +104,8 @@ body {
 		}
 
 		& > img {
-			height: 65%;
+			height: 100%;
+			width: 100%; // Safari needs this for the object-fit property
 			object-fit: cover;
 		}
 	}
