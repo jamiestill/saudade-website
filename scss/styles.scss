@@ -229,6 +229,12 @@ $document-card-border: 2px solid darken($light-cyan, 10%);
 	background-repeat: no-repeat;
 	background-size: cover;
 
+	.two-column & {
+		flex-basis: 20rem;
+		margin-left: 3rem;
+		margin-top: 0;
+	}
+
 	&:hover {
 		border-bottom: $document-card-border;
 		overflow: hidden;

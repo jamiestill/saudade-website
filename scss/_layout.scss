@@ -11,12 +11,10 @@ body {
 
 // The sections of the page are direct childredn of main#content
 #content > section {
-	padding-bottom: 10rem; // flex margins don't collapse
 	flex-direction: column;
 
 	@include for-size(tablet-portrait-up) {
 		flex-direction: row;
-		padding-bottom: 15rem; // flex margins don't collapse
 	}
 }
 
@@ -24,8 +22,8 @@ body {
 // for readability; centered to its container
 .inside {
 	max-width: $content-max-width;
-	margin: 0 auto 3rem;
-	padding: $padding-image-panel-content;
+	margin: 0 auto;
+	padding: 2rem $padding-image-panel-content;
 
 	@include for-size(super-small) {
 		padding: 0 calc($padding-image-panel-content / 3);
@@ -36,7 +34,26 @@ body {
 	}
 
 	@include for-size(tablet-portrait-up) {
-		padding: 4rem $padding-image-panel-content;
+		padding: 2rem $padding-image-panel-content;
+	}
+}
+
+// Quick side-by-side columns
+.two-column {
+	@include for-size(tablet-portrait-up) {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+
+		.col {
+			display: flex;
+			flex-direction: row;
+			margin-bottom: 3rem;
+		}
+
+		h3 {
+			margin-top: 0; // flex margin doesn't collapse
+		}
 	}
 }
 
@@ -46,8 +63,13 @@ body {
    ========================================================================== */
 
 .image-panel {
+	padding-bottom: 10rem; // flex margins don't collapse
+	flex-direction: column;
+
 	@include for-size(tablet-portrait-up) {
 		display: flex;
+		flex-direction: row;
+		padding-bottom: 15rem; // flex margins don't collapse
 	}
 }
 
@@ -82,7 +104,8 @@ body {
 		}
 
 		& > img {
-			height: 65%;
+			height: 100%;
+			width: 100%; // Safari needs this for the object-fit property
 			object-fit: cover;
 		}
 	}

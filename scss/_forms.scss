@@ -5,22 +5,16 @@
 /**
  * Following is based on sanitize.css: https://unpkg.com/sanitize.css 
  *
- * 1. Change the inconsistent appearance in all browsers (opinionated).
- * 2. Add typography inheritance in all browsers (opinionated).
  */
 
 :where(button, input, select, textarea) {
-	background-color: transparent; /* 1 */
-	border: 1px solid ButtonBorder; /* 1 */
-	color: inherit; /* 1 */
-	font: inherit; /* 2 */
-	letter-spacing: inherit; /* 2 */
-	padding: 0.25em 0.375em; /* 1 */
+	background-color: transparent;
+	border: 1px solid ButtonBorder;
+	color: inherit;
+	font: inherit;
+	letter-spacing: inherit;
+	padding: 0.25em 0.375em;
 }
-
-/**
-   * Change the inconsistent appearance in all browsers (opinionated).
-   */
 
 :where(select) {
 	appearance: none;
@@ -30,17 +24,9 @@
 	padding-right: 1em;
 }
 
-/**
-   * Don't show the arrow for multiple choice selects
-   */
-
 :where(select[multiple]) {
-	background-image: none;
+	background-image: none; //Don't show the arrow for multiple choice selects
 }
-
-/**
-   * Remove the border and padding in all browsers (opinionated).
-   */
 
 :where([type='color' i], [type='range' i]) {
 	border-width: 0;

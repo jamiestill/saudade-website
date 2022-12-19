@@ -16,7 +16,7 @@
   --color-secondary: #132554;
   --color-tertiary: #00a3dd;
   --color-accent: #32cd32;
-  --color-text: #474a4d;
+  --color-text: #808080;
   --color-black: #1e1e20;
   --color-error: #ef253c;
   --color-success: #32cd32;
@@ -81,7 +81,6 @@ html {
 }
 
 body {
-  min-height: -webkit-fill-available;
   min-height: 100vh;
   margin: 0;
 }
@@ -132,8 +131,8 @@ abbr[title] {
 p,
 li {
   -webkit-hyphens: auto;
-      -ms-hyphens: auto;
-          hyphens: auto;
+  -ms-hyphens: auto;
+      hyphens: auto;
 }
 
 /* ==========================================================================
@@ -225,7 +224,7 @@ h2 {
 }
 
 h3 {
-  margin: 6rem 0 3rem;
+  margin: 3rem 0 1rem;
   font-size: 3rem;
   font-style: normal;
   font-weight: 500;
@@ -245,6 +244,7 @@ h4 {
     font-size: 3.4rem;
   }
   h3 {
+    margin: 1rem 0;
     font-size: 2.7rem;
     line-height: 1.4;
   }
@@ -354,9 +354,6 @@ a:active {
 }
 
 /* ==========================================================================
-   ICONS - generated with Fontello
-   ========================================================================== */
-/* ==========================================================================
    FOOTER
    ========================================================================== */
 footer {
@@ -448,21 +445,16 @@ footer {
 /**
  * Following is based on sanitize.css: https://unpkg.com/sanitize.css 
  *
- * 1. Change the inconsistent appearance in all browsers (opinionated).
- * 2. Add typography inheritance in all browsers (opinionated).
  */
 :where(button, input, select, textarea) {
-  background-color: transparent; /* 1 */
-  border: 1px solid ButtonBorder; /* 1 */
-  color: inherit; /* 1 */
-  font: inherit; /* 2 */
-  letter-spacing: inherit; /* 2 */
-  padding: 0.25em 0.375em; /* 1 */
+  background-color: transparent;
+  border: 1px solid ButtonBorder;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  padding: 0.25em 0.375em;
 }
 
-/**
-   * Change the inconsistent appearance in all browsers (opinionated).
-   */
 :where(select) {
   -webkit-appearance: none;
      -moz-appearance: none;
@@ -472,16 +464,10 @@ footer {
   padding-right: 1em;
 }
 
-/**
-   * Don't show the arrow for multiple choice selects
-   */
 :where(select[multiple]) {
   background-image: none;
 }
 
-/**
-   * Remove the border and padding in all browsers (opinionated).
-   */
 :where([type=color i], [type=range i]) {
   border-width: 0;
   padding: 0;
@@ -495,20 +481,18 @@ body {
 }
 
 #content > section {
-  padding-bottom: 10rem;
   flex-direction: column;
 }
 @media screen and (min-width: 799px) {
   #content > section {
     flex-direction: row;
-    padding-bottom: 15rem;
   }
 }
 
 .inside, .image-panel-content-container {
   max-width: 800px;
-  margin: 0 auto 3rem;
-  padding: 6rem;
+  margin: 0 auto;
+  padding: 2rem 6rem;
 }
 @media screen and (max-width: 300px) {
   .inside, .image-panel-content-container {
@@ -522,7 +506,23 @@ body {
 }
 @media screen and (min-width: 799px) {
   .inside, .image-panel-content-container {
-    padding: 4rem 6rem;
+    padding: 2rem 6rem;
+  }
+}
+
+@media screen and (min-width: 799px) {
+  .two-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .two-column .col {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 3rem;
+  }
+  .two-column h3 {
+    margin-top: 0;
   }
 }
 
@@ -530,9 +530,15 @@ body {
     panel with side-by-side columns with a hero-like image and blocks of text
 	Measured by the image taking up third, two-third, or half, and left side or right side
    ========================================================================== */
+.image-panel {
+  padding-bottom: 10rem;
+  flex-direction: column;
+}
 @media screen and (min-width: 799px) {
   .image-panel {
     display: flex;
+    flex-direction: row;
+    padding-bottom: 15rem;
   }
 }
 
@@ -560,7 +566,8 @@ body {
     border-radius: 1rem 0 0 1rem;
   }
   .image-panel-img-container > img {
-    height: 65%;
+    height: 100%;
+    width: 100%;
     -o-object-fit: cover;
        object-fit: cover;
   }
@@ -1059,6 +1066,11 @@ ul.custom-bullet li span.icon-snow {
   position: relative;
   background-repeat: no-repeat;
   background-size: cover;
+}
+.two-column .document-card {
+  flex-basis: 20rem;
+  margin-left: 3rem;
+  margin-top: 0;
 }
 .document-card:hover {
   border-bottom: 2px solid #9ce3f2;

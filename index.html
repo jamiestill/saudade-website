@@ -15,13 +15,20 @@ https://www.linkedin.com/in/jamiestill
 
 -->
 
-<!-- src="https://ik.imagekit.io/saudade/saudade/ -->
+<!-- src="https://ik.imagekit.io/saudade/saudade/-->
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <link rel="manifest" href="/site.webmanifest">
+
+    <!--Preconnections -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://api.mapbox.com">
+    <link rel="preconnect" href="https://api.openweathermap.org">
+    <link rel="preconnect" href="https://marine-api.open-meteo.com">
 
     <!--Title -->
     <title>Sailing Vessel Saudade (SVSaudade)</title>
@@ -35,8 +42,6 @@ https://www.linkedin.com/in/jamiestill
     <meta name="author" content="Jamie Still www.jamiestill.com">
 
     <!--Styles -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,700;1,300&family=IBM+Plex+Mono:wght@200&family=Krona+One&display=swap&text=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890Éé%21%40%23%24%25%5E%26%2A%28%29_%2B%7B%7D%5B%5D%C2%B0%3C%3E%3F%2F.%2C%27%3B%22%3A%60%7E%E2%80%94-"
         rel="stylesheet">
@@ -56,11 +61,6 @@ https://www.linkedin.com/in/jamiestill
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-
-    <!--Mapbox -->
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js"></script>
-    <link href="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css" rel="stylesheet">
-    <script src="maps/route.js"></script>
 </head>
 
 <body>
@@ -104,8 +104,7 @@ https://www.linkedin.com/in/jamiestill
         <!--Hero -->
         <section id="hero" class="image-panel image-two-thirds image-right">
             <div class="image-panel-content-container">
-                <img alt="Saudade's Manta Ray logo" class="logo"
-                    src="https://ik.imagekit.io/saudade/saudade/logo-color.svg">
+                <img alt="Saudade's Manta Ray logo" class="logo" width="300" height="150" src="/images/logo-color.svg">
                 <dl class="dictionary-definition">
                     <dt>
                         <span>sau</span>&middot;<span>da</span>&middot;<span>de</span>
@@ -135,7 +134,7 @@ https://www.linkedin.com/in/jamiestill
                 </dl>
             </div>
             <figure class="image-panel-img-container">
-                <img src="https://ik.imagekit.io/saudade/saudade/presentation/saudade-plana-cay.jpg" loading="lazy"
+                <img src="/images/presentation/saudade-plana-cay.jpg"
                     alt="A lonely boat &mdash; Saudade from high above in the Plana Cays, Bahamas.">
                 <figcaption class="geo">
                     <div class="description"><a href="https://en.wikipedia.org/wiki/Plana_Cays" target="_blank"
@@ -224,8 +223,8 @@ https://www.linkedin.com/in/jamiestill
                 </ul>
             </div>
             <figure class="image-panel-img-container">
-                <img src="https://ik.imagekit.io/saudade/saudade/presentation/powell-cay-abacos.jpg" loading="lazy"
-                    class="powell-cay-photo" alt="Saudade at anchor in the crystal clear waters in the Abacos">
+                <img src="/images/presentation/powell-cay-abacos.jpg" loading="lazy" class="powell-cay-photo"
+                    alt="Saudade at anchor in the crystal clear waters in the Abacos">
                 <figcaption class="geo">
                     <div class="description"><a href="https://www.youtube.com/watch?v=d9IJpkc7Vlk" target="_blank"
                             rel="noopener noreferrer">Powell Cay, Abacos, Bahamas</a>
@@ -245,11 +244,10 @@ https://www.linkedin.com/in/jamiestill
                     hour and some of the coordinates may be approximate, and the route is computed from these points.
                 </p>
                 <p id="lat-long"></p>
-                <p id="map" class="map-container">(Map not available).</p>
+                <p id="map" class="map-container"></p>
             </div>
             <figure class="image-panel-img-container">
-                <img loading="lazy" src="https://ik.imagekit.io/saudade/saudade/presentation/dominica-windy.jpg"
-                    class="object-position-right"
+                <img loading="lazy" src="/images/presentation/dominica-windy.jpg" class="object-position-right"
                     alt="A Hélia catamaran muscles her way in the windy water off the southern cape of Dominica.">
                 <figcaption class="geo">
                     <div class="description"><a href="https://en.wikipedia.org/wiki/Martinique_Passage" target="_blank"
@@ -279,7 +277,7 @@ https://www.linkedin.com/in/jamiestill
                 <figure class="picture-right">
                     <img loading="lazy"
                         alt="Picture of Jamie Still out sailing with a Helly Hansen jacket on and a bridge in the background."
-                        src="https://ik.imagekit.io/saudade/saudade/presentation/captain3.jpg">
+                        src="/images/presentation/captain3.jpg">
                     <figcaption>The captain</figcaption>
                 </figure>
                 <ul>
@@ -296,8 +294,8 @@ https://www.linkedin.com/in/jamiestill
                 <h3>My résumé / <abbr title="Curriculum Vitae">CV</abbr></h3>
 
                 <!-- Resume download-->
-                <a href="https://onedrive.live.com/download?cid=2D2A8D6083FFE06F&resid=2D2A8D6083FFE06F%2162724&authkey=AEC7RUnVsRKKvkM&em=2"
-                    target="_blank" rel="noopener noreferrer" class="document-card resume">
+                <a href="https://1drv.ms/b/s!Am_g_4NgjSotg-oEfc4SeaKntMnkEQ?e=cnKMfm" target="_blank"
+                    rel="noopener noreferrer" class="document-card resume">
                     <div class="document-card-info">
                         <div class="item-type"></div>
                         <ul class="item-description">
@@ -308,7 +306,7 @@ https://www.linkedin.com/in/jamiestill
                 </a>
             </div>
             <figure class="image-panel-img-container">
-                <img src="https://ik.imagekit.io/saudade/saudade/presentation/captain.jpg"
+                <img src="/images/presentation/captain.jpg"
                     alt="Photo of Jamie Still on the coachroof of his catamaran waving."
                     class="object-position-right captain-on-deck-photo">
                 <figcaption class="geo">
@@ -403,34 +401,52 @@ https://www.linkedin.com/in/jamiestill
                     <dt>Naval Architect:</dt>
                     <dd> Berret Racoupeau</dd>
                 </dl>
+            </div>
+        </section>
 
-                <h3>Boat checklists and manual</h3>
-                <p><i>Saudade</i>is a complicated vessel, and new guests (and season crew) should be able to quickly
-                    reference procedures&mdash;emergency and otherwise. This document includes the boat's checklists,
-                    mayday script, passenger briefings, equipment locations, and more.</p>
-                <a href="https://onedrive.live.com/download?cid=2D2A8D6083FFE06F&resid=2D2A8D6083FFE06F%2167147&authkey=APmBFE6O6VNpJgU&em=2"
-                    target="_blank" rel="noopener noreferrer" class="document-card checklists">
-                    <div class="document-card-info">
-                        <!-- <div class="item-type"><span class="icon-"></span></div> -->
-                        <ul class="item-description">
-                            <li>Type: PDF <span class="icon-file-pdf"></span></li>
-                            <li>File size: 499 kilobytes</li>
-                        </ul>
+        <section id="extras">
+            <div class="inside">
+                <h2>Extras</h2>
+                <div class="two-column">
+                    <div class="col">
+                        <div>
+                            <h3>Boat checklists and manual</h3>
+                            <p><i>Saudade</i>is a complicated vessel, and new guests (and crew) must be able to
+                                quickly reference procedures&mdash;emergency and otherwise. This document includes the
+                                boat's checklists, mayday script, passenger briefings, equipment locations, and more.
+                            </p>
+                        </div>
+                        <a href="https://1drv.ms/b/s!Am_g_4NgjSothIxL14ZUQU5I6ZRglw?e=rrXDVv" target="_blank"
+                            rel="noopener noreferrer" class="document-card checklists">
+                            <div class="document-card-info">
+                                <!-- <div class="item-type"><span class="icon-"></span></div> -->
+                                <ul class="item-description">
+                                    <li>Type: PDF <span class="icon-file-pdf"></span></li>
+                                    <li>File size: 499 kilobytes</li>
+                                </ul>
+                            </div>
+                        </a>
                     </div>
-                </a>
-                <h3>My <abbr
-                        title="Convention on the International Regulations for Preventing Collisions at Sea, 1972">COLREGs</abbr>
-                    flow-chart</h3>
-                <p>For anyone interested in studying the rules of the road at sea. A good cheat sheet too!</p>
-                <a href="/docs/colregs.html" target="_blank" rel="noopener noreferrer" class="document-card colregs">
-                    <div class="document-card-info">
-                        <!-- <div class="item-type"><span class="icon-"></span></div> -->
-                        <ul class="item-description">
-                            <li>Type: HTML</li>
-                            <li>File size: 27 kilobytes</li>
-                        </ul>
+                    <div class="col">
+                        <div>
+                            <h3>My <abbr
+                                    title="Convention on the International Regulations for Preventing Collisions at Sea, 1972">COLREGs</abbr>
+                                flow-chart</h3>
+                            <p>For anyone interested in studying the rules of the road at sea. A good cheat sheet too!
+                            </p>
+                        </div>
+                        <a href="https://1drv.ms/b/s!Am_g_4NgjSothLdttxlRneLN6XaV3A?e=G0bdLW" target="_blank"
+                            rel="noopener noreferrer" class="document-card colregs">
+                            <div class="document-card-info">
+                                <!-- <div class="item-type"><span class="icon-"></span></div> -->
+                                <ul class="item-description">
+                                    <li>Type: PDF <span class="icon-file-pdf"></span></li>
+                                    <li>File size: 235 kilobytes</li>
+                                </ul>
+                            </div>
+                        </a>
                     </div>
-                </a>
+                </div>
             </div>
         </section>
 
@@ -483,8 +499,8 @@ https://www.linkedin.com/in/jamiestill
             <div class="copyright">
                 Site made by <a href="https://www.linkedin.com/in/jamiestill/" target="_blank" rel="noopener noreferrer"
                     title="Jamie's LinkedIn profile">Jamie Still</a>.
-                <img class="pixel-captian" src="https://ik.imagekit.io/saudade/saudade/pixel-captain.png" height="64"
-                    width="64" alt="Pixel art of Jamie Still on a beach with a sailboat behind him."> &copy; 2022 <br>
+                <img class="pixel-captian" src="/images/pixel-captain.png" height="64" width="64"
+                    alt="Pixel art of Jamie Still on a beach with a sailboat behind him."> &copy; 2022 <br>
                 <small>This website uses no cookies.</small>
             </div>
         </div>
@@ -501,15 +517,20 @@ https://www.linkedin.com/in/jamiestill
     <!-- Icons -->
     <link href="/images/icons/fontello/css/fontello.css" rel="stylesheet">
 
-    <!--Google Geolocation -->
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCo8RYEBqmJIB-Z_w1tZ-pvHNZ-3hD9j-g&callback=getLocation&v=weekly"
-        defer></script>
+    <!--Mapbox -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css" rel="stylesheet">
+    <script src="maps/route.js"></script>
 
     <!--Local JavaScript -->
     <script defer src="js/maps.js"></script>
+<<<<<<< HEAD
     <script src="js/animation.js"></script>
     <script src="js/scripts.js"></script>
+=======
+    <script defer src="js/animation.js"></script>
+    <script defer src="js/scripts.js"></script>
+>>>>>>> refs/remotes/origin/main
 </body>
 
 </html>
