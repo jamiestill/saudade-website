@@ -30,7 +30,8 @@ body {
 	}
 
 	@media screen and (max-width: 480px) {
-		padding: 0 calc($padding-image-panel-content / 2);
+		padding: 0 calc($padding-image-panel-content / 2)
+			calc($padding-image-panel-content / 2);
 	}
 
 	@include for-size(tablet-portrait-up) {
