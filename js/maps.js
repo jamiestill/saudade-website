@@ -119,77 +119,58 @@ const convertToDms = (dirDegrees, isLongitutde) => {
  */
 
 // eslint-disable-next-line no-unused-vars
-function getLocation() {
+function getLocation(response) {
 	// Short circuit
 	if (disableAPICalls !== false) return;
 
-	const geocoder = new google.maps.Geocoder();
+	let addressString = ''; // prevent 'undefined'
+	const addyComponents = response.results[0].address_components;
 
-	geocoder
-		.geocode({
-			location: latitudeLongitude,
-		})
-		.then((response) => {
-			let addressString = ''; // prevent 'undefined'
-			const addyComponents = response.results[0].address_components;
+	console.info('🌍 Reverse Geolocation:', addyComponents);
 
-			console.info('🌍 Reverse Geolocation:', addyComponents);
+	// Build an address if possible, based on what Google has available
+	// The returned object's address fields vary by country, below is an
+	// approximation of the best way to display these items, excluding
+	// plus and postal codes and 'short_name' for provinces & country names.
+	if (addyComponents[0] && addyComponents[0].types[0] !== 'plus_code') {
+		// no plus codes
+		addressString += addyComponents[0].short_name;
+	}
 
-			// Build an address if possible, based on what Google has available
-			// The returned object's address fields vary by country, below is an
-			// approximation of the best way to display these items, excluding
-			// plus and postal codes and 'short_name' for provinces & country names.
-			if (
-				addyComponents[0] &&
-				addyComponents[0].types[0] !== 'plus_code'
-			) {
-				// no plus codes
-				addressString += addyComponents[0].short_name;
-			}
+	if (addyComponents[1]) {
+		addressString += ` ${addyComponents[1].short_name}`;
+	}
 
-			if (addyComponents[1]) {
-				addressString += ` ${addyComponents[1].short_name}`;
-			}
+	if (addyComponents[2]) {
+		addressString += `, ${addyComponents[2].short_name}`;
+	}
 
-			if (addyComponents[2]) {
-				addressString += `, ${addyComponents[2].short_name}`;
-			}
+	if (addyComponents[3]) {
+		addressString += `, ${addyComponents[3].long_name}`;
+	}
 
-			if (addyComponents[3]) {
-				addressString += `, ${addyComponents[3].long_name}`;
-			}
+	if (addyComponents[4] && addyComponents[4].types[0] !== 'postal_code') {
+		addressString += `, ${addyComponents[4].short_name}`;
+	}
 
-			if (
-				addyComponents[4] &&
-				addyComponents[4].types[0] !== 'postal_code'
-			) {
-				addressString += `, ${addyComponents[4].short_name}`;
-			}
+	if (addyComponents[5] && addyComponents[5].types[0] !== 'postal_code') {
+		addressString += `, ${addyComponents[5].short_name}`;
+	}
 
-			if (
-				addyComponents[5] &&
-				addyComponents[5].types[0] !== 'postal_code'
-			) {
-				addressString += `, ${addyComponents[5].short_name}`;
-			}
+	if (addyComponents[6] && addyComponents[6].types[0] !== 'postal_code') {
+		addressString += `, ${addyComponents[6].short_name}`;
+	}
 
-			if (
-				addyComponents[6] &&
-				addyComponents[6].types[0] !== 'postal_code'
-			) {
-				addressString += `, ${addyComponents[6].short_name}`;
-			}
+	const addressCoordsRaw = `${latitudeLongitude.lat}, ${latitudeLongitude.lng}`;
 
-			const addressCoordsRaw = `${latitudeLongitude.lat}, ${latitudeLongitude.lng}`;
+	// GPS Coords
+	const addressCoords = `${convertToDms(
+		latitudeLongitude.lat,
+		false
+	)}, ${convertToDms(latitudeLongitude.lng, true)}`;
 
-			// GPS Coords
-			const addressCoords = `${convertToDms(
-				latitudeLongitude.lat,
-				false
-			)}, ${convertToDms(latitudeLongitude.lng, true)}`;
-
-			// Create Google search based on this address
-			const addressElement = `<h3>Current location</h3><div class="location-data-block">
+	// Create Google search based on this address
+	const addressElement = `<h3>Current location</h3><div class="location-data-block">
             <div class="location-coordinates">
                 <span class="icon-location"></span>${createGoogleEarthLink(
 					addressCoordsRaw,
@@ -200,11 +181,8 @@ function getLocation() {
                 <a href="https://www.google.com/search?q=${addressString.trim()}" target="_blank" rel="noopener noreferrer">${addressString.trim()}</a>
             </div>`;
 
-			// Insert text into addressEl then into the DOM
-			document.getElementById('lat-long').innerHTML = addressElement;
-		})
-		// Error on GeoCoder (https://developers.google.com/maps/documentation/javascript/reference)
-		.catch((e) => console.error(`Geocoder failed due to ${e}`));
+	// Insert text into addressEl then into the DOM
+	document.getElementById('lat-long').innerHTML = addressElement;
 }
 
 /*
@@ -568,6 +546,9 @@ if (mapContainer) {
 		// Build the wave API URL
 		const waveApiURL = `https://marine-api.open-meteo.com/v1/marine?&daily=wave_height_max,wave_direction_dominant,wave_period_max&timezone=auto&latitude=${latitudeLongitude.lat}&longitude=${latitudeLongitude.lng}`;
 
+		// Reverse geocoding
+		const googleMapsAPI = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitudeLongitude.lat},${latitudeLongitude.lng}&key=AIzaSyCo8RYEBqmJIB-Z_w1tZ-pvHNZ-3hD9j-g`;
+
 		// Fetch the weather data
 		const fetchWx = fetch(wxApiURL)
 			.then(checkStatus)
@@ -585,9 +566,16 @@ if (mapContainer) {
 				)
 			);
 
+		// Fetch the address (reverse Geocoding)
+		const fetchAddress = fetch(googleMapsAPI)
+			.then(checkStatus)
+			.then((response) => response.json())
+			.catch((error) => console.error(error, 'Unable to fetch address'));
+
 		// Get API data concurrently with Promise.all
-		Promise.all([fetchWx, fetchWave]).then((data) => {
+		Promise.all([fetchWx, fetchWave, fetchAddress]).then((data) => {
 			populateWeatherElement(data[0], data[1]);
+			getLocation(data[2]);
 		});
 	}
 }

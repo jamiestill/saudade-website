@@ -61,11 +61,6 @@ https://www.linkedin.com/in/jamiestill
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-
-    <!--Mapbox -->
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js"></script>
-    <link href="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css" rel="stylesheet">
-    <script src="maps/route.js"></script>
 </head>
 
 <body>
@@ -109,7 +104,7 @@ https://www.linkedin.com/in/jamiestill
         <!--Hero -->
         <section id="hero" class="image-panel image-two-thirds image-right">
             <div class="image-panel-content-container">
-                <img alt="Saudade's Manta Ray logo" class="logo" src="/images/logo-color.svg">
+                <img alt="Saudade's Manta Ray logo" class="logo" width="300" height="150" src="/images/logo-color.svg">
                 <dl class="dictionary-definition">
                     <dt>
                         <span>sau</span>&middot;<span>da</span>&middot;<span>de</span>
@@ -139,7 +134,7 @@ https://www.linkedin.com/in/jamiestill
                 </dl>
             </div>
             <figure class="image-panel-img-container">
-                <img src="/images/presentation/saudade-plana-cay.jpg" loading="lazy"
+                <img src="/images/presentation/saudade-plana-cay.jpg"
                     alt="A lonely boat &mdash; Saudade from high above in the Plana Cays, Bahamas.">
                 <figcaption class="geo">
                     <div class="description"><a href="https://en.wikipedia.org/wiki/Plana_Cays" target="_blank"
@@ -228,8 +223,8 @@ https://www.linkedin.com/in/jamiestill
                 </ul>
             </div>
             <figure class="image-panel-img-container">
-                <img height="300" width="300" src="/images/presentation/powell-cay-abacos.jpg" loading="lazy"
-                    class="powell-cay-photo" alt="Saudade at anchor in the crystal clear waters in the Abacos">
+                <img src="/images/presentation/powell-cay-abacos.jpg" loading="lazy" class="powell-cay-photo"
+                    alt="Saudade at anchor in the crystal clear waters in the Abacos">
                 <figcaption class="geo">
                     <div class="description"><a href="https://www.youtube.com/watch?v=d9IJpkc7Vlk" target="_blank"
                             rel="noopener noreferrer">Powell Cay, Abacos, Bahamas</a>
@@ -249,7 +244,7 @@ https://www.linkedin.com/in/jamiestill
                     hour and some of the coordinates may be approximate, and the route is computed from these points.
                 </p>
                 <p id="lat-long"></p>
-                <p id="map" class="map-container">(Map not available).</p>
+                <p id="map" class="map-container"></p>
             </div>
             <figure class="image-panel-img-container">
                 <img loading="lazy" src="/images/presentation/dominica-windy.jpg" class="object-position-right"
@@ -522,15 +517,15 @@ https://www.linkedin.com/in/jamiestill
     <!-- Icons -->
     <link href="/images/icons/fontello/css/fontello.css" rel="stylesheet">
 
-    <!--Google Geolocation -->
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCo8RYEBqmJIB-Z_w1tZ-pvHNZ-3hD9j-g&callback=getLocation&v=weekly"
-        defer></script>
+    <!--Mapbox -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css" rel="stylesheet">
+    <script src="maps/route.js"></script>
 
     <!--Local JavaScript -->
-    <script src="js/maps.js"></script>
-    <script src="js/animation.js"></script>
-    <script src="js/scripts.js"></script>
+    <script defer src="js/maps.js"></script>
+    <script defer src="js/animation.js"></script>
+    <script defer src="js/scripts.js"></script>
 </body>
 
 </html>
