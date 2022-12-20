@@ -104,10 +104,14 @@ body {
 			object-position: right;
 		}
 
-		& > img {
+		picture {
 			height: 100%;
-			width: 100%; // Safari needs this for the object-fit property
-			object-fit: cover;
+
+			img {
+				height: 100%;
+				width: 100%; // Safari needs this for the object-fit property
+				object-fit: cover;
+			}
 		}
 	}
 }
