@@ -1126,14 +1126,14 @@ ul.custom-bullet li span.icon-snow {
   list-style-type: none;
 }
 .document-card.checklists {
-  background-image: url(/images/thumbs/checklist-thumb.png);
+  background-image: url(https://ik.imagekit.io/saudade/thumbs/checklist-thumb.png);
 }
 .document-card.resume {
-  background-image: url(/images/thumbs/resume-thumb.png);
+  background-image: url(https://ik.imagekit.io/saudade/thumbs/resume-thumb.png);
   margin: 3rem 0 3rem 2.5rem;
 }
 .document-card.colregs {
-  background-image: url(/images/thumbs/colregs-thumb.png);
+  background-image: url(https://ik.imagekit.io/saudade/thumbs/colregs-thumb.png);
 }
 
 .key-value-terms dt {
