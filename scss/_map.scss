@@ -15,7 +15,7 @@
 
 	.location-coordinates {
 		span[class^='icon-'] {
-			color: var(--color-icon-grey);
+			color: var(--color-icon);
 		}
 
 		@media screen and (max-width: 475px) {
@@ -112,5 +112,4 @@
 	flex-basis: 100%;
 	display: block;
 	font-size: 1rem;
-	color: var(--color-grey);
 }
