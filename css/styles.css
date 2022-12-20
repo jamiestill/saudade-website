@@ -411,6 +411,9 @@ footer {
      object-position: center 72%;
   height: 35vh;
 }
+.footer-background-video-wrapper video::-webkit-media-controls {
+  display: none !important;
+}
 
 .footer-background-video-wrapper::after {
   position: absolute;

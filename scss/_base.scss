@@ -402,6 +402,10 @@ footer {
 		object-position: center 72%;
 		height: 35vh;
 	}
+
+	video::-webkit-media-controls {
+		display: none !important;
+	}
 }
 
 // Overlay to fade in from top
