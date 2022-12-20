@@ -25,7 +25,6 @@ figcaption {
 	font-size: 1.2rem;
 	font-family: var(--font-mono-display);
 	text-transform: uppercase;
-	color: var(--color-grey);
 	vertical-align: middle;
 
 	// Small caption icons
@@ -34,7 +33,7 @@ figcaption {
 		margin-right: 1em;
 		font-family: var(--font-icon);
 		font-size: 1.3rem;
-		color: var(--color-icon-grey);
+		color: var(--color-icon);
 	}
 
 	.description {
@@ -71,7 +70,7 @@ figcaption {
 ul.custom-bullet {
 	--item-left-padding: 6rem;
 	list-style-type: none;
-	padding-top: 3rem;
+	padding-top: 1.5rem;
 	padding-left: calc(
 		var(--item-left-padding) * 1.3
 	); //layout tweaks for icon list
@@ -205,7 +204,7 @@ ul.custom-bullet {
 }
 
 .captain-on-deck-photo {
-	object-position: 70%;
+	object-position: 90%;
 }
 
 .resume .icon-resume-cv {
