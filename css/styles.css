@@ -655,9 +655,6 @@ body {
   background: rgb(225, 251, 251);
   background: linear-gradient(135deg, rgb(225, 251, 251) 0%, rgb(255, 255, 255) 29%);
 }
-#hero .image-panel-img-container {
-  height: 95vh;
-}
 #hero .logo {
   margin: 0 auto 3rem;
   height: 6rem;
