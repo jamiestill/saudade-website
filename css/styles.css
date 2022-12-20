@@ -559,7 +559,10 @@ body {
   .image-right .image-panel-img-container img {
     border-radius: 1rem 0 0 1rem;
   }
-  .image-panel-img-container > img {
+  .image-panel-img-container picture {
+    height: 100%;
+  }
+  .image-panel-img-container picture img {
     height: 100%;
     width: 100%;
     -o-object-fit: cover;
@@ -669,6 +672,8 @@ body {
   }
   #hero .image-panel-img-container img {
     height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
   }
 }
 
