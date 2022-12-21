@@ -147,6 +147,14 @@ li {
   font-style: normal;
   font-display: swap;
 }
+@font-face {
+  font-family: "fontello";
+  src: url("/images/icons/fontello/font/fontello.eot?1017229");
+  src: url("/images/icons/fontello/font/fontello.eot?1017229#iefix") format("embedded-opentype"), url("/images/icons/fontello/font/fontello.woff2?1017229") format("woff2"), url("/images/icons/fontello/font/fontello.woff?1017229") format("woff"), url("/images/icons/fontello/font/fontello.ttf?1017229") format("truetype"), url("/images/icons/fontello/font/fontello.svg?1017229#fontello") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 .font-serif {
   font-family: var(--font-serif);
 }
@@ -413,24 +421,6 @@ footer {
 }
 .footer-background-video-wrapper video::-webkit-media-controls {
   display: none !important;
-}
-
-*::-webkit-media-controls-panel {
-  display: none !important;
-  -webkit-appearance: none;
-}
-
-/* Old shadow dom for play button */
-*::-webkit-media-controls-play-button {
-  display: none !important;
-  -webkit-appearance: none;
-}
-
-/* New shadow dom for play button */
-/* This one works! */
-*::-webkit-media-controls-start-playback-button {
-  display: none !important;
-  -webkit-appearance: none;
 }
 
 .footer-background-video-wrapper::after {

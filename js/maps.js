@@ -422,7 +422,7 @@ const populateWeatherElement = (wxData, waveData) => {
 	let wxDescription = wxData.current.weather[0].main; // + " (" + wxData.weather[0].description + ") ";
 
 	if (wxDescription && wxDescription.length > 0) {
-		wxDescription = `<span id="location-wx-description">${wxDescription}</span>`;
+		wxDescription = `<span class="location-wx-description">${wxDescription}</span>`;
 	}
 
 	// Grab the temperature
@@ -432,7 +432,7 @@ const populateWeatherElement = (wxData, waveData) => {
 
 	if (!Number.isNaN(wxTempF) && wxTempF) {
 		wxTempC = Math.round((wxTempF - 32) / 1.8);
-		wxTemp = `, <span id="location-wx-description">${wxTempF}&deg;<abbr title="farenheit">F</abbr>
+		wxTemp = `, <span class="location-wx-temp">${wxTempF}&deg;<abbr title="farenheit">F</abbr>
             (${wxTempC}&deg;<abbr title="centigrade">C</abbr>)</span>`;
 	}
 
