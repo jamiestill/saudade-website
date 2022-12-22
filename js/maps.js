@@ -4,12 +4,12 @@
  */
 
 // Chesapeake
-// routeCoords[routeCoords.length - 1][1] = 37.383542
-// routeCoords[routeCoords.length - 1][0] = -76.338328
+// routeCoords[routeCoords.length - 1][1] = 37.383542;
+// routeCoords[routeCoords.length - 1][0] = -76.338328;
 
 // Middle of bahamas
-// routeCoords[routeCoords.length - 1][1] = 24.220169
-// routeCoords[routeCoords.length - 1][0] = -76.099677
+// routeCoords[routeCoords.length - 1][1] = 24.220169;
+// routeCoords[routeCoords.length - 1][0] = -76.099677;
 
 // Just off Conception Island
 // routeCoords[routeCoords.length - 1][1] = 23.848841;
@@ -20,24 +20,24 @@
 // routeCoords[routeCoords.length - 1][0] = -122.391600;
 
 // Middle of ocean
-// routeCoords[routeCoords.length - 1][1] = 47.32
-// routeCoords[routeCoords.length - 1][0] = -62.42
+// routeCoords[routeCoords.length - 1][1] = 47.32;
+// routeCoords[routeCoords.length - 1][0] = -62.42;
 
 // Petit Tebac
-// routeCoords[routeCoords.length - 1][1] = 12.624667
-// routeCoords[routeCoords.length - 1][0] = -61.348706
+// routeCoords[routeCoords.length - 1][1] = 12.624667;
+// routeCoords[routeCoords.length - 1][0] = -61.348706;
 
 // Outer Key West
 // routeCoords[routeCoords.length - 1][1] = 24.566693;
 // routeCoords[routeCoords.length - 1][0] = -81.816359;
 
 // Syndey, Austrailia
-// routeCoords[routeCoords.length - 1][1] = -33.852801
-// routeCoords[routeCoords.length - 1][0] = 151.226281
+// routeCoords[routeCoords.length - 1][1] = -33.852801;
+// routeCoords[routeCoords.length - 1][0] = 151.226281;
 
 // Suburban Chicago
-// routeCoords[routeCoords.length - 1][1] = 42.1898664
-// routeCoords[routeCoords.length - 1][0] = -88.2232382
+// routeCoords[routeCoords.length - 1][1] = 42.1898664;
+// routeCoords[routeCoords.length - 1][0] = -88.2232382;
 
 // Simulate Failure and NULL data
 // routeCoords[routeCoords.length - 1][1] = false;
@@ -198,7 +198,8 @@ if (disableAPICalls !== true) {
 	const map = new mapboxgl.Map({
 		container: 'map',
 		// Choose from Mapbox's core styles, or make your own style with Mapbox Studio
-		style: 'mapbox://styles/jamiestill/clb7fzawa002o15nhr3ce8p03',
+		// style: 'mapbox://styles/jamiestill/clb7fzawa002o15nhr3ce8p03',
+		style: 'mapbox://styles/jamiestill/clbxxbvf8000e14o20lurxgk8',
 		center: currentLngLat,
 		zoom: 2,
 		attributionControl: false,
